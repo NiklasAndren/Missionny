@@ -1,0 +1,16 @@
+﻿<h2>Alla poster med typen News</h2>
+
+@foreach(var news in Model) { 
+    <div class="NewsDiv">
+        <div class = "NewsTitle">
+            <p>@news.Title</p>
+        </div>
+        <div class ="NewsBody">
+            @news.Body
+        </div>
+        <div class = "NewsPostinfo">
+            Post created by @news.User.Username<br />
+            Post created: @news.Date 
+        </div>      
+    </div>
+}

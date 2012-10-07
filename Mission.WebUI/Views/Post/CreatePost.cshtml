@@ -1,0 +1,35 @@
+﻿@using Mission.Domain.Entities
+@model Post
+
+@{
+    ViewBag.Title = "CreatePost";
+}
+
+<h2>CreatePost</h2>
+
+@using (Html.BeginForm()){
+
+    <div class="CreatePost">
+        <p>
+            Titel     <br />
+           @Html.EditorFor(p => p.Title)
+        </p>
+        <p>
+            Body <br />
+            @Html.EditorFor(p => p.Body)
+        </p>
+        <p>
+         
+           @Html.RadioButtonFor(p => p.Type, 1) Blog
+           @Html.RadioButtonFor(p => p.Type, 0) News
+             
+           
+        </p>
+
+    </div>
+    <div>
+        <input type="submit" value ="Skapa post"/>
+    </div>
+
+
+}
