@@ -8,12 +8,37 @@
 
 <body>
 <div class="menu">
-    @Html.ActionLink("Home", "index", "Home")
-    @Html.ActionLink("Statistics", "index", "Statistics")
-    @Html.ActionLink("Default", "index", "Default")
-    @Html.ActionLink("News", "index", "Post")
-    @Html.ActionLink("Create post", "CreatePost", "Post")
+    <ul>
+        <li>@Html.ActionLink("Home", "index", "Home")</li>
+
+        <li>@Html.ActionLink("Jesper Caron", "index", "Default")</li>
+            <ul>
+                <li class="qwe">@Html.ActionLink("Föreläsare", "index", "Default")</li>
+                <li class="qwe">@Html.ActionLink("Presentation", "index", "Default")</li>
+                <li class="qwe">@Html.ActionLink("Snabbfakta", "index", "Default")</li>
+            </ul>
+        
+        <li>@Html.ActionLink("Utgångspunkt", "index", "Default")</li>
+            <ul>
+                <li class="qwe">@Html.ActionLink("livsvision", "index", "Default")</li>
+                <li class="qwe">@Html.ActionLink("Mental konditionsträning", "index", "Default")</li>
+                <li class="qwe">@Html.ActionLink("Positiv Psykologi", "index", "Default")</li>
+                <li class="qwe">@Html.ActionLink("Den stora tillståndsstudien", "index", "Default")</li>
+            </ul>
+
+        <li>@Html.ActionLink("Föreläsningar", "index", "Default")</li>
+            <ul>
+                <li class="qwe">@Html.ActionLink("Kunder", "index", "Default")</li>
+                <li class="qwe">@Html.ActionLink("Erkännande", "index", "Default")</li>
+                <li class="qwe">@Html.ActionLink("Om föreläsningarna", "index", "Default")</li>
+            </ul>
+
+        <li>@Html.ActionLink("News", "index", "Post")</li>
+        <li>@Html.ActionLink("Create post", "CreatePost", "Post")</li>
+        <li>@Html.ActionLink("Statistics", "index", "Statistics")</li>
+    </ul>
 </div>
     @RenderBody()
 </body>
 </html>
+
