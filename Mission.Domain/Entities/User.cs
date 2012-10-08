@@ -11,10 +11,12 @@ namespace Mission.Domain.Entities
     public class User : IEntity
    
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string UserName { get; set; }
         public int Role { get; set; }
         public Guid ID { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
+        public string UserEmailAddress { get; set; }
+        public string PasswordHash { get; set; }
+        public string Salt { get; set; }
     }
 }

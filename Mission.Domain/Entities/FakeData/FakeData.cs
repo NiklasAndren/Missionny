@@ -23,9 +23,9 @@ namespace Mission.Domain.Entities.FakeData
         public Post thirdTestNews;
         public FakeData()
         {
-            firstTestUser = new User{ Username = "Test 1", Password ="pass", Role = (int)Role.User, ID = Guid.NewGuid() };
-            secondTestUser = new User { Username = "Test 2", Password = "pass", Role = (int)Role.User, ID = Guid.NewGuid() };
-            thirdTestUser = new User { Username = "Test 3", Password = "pass", Role = (int)Role.User, ID = Guid.NewGuid() };
+            firstTestUser = new User{ UserName = "Test 1", Role = (int)Role.User, ID = Guid.NewGuid() };
+            secondTestUser = new User { UserName = "Test 2", Role = (int)Role.User, ID = Guid.NewGuid() };
+            thirdTestUser = new User { UserName = "Test 3", Role = (int)Role.User, ID = Guid.NewGuid() };
 
             firstTestPost = new Post { ID = Guid.NewGuid(), Body = "test body 1", Date = DateTime.Now, Title = "test title 1", Type = (int)Type.Blog, User = firstTestUser, UserID = firstTestUser.ID };
             secondTestPost = new Post { ID = Guid.NewGuid(), Body = "test body 2", Date = DateTime.Now, Title = "test title 2", Type = (int)Type.Blog, User = firstTestUser, UserID = firstTestUser.ID };

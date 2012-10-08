@@ -12,7 +12,6 @@ using Mission.Domain.Contexts;
 
 namespace Mission.Domain.Repositories
 {
-
     public class Repository<T> : IRepository<T> where T : class, IEntity
     {
         protected DbContext _context;
@@ -70,4 +69,34 @@ namespace Mission.Domain.Repositories
             _context.SaveChanges();
         }
     }
+
+     public interface IAppUserRepository : IRepository<User>
+        {
+        User GetUserNameByEmail(string email);
+        void RegisterUser(User user);
+        void DeleteUserByUserName(string username);
+        }
+
+     public class AppUserRepository : Repository<User>, IAppUserRepository
+     {
+         public AppUserRepository() : base() { }
+
+         public User GetUserNameByEmail(string email)
+         {
+             return FindAll(u => u.UserEmailAddress == email).FirstOrDefault();
+         }
+         public void RegisterUser(User user)
+         {
+             user.ID = Guid.NewGuid();
+             _dbSet.Add(user);
+             _context.SaveChanges();
+         }
+         public void DeleteUserByUserName(string username)
+         {
+             var user = FindAll(u => u.UserName == username).FirstOrDefault();
+             _dbSet.Remove(user);
+             _context.SaveChanges();
+         }
+     }
 }
+

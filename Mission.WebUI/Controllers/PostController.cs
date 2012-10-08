@@ -43,7 +43,7 @@ namespace Mission.WebUI.Controllers
 
             post.ID = Guid.NewGuid();
             post.Date = DateTime.Now;
-            User dude = new User { Username = "Jesper Caron", Password = "pass", Role = (int)Role.Admin, ID = Guid.NewGuid() };
+            User dude = new User { UserName = "Jesper Caron", Role = (int)Role.Admin, ID = Guid.NewGuid() };
             post.User = dude;
 
             _postRepo.Save(post);
