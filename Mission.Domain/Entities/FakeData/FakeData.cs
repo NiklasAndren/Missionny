@@ -13,6 +13,7 @@ namespace Mission.Domain.Entities.FakeData
         public User firstTestUser;
         public User secondTestUser;
         public User thirdTestUser;
+        public User JesperSomAdmin;
 
         public Post firstTestPost;
         public Post secondTestPost;
@@ -26,6 +27,7 @@ namespace Mission.Domain.Entities.FakeData
             firstTestUser = new User{ UserName = "Test 1", Role = (int)Role.User, ID = Guid.NewGuid() };
             secondTestUser = new User { UserName = "Test 2", Role = (int)Role.User, ID = Guid.NewGuid() };
             thirdTestUser = new User { UserName = "Test 3", Role = (int)Role.User, ID = Guid.NewGuid() };
+            //JesperSomAdmin = new User { UserName = "Jesper", Salt = "$2a$10$/XJG8qJZgw4ZdbV.k/Tne.", PasswordHash = "$2a$10$/XJG8qJZgw4ZdbV.k/Tne.GNk94mOT7f1AuhaW.v2rj5qmJ1j2fF.", Role = 1, UserEmailAddress = "JesperDude@ngnmail.com", ID = Guid.NewGuid() };
 
             firstTestPost = new Post { ID = Guid.NewGuid(), Body = "test body 1", Date = DateTime.Now, Title = "test title 1", Type = (int)Type.Blog, User = firstTestUser, UserID = firstTestUser.ID };
             secondTestPost = new Post { ID = Guid.NewGuid(), Body = "test body 2", Date = DateTime.Now, Title = "test title 2", Type = (int)Type.Blog, User = firstTestUser, UserID = firstTestUser.ID };
@@ -39,7 +41,7 @@ namespace Mission.Domain.Entities.FakeData
 
         public List<User> testUserList()
         {
-            return new List<User> { firstTestUser, secondTestUser, thirdTestUser };
+            return new List<User> { firstTestUser, secondTestUser, thirdTestUser/*, JesperSomAdmin*/ };
         }
         public List<Post> testPostList() { return new List<Post> { firstTestPost, secondTestPost, thirdTestPost }; } 
 

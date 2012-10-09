@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
+@using Mission.WebUI.ViewModels
 <head>
     <title>@ViewBag.Title</title>
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
@@ -33,9 +34,13 @@
                 <li class="qwe">@Html.ActionLink("Om föreläsningarna", "index", "Default")</li>
             </ul>
 
-        <li>@Html.ActionLink("News", "index", "Post")</li>
-        <li>@Html.ActionLink("Create post", "CreatePost", "Post")</li>
+        <li>@Html.ActionLink("News", "index", "Post")</li>        
         <li>@Html.ActionLink("Statistics", "index", "Statistics")</li>
+        @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
+        {
+            <li>@Html.ActionLink("Create post", "CreatePost", "Post")</li>
+        }
+        
     </ul>
 </div>
     @RenderBody()

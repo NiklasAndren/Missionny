@@ -40,7 +40,12 @@ namespace Mission.WebUI
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
-            Database.SetInitializer(new MissionInitializer());
+            var context = new EFDbContext();
+            
+            Database.SetInitializer<EFDbContext>(new MissionInitializer());
+
+            (new EFDbContext()).Database.Initialize(false);
+          //  context.Database.Initialize(true);
         }
     }
 }

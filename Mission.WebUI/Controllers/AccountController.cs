@@ -22,6 +22,7 @@ namespace Mission.Controllers
 
         public ActionResult LogOn()
         {
+            
             return View();
         }
 
@@ -61,7 +62,10 @@ namespace Mission.Controllers
 
         public ActionResult LogOff()
         {
+            
+      
             FormsAuthentication.SignOut();
+                       
 
             return RedirectToAction("Index", "Home");
         }

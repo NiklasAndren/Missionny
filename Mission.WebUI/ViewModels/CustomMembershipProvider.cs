@@ -11,6 +11,8 @@ namespace Mission.WebUI.ViewModels
 {
     public class CustomMembershipProvider : MembershipProvider
     {
+       
+
         public override MembershipUser CreateUser(string username, string password,
         string email, string passwordQuestion, string passwordAnswer,
         bool isApproved, object providerUserKey, out MembershipCreateStatus status)
@@ -77,6 +79,7 @@ namespace Mission.WebUI.ViewModels
 
         }
 
+
         public override bool ValidateUser(string username, string password)
         {
             IAppUserRepository userRepo = new AppUserRepository();
@@ -86,7 +89,11 @@ namespace Mission.WebUI.ViewModels
                 return false;
             string bcryptHash = GetBcryptHash(password, user.Salt);
             if (bcryptHash == user.PasswordHash)
+            {
+             
                 return true;
+            }
+
             return false;
 
         }
@@ -98,7 +105,7 @@ namespace Mission.WebUI.ViewModels
 
         public override bool RequiresUniqueEmail
         {
-            // In a real application, you will essentially have to return true
+            // In a real application, you will essentially have to return true 
             // and implement the GetUserNameByEmail method to identify duplicates
             get { return false; }
         }
@@ -215,6 +222,6 @@ namespace Mission.WebUI.ViewModels
         //protected virtual byte[] EncryptPassword(byte[] password);
 
         //protected virtual byte[] EncryptPassword(byte[] password, MembershipPasswordCompatibilityMode legacyPasswordCompatibilityMode);
-
+  
     }
 }
