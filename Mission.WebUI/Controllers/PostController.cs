@@ -9,6 +9,7 @@ using Mission.Domain.Repositories;
 using Mission.Domain.Entities.FakeData;
 using System.Data.Entity;
 
+
 namespace Mission.WebUI.Controllers
 {
     public class PostController : Controller
@@ -30,6 +31,7 @@ namespace Mission.WebUI.Controllers
             return View(AllPosts);
         }
 
+        
         public ActionResult CreatePost(){
 
             var post = new Post();
