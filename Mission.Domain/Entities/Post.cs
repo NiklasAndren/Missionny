@@ -17,6 +17,6 @@ namespace Mission.Domain.Entities
         public string Body { get; set; }
         public int Type { get; set; }
         public virtual User User { get; set; }
-        public Guid UserID { get; set; }
+        public Guid ? UserID { get; set; }
     }
 }
