@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Mission.Domain.Entities.Abstract;
+using Mission.Domain.Entities;
 
 
 namespace Mission.Domain.Entities.FakeData 
@@ -22,6 +23,11 @@ namespace Mission.Domain.Entities.FakeData
         public Post firstTestNews;
         public Post secondTestNews;
         public Post thirdTestNews;
+
+        public Event firstTestEvent;
+        public Event secondTestEvent;
+        public Event thirdTestEvent;
+
         public FakeData()
         {
             firstTestUser = new User{ UserName = "Test 1", Role = (int)Role.User, ID = Guid.NewGuid() };
@@ -36,6 +42,11 @@ namespace Mission.Domain.Entities.FakeData
             firstTestNews = new Post { ID = Guid.NewGuid(), Body = "test body 1 newwws", Date = DateTime.Now, Title = "test title 1", Type = (int)Type.News, User = firstTestUser, UserID = firstTestUser.ID };
             secondTestNews = new Post { ID = Guid.NewGuid(), Body = "test body 2 neweews", Date = DateTime.Now, Title = "test title 2", Type = (int)Type.News, User = firstTestUser, UserID = firstTestUser.ID };
             thirdTestNews = new Post { ID = Guid.NewGuid(), Body = "test body 3   news?", Date = DateTime.Now, Title = "test title 3", Type = (int)Type.News, User = secondTestUser, UserID = secondTestUser.ID };
+
+            firstTestEvent = new Event {  ID = Guid.NewGuid(), City = "Göteborg", Date = DateTime.Now, HeadLine = "Test headline 1", Info = "oiqewoihewfoiewofiewohfoiwhf" };
+            secondTestEvent = new Event { ID = Guid.NewGuid(), City = "Stockholm", Date = DateTime.Now, HeadLine = "Test headline 2", Info = "oi576767867867687678768f" };
+            thirdTestEvent = new Event { ID = Guid.NewGuid(), City = "Bankeryd", Date = DateTime.Now, HeadLine = "Bitches & hoes", Info = "från jönköping" };
+        
         }
 
 
@@ -47,6 +58,7 @@ namespace Mission.Domain.Entities.FakeData
 
         public List<Post> testNewsList() { return new List<Post> { firstTestNews, secondTestNews, thirdTestNews };  }
 
+        public List<Event> testEventList() { return new List<Event> { firstTestEvent, secondTestEvent, thirdTestEvent }; }
 
 
     }

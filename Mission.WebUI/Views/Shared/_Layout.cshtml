@@ -37,7 +37,8 @@
             </ul>
 
         <li>@Html.ActionLink("News", "index", "Post")</li>
-        <li>@Html.ActionLink("Blogg", "Blog", "Post")</li>        
+        <li>@Html.ActionLink("Blogg", "Blog", "Post")</li>
+        <li>@Html.ActionLink("Event", "index", "Event")</li>        
         <li>@Html.ActionLink("Statistics", "index", "Statistics")</li>
         @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
         {

@@ -1,0 +1,22 @@
+﻿@using Mission.Domain.Entities
+@model List<Event>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach(var events in Model) { 
+    <div class="EventDiv">
+        <div class = "EventTitle">
+            <p>@events.HeadLine</p>
+        </div>
+        <div class ="EventDescription">
+            @events.Info
+        </div>
+        <div class = "EventInfo">
+            @events.Date
+            @events.City
+        </div>      
+    </div>
+}
