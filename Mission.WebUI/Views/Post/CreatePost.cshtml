@@ -5,6 +5,11 @@
     ViewBag.Title = "CreatePost";
 }
 
+   
+
+
+
+
 <h2>Skapa Post</h2>
 
 @using (Html.BeginForm()){
@@ -12,12 +17,49 @@
     <div class="CreatePost">
         <p>
             Titel     <br />
-           @Html.EditorFor(p => p.Title)
+           @Html.EditorFor(p => p.Title, new {  cols = "30", style = "width:100%", height = "100%" })
         </p>
-        <p>
+       <!-- <p>
             Body <br />
             @Html.EditorFor(p => p.Body)
-        </p>
+        </p>-->
+
+  
+
+   @Html.TextAreaFor(p => p.Body, new { id = "editor", rows="10", cols="30", style="width:100%", height = "100%"})
+  
+
+    <script>
+        $("#editor").kendoEditor({
+            tools: [
+                "bold",
+                "italic",
+                "underline",
+                "strikethrough",
+                "fontName",
+                "fontSize",
+                "foreColor",
+                "backColor",
+                "justifyLeft",
+                "justifyCenter",
+                "justifyRight",
+                "justifyFull",
+                "insertUnorderedList",
+                "insertOrderedList",
+                "indent",
+                "outdent",
+                "formatBlock",
+                "createLink",
+                "unlink",
+                "insertImage",
+                "subscript",
+                "superscript"
+            ]
+        });
+    </script>
+
+
+
         <p>         
            @Html.RadioButtonFor(p => p.Type, 1) Blog
            @Html.RadioButtonFor(p => p.Type, 0) News          

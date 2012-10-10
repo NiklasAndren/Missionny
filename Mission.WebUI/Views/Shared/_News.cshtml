@@ -6,7 +6,7 @@
             <p>@news.Title</p>
         </div>
         <div class ="NewsBody">
-            @news.Body
+            @Html.Raw(System.Web.HttpUtility.HtmlDecode(@news.Body)) 
         </div>
         <div class = "NewsPostinfo">
             Post created: @news.Date 
