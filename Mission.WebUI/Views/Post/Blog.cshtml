@@ -1,0 +1,22 @@
+﻿@using Mission.Domain.Entities
+
+@{
+    ViewBag.Title = "Blog";
+}
+
+<h2>Blog</h2>
+
+
+@foreach(var news in Model) { 
+    <div class="BlogDiv">
+        <div class = "NewsTitle">
+            <p>@news.Title</p>
+        </div>
+        <div class ="BlogBody">
+            @Html.Raw(System.Web.HttpUtility.HtmlDecode(@news.Body)) 
+        </div>
+        <div class = "BlogPostinfo">
+            Post created: @news.Date 
+        </div>      
+    </div>
+}

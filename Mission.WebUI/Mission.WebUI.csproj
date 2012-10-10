@@ -2028,6 +2028,7 @@
     <None Include="Content\Kendo\styles\Metro\Thumbs.db" />
     <None Include="Content\Kendo\styles\Silver\Thumbs.db" />
     <None Include="Content\Kendo\styles\textures\Thumbs.db" />
+    <Content Include="Views\Post\Blog.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

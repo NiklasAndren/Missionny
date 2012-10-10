@@ -47,10 +47,21 @@ namespace Mission.WebUI.Controllers
             post.ID = Guid.NewGuid();
             post.Date = DateTime.Now;
             _postRepo.Save(post);
-           
-            
-            
-            return RedirectToAction("Index", "Post");
+
+            if (post.Type == 0)
+            {
+                return RedirectToAction("Index", "Post");
+            }
+
+            return RedirectToAction("Blog", "Post");
+        }
+
+        public ActionResult Blog()
+        {
+
+            List<Post> AllPosts = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.Blog).Include(p => p.User).OrderByDescending(p => p.Date).ToList();
+
+            return View(AllPosts);
         }
 
 
