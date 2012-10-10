@@ -15,7 +15,7 @@ namespace Mission.Domain.Contexts
         public DbSet<User> Users { get; set; }
     }
 
-    public class MissionInitializer : DropCreateDatabaseIfModelChanges<EFDbContext>
+    public class MissionInitializer : DropCreateDatabaseAlways<EFDbContext>
     {
         
 
