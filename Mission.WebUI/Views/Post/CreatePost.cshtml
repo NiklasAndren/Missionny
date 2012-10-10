@@ -5,7 +5,7 @@
     ViewBag.Title = "CreatePost";
 }
 
-<h2>CreatePost</h2>
+<h2>Skapa Post</h2>
 
 @using (Html.BeginForm()){
 
@@ -18,12 +18,9 @@
             Body <br />
             @Html.EditorFor(p => p.Body)
         </p>
-        <p>
-         
+        <p>         
            @Html.RadioButtonFor(p => p.Type, 1) Blog
-           @Html.RadioButtonFor(p => p.Type, 0) News
-             
-           
+           @Html.RadioButtonFor(p => p.Type, 0) News          
         </p>
 
     </div>

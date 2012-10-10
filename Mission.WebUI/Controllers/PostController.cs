@@ -8,7 +8,7 @@ using Mission.Domain.Entities;
 using Mission.Domain.Repositories;
 using Mission.Domain.Entities.FakeData;
 using System.Data.Entity;
-
+using Mission.WebUI.Infrastructure;
 
 namespace Mission.WebUI.Controllers
 {
@@ -27,7 +27,7 @@ namespace Mission.WebUI.Controllers
         public ActionResult Index() {
 
             List<Post> AllPosts = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.News).Include(p => p.User).OrderByDescending(p => p.Date).ToList();
-    
+        
             return View(AllPosts);
         }
 
@@ -40,18 +40,16 @@ namespace Mission.WebUI.Controllers
         }
 
         [HttpPost]
+        [AuthorizeAdmin]
         public ActionResult CreatePost(Post post)
         {
 
             post.ID = Guid.NewGuid();
             post.Date = DateTime.Now;
-            User dude = new User { UserName = "Jesper Caron", Role = (int)Role.Admin, ID = Guid.NewGuid() };
-            post.User = dude;
-
             _postRepo.Save(post);
-            
            
-
+            
+            
             return RedirectToAction("Index", "Post");
         }
 
