@@ -33,8 +33,9 @@ namespace Mission.WebUI.Controllers
 
         
         public ActionResult CreatePost(){
-
+            
             var post = new Post();
+            
 
             return View(post);
         }
@@ -47,6 +48,7 @@ namespace Mission.WebUI.Controllers
             post.ID = Guid.NewGuid();
             post.Date = DateTime.Now;
             _postRepo.Save(post);
+            
 
             if (post.Type == 0)
             {
