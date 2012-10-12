@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Mission.Domain.Repositories.Abstract;
 using Mission.Domain.Entities;
+using Mission.WebUI.Infrastructure;
 
 namespace Mission.WebUI.Controllers
 {
@@ -24,6 +25,23 @@ namespace Mission.WebUI.Controllers
 
             return View(AllEvents);
         }
+        [AuthorizeAdmin]
+        public ActionResult CreateEvent()
+        {
 
+            Event NewEvent = new Event();
+
+            return View();
+        }
+
+        [HttpPost]
+        [AuthorizeAdmin]
+        public ActionResult CreateEvent(Event newEvent)
+        {
+            newEvent.ID = Guid.NewGuid();
+            _eventRepo.Save(newEvent);
+
+            return View();
+        }
     }
 }

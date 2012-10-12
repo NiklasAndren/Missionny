@@ -2031,6 +2031,7 @@
     <None Include="Content\Kendo\styles\textures\Thumbs.db" />
     <Content Include="Views\Post\Blog.cshtml" />
     <Content Include="Views\Event\Index.cshtml" />
+    <Content Include="Views\Event\CreateEvent.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

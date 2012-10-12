@@ -36,13 +36,15 @@
                 <li class="qwe">@Html.ActionLink("Om föreläsningarna", "index", "Default")</li>
             </ul>
 
-        <li>@Html.ActionLink("News", "index", "Post")</li>
+        <li>@Html.ActionLink("Nyheter", "index", "Post")</li>
         <li>@Html.ActionLink("Blogg", "Blog", "Post")</li>
         <li>@Html.ActionLink("Event", "index", "Event")</li>        
-        <li>@Html.ActionLink("Statistics", "index", "Statistics")</li>
+        <li>@Html.ActionLink("Statistik", "index", "Statistics")</li>
         @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
         {
-            <li>@Html.ActionLink("Create post", "CreatePost", "Post")</li>
+            <li>@Html.ActionLink("Skapa ny post", "CreatePost", "Post")</li>
+            
+            <li>@Html.ActionLink("Skapa nytt event", "CreateEvent", "Post")</li>
         }
         
     </ul>
