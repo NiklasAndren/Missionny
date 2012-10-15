@@ -66,6 +66,35 @@ namespace Mission.WebUI.Controllers
             return View(AllPosts);
         }
 
+        
+        public ActionResult Edit(Guid id) {
+            Post post = _postRepo.FindByID(id);
+
+            return View(post);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Post post) {
+            post.Date = DateTime.Now;
+            _postRepo.Save(post);
+            if (post.Type == 0)
+                return RedirectToAction("Index", "Post");
+            else
+                return RedirectToAction("Blog", "Post");
+        
+        }
+
+        public ActionResult Delete(Guid id)
+        {
+            Post post = _postRepo.FindByID(id);
+            _postRepo.Delete(post);
+
+            if (post.Type == 0)
+                return RedirectToAction("Index", "Post");
+            else
+                return RedirectToAction("Blog", "Post");
+        }
+
 
     }
 }

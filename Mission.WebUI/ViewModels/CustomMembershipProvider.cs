@@ -83,7 +83,7 @@ namespace Mission.WebUI.ViewModels
         public override bool ValidateUser(string username, string password)
         {
             IAppUserRepository userRepo = new AppUserRepository();
-            var user = userRepo.FindAll(u => u.UserName == username)
+            var user = userRepo.FindAll(u => u.UserName.ToLower() == username.ToLower())
             .FirstOrDefault();
             if (user == null || string.IsNullOrEmpty(user.Salt))
                 return false;

@@ -2032,6 +2032,7 @@
     <Content Include="Views\Post\Blog.cshtml" />
     <Content Include="Views\Event\Index.cshtml" />
     <Content Include="Views\Event\CreateEvent.cshtml" />
+    <Content Include="Views\Post\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
