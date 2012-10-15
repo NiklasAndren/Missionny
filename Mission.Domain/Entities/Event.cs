@@ -12,6 +12,6 @@ namespace Mission.Domain.Entities
         public String City { get; set; }
         public DateTime Date { get; set; }
         public String HeadLine { get; set; }
-        public String Info { get; set; }
+        public String Description { get; set; }
     }
 }
