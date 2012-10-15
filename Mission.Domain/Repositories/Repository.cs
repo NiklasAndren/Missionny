@@ -46,7 +46,7 @@ namespace Mission.Domain.Repositories
         {
             var existing = _dbSet.Where(e => e.ID == entity.ID).FirstOrDefault();
             if (null != existing)
-                _context.Entry(entity).State = System.Data.EntityState.Modified;
+                _context.Entry(existing).CurrentValues.SetValues(entity);
             else
                 _dbSet.Add(entity);
             _context.SaveChanges();

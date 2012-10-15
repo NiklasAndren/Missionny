@@ -18,5 +18,9 @@
         <div class = "BlogPostinfo">
             Post created: @news.Date 
         </div>      
+        <div class="EditBlog">
+            @Html.ActionLink("Ändra", "Edit", "Post", new { id = news.ID }, null)
+            @Html.ActionLink("Ta bort", "Delete", "Post", new { id = news.ID }, null)
+        </div>
     </div>
 }
