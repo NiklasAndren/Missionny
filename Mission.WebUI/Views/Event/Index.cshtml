@@ -12,7 +12,7 @@
             <p>@events.HeadLine</p>
         </div>
         <div class ="EventDescription">
-            @events.Info
+             @Html.Raw(System.Web.HttpUtility.HtmlDecode(@events.Description))
         </div>
         <div class = "EventInfo">
             @events.Date

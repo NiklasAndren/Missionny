@@ -43,9 +43,9 @@ namespace Mission.Domain.Entities.FakeData
             secondTestNews = new Post { ID = Guid.NewGuid(), Body = "test body 2 neweews", Date = DateTime.Now, Title = "test title 2", Type = (int)Type.News, User = firstTestUser, UserID = firstTestUser.ID };
             thirdTestNews = new Post { ID = Guid.NewGuid(), Body = "test body 3   news?", Date = DateTime.Now, Title = "test title 3", Type = (int)Type.News, User = secondTestUser, UserID = secondTestUser.ID };
 
-            firstTestEvent = new Event {  ID = Guid.NewGuid(), City = "Göteborg", Date = DateTime.Now, HeadLine = "Test headline 1", Info = "oiqewoihewfoiewofiewohfoiwhf" };
-            secondTestEvent = new Event { ID = Guid.NewGuid(), City = "Stockholm", Date = DateTime.Now, HeadLine = "Test headline 2", Info = "oi576767867867687678768f" };
-            thirdTestEvent = new Event { ID = Guid.NewGuid(), City = "Bankeryd", Date = DateTime.Now, HeadLine = "Bitches & hoes", Info = "från jönköping" };
+            firstTestEvent = new Event {  ID = Guid.NewGuid(), City = "Göteborg", Date = DateTime.Now, HeadLine = "Test headline 1", Description = "oiqewoihewfoiewofiewohfoiwhf" };
+            secondTestEvent = new Event { ID = Guid.NewGuid(), City = "Stockholm", Date = DateTime.Now, HeadLine = "Test headline 2", Description = "oi576767867867687678768f" };
+            thirdTestEvent = new Event { ID = Guid.NewGuid(), City = "Bankeryd", Date = DateTime.Now, HeadLine = "Bitches & hoes", Description = "från jönköping" };
         
         }
 
