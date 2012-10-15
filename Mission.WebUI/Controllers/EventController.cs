@@ -41,7 +41,7 @@ namespace Mission.WebUI.Controllers
             newEvent.ID = Guid.NewGuid();
             _eventRepo.Save(newEvent);
 
-            return View();
+            return RedirectToAction("Index", "Event");
         }
     }
 }
