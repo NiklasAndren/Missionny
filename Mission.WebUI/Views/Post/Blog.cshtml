@@ -4,23 +4,22 @@
     ViewBag.Title = "Blog";
 }
 
-<h2>Blog</h2>
-
-
+<div id="posts-list">
+	        	
+	        		<h2 class="page-heading"><span>BLOG</span></h2>	
 @foreach(var news in Model) { 
-    <div class="BlogDiv">
-        <div class = "BlogTitle">
-            <p>@news.Title</p>
-        </div>
-        <div class ="BlogBody">
-            @Html.Raw(System.Web.HttpUtility.HtmlDecode(@news.Body)) 
-        </div>
-        <div class = "BlogPostinfo">
-            Post created: @news.Date 
-        </div>      
-        <div class="EditBlog">
-            @Html.ActionLink("Ändra", "Edit", "Post", new { id = news.ID }, null)
-            @Html.ActionLink("Ta bort", "Delete", "Post", new { id = news.ID }, null)
-        </div>
-    </div>
+    
+    	<article class="format-standard">
+						<div class="entry-date"><div class="number">@news.Date.Day</div><div class="year">@news.Date.Month,@news.Date.Year</div></div>
+						<h2  class="post-heading"><a href="single.html">@news.Title</a></h2>
+						<div class="excerpt">@Html.Raw(System.Web.HttpUtility.HtmlDecode(@news.Body))</div>
+						@*<a href="single.html" class="read-more">continue &#8594;</a>*@
+						<div class="meta">
+							<div class="categories">In <a href="#">Category 1</a>, <a href="#">Category 2</a></div>
+							<div class="comments"><a href="#">@Html.ActionLink("Ändra", "Edit", "Post", new { id = news.ID }, null)</a></div>
+							<div class="user"><a href="#">@Html.ActionLink("Ta bort", "Delete", "Post", new { id = news.ID }, null)</a></div>
+						</div>
+		</article>
 }
+
+</div>
