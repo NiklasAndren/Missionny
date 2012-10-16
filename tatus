@@ -1,0 +1,221 @@
+[33mcommit bb30cfc29cfc042256e4c296268e371253c77cee[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Tue Oct 16 16:45:12 2012 +0200
+
+    edit funkar
+
+[33mcommit d33e05a623667d89337f69f9a31db94bb2f9f6dd[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Tue Oct 16 15:42:34 2012 +0200
+
+    få de gjort fan
+
+[33mcommit bf0558fe89ff1bea43d01404ba2b4ab9fc024886[m
+Merge: fc61884 14e7478
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Tue Oct 16 15:20:03 2012 +0200
+
+    Merge branch 'master' into edit
+
+[33mcommit fc6188454f95bbc73dd1d41b2574e68efe187563[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Tue Oct 16 15:18:53 2012 +0200
+
+    bullshiet
+
+[33mcommit 14e7478e943469b47c67e603b6db8c7f30225611[m
+Author: Niklas Andren <niklas.andren@hotmail.com>
+Date:   Tue Oct 16 15:12:52 2012 +0200
+
+    Fixade datumet i news
+
+[33mcommit 2bb7af50edd9d2ea0c5051dc4f42faa5f6bbcddf[m
+Author: Niklas Andren <niklas.andren@hotmail.com>
+Date:   Tue Oct 16 15:10:19 2012 +0200
+
+    tog bort övre menygrejen
+
+[33mcommit 0b25ad7f36a3ef6f004915bc1342df660655adfa[m
+Author: Niklas Andren <niklas.andren@hotmail.com>
+Date:   Tue Oct 16 14:48:22 2012 +0200
+
+    css implementerat
+
+[33mcommit 05c5fcfc018a4227793e3715c51ad0971b6102bc[m
+Author: Niklas Andren <niklas.andren@hotmail.com>
+Date:   Tue Oct 16 13:57:18 2012 +0200
+
+    News css fixat
+
+[33mcommit c52b6c46094774a7b7b3737ad60ec2456f6b04f9[m
+Merge: e3f9c71 b379b0d
+Author: Niklas Andren <niklas.andren@hotmail.com>
+Date:   Tue Oct 16 13:49:19 2012 +0200
+
+    Merge branch 'master' into css-implement
+
+[33mcommit b379b0d9194e6913015442b7234ce7073a06b59a[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Tue Oct 16 13:44:05 2012 +0200
+
+    edit är fortf inte bugfri
+
+[33mcommit e3f9c71860f9542eb728e895e8ae87387d539fb8[m
+Author: Niklas Andren <niklas.andren@hotmail.com>
+Date:   Tue Oct 16 13:41:57 2012 +0200
+
+    Allmän och Blogg css fixad
+
+[33mcommit d201227e2a15a47422df708b63c47e7d32e7c9a6[m
+Merge: 2226b73 824c861
+Author: Niklas Andren <niklas.andren@hotmail.com>
+Date:   Mon Oct 15 16:59:40 2012 +0200
+
+    Merge branch 'master' of https://github.com/NiklasAndren/Missionny
+
+[33mcommit 824c8614004aad5c3fa264a4d0f2d9c79f03f29c[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Mon Oct 15 16:55:03 2012 +0200
+
+    fixat tvbx tabort / ändra
+
+[33mcommit 2226b731b3f5d921f15e7617d5c411718572f861[m
+Author: Niklas Andren <niklas.andren@hotmail.com>
+Date:   Mon Oct 15 16:37:40 2012 +0200
+
+    onödig commit
+
+[33mcommit f37a93b3f880f9eac79c1956d225b9c41cb610d0[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Mon Oct 15 15:30:56 2012 +0200
+
+    Kendo för description
+
+[33mcommit 88a75b253664016c9b3c34e0d84cc7f793ae4670[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Mon Oct 15 15:09:13 2012 +0200
+
+    fixat redirect
+
+[33mcommit de27060efe14e6915ecf3ca36ddde96b61cf8335[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Fri Oct 12 16:43:47 2012 +0200
+
+    länk bug fixad
+
+[33mcommit ca07ce6958eb9fa38a4ea4dbb62d282ccd1247e7[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Fri Oct 12 16:39:45 2012 +0200
+
+    create event klar
+
+[33mcommit 036bfa34fa6346f3f17693adf4029e26bdeb8d53[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Thu Oct 11 15:36:12 2012 +0200
+
+    denada
+
+[33mcommit c8996930db56410913e978855774fdec5de0b680[m
+Author: Niklas Andren <niklas.andren@hotmail.com>
+Date:   Wed Oct 10 16:42:33 2012 +0200
+
+    Lista Event v1.0.0
+
+[33mcommit f00736bd36330d30cf5976a4886f62039220f1c4[m
+Author: Niklas Andren <niklas.andren@hotmail.com>
+Date:   Wed Oct 10 16:02:50 2012 +0200
+
+    lista blogg v.09
+
+[33mcommit c629bb2949977bb6e9600638e395e6e80c62e958[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Wed Oct 10 15:32:31 2012 +0200
+
+    onödigt jävla gitskit
+
+[33mcommit 2606da1f16dd8b336f5d38b0ad518107e5d5b2d5[m
+Author: Niklas Andren <niklas.andren@hotmail.com>
+Date:   Wed Oct 10 15:31:28 2012 +0200
+
+    drop if db changes
+
+[33mcommit 1defbf9a54b7df5670bfa51869fe5ab47370e2a8[m
+Author: Niklas Andren <niklas.andren@hotmail.com>
+Date:   Wed Oct 10 15:28:03 2012 +0200
+
+    Kendo bug fix
+
+[33mcommit d38094b37cbf575a8cab4ae7dc2a9bd0d5aae401[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Wed Oct 10 15:17:09 2012 +0200
+
+    drop db always
+
+[33mcommit 9ab25f092794a6f9ad9cf66679eea440bd70fa51[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Wed Oct 10 15:01:00 2012 +0200
+
+    Kendo fungerar
+    
+    bilder går, ej videos
+
+[33mcommit 1fbacf68cd7ba1004d4c747f6e0d08d1d89ccbd7[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Wed Oct 10 14:58:25 2012 +0200
+
+    Kendo funkar
+    
+    Kendo fungerar. att lägga upp bilder likaså. inga videoklipp
+
+[33mcommit fc59b4bfcc374891f0b12a96378186b43c51c47c[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Wed Oct 10 14:29:45 2012 +0200
+
+    Fixat så att kendo funkar
+
+[33mcommit 8c4b2e336166ca2c5f865bd52557b99a989f5d0a[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Wed Oct 10 11:18:36 2012 +0200
+
+    dfz<<v
+
+[33mcommit cdd7d485e116fdf569513c61b049d2ca54369b82[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Tue Oct 9 18:02:58 2012 +0200
+
+    skitonödig commit...my bad
+
+[33mcommit 914acc0d1c4fe98f182a74f1442852a1297ed801[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Tue Oct 9 17:54:06 2012 +0200
+
+    Fixat inloggning
+    
+    Fixat så att man kan logga in separat som admin och users. även fixat så
+    att man kan kontrollera att det är admin
+
+[33mcommit 42d95c0620f8b01c05e84ca878e612afb807d3a1[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Mon Oct 8 17:47:30 2012 +0200
+
+    Membershiplösning done
+
+[33mcommit ab356bcf04885d62f553d8ff6bf0e26589f84f58[m
+Author: kalle <kalle.r.persson@gmail.com>
+Date:   Mon Oct 8 16:32:03 2012 +0200
+
+    nästan klar membershiplösning
+
+[33mcommit f2dd9e18d2625aa3a41719584b7c5eb0dedc1c7a[m
+Author: Niklas Andren <niklas.andren@hotmail.com>
+Date:   Mon Oct 8 14:21:05 2012 +0200
+
+    Meny
+    
+    HTML+css delen på menyn i layout måste fixas
+
+[33mcommit 53966cac5f157448fe30a1333ba62e93685357f9[m
+Author: Niklas Andren <niklas.andren@hotmail.com>
+Date:   Sun Oct 7 22:56:10 2012 +0200
+
+    Nytt repo
