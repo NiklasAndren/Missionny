@@ -82,7 +82,7 @@
 
 	<nav id="meny">
 		<ul id="nav" class="sf-menu">
-            <li>@Html.ActionLink("Home", "index", "Home")</li>
+            <li>@Html.ActionLink("Start", "index", "Home")</li>
 
             <li>@Html.ActionLink("Jesper Caron", "index", "Default")</li>
                 <ul>
@@ -126,6 +126,11 @@
     <div class="wrapper clearfix">
      @RenderBody()
     </div>
+</div>
+
+
+<div id="footer">
+@Html.Partial("_LogOn")
 </div>
 </body>
 </html>
