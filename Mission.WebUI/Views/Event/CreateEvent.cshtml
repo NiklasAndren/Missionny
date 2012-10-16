@@ -12,8 +12,9 @@
 @{
     ViewBag.Title = "CreateEvent";
 }
+<div id="posts-list">
 
-<h2>CreateEvent</h2>
+<h2 class="page-heading"><span>SKAPA EVENT</span></h2>
 
 @using (Html.BeginForm()) { 
     
@@ -29,11 +30,13 @@
        <p>
             Stad <br />
             @Html.EditorFor(e => e.City)
-       </p>
-       <p>
-             <div id="to-do">
+
+            <div id="to-d">
                     @Html.TextBoxFor(e => e.Date, new { id = "datetimepicker", value = "10/10/2011 12:00 AM", style = "width:200px;", @class = "k-widget k-datetimepicker k-header" })
             </div>
+       </p>
+       <p>
+             
 
             <script>
                 $("#editor").kendoEditor({
@@ -90,3 +93,4 @@
     
     </div>
 }
+ </div>
