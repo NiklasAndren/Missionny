@@ -18,5 +18,9 @@
             @events.Date
             @events.City
         </div>      
+        <div class="Edit">
+             @Html.ActionLink("Ändra", "Edit", "Event", new { id = events.ID }, null)
+             @Html.ActionLink("Ta bort", "Delete", "Event", new { id = events.ID }, null)
+        </div>
     </div>
 }

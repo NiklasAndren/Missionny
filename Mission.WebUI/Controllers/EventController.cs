@@ -34,13 +34,39 @@ namespace Mission.WebUI.Controllers
             return View();
         }
 
+        
+
         [HttpPost]
         [AuthorizeAdmin]
         public ActionResult CreateEvent(Event newEvent)
         {
             newEvent.ID = Guid.NewGuid();
+            HttpUtility.HtmlDecode(newEvent.Description);
             _eventRepo.Save(newEvent);
 
+            return RedirectToAction("Index", "Event");
+        }
+
+        public ActionResult Edit(Guid id)
+        {
+            Event events = _eventRepo.FindByID(id);
+
+            return View(events);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Event events) {
+            events.Date = DateTime.Now;
+            HttpUtility.HtmlDecode(events.Description);
+            _eventRepo.Save(events);
+           
+            return RedirectToAction("Index", "Event");
+        }
+
+        public ActionResult Delete(Guid id)
+        {
+            Event events = _eventRepo.FindByID(id);
+            _eventRepo.Delete(events);
             return RedirectToAction("Index", "Event");
         }
     }
