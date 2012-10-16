@@ -23,11 +23,11 @@ h1,h2,h3,h4,h5,h6{ color: #444; }
 
 /* Selection colours (easy to forget) */
 
-::selection 	 	{background: #ea4c88; color: #fff; }
-::-moz-selection 	{background: #ea4c88; color: #fff; }
+::selection 	 	{background: #225bcc; color: #fff; }
+::-moz-selection 	{background: #225bcc; color: #fff; }
 img::selection 		{background: transparent;}
 img::-moz-selection	{background: transparent;}
-body {-webkit-tap-highlight-color: #ea4c88;}
+body {-webkit-tap-highlight-color: #225bcc;}
 
 /* HEADER ------------------------------------------------------------*/
 
@@ -95,7 +95,7 @@ nav a{ color: #E2E0D7; }
 /* HOME ------------------------------------------------------------*/
 
 .home-block figcaption{
-	background: #ea4c88;
+	background: #225bcc;
 	color: #f1f1f1;
 }
 

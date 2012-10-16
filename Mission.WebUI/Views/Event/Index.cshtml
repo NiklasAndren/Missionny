@@ -4,23 +4,24 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-@foreach(var events in Model) { 
-    <div class="EventDiv">
-        <div class = "EventTitle">
-            <p>@events.HeadLine</p>
-        </div>
-        <div class ="EventDescription">
-             @Html.Raw(System.Web.HttpUtility.HtmlDecode(@events.Description))
-        </div>
-        <div class = "EventInfo">
-            @events.Date
-            @events.City
-        </div>      
-        <div class="Edit">
-             @Html.ActionLink("Ändra", "Edit", "Event", new { id = events.ID }, null)
-             @Html.ActionLink("Ta bort", "Delete", "Event", new { id = events.ID }, null)
-        </div>
-    </div>
-}
+<div id="posts-list">
+	        	
+	        		<h2 class="page-heading"><span>BLOGG</span></h2>
+@foreach (var events in Model)
+{ 
+    
+       	<article class="format-standard">
+			<div class="entry-date"><div class="number">@events.Date.Day</div><div class="year">@events.Date.ToString("MMM"),@events.Date.Year</div></div>
+			<h2  class="post-heading"><a href="single.html">@events.HeadLine</a></h2>
+			<div class="excerpt">@Html.Raw(System.Web.HttpUtility.HtmlDecode(@events.Description))</div>
+			@*<a href="single.html" class="read-more">continue &#8594;</a>*@
+			<div class="meta">
+				<div class="categories">@events.City</div>
+                @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
+                {
+					<div class="comments"><a href="#">@Html.ActionLink("Ändra", "Edit", "Event", new { id = events.ID }, null)</a></div>
+					<div class="user"><a href="#">@Html.ActionLink("Ta bort", "Delete", "Event", new { id = events.ID }, null)</a></div>
+                }
+            </div>
+		</article>
+}</div></div>
