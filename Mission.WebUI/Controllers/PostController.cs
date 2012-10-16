@@ -47,6 +47,7 @@ namespace Mission.WebUI.Controllers
 
             post.ID = Guid.NewGuid();
             post.Date = DateTime.Now;
+            post.Body = HttpUtility.HtmlDecode(post.Body);
             _postRepo.Save(post);
             
 
@@ -76,6 +77,7 @@ namespace Mission.WebUI.Controllers
         [HttpPost]
         public ActionResult Edit(Post post) {
             post.Date = DateTime.Now;
+            post.Body = HttpUtility.HtmlDecode(post.Body);
             _postRepo.Save(post);
             if (post.Type == 0)
                 return RedirectToAction("Index", "Post");

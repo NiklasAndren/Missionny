@@ -8,7 +8,7 @@
     <article class="format-standard">
 						<div class="entry-date"><div class="number">@news.Date.Day</div><div class="year">@news.Date.ToString("MMM"),@news.Date.Year</div></div>
 						<h2  class="post-heading"><a href="single.html">@news.Title</a></h2>
-						<div class="excerpt">@Html.Raw(System.Web.HttpUtility.HtmlDecode(@news.Body))</div>
+						<div class="excerpt">@MvcHtmlString.Create(@news.Body)</div>
 						@*<a href="single.html" class="read-more">continue &#8594;</a>*@
 						<div class="meta">
 							<div class="categories">@news.Date.ToString("HH:mm:ss")</div>
