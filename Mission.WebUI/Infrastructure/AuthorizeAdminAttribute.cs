@@ -25,7 +25,7 @@ namespace Mission.WebUI.Infrastructure
 	{
         public static bool IsAdmin(HttpContextBase context)
         {
-            return context.User.Identity.Name == "Jesper";
+            return context.User.Identity.Name.ToLower() == "jesper";
         }
 	}
 }
