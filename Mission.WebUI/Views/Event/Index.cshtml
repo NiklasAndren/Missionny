@@ -4,6 +4,7 @@
     ViewBag.Title = "Index";
 }
 
+<<<<<<< HEAD
 <div id="posts-list">
 	        	
 	        		<h2 class="page-heading"><span>BLOGG</span></h2>
@@ -25,3 +26,25 @@
             </div>
 		</article>
 }</div></div>
+=======
+<h2>Index</h2>
+
+@foreach(var events in Model) { 
+    <div class="EventDiv">
+        <div class = "EventTitle">
+            <p>@events.HeadLine</p>
+        </div>
+        <div class ="EventDescription">
+             @MvcHtmlString.Create(events.Description)
+        </div>
+        <div class = "EventInfo">
+            @events.Date
+            @events.City
+        </div>      
+        <div class="Edit">
+             @Html.ActionLink("Ändra", "Edit", "Event", new { id = events.ID }, null)
+             @Html.ActionLink("Ta bort", "Delete", "Event", new { id = events.ID }, null)
+        </div>
+    </div>
+}
+>>>>>>> edit
