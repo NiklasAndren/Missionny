@@ -77,7 +77,7 @@
                 editorWrap = $(template).insertBefore(textarea).width(w).height(h),
                 editArea = editorWrap.find(".k-editable-area");
 
-            textarea.appendTo(editArea).addClass("k-content k-raw-content").hide();
+            textarea.appendTo(editArea).addClass("k-content").hide();
 
             return textarea.closest(".k-editor");
         },
