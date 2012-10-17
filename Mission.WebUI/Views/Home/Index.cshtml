@@ -26,31 +26,14 @@
 		        	
 		        	<div class="home-slider-clearfix "></div>
 		        	
-		        	<!-- Headline -->
-		        	@*<div id="headline">
-		        		<h1>FRAMSTEG.NU</h1>
-		        		<p>Wall of text lol lol lol lol lol lolol lol olol. </p>
-		        		
-		        		<em id="corner"></em>
-		        	</div>*@
+		        	
                     </div>
 		        	<!-- ENDS headline -->
-		        	
+		        	<div id="two-thirds">
                     <div class="home-block" >
-	        		<h2 class="home-block-heading"><span>KUNDER</span></h2>
-	        		<div class="one-third-thumbs clearfix" >
-	        			<figure>
-		        			<figcaption>
-	        					<strong>Pellentesque habitant morbi</strong>
-	        					<span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
-	        					<em>December 08, 2011</em>
-	        					<a href="single.html" class="opener"></a>
-			        		</figcaption>
-			        		
-			        		<a href="single.html"  class="thumb"><img src="@Url.Content("~/Content/img/kunder/01.png")" alt="Alt text" /></a>
-		        		</figure>
-		        		
-		        		<figure>
+	        		<h2 class="home-block-heading" id="customers"><span>KUNDER</span></h2>
+
+                    <figure>
 		        			<figcaption>
 	        					<strong>Pellentesque habitant morbi</strong>
 	        					<span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
@@ -60,19 +43,8 @@
 			        		
 			        		<a href="single.html"  class="thumb"><img src="@Url.Content("~/Content/img/kunder/02.png")" alt="Alt text" /></a>
 		        		</figure>
-		        		
+
 		        		<figure class="last">
-		        			<figcaption>
-	        					<strong>Pellentesque habitant morbi</strong>
-	        					<span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
-	        					<em>December 08, 2011</em>
-	        					<a href="single.html" class="opener"></a>
-			        		</figcaption>
-			        		
-			        		<a href="single.html"  class="thumb"><img src="@Url.Content("~/Content/img/kunder/03.png")" alt="Alt text" /></a>
-		        		</figure>
-		        		
-		        		<figure>
 		        			<figcaption>
 	        					<strong>Pellentesque habitant morbi</strong>
 	        					<span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
@@ -82,8 +54,10 @@
 			        		
 			        		<a href="single.html"  class="thumb"><img src="@Url.Content("~/Content/img/kunder/04.png")" alt="Alt text" /></a>
 		        		</figure>
-		        		
-		        		<figure>
+
+	        		<div class="one-third-thumbs clearfix" >
+
+	        			<figure>
 		        			<figcaption>
 	        					<strong>Pellentesque habitant morbi</strong>
 	        					<span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
@@ -93,7 +67,18 @@
 			        		
 			        		<a href="single.html"  class="thumb"><img src="@Url.Content("~/Content/img/kunder/05.png")" alt="Alt text" /></a>
 		        		</figure>
-		        		
+
+                        <figure>
+		        			<figcaption>
+	        					<strong>Kundnamn</strong>
+	        					<span>Trolol lol hej jag heter Niklas.</span>
+	        					
+	        					<a href="single.html" class="opener"></a>
+			        		</figcaption>
+			        		
+			        		<a href="single.html"  class="thumb"><img src="@Url.Content("~/Content/img/kunder/05.png")" alt="Alt text" /></a>
+		        		</figure>
+
 		        		<figure class="last">
 		        			<figcaption>
 	        					<strong>Pellentesque habitant morbi</strong>
@@ -102,14 +87,63 @@
 	        					<a href="single.html" class="opener"></a>
 			        		</figcaption>
 			        		
-			        		<a href="single.html"  class="thumb"><img src="@Url.Content("~/Content/img/kunder/06.png")" alt="Alt text" /></a>
+			        		<a href="single.html"  class="thumb"><img src="@Url.Content("~/Content/img/kunder/02.png")" alt="Alt text" /></a>
 		        		</figure>
+
+                   
+		        	
+		        	</div>
 		        		
+                        
+
 		        		
+
+                         @*<ul class="pager">
+					
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				    </ul>*@
+		        		</div>
 	        		</div>
+                    
+                <div id="one-third">
+                <div id="headline">
+		        			
+		        		<em id="corner"></em>
+                        <script type="text/javascript" src="js/form-validation.js"></script>
+					<form id="contactForm" action="#" method="post">
+						<h2>Nyhetsbrev</h2>
+						<p>Premunemera gärna på mitt nyhetsbrev för nya fräscha nyheter</p>
+						<fieldset>
+							<div>
+								<input name="name"  id="name" type="text" class="form-poshytip" title="Enter your full name" />
+								<label>Namn</label>
+							</div>
+							<div>
+								<input name="email"  id="email" type="text" class="form-poshytip" title="Enter your email address" />
+								<label>Email</label>
+							</div>
+							<div>
+								
+								<input name="web"  id="web" type="text" class="form-poshytip" title="Enter your website" />
+								<label>Stad</label>
+							</div>
+
+                            <p><input type="button" value="Skicka" name="submit" id="submit" /> <span id="error" class="warning"></span></p>
+                            </fieldset>
+						
+                        </div></div>
+                        
 	        	</div>
 
-		        	
-				</div>
+                <div class="wrapper clearfix">
+                
+                <h2 class="home-block-heading" ><span>NYHETER</span></h2>
+                @Html.Partial("_news")
+
+                </div>
 
 
+
+                
