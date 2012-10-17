@@ -28,6 +28,9 @@ namespace Mission.Domain.Entities.FakeData
         public Event secondTestEvent;
         public Event thirdTestEvent;
 
+        public Post firstTestComment;
+        public Post secondTestComment;
+
         public FakeData()
         {
             firstTestUser = new User{ UserName = "Test 1", Role = (int)Role.User, ID = Guid.NewGuid() };
@@ -46,7 +49,9 @@ namespace Mission.Domain.Entities.FakeData
             firstTestEvent = new Event {  ID = Guid.NewGuid(), City = "Göteborg", Date = DateTime.Now, HeadLine = "Test headline 1", Description = "oiqewoihewfoiewofiewohfoiwhf" };
             secondTestEvent = new Event { ID = Guid.NewGuid(), City = "Stockholm", Date = DateTime.Now, HeadLine = "Test headline 2", Description = "oi576767867867687678768f" };
             thirdTestEvent = new Event { ID = Guid.NewGuid(), City = "Bankeryd", Date = DateTime.Now, HeadLine = "Bitches & hoes", Description = "från jönköping" };
-        
+
+            firstTestComment = new Post { ID = Guid.NewGuid(), PostID = firstTestPost.ID, Body = "Testar första kommentaren", Title = "TestUser", Type = (int)Type.Comment, Date = DateTime.Now };
+            secondTestComment = new Post { ID = Guid.NewGuid(), PostID = secondTestPost.ID, Body = "Testar andra kommentaren", Title = "TestUser2", Type = (int)Type.Comment, Date = DateTime.Now };
         }
 
 
@@ -59,6 +64,8 @@ namespace Mission.Domain.Entities.FakeData
         public List<Post> testNewsList() { return new List<Post> { firstTestNews, secondTestNews, thirdTestNews };  }
 
         public List<Event> testEventList() { return new List<Event> { firstTestEvent, secondTestEvent, thirdTestEvent }; }
+
+        public List<Post> testCommentList() { return new List<Post> { firstTestComment, secondTestComment }; }
 
 
     }

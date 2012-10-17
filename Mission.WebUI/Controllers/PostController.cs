@@ -9,6 +9,7 @@ using Mission.Domain.Repositories;
 using Mission.Domain.Entities.FakeData;
 using System.Data.Entity;
 using Mission.WebUI.Infrastructure;
+using Mission.WebUI.ViewModels;
 
 namespace Mission.WebUI.Controllers
 {
@@ -61,13 +62,13 @@ namespace Mission.WebUI.Controllers
 
         public ActionResult Blog()
         {
+            BlogComments bc = new BlogComments();
 
-            List<Post> AllPosts = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.Blog).Include(p => p.User).OrderByDescending(p => p.Date).ToList();
-
-            return View(AllPosts);
+            bc.BlogPost = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.Blog).Include(p => p.User).OrderByDescending(p => p.Date).ToList();
+            bc.BlogComment = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.Comment).OrderByDescending(p => p.Date).ToList();
+            return View(bc);
         }
 
-        
         public ActionResult Edit(Guid id) {
             Post post = _postRepo.FindByID(id);
 
@@ -97,6 +98,13 @@ namespace Mission.WebUI.Controllers
                 return RedirectToAction("Blog", "Post");
         }
 
+        public ActionResult BlogComments(Guid id) {
+
+            Post post = _postRepo.FindByID(id);
+
+
+            return View();
+        }
 
     }
 }

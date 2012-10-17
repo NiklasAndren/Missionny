@@ -82,6 +82,7 @@
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Account.cs" />
+    <Compile Include="ViewModels\BlogComments.cs" />
     <Compile Include="ViewModels\CustomMembershipProvider.cs" />
   </ItemGroup>
   <ItemGroup>
