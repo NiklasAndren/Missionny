@@ -22,36 +22,38 @@
 							<div class="categories">@news.Date.ToString("HH:mm:ss")</div>
                             @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
                             {
-                                <div class="comments"><a href="#">@Html.ActionLink("Kommentarer", "BlogComments", "Post", new { id = news.ID }, null)</a></div>
+                                
 							    <div class="comments"><a href="#">@Html.ActionLink("Ändra", "Edit", "Post", new { id = news.ID }, null)</a></div>
-							    <div class="user"><a href="#">@Html.ActionLink("Ta bort", "Delete", "Post", new { id = news.ID }, null)</a></div>     
+							    <div class="user"><a href="#">@Html.ActionLink("Ta bort", "Delete", "Post", new { id = news.ID }, null)</a></div>
+                                <div class="comments"><a href="#">@Html.ActionLink("Kommentarer", "Blog", "Post")</a></div>
+    
                                                       
                             }
                        </div>
                        <div class="BlogComments">
-                       
-                       <div id="comments-wrap">
-                            <h3 class="heading">Det kommer</h3>
+                           <div class="comments"><a href="#">@Html.ActionLink("Kommentera", "CreateComment", "Post", new { id = news.ID }, null)</a></div> 
+                           <div id="comments-wrap">
+                               
 
-                           @foreach (var comment in Model.BlogComment)
-                           {
-                               if (comment.PostID == news.ID)
+                               @foreach (var comment in Model.BlogComment)
                                {
-                                    <ol class="commentlist">
-                                       <li class="comment even thread-even depth-1">
-                                           <div class="comment-body clearfix">
-                                               <img width="35" height="35" class="avatar avatar-35 photo" src="http://0.gravatar.com/avatar/4f64c9f81bb0d4ee969aaf7b4a5a6f40?s=35&amp%3Bd&amp%3Br=G" alt="">
-                                               <div class="comment-author vcard">@comment.Title</div>
-                                               <div class="comment-meta commentmetadata"><span class="comment-date">@comment.Date</span></div>
-                                               <div class="comment-inner">@comment.Body</div>
-                                          </div> 
-                                        </li>            
-                                     </ol>
+                                   if (comment.PostID == news.ID)
+                                   {
+                                        <ol class="commentlist">
+                                           <li class="comment even thread-even depth-1">
+                                               <div class="comment-body clearfix">
+                                                   <img width="35" height="35" class="avatar avatar-35 photo" src="http://0.gravatar.com/avatar/4f64c9f81bb0d4ee969aaf7b4a5a6f40?s=35&amp%3Bd&amp%3Br=G" alt="">
+                                                   <div class="comment-author vcard">@comment.Title</div>
+                                                   <div class="comment-meta commentmetadata"><span class="comment-date">@comment.Date</span></div>
+                                                   <div class="comment-inner">@comment.Body</div>
+                                              </div> 
+                                            </li>            
+                                         </ol>
                                    
-                               }
+                                   }
 
-                           }
-                       </div>
+                               }
+                           </div>
                   </div>
 		</article>
 }

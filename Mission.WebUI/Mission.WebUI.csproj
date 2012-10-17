@@ -2231,6 +2231,7 @@
     <Content Include="Views\Post\Edit.cshtml" />
     <Content Include="Views\Event\Edit.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Shared\_CreateComment.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
