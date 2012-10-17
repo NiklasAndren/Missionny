@@ -17,7 +17,7 @@ namespace Mission.Domain.Entities
         public virtual ICollection<Post> Posts { get; set; }
         public string UserEmailAddress { get; set; }
         public string City { get; set; }
-        public string ? PasswordHash { get; set; }
-        public string ? Salt { get; set; }
+        public string  PasswordHash { get; set; }
+        public string  Salt { get; set; }
     }
 }
