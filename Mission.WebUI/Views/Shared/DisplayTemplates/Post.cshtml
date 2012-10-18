@@ -1,0 +1,16 @@
+﻿@using Mission.Domain.Entities
+@model Post
+<article class="format-standard">
+	<div class="entry-date">
+        <div class="number">@Model.Date.Day</div>
+        <div class="year">@Model.Date.ToString("MMM"),@Model.Date.Year</div>
+    </div>
+	<h2  class="post-heading"><a href="single.html">@Model.Title</a></h2>
+	<div class="excerpt">@MvcHtmlString.Create(@Model.Body)</div>
+		@*<a href="single.html" class="read-more">continue &#8594;</a>*@
+		@Html.Partial("_PostMeta", Model)
+        <div class="BlogComments">
+        <div class ="comments">@Html.Partial("_CreateComment", new Comment { PostID = Model.ID }) </div>
+            <div id="comments-wrap">@Html.DisplayFor(m => Model.Comments)</div>
+        </div>
+</article>

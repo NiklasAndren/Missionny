@@ -4,7 +4,7 @@
 @using (Html.BeginForm("_CreateComment", "Post") ) { 
 
     <p>namn <br />
-        @Html.HiddenFor(p => p.BlogID)
+        @Html.HiddenFor(p => p.PostID)
         @Html.EditorFor(p => p.Name)
     </p>
     

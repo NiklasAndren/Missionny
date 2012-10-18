@@ -1,0 +1,16 @@
+﻿@using Mission.Domain.Entities
+@model Comment
+                               
+                                   
+                                        <ol class="commentlist">
+                                           <li class="comment even thread-even depth-1">
+                                               <div class="comment-body clearfix">
+                                                   <img width="35" height="35" class="avatar avatar-35 photo" src="http://0.gravatar.com/avatar/4f64c9f81bb0d4ee969aaf7b4a5a6f40?s=35&amp%3Bd&amp%3Br=G" alt="">
+                                                   <div class="comment-author vcard">@Model.Name</div>
+                                                   <div class="comment-meta commentmetadata"><span class="comment-date">@Model.Date</span></div>
+                                                   <div class="comment-inner">@Model.Body</div>
+                                              </div> 
+                                            </li>            
+                                         </ol>
+                                   
+                                                                                                     

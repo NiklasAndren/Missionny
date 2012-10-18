@@ -13,6 +13,7 @@ namespace Mission.Domain.Entities
         public string Name { get; set; }
         public string Body { get; set; }
         public DateTime Date { get; set; }
-        public Guid BlogID { get; set; }
+        public Guid PostID { get; set; }
+        public virtual Post Post { get; set; }
     }
 }

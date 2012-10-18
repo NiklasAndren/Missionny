@@ -66,7 +66,7 @@ namespace Mission.WebUI.Controllers
         {
             BlogComments bc = new BlogComments();
 
-            bc.BlogPost = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.Blog).OrderByDescending(p => p.Date).ToList();
+            bc.Posts = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.Blog).OrderByDescending(p => p.Date).ToList();
             bc.BlogComment = _commentRepo.FindAll().OrderByDescending(c => c.Date).ToList();
             return View(bc);
         }
@@ -102,17 +102,21 @@ namespace Mission.WebUI.Controllers
 
 
         [HttpPost]
-        public ActionResult _CreateComment(Comment comment)
+        public ActionResult _CreateComment(FormCollection commentCollection)
         {
             if (ModelState.IsValid)
             {
+                var comment = new Comment();
+                comment.PostID = new Guid(commentCollection[0]);
+                comment.Name = commentCollection[1];
+                comment.Body = commentCollection[2];
                 comment.ID = Guid.NewGuid();
                 comment.Date = DateTime.Now;
 
                 _commentRepo.Save(comment);
                 return RedirectToAction("Blog", "Post");
             }
-            return PartialView(comment);
+            return PartialView();
         }
     }   
 }

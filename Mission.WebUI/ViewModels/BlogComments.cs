@@ -9,7 +9,7 @@ namespace Mission.WebUI.ViewModels
 {
     public class BlogComments
     {
-        public List<Post> BlogPost { get; set; }
+        public List<Post> Posts { get; set; }
         public List<Comment> BlogComment { get; set; }
     }
 }

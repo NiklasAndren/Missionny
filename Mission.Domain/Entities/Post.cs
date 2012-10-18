@@ -16,6 +16,7 @@ namespace Mission.Domain.Entities
         public DateTime Date { get; set; }
         public string Body { get; set; }
         public int Type { get; set; }
+        public virtual ICollection<Comment> Comments {get; set;}
 
 
         

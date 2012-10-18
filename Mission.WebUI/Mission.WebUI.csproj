@@ -2235,6 +2235,9 @@
     <Content Include="Views\News\Index.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\Shared\DisplayTemplates\Post.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Comment.cshtml" />
+    <Content Include="Views\Shared\_PostMeta.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
