@@ -1,0 +1,20 @@
+﻿@using Mission.Domain.Entities
+@model Post
+
+@using (Html.BeginForm()) { 
+
+    <p>namn <br />
+        @Html.HiddenFor(p => p.PostID)
+        @Html.EditorFor(p => p.Title)
+    </p>
+    
+    <p>Kommentar <br />
+        @Html.TextAreaFor(p => p.Body)
+    </p>
+
+    <div>
+            <input type="submit" value ="Svara"/>
+    </div>
+
+
+}

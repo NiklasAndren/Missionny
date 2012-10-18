@@ -82,6 +82,7 @@
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Account.cs" />
+    <Compile Include="ViewModels\BlogComments.cs" />
     <Compile Include="ViewModels\CustomMembershipProvider.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2230,6 +2231,7 @@
     <Content Include="Views\Post\Edit.cshtml" />
     <Content Include="Views\Event\Edit.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Shared\_CreateComment.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

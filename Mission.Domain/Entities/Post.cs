@@ -7,7 +7,7 @@ using Mission.Domain.Entities.Abstract;
 namespace Mission.Domain.Entities
 {
 
-    public enum Type { News, Blog }
+    public enum Type { News, Blog, Comment }
     public class Post : IEntity
     {
              
@@ -18,5 +18,7 @@ namespace Mission.Domain.Entities
         public int Type { get; set; }
         public virtual User User { get; set; }
         public Guid ? UserID { get; set; }
+        public Guid ? PostID { get; set; }
+        
     }
 }
