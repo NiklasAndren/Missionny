@@ -257,10 +257,11 @@
 #contactForm input[type="text"],
 #commentform input[type="text"]{
 	overflow: auto;
-	width: 200px;
+	width: 174px;
 	margin-bottom: 20px;
-	
+	border-radius:6px;
 	overflow: hidden;
+	height:12px;
 }
 
 #contactForm  textarea,

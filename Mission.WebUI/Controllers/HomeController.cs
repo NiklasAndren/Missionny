@@ -14,11 +14,17 @@ namespace Mission.WebUI.Controllers
 {
     public class HomeController : Controller
     {
+         private IRepository<Post> _postRepo;
+         public HomeController(IRepository<Post> postRepo)
+        {
+            _postRepo = postRepo;
+        }
 
         public ActionResult Index()
         {
+            List<Post> post = _postRepo.FindAll().Take(3).ToList();
 
-            return View();
+            return View(post);
         }
 
     }
