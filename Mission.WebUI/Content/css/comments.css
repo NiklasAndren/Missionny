@@ -1,5 +1,21 @@
 /* COMMENTS ------------------------------------------------------------*/
 
+.commentsa:hover
+{
+    cursor:pointer;
+}
+
+
+
+.BlogComments 
+{
+    display:none;
+}
+
+.selected
+{
+    
+}
 
 #comments-wrap{
 	padding-top: 40px;

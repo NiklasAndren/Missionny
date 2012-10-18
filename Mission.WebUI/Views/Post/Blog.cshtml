@@ -5,6 +5,8 @@
     ViewBag.Title = "Blog";
 }
 
+
+
 <div id="posts-list">
 	        	
 	        		<h2 class="page-heading"><span>BLOGG</span></h2>	
@@ -25,7 +27,7 @@
                                 
 							    <div class="comments"><a href="#">@Html.ActionLink("Ändra", "Edit", "Post", new { id = news.ID }, null)</a></div>
 							    <div class="user"><a href="#">@Html.ActionLink("Ta bort", "Delete", "Post", new { id = news.ID }, null)</a></div>                              
-                                <div class="comments"><a href="#">Kommentarer</a></div> 
+                                <div class="comments"><a class="commentsa">Kommentarer</a></div> 
     
                                                       
                             }

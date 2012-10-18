@@ -170,6 +170,7 @@
     <Content Include="Content\img\slides\_A8B3520.tif" />
     <Content Include="Content\img\slides\_A8B3534.tif" />
     <Content Include="Content\img\slides\_A8B3539.tif" />
+    <Content Include="Content\js\comments.js" />
     <Content Include="Content\js\css3-mediaqueries.js" />
     <Content Include="Content\js\custom.js" />
     <Content Include="Content\js\form-validation.js" />
