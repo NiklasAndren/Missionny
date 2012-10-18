@@ -16,9 +16,11 @@ namespace Mission.WebUI.Controllers
     public class PostController : Controller
     {
         private IRepository<Post> _postRepo;
-        public PostController(IRepository<Post> postRepo)
+        private IRepository<Comment> _commentRepo;
+        public PostController(IRepository<Post> postRepo, IRepository<Comment> commentRepo)
         {
             _postRepo = postRepo;
+            _commentRepo = commentRepo;
         }
 
         //
@@ -27,7 +29,7 @@ namespace Mission.WebUI.Controllers
 
         public ActionResult Index() {
 
-            List<Post> AllPosts = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.News).Include(p => p.User).OrderByDescending(p => p.Date).ToList();
+            List<Post> AllPosts = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.News).OrderByDescending(p => p.Date).ToList();
         
             return View(AllPosts);
         }
@@ -64,8 +66,8 @@ namespace Mission.WebUI.Controllers
         {
             BlogComments bc = new BlogComments();
 
-            bc.BlogPost = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.Blog).Include(p => p.User).OrderByDescending(p => p.Date).ToList();
-            bc.BlogComment = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.Comment).OrderByDescending(p => p.Date).ToList();
+            bc.Posts = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.Blog).OrderByDescending(p => p.Date).ToList();
+            bc.BlogComment = _commentRepo.FindAll().OrderByDescending(c => c.Date).ToList();
             return View(bc);
         }
 
@@ -100,17 +102,21 @@ namespace Mission.WebUI.Controllers
 
 
         [HttpPost]
-        public ActionResult _CreateComment(Post comment)
+        public ActionResult _CreateComment(FormCollection commentCollection)
         {
             if (ModelState.IsValid)
             {
+                var comment = new Comment();
+                comment.PostID = new Guid(commentCollection[0]);
+                comment.Name = commentCollection[1];
+                comment.Body = commentCollection[2];
                 comment.ID = Guid.NewGuid();
                 comment.Date = DateTime.Now;
-                comment.Type = 2;
-                _postRepo.Save(comment);
+
+                _commentRepo.Save(comment);
                 return RedirectToAction("Blog", "Post");
             }
-            return PartialView(comment);
+            return PartialView();
         }
     }   
 }

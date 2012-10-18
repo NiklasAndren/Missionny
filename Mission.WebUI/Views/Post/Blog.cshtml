@@ -9,55 +9,8 @@
 
 <div id="posts-list">
 	        	
-	        		<h2 class="page-heading"><span>BLOGG</span></h2>	
-@foreach(var news in Model.BlogPost) { 
-    
-    	<article class="format-standard">
-						<div class="entry-date">
-                            <div class="number">@news.Date.Day</div>
-                            <div class="year">@news.Date.ToString("MMM"),@news.Date.Year</div>
-                        </div>
-						<h2  class="post-heading"><a href="single.html">@news.Title</a></h2>
-						<div class="excerpt">@MvcHtmlString.Create(@news.Body)</div>
-						@*<a href="single.html" class="read-more">continue &#8594;</a>*@
-						<div class="meta">
-							<div class="categories">@news.Date.ToString("HH:mm:ss")</div>
-                            @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
-                            {
-                                
-							    <div class="comments"><a href="#">@Html.ActionLink("Ändra", "Edit", "Post", new { id = news.ID }, null)</a></div>
-							    <div class="user"><a href="#">@Html.ActionLink("Ta bort", "Delete", "Post", new { id = news.ID }, null)</a></div>                              
-                                <div class="comments"><a class="commentsa">Kommentarer</a></div> 
-    
-                                                      
-                            }
-                       </div>
-                       <div class="BlogComments">
-                           <div class ="comments">@Html.Partial("_CreateComment", new Post { PostID = news.ID }) </div>
-                           <div id="comments-wrap">
-                               
 
-                               @foreach (var comment in Model.BlogComment)
-                               {
-                                   if (comment.PostID == news.ID)
-                                   {
-                                        <ol class="commentlist">
-                                           <li class="comment even thread-even depth-1">
-                                               <div class="comment-body clearfix">
-                                                   <img width="35" height="35" class="avatar avatar-35 photo" src="http://0.gravatar.com/avatar/4f64c9f81bb0d4ee969aaf7b4a5a6f40?s=35&amp%3Bd&amp%3Br=G" alt="">
-                                                   <div class="comment-author vcard">@comment.Title</div>
-                                                   <div class="comment-meta commentmetadata"><span class="comment-date">@comment.Date</span></div>
-                                                   <div class="comment-inner">@comment.Body</div>
-                                              </div> 
-                                            </li>            
-                                         </ol>
-                                   
-                                   }
-
-                               }
-                           </div>
-                  </div>
-		</article>
-}
+    <h2 class="page-heading"><span>BLOGG</span></h2>	
+    @Html.DisplayFor(p => p.Posts)
 
 </div>

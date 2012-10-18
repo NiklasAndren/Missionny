@@ -7,7 +7,7 @@ using Mission.Domain.Entities.Abstract;
 namespace Mission.Domain.Entities
 {
 
-    public enum Type { News, Blog, Comment }
+    public enum Type { News, Blog }
     public class Post : IEntity
     {
              
@@ -16,9 +16,9 @@ namespace Mission.Domain.Entities
         public DateTime Date { get; set; }
         public string Body { get; set; }
         public int Type { get; set; }
-        public virtual User User { get; set; }
-        public Guid ? UserID { get; set; }
-        public Guid ? PostID { get; set; }
+        public virtual ICollection<Comment> Comments {get; set;}
+
+
         
     }
 }
