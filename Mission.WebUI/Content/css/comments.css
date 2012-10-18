@@ -1,11 +1,22 @@
 /* COMMENTS ------------------------------------------------------------*/
 
+<<<<<<< HEAD
 .commentsa:hover
+=======
+a:hover
+>>>>>>> comment-css
 {
     cursor:pointer;
 }
 
+<<<<<<< HEAD
 
+=======
+.createcomments
+{
+    display:none;
+}
+>>>>>>> comment-css
 
 .BlogComments 
 {

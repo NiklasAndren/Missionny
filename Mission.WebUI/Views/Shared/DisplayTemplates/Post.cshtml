@@ -10,7 +10,8 @@
 		@*<a href="single.html" class="read-more">continue &#8594;</a>*@
 		@Html.Partial("_PostMeta", Model)
         <div class="BlogComments">
-        <div class ="comments">@Html.Partial("_CreateComment", new Comment { PostID = Model.ID }) </div>
+        <div class="createcommenttext"><a>Skriv egen kommentar</a></div>
+        <div class ="createcomments">@Html.Partial("_CreateComment", new Comment { PostID = Model.ID }) </div>
             <div id="comments-wrap">@Html.DisplayFor(m => Model.Comments)</div>
         </div>
 </article>
