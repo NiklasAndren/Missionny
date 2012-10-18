@@ -38,20 +38,18 @@ namespace Mission.Domain.Entities.FakeData
             thirdTestUser = new User { UserName = "Test 3", Role = (int)Role.User, ID = Guid.NewGuid() };
             //JesperSomAdmin = new User { UserName = "Jesper", Salt = "$2a$10$/XJG8qJZgw4ZdbV.k/Tne.", PasswordHash = "$2a$10$/XJG8qJZgw4ZdbV.k/Tne.GNk94mOT7f1AuhaW.v2rj5qmJ1j2fF.", Role = 1, UserEmailAddress = "JesperDude@ngnmail.com", ID = Guid.NewGuid() };
 
-            firstTestPost = new Post { ID = Guid.NewGuid(), Body = "test body 1", Date = DateTime.Now, Title = "test title 1", Type = (int)Type.Blog, User = firstTestUser, UserID = firstTestUser.ID };
-            secondTestPost = new Post { ID = Guid.NewGuid(), Body = "test body 2", Date = DateTime.Now, Title = "test title 2", Type = (int)Type.Blog, User = firstTestUser, UserID = firstTestUser.ID };
-            thirdTestPost = new Post { ID = Guid.NewGuid(), Body = "test body 3", Date = DateTime.Now, Title = "test title 3", Type = (int)Type.Blog, User = firstTestUser, UserID = firstTestUser.ID };
+            firstTestPost = new Post { ID = Guid.NewGuid(), Body = "test body 1", Date = DateTime.Now, Title = "test title 1", Type = (int)Type.Blog};
+            secondTestPost = new Post { ID = Guid.NewGuid(), Body = "test body 2", Date = DateTime.Now, Title = "test title 2", Type = (int)Type.Blog};
+            thirdTestPost = new Post { ID = Guid.NewGuid(), Body = "test body 3", Date = DateTime.Now, Title = "test title 3", Type = (int)Type.Blog};
 
-            firstTestNews = new Post { ID = Guid.NewGuid(), Body = "test body 1 newwws", Date = DateTime.Now, Title = "test title 1", Type = (int)Type.News, User = firstTestUser, UserID = firstTestUser.ID };
-            secondTestNews = new Post { ID = Guid.NewGuid(), Body = "test body 2 neweews", Date = DateTime.Now, Title = "test title 2", Type = (int)Type.News, User = firstTestUser, UserID = firstTestUser.ID };
-            thirdTestNews = new Post { ID = Guid.NewGuid(), Body = "test body 3   news?", Date = DateTime.Now, Title = "test title 3", Type = (int)Type.News, User = secondTestUser, UserID = secondTestUser.ID };
+            firstTestNews = new Post { ID = Guid.NewGuid(), Body = "test body 1 newwws", Date = DateTime.Now, Title = "test title 1", Type = (int)Type.News};
+            secondTestNews = new Post { ID = Guid.NewGuid(), Body = "test body 2 neweews", Date = DateTime.Now, Title = "test title 2", Type = (int)Type.News};
+            thirdTestNews = new Post { ID = Guid.NewGuid(), Body = "test body 3   news?", Date = DateTime.Now, Title = "test title 3", Type = (int)Type.News};
 
             firstTestEvent = new Event {  ID = Guid.NewGuid(), City = "Göteborg", Date = DateTime.Now, HeadLine = "Test headline 1", Description = "oiqewoihewfoiewofiewohfoiwhf" };
             secondTestEvent = new Event { ID = Guid.NewGuid(), City = "Stockholm", Date = DateTime.Now, HeadLine = "Test headline 2", Description = "oi576767867867687678768f" };
             thirdTestEvent = new Event { ID = Guid.NewGuid(), City = "Bankeryd", Date = DateTime.Now, HeadLine = "Bitches & hoes", Description = "från jönköping" };
 
-            firstTestComment = new Post { ID = Guid.NewGuid(), PostID = firstTestPost.ID, Body = "Testar första kommentaren", Title = "TestUser", Type = (int)Type.Comment, Date = DateTime.Now };
-            secondTestComment = new Post { ID = Guid.NewGuid(), PostID = secondTestPost.ID, Body = "Testar andra kommentaren", Title = "TestUser2", Type = (int)Type.Comment, Date = DateTime.Now };
         }
 
 

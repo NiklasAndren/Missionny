@@ -1,11 +1,11 @@
 ﻿@using Mission.Domain.Entities
-@model Post
+@model Comment
 
 @using (Html.BeginForm("_CreateComment", "Post") ) { 
 
     <p>namn <br />
-        @Html.HiddenFor(p => p.PostID)
-        @Html.EditorFor(p => p.Title)
+        @Html.HiddenFor(p => p.BlogID)
+        @Html.EditorFor(p => p.Name)
     </p>
     
     <p>Kommentar <br />
