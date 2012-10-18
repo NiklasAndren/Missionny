@@ -1,11 +1,14 @@
 /* COMMENTS ------------------------------------------------------------*/
 
-.commentsa:hover
+a:hover
 {
     cursor:pointer;
 }
 
-
+.createcomments
+{
+    display:none;
+}
 
 .BlogComments 
 {

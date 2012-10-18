@@ -1,13 +1,13 @@
 ﻿@model Mission.Domain.Entities.Post
 
 <div class="meta">
-							<div class="categories">@Model.Date.ToString("HH:mm:ss")</div>
+							<div class="categories">@Model.Date.ToString("HH:mm:ss")</div>                              
+                                <div class="comments"><a>Kommentarer</a></div> 
                             @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
                             {
                                 
 							    <div class="comments"><a href="#">@Html.ActionLink("Ändra", "Edit", "Post", new { id = Model.ID }, null)</a></div>
-							    <div class="user"><a href="#">@Html.ActionLink("Ta bort", "Delete", "Post", new { id = Model.ID }, null)</a></div>                              
-                                <div class="comments"><a href="#">Kommentarer</a></div> 
+							    <div class="user"><a href="#">@Html.ActionLink("Ta bort", "Delete", "Post", new { id = Model.ID }, null)</a></div>
     
                                                       
                             }
