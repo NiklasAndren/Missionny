@@ -22,7 +22,7 @@ namespace Mission.WebUI.Controllers
 
         public ActionResult Index()
         {
-            List<Post> post = _postRepo.FindAll().Take(2).ToList();
+            List<Post> post = _postRepo.FindAll().Take(3).ToList();
 
             return View(post);
         }
