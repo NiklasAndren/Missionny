@@ -24,14 +24,14 @@
                             {
                                 
 							    <div class="comments"><a href="#">@Html.ActionLink("Ändra", "Edit", "Post", new { id = news.ID }, null)</a></div>
-							    <div class="user"><a href="#">@Html.ActionLink("Ta bort", "Delete", "Post", new { id = news.ID }, null)</a></div>
-                                <div class="comments"><a href="#">@Html.ActionLink("Kommentarer", "Blog", "Post")</a></div>
+							    <div class="user"><a href="#">@Html.ActionLink("Ta bort", "Delete", "Post", new { id = news.ID }, null)</a></div>                              
+                                <div class="comments"><a href="#">Kommentarer</a></div> 
     
                                                       
                             }
                        </div>
                        <div class="BlogComments">
-                           <div class="comments"><a href="#">@Html.ActionLink("Kommentera", "CreateComment", "Post", new { id = news.ID }, null)</a></div> 
+                           <div class ="comments">@Html.Partial("_CreateComment", new Post { PostID = news.ID }) </div>
                            <div id="comments-wrap">
                                
 

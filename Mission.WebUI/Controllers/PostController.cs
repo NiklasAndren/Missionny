@@ -98,24 +98,19 @@ namespace Mission.WebUI.Controllers
                 return RedirectToAction("Blog", "Post");
         }
 
-        public ActionResult _CreateComment(Guid id) {
-
-            Post comment = new Post();
-            
-            comment.PostID = id;
-            return View(comment);
-        }
 
         [HttpPost]
         public ActionResult _CreateComment(Post comment)
         {
-
-            comment.ID = Guid.NewGuid();
-            comment.Date = DateTime.Now;
-            comment.Type = 2;
-            _postRepo.Save(comment);
-
-            return RedirectToAction("Blog", "Post");
+            if (ModelState.IsValid)
+            {
+                comment.ID = Guid.NewGuid();
+                comment.Date = DateTime.Now;
+                comment.Type = 2;
+                _postRepo.Save(comment);
+                return RedirectToAction("Blog", "Post");
+            }
+            return PartialView(comment);
         }
     }   
 }

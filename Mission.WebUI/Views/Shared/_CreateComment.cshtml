@@ -1,7 +1,7 @@
 ﻿@using Mission.Domain.Entities
 @model Post
 
-@using (Html.BeginForm()) { 
+@using (Html.BeginForm("_CreateComment", "Post") ) { 
 
     <p>namn <br />
         @Html.HiddenFor(p => p.PostID)
