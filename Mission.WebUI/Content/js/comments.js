@@ -12,8 +12,7 @@
 
     });
 
-<<<<<<< HEAD
-=======
+
     $(".createcommenttext").click(function () {
 
         if ($(this).next().hasClass('showinputs')) {
@@ -27,6 +26,4 @@
 
 
     });
-
->>>>>>> comment-css
 });
