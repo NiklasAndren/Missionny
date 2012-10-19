@@ -13,28 +13,24 @@ namespace Mission.WebUI.Controllers
     public class EventController : Controller
     {
         private IRepository<Event> _eventRepo;
-        public EventController(IRepository<Event> eventRepo)
+        private IRepository<EventQuestion> _eventQuestionRepo;
+        public EventController(IRepository<Event> eventRepo, IRepository<EventQuestion> eventQuestion)
         {
+            _eventQuestionRepo = eventQuestion;
             _eventRepo = eventRepo;
         }
 
         public ActionResult Index()
         {
-
             List<Event> AllEvents = _eventRepo .FindAll().OrderByDescending(p => p.Date).ToList();
-
             return View(AllEvents);
         }
         [AuthorizeAdmin]
         public ActionResult CreateEvent()
         {
-
             Event NewEvent = new Event();
-
             return View();
         }
-
-        
 
         [HttpPost]
         [AuthorizeAdmin]
@@ -43,14 +39,12 @@ namespace Mission.WebUI.Controllers
             newEvent.ID = Guid.NewGuid();
             newEvent.Description = HttpUtility.HtmlDecode(newEvent.Description);
             _eventRepo.Save(newEvent);
-
             return RedirectToAction("Index", "Event");
         }
 
         public ActionResult Edit(Guid id)
         {
             Event events = _eventRepo.FindByID(id);
-
             return View(events);
         }
 
@@ -67,6 +61,18 @@ namespace Mission.WebUI.Controllers
         {
             Event events = _eventRepo.FindByID(id);
             _eventRepo.Delete(events);
+            return RedirectToAction("Index", "Event");
+        }
+
+        public ActionResult CreateEventQuestion() {
+            EventQuestion eventquestion = new EventQuestion();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateEventQuestion(EventQuestion eq)
+        {
+            _eventQuestionRepo.Save(eq);
             return RedirectToAction("Index", "Event");
         }
     }

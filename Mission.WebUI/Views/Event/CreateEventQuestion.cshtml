@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "CreateEventQuestion";
+}
+@using Mission.WebUI.ViewModels
+@model vm_EventQuestion
+
+<h2>CreateEventQuestion</h2>
+
+    @using (Html.BeginForm()) { 
+        <p>Ny fråga <br />
+            @Html.EditorFor(p => p.EventQuestion.Question)
+        </p>
+    }
