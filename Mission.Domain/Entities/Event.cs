@@ -13,5 +13,6 @@ namespace Mission.Domain.Entities
         public DateTime Date { get; set; }
         public String HeadLine { get; set; }
         public String Description { get; set; }
+        public virtual ICollection<EventQuestion> EventQuestions { get; set;}
     }
 }
