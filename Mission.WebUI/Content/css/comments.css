@@ -1,6 +1,19 @@
 /* COMMENTS ------------------------------------------------------------*/
 
+.createcommenttext>a
+{
+    text-decoration:underline;
+}
 
+.createcommenttext
+{
+    margin-top:20px;
+}
+
+.createcommenttext>a, .comments>a
+{
+    cursor:pointer;
+}
 
 .createcomments
 {

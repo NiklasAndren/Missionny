@@ -1,12 +1,12 @@
 ﻿jQuery(document).ready(function () {
 
-    $(".comments").click(function () {
+    $(".comments > a").click(function () {
 
-        if ($(this).parent().next().hasClass('selected')) {
-            $(this).parent().next().removeClass('selected').slideToggle('fast', function () { });
+        if ($(this).parent().parent().next().hasClass('selected')) {
+            $(this).parent().parent().next().removeClass('selected').slideToggle('fast', function () { });
         }
         else {
-            $(this).parent().next().addClass('selected').slideToggle('fast', function () { });
+            $(this).parent().parent().next().addClass('selected').slideToggle('fast', function () { });
         }
 
 

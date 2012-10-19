@@ -829,8 +829,17 @@ article .meta div{
 }
 
 article .meta .comments{
+	border-left: 1px solid #cecece;
+	background: url(../img/icon-comments.png) no-repeat;
+}
+
+article .meta .edit{
 	border-left: 1px solid #cecece;	
-	border-right: 1px solid #cecece;
+	background: url(../img/icon-comments.png) no-repeat;
+}
+
+article .meta .delete{
+	border-left: 1px solid #cecece;	
 	background: url(../img/icon-comments.png) no-repeat;
 }
 
@@ -844,7 +853,8 @@ article .meta .categories{
 
 article .meta .categories,
 article .meta .comments,
-article .meta .user{
+article .meta .edit,
+article .meta .delete{
 	background-position: 5px 12px;	
 }
 
