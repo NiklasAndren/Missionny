@@ -12,6 +12,6 @@
         <div class="BlogComments">
         <div class="createcommenttext"><a>Skriv egen kommentar</a></div>
         <div class ="createcomments">@Html.Partial("_CreateComment", new Comment { PostID = Model.ID }) </div>
-            <div id="comments-wrap">@Html.DisplayFor(m => Model.Comments)</div>
-        </div>
+        <div id="comments-wrap">@Html.DisplayFor(m => Model.Comments)</div>
+    </div>
 </article>

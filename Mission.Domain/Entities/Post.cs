@@ -10,15 +10,11 @@ namespace Mission.Domain.Entities
     public enum Type { News, Blog }
     public class Post : IEntity
     {
-             
         public Guid ID { get; set; }
         public string Title { get; set; }
         public DateTime Date { get; set; }
         public string Body { get; set; }
         public int Type { get; set; }
-        public virtual ICollection<Comment> Comments {get; set;}
-
-
-        
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

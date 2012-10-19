@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -28,18 +29,13 @@ namespace Mission.WebUI.Controllers
 
 
         public ActionResult Index() {
-
-            List<Post> AllPosts = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.News).OrderByDescending(p => p.Date).ToList();
-        
+            List<Post> AllPosts = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.News).OrderByDescending(p => p.Date).ToList();       
             return View(AllPosts);
         }
 
         
         public ActionResult CreatePost(){
-            
             var post = new Post();
-            
-
             return View(post);
         }
 
@@ -47,33 +43,28 @@ namespace Mission.WebUI.Controllers
         [AuthorizeAdmin]
         public ActionResult CreatePost(Post post)
         {
-
             post.ID = Guid.NewGuid();
             post.Date = DateTime.Now;
             post.Body = HttpUtility.HtmlDecode(post.Body);
-            _postRepo.Save(post);
-            
+            _postRepo.Save(post);           
 
             if (post.Type == 0)
             {
                 return RedirectToAction("Index", "Post");
             }
-
             return RedirectToAction("Blog", "Post");
         }
 
         public ActionResult Blog()
         {
             BlogComments bc = new BlogComments();
-
             bc.Posts = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.Blog).OrderByDescending(p => p.Date).ToList();
-            bc.BlogComment = _commentRepo.FindAll().OrderByDescending(c => c.Date).ToList();
+            bc.BlogComment = _commentRepo.FindAll().OrderByDescending(p => p.Date).ToList();
             return View(bc);
         }
 
         public ActionResult Edit(Guid id) {
             Post post = _postRepo.FindByID(id);
-
             return View(post);
         }
 
@@ -85,15 +76,13 @@ namespace Mission.WebUI.Controllers
             if (post.Type == 0)
                 return RedirectToAction("Index", "Post");
             else
-                return RedirectToAction("Blog", "Post");
-        
+                return RedirectToAction("Blog", "Post");        
         }
 
         public ActionResult Delete(Guid id)
         {
             Post post = _postRepo.FindByID(id);
             _postRepo.Delete(post);
-
             if (post.Type == 0)
                 return RedirectToAction("Index", "Post");
             else
@@ -117,6 +106,13 @@ namespace Mission.WebUI.Controllers
                 return RedirectToAction("Blog", "Post");
             }
             return PartialView();
+        }
+
+        public ActionResult DeleteComment(Guid id)
+        {
+            Comment comment = _commentRepo.FindByID(id);
+            _commentRepo.Delete(comment);
+            return RedirectToAction("Blog", "Post");
         }
     }   
 }
