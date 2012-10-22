@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Mission.WebUI.Properties {
+namespace Mission.Domain.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

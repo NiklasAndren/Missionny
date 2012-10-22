@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Mission.WebUI {
+namespace Mission.Domain {
     
     
     /// <summary>
@@ -1338,7 +1338,7 @@ namespace Mission.WebUI {
         }
     }
 }
-namespace Mission.WebUI._Mission_Domain_Contexts_EFDbContextDataSetTableAdapters {
+namespace Mission.Domain._Mission_Domain_Contexts_EFDbContextDataSetTableAdapters {
     
     
     /// <summary>
@@ -1511,7 +1511,7 @@ SELECT ID, Title, Date, Body, Type, UserID FROM Posts WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Mission.WebUI.Properties.Settings.Default.Mission_Domain_Contexts_EFDbContextConnectionString;
+            this._connection.ConnectionString = global::Mission.Domain.Properties.Settings.Default.Mission_Domain_Contexts_EFDbContextConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1854,7 +1854,7 @@ SELECT ID, UserName, Role, UserEmailAddress, PasswordHash, Salt FROM Users WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Mission.WebUI.Properties.Settings.Default.Mission_Domain_Contexts_EFDbContextConnectionString;
+            this._connection.ConnectionString = global::Mission.Domain.Properties.Settings.Default.Mission_Domain_Contexts_EFDbContextConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

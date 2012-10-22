@@ -6,7 +6,7 @@ using Mission.Domain.Entities;
 using Mission.Domain.Entities.Abstract;
 using System.ComponentModel.DataAnnotations;
 
-namespace Mission.WebUI.Entities
+namespace Mission.Domain.Entities
 {
     public enum Gender { Male, Female }
     

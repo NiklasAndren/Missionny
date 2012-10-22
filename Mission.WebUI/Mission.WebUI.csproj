@@ -84,6 +84,7 @@
     <Compile Include="ViewModels\Account.cs" />
     <Compile Include="ViewModels\BlogComments.cs" />
     <Compile Include="ViewModels\CustomMembershipProvider.cs" />
+    <Compile Include="ViewModels\vm_AnswereEventQuestion.cs" />
     <Compile Include="ViewModels\vm_EventQuestion.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2241,6 +2242,7 @@
     <Content Include="Views\Shared\DisplayTemplates\Comment.cshtml" />
     <Content Include="Views\Shared\_PostMeta.cshtml" />
     <Content Include="Views\Event\CreateEventQuestion.cshtml" />
+    <Content Include="Views\Event\CreateAnswere.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

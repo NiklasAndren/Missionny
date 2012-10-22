@@ -80,5 +80,13 @@ namespace Mission.WebUI.Controllers
             _eventQuestionRepo.Save(eq);
             return RedirectToAction("Index", "Event");
         }
+
+        public ActionResult CreateAnswere(Guid id) {
+            var vm = new vm_AnswereEventQuestion();
+            vm.EventQuestions = _eventQuestionRepo.FindAll(eq => eq.EventID == id).ToList();
+            
+
+            return View(vm);
+        }
     }
 }

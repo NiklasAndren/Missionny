@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Mission.Domain.Entities.Abstract;
-using Mission.WebUI.Entities;
-
 
 namespace Mission.Domain.Entities
 {

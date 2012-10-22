@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="Mission_Domain_Contexts_EFDbContextConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Mission_Domain_Contexts_EFDbContextConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Mission.WebUI.Properties.Settings.GlobalReference.Default.Mission_Domain_Contexts_EFDbContextConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="Mission_Domain_Contexts_EFDbContextConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Mission_Domain_Contexts_EFDbContextConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Mission.Domain.Properties.Settings.GlobalReference.Default.Mission_Domain_Contexts_EFDbContextConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PostsTableAdapter" GeneratorDataComponentClassName="PostsTableAdapter" Name="Posts" UserDataComponentName="PostsTableAdapter">
@@ -212,7 +212,7 @@ SELECT ID, UserName, Role, UserEmailAddress, PasswordHash, Salt FROM Users WHERE
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_dbo.Posts_dbo.Users_UserID" msdata:parent="Users" msdata:child="Posts" msdata:parentkey="ID" msdata:childkey="UserID" msprop:Generator_UserChildTable="Posts" msprop:Generator_ChildPropName="GetPostsRows" msprop:Generator_ParentPropName="UsersRow" msprop:Generator_UserRelationName="FK_dbo.Posts_dbo.Users_UserID" msprop:Generator_RelationVarName="_relationFK_dbo_Posts_dbo_Users_UserID" msprop:Generator_UserParentTable="Users" />
+      <msdata:Relationship name="FK_dbo.Posts_dbo.Users_UserID" msdata:parent="Users" msdata:child="Posts" msdata:parentkey="ID" msdata:childkey="UserID" msprop:Generator_UserChildTable="Posts" msprop:Generator_ChildPropName="GetPostsRows" msprop:Generator_UserParentTable="Users" msprop:Generator_UserRelationName="FK_dbo.Posts_dbo.Users_UserID" msprop:Generator_RelationVarName="_relationFK_dbo_Posts_dbo_Users_UserID" msprop:Generator_ParentPropName="UsersRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "CreateAnswere";
+}
+@using Mission.WebUI.ViewModels
+@model vm_AnswereEventQuestion
+<h2>CreateAnswere</h2>
+
+@using (Html.BeginForm()) { 
+    <p>
+        Namn: @Html.EditorFor(a => a.Answere.Username)
+    </p>
+    <p>
+        @Html.RadioButtonFor(a => a.Answere.Gender, 0)Man
+        @Html.RadioButtonFor(a => a.Answere.Gender, 1)Kvinna
+    </p>
+    <p>
+        @Html.EditorFor(a => a.Answere.Age)
+    </p>
+   
+    foreach (var eq in Model.EventQuestions) { 
+        <div>
+            @eq.Question @Html.RadioButtonFor(a => a.Answere.Score, 1)1
+                         @Html.RadioButtonFor(a => a.Answere.Score, 2)2
+                         @Html.RadioButtonFor(a => a.Answere.Score, 3)3
+                         @Html.RadioButtonFor(a => a.Answere.Score, 4)4
+                         @Html.RadioButtonFor(a => a.Answere.Score, 5)5
+        </div>
+    }
+    <div>
+        <input type="submit" value ="Skapa post"/>
+    </div>
+    
+}
