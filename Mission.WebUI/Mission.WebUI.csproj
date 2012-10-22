@@ -84,7 +84,7 @@
     <Compile Include="ViewModels\Account.cs" />
     <Compile Include="ViewModels\BlogComments.cs" />
     <Compile Include="ViewModels\CustomMembershipProvider.cs" />
-    <Compile Include="ViewModels\EventQuestion.cs" />
+    <Compile Include="ViewModels\vm_EventQuestion.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\comments.css" />

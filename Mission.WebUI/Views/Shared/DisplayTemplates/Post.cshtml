@@ -1,5 +1,10 @@
 ﻿@using Mission.Domain.Entities
 @model Post
+@{
+    
+    List<Comment> orderedComments = Model.Comments.OrderByDescending(c => c.Date).ToList();
+}
+
 <article class="format-standard">
 	<div class="entry-date">
         <div class="number">@Model.Date.Day</div>
@@ -12,6 +17,6 @@
         <div class="BlogComments">
         <div class="createcommenttext"><a>Skriv egen kommentar</a></div>
         <div class ="createcomments">@Html.Partial("_CreateComment", new Comment { PostID = Model.ID }) </div>
-        <div id="comments-wrap">@Html.DisplayFor(m => Model.Comments)</div>
+        <div id="comments-wrap">@Html.DisplayFor(m => orderedComments)</div>
     </div>
 </article>

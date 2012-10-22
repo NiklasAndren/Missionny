@@ -3,11 +3,35 @@
 }
 @using Mission.WebUI.ViewModels
 @model vm_EventQuestion
+@{
+    var EventID = Model.Event.ID;
+    var Question = "";
+}
 
 <h2>CreateEventQuestion</h2>
 
-    @using (Html.BeginForm()) { 
-        <p>Ny fråga <br />
-            @Html.EditorFor(p => p.EventQuestion.Question)
-        </p>
-    }
+<div>
+    <p>@Model.Event.HeadLine</p>
+    <p>@MvcHtmlString.Create(@Model.Event.Description)</p>
+    <div>
+        @foreach (var eq in Model.EventQuestions) { 
+            <br />
+            @eq.Question
+            <br />
+        }
+    </div>
+</div>
+
+@using (Html.BeginForm("CreateEventQuestion","Event"))
+{ 
+    <p> 
+        <br />       
+        Ny fråga
+        <br />
+        @Html.TextAreaFor(p => Question)
+        @Html.HiddenFor(p => EventID)
+    </p>
+    <div>
+        <input type="submit" value="Skapa post" />
+    </div>
+}

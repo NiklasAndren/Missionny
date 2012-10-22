@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Mission.Domain.Repositories.Abstract;
 using Mission.Domain.Entities;
 using Mission.WebUI.Infrastructure;
+using Mission.WebUI.ViewModels;
 
 namespace Mission.WebUI.Controllers
 {
@@ -64,14 +65,18 @@ namespace Mission.WebUI.Controllers
             return RedirectToAction("Index", "Event");
         }
 
-        public ActionResult CreateEventQuestion() {
-            EventQuestion eventquestion = new EventQuestion();
-            return View();
+        public ActionResult CreateEventQuestion(Guid id) {
+            var vm = new vm_EventQuestion();
+            vm.Event = _eventRepo.FindByID(id);
+            vm.EventQuestions = _eventQuestionRepo.FindAll(p => p.EventID == id).ToList();
+            
+            return View(vm);
         }
 
         [HttpPost]
         public ActionResult CreateEventQuestion(EventQuestion eq)
         {
+            eq.ID = Guid.NewGuid();   
             _eventQuestionRepo.Save(eq);
             return RedirectToAction("Index", "Event");
         }
