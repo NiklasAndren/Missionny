@@ -79,7 +79,13 @@
 
 
 <div class="wrapper">
-    <h1 id="headtext" style="color:White;">Jesper Caron</h1>
+    <div class="jlogo"></div>
+    <div id="presskit">
+    <div id="presskit-fb"><img src="@Url.Content("~/Content/img/glyphicons/glyphicons_390_facebook.png")" /></div>
+    <div id="presskit-ap"><img src="@Url.Content("~/Content/img/glyphicons/glyphicons_067_cleaning.png")" /></div>
+    <div id="presskit-pk"><img src="@Url.Content("~/Content/img/glyphicons/glyphicons_074_cup.png")" /></div>
+    <div id="presskit-tw"><img src="@Url.Content("~/Content/img/glyphicons/glyphicons_074_cup.png")" /></div>
+    </div>
 
 	<nav id="meny">
 		<ul id="nav" class="sf-menu">
@@ -92,25 +98,26 @@
                     <li>@Html.ActionLink("Snabbfakta", "index", "Default")</li>
                 </ul>
             <li>@Html.ActionLink("Utgångspunkt", "index", "Default")</li>
-               @* <ul>
+                <ul>
                     <li>@Html.ActionLink("livsvision", "index", "Default")</li>
                     <li>@Html.ActionLink("Mental konditionsträning", "index", "Default")</li>
                     <li>@Html.ActionLink("Positiv Psykologi", "index", "Default")</li>
                     <li>@Html.ActionLink("Den stora tillståndsstudien", "index", "Default")</li>
-                </ul>*@
+                </ul>
 
             <li>@Html.ActionLink("Föreläsningar", "index", "Default")</li>
-               @* <ul>
+               <ul>
                     <li>@Html.ActionLink("Kunder", "index", "Default")</li>
                     <li>@Html.ActionLink("Erkännande", "index", "Default")</li>
                     <li>@Html.ActionLink("Om föreläsningarna", "index", "Default")</li>
-                </ul>*@
+                </ul>
 
             <li>@Html.ActionLink("Nyheter", "index", "Post")</li>
             <li>@Html.ActionLink("Blogg", "Blog", "Post")</li>
             <li>@Html.ActionLink("Event", "index", "Event")</li>        
             <li>@Html.ActionLink("Statistik", "index", "Statistics")</li>
-            <li>@Html.ActionLink("Kontakt", "index", "Contact")</li> 
+            <li>@Html.ActionLink("Kontakt", "index", "Contact")</li>
+
             @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
             {
                 <li>@Html.ActionLink("Skapa ny post", "CreatePost", "Post")</li>
@@ -132,8 +139,23 @@
 
 
 <div id="footer">
+    
+    <div id="contact-sidebar" class="block">
+
+    
+    <div id="presskit">
+    <div id="presskit-fb"><img src="@Url.Content("~/Content/img/glyphicons/glyphicons_390_facebook.png")" /></div>
+    <div id="presskit-ap"><img src="@Url.Content("~/Content/img/glyphicons/glyphicons_067_cleaning.png")" /></div>
+    <div id="presskit-pk"><img src="@Url.Content("~/Content/img/glyphicons/glyphicons_074_cup.png")" /></div>
+    <div id="presskit-tw"><img src="@Url.Content("~/Content/img/glyphicons/glyphicons_074_cup.png")" /></div>
+    </div>
+
+    </div>
+
     <div class="wrapper clearfix">
-@Html.Partial("_LogOn")
+
+
+@Html.Action("_LogOn", "Account")
 
 <aside id="contact-sidebar">
 		        		<div class="block">

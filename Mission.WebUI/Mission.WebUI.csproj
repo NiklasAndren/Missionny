@@ -97,6 +97,7 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\superfish.css" />
     <Content Include="Content\css\widgets.css" />
+    <Content Include="Content\img\alpha.png" />
     <Content Include="Content\img\arrows.png" />
     <Content Include="Content\img\date.png" />
     <Content Include="Content\img\div-line.png" />
@@ -527,6 +528,7 @@
     <Content Include="Content\img\kunder\05.png" />
     <Content Include="Content\img\kunder\06.png" />
     <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\logotype.jpg" />
     <Content Include="Content\img\noise.png" />
     <Content Include="Content\img\oblique-lines.png" />
     <Content Include="Content\img\plus.png" />

@@ -7,6 +7,37 @@
 
 /* GENERAL ------------------------------------------------------------*/
 
+#presskit-fb,
+#presskit-ap,
+#presskit-pk,
+#presskit-tw
+{
+    width: 31%;
+    height: 89%;
+    float: left;
+    padding-left: 1px;
+    padding-top: 2px;
+    background: #EBEBE8;
+    margin-bottom: 2px;
+    margin-left: 2px;
+}
+
+#presskit
+{
+   margin-top: -40px;
+    float: right;
+    border-radius: 5px;
+}
+
+.jlogo
+{
+    background: url(../img/alpha.png) no-repeat;
+    background-size: 100%;
+    height: 73px;
+    width: 101px;
+    display: block;
+}
+
 .excerpt img
 {
     max-width:540px;   
@@ -835,7 +866,7 @@ article .meta .comments{
 
 article .meta .edit{
 	border-left: 1px solid #cecece;	
-	background: url(../img/icon-comments.png) no-repeat;
+	background: url(../img/glyphicons/glyphicons_033_luggage.png) no-repeat;
 }
 
 article .meta .delete{
@@ -848,7 +879,8 @@ article .meta .user{
 }
 
 article .meta .categories{
-	background: url(../img/icon-tags.png) no-repeat;
+	background: url(../img/glyphicons/glyphicons_045_calendar.png) no-repeat;
+	background-size:24%;
 }
 
 article .meta .categories,
