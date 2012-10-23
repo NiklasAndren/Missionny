@@ -7,25 +7,24 @@
     var EventID = Model.Event.ID;
     var Question = "";
 }
-
-<h2>CreateEventQuestion</h2>
-
+<h2>
+    CreateEventQuestion</h2>
 <div>
     <p>@Model.Event.HeadLine</p>
     <p>@MvcHtmlString.Create(@Model.Event.Description)</p>
     <div>
-        @foreach (var eq in Model.EventQuestions) { 
+        @foreach (var eq in Model.EventQuestions)
+        { 
             <br />
             @eq.Question
             <br />
         }
     </div>
 </div>
-
-@using (Html.BeginForm("CreateEventQuestion","Event"))
+@using (Html.BeginForm("CreateEventQuestion", "Event"))
 { 
-    <p> 
-        <br />       
+    <p>
+        <br />
         Ny fråga
         <br />
         @Html.TextAreaFor(p => Question)

@@ -15,15 +15,18 @@ namespace Mission.WebUI.Controllers
     {
         private IRepository<Event> _eventRepo;
         private IRepository<EventQuestion> _eventQuestionRepo;
-        public EventController(IRepository<Event> eventRepo, IRepository<EventQuestion> eventQuestion)
+        private IRepository<Answer> _answerRepository;
+        public EventController(IRepository<Event> eventRepo, IRepository<EventQuestion> eventQuestion, IRepository<Answer> answerRepository)
         {
             _eventQuestionRepo = eventQuestion;
             _eventRepo = eventRepo;
+            _answerRepository = answerRepository;
+
         }
 
         public ActionResult Index()
         {
-            List<Event> AllEvents = _eventRepo .FindAll().OrderByDescending(p => p.Date).ToList();
+            List<Event> AllEvents = _eventRepo.FindAll().OrderByDescending(p => p.Date).ToList();
             return View(AllEvents);
         }
         [AuthorizeAdmin]
@@ -50,11 +53,12 @@ namespace Mission.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Event events) {
+        public ActionResult Edit(Event events)
+        {
             events.Date = DateTime.Now;
             events.Description = HttpUtility.HtmlDecode(events.Description);
             _eventRepo.Save(events);
-           
+
             return RedirectToAction("Index", "Event");
         }
 
@@ -65,28 +69,46 @@ namespace Mission.WebUI.Controllers
             return RedirectToAction("Index", "Event");
         }
 
-        public ActionResult CreateEventQuestion(Guid id) {
+        public ActionResult CreateEventQuestion(Guid id)
+        {
             var vm = new vm_EventQuestion();
             vm.Event = _eventRepo.FindByID(id);
             vm.EventQuestions = _eventQuestionRepo.FindAll(p => p.EventID == id).ToList();
-            
+
             return View(vm);
         }
 
         [HttpPost]
         public ActionResult CreateEventQuestion(EventQuestion eq)
         {
-            eq.ID = Guid.NewGuid();   
+            eq.ID = Guid.NewGuid();
             _eventQuestionRepo.Save(eq);
             return RedirectToAction("Index", "Event");
         }
 
-        public ActionResult CreateAnswere(Guid id) {
-            var vm = new vm_AnswereEventQuestion();
-            vm.EventQuestions = _eventQuestionRepo.FindAll(eq => eq.EventID == id).ToList();
-            
-
+        public ActionResult CreateAnswer(Guid id)
+        {
+            var vm = new vm_AnswerEventQuestion();
+            vm.Answers = _eventQuestionRepo.FindAll(eq => eq.EventID == id).Select(q => new AnswerVM { Question = q.Question, QuestionID = q.ID }).ToList();
             return View(vm);
+        }
+        [HttpPost]
+        public ActionResult CreateAnswer(vm_AnswerEventQuestion Answer)
+        {
+            foreach (var answer in Answer.Answers)
+            {
+                var qAnswer = new Answer
+                {
+                    Age = Answer.Age,
+                    EventQuestionID = answer.QuestionID,                 
+                    Username = Answer.Username, 
+                    ID = Guid.NewGuid(),
+                    Gender = Answer.Gender,
+                    Score = Int32.Parse(answer.Selected)
+                };
+                _answerRepository.Save(qAnswer);
+            } 
+            return View();
         }
     }
 }

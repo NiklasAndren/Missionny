@@ -79,12 +79,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AuthorizeAdminAttribute.cs" />
+    <Compile Include="Infrastructure\HtmlHelpers.cs" />
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Account.cs" />
     <Compile Include="ViewModels\BlogComments.cs" />
     <Compile Include="ViewModels\CustomMembershipProvider.cs" />
-    <Compile Include="ViewModels\vm_AnswereEventQuestion.cs" />
+    <Compile Include="ViewModels\vm_AnswerEventQuestion.cs" />
     <Compile Include="ViewModels\vm_EventQuestion.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2242,7 +2243,8 @@
     <Content Include="Views\Shared\DisplayTemplates\Comment.cshtml" />
     <Content Include="Views\Shared\_PostMeta.cshtml" />
     <Content Include="Views\Event\CreateEventQuestion.cshtml" />
-    <Content Include="Views\Event\CreateAnswere.cshtml" />
+    <Content Include="Views\Event\CreateAnswer.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AnswerVM.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

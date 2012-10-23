@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "CreateAnswer";
+}
+@using Mission.WebUI.ViewModels
+@model vm_AnswerEventQuestion
+<h2>CreateAnswere</h2>
+
+@using (Html.BeginForm()) { 
+    <p>
+        Namn: @Html.EditorFor(a => a.Username)
+    </p>
+    <p>
+        @Html.RadioButtonFor(a => a.Gender, 0)Man
+        @Html.RadioButtonFor(a => a.Gender, 1)Kvinna
+    </p>
+    <p>
+        @Html.EditorFor(a => a.Age)
+    </p>
+   
+    @Html.EditorFor(a => a.Answers)
+    
+    <div>
+        <input type="submit" value ="Skapa post"/>
+    </div>
+    
+}
