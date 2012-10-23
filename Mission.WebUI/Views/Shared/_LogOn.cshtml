@@ -14,12 +14,10 @@ else
     
     @Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
 
-using (Html.BeginForm())
-{
-    <div id="contact-sidebar" class="block">
+    using (Html.BeginForm("_LogOn", "Account", FormMethod.Post))
+    {
+   
         <fieldset>
-            <legend>Account Information</legend>
-
             <div class="editor-label">
                 @Html.LabelFor(m => m.UserName)
             </div>
@@ -45,8 +43,7 @@ using (Html.BeginForm())
                 <input type="submit" value="Log On" />
             </p>
         </fieldset>
-    </div>
-}
+    }
 
 }
 

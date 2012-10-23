@@ -3,69 +3,54 @@
 @using Mission.WebUI.ViewModels
 <head>
     <title>@ViewBag.Title</title>
-    
-<!--[if lt IE 9]>
+    <!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link rel="stylesheet" media="all" href="@Url.Content("~/Content/css/style.css")"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
-		
-		
-		<!-- JS -->
-		<script src="@Url.Content("~/Content/js/jquery-1.6.4.min.js")"></script>
-		<script src="@Url.Content("~/Content/js/css3-mediaqueries.js")"></script>
-		<script src="@Url.Content("~/Content/js/custom.js")"></script>
-		<script src="@Url.Content("~/Content/js/tabs.js")"></script>
-		<script src="@Url.Content("~/Content/js/comments.js")"></script>
-
-		<!-- Tweet -->
-		<link rel="stylesheet" href="@Url.Content("~/Content/css/jquery.tweet.css")" media="all"  /> 
-		<script src="@Url.Content("~/Content/js/tweet/jquery.tweet.js")" ></script> 
-		<!-- ENDS Tweet -->
-		
-		<!-- superfish -->
-		<link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/superfish.css")" /> 
-		<script  src="@Url.Content("~/Content/js/superfish-1.4.8/js/hoverIntent.js")"></script>
-		<script  src="@Url.Content("~/Content/js/superfish-1.4.8/js/superfish.js")"></script>
-		<script  src="@Url.Content("~/Content/js/superfish-1.4.8/js/supersubs.js")"></script>
-		<!-- ENDS superfish -->
-		
-		<!-- prettyPhoto -->
-		<script  src="@Url.Content("~/Content/js/prettyPhoto/js/jquery.prettyPhoto.js")"></script>
-		<link rel="stylesheet" href="@Url.Content("~/Content/js/prettyPhoto/css/prettyPhoto.css")"  media="screen" />
-		<!-- ENDS prettyPhoto -->
-		
-		<!-- poshytip -->
-		<link rel="stylesheet" href="@Url.Content("~/Content/js/poshytip-1.1/src/tip-twitter/tip-twitter.css")"  />
-		<link rel="stylesheet" href="@Url.Content("~/Content/js/poshytip-1.1/src/tip-yellowsimple/tip-yellowsimple.css")"  />
-		<script  src="@Url.Content("~/Content/js/poshytip-1.1/src/jquery.poshytip.min.js")"></script>
-		<!-- ENDS poshytip -->
-		
-		<!-- GOOGLE FONTS -->
-		<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300' rel='stylesheet' type='text/css'>
-		
-		<!-- Flex Slider -->
-		<link rel="stylesheet" href="@Url.Content("~/Content/css/flexslider.css")" >
-		<script src="@Url.Content("~/Content/js/jquery.flexslider-min.js")"></script>
-		<!-- ENDS Flex Slider -->
-		
-		<!-- Less framework -->
-		<link rel="stylesheet" media="all" href="@Url.Content("~/Content/css/lessframework.css")"/>
-		
-		<!-- modernizr -->
-		<script src="@Url.Content("~/Content/js/modernizr.js")"></script>
-		
-		<!-- SKIN -->
-		<link rel="stylesheet" media="all" href="@Url.Content("~/Content/css/skin.css")"/>
-
-    
+    <link rel="stylesheet" media="all" href="@Url.Content("~/Content/css/style.css")"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+    <!-- JS -->
+    <script src="@Url.Content("~/Content/js/jquery-1.6.4.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/css3-mediaqueries.js")"></script>
+    <script src="@Url.Content("~/Content/js/custom.js")"></script>
+    <script src="@Url.Content("~/Content/js/tabs.js")"></script>
+    <script src="@Url.Content("~/Content/js/comments.js")"></script>
+    <!-- Tweet -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/jquery.tweet.css")" media="all"  />
+    <script src="@Url.Content("~/Content/js/tweet/jquery.tweet.js")" ></script>
+    <!-- ENDS Tweet -->
+    <!-- superfish -->
+    <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/superfish.css")" />
+    <script  src="@Url.Content("~/Content/js/superfish-1.4.8/js/hoverIntent.js")"></script>
+    <script  src="@Url.Content("~/Content/js/superfish-1.4.8/js/superfish.js")"></script>
+    <script  src="@Url.Content("~/Content/js/superfish-1.4.8/js/supersubs.js")"></script>
+    <!-- ENDS superfish -->
+    <!-- prettyPhoto -->
+    <script  src="@Url.Content("~/Content/js/prettyPhoto/js/jquery.prettyPhoto.js")"></script>
+    <link rel="stylesheet" href="@Url.Content("~/Content/js/prettyPhoto/css/prettyPhoto.css")"  media="screen" />
+    <!-- ENDS prettyPhoto -->
+    <!-- poshytip -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/js/poshytip-1.1/src/tip-twitter/tip-twitter.css")"  />
+    <link rel="stylesheet" href="@Url.Content("~/Content/js/poshytip-1.1/src/tip-yellowsimple/tip-yellowsimple.css")"  />
+    <script  src="@Url.Content("~/Content/js/poshytip-1.1/src/jquery.poshytip.min.js")"></script>
+    <!-- ENDS poshytip -->
+    <!-- GOOGLE FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300' rel='stylesheet'
+        type='text/css'>
+    <!-- Flex Slider -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/flexslider.css")" >
+    <script src="@Url.Content("~/Content/js/jquery.flexslider-min.js")"></script>
+    <!-- ENDS Flex Slider -->
+    <!-- Less framework -->
+    <link rel="stylesheet" media="all" href="@Url.Content("~/Content/css/lessframework.css")"/>
+    <!-- modernizr -->
+    <script src="@Url.Content("~/Content/js/modernizr.js")"></script>
+    <!-- SKIN -->
+    <link rel="stylesheet" media="all" href="@Url.Content("~/Content/css/skin.css")"/>
 </head>
-
 <body>
-<header class="clearfix">
-
-@*<div id="top-widget-holder">
+    <header class="clearfix">
+        @*<div id="top-widget-holder">
 	<div class="wrapper">
 		<div id="top-widget">
 			<div class="padding">
@@ -76,103 +61,103 @@
     </div>
     <a href="#" id="top-open"></a>
 </div>*@
+        <div class="wrapper">
+            <div class="jlogo"></div>
 
+            <div id="presskit">
+                <div class="presskit-fb">
+                    <img src="@Url.Content("~/Content/img/glyphicons/glyphicons_390_facebook.png")" /></div>
+                <div class="presskit-ap">
+                    <img src="@Url.Content("~/Content/img/glyphicons/glyphicons_067_cleaning.png")" /></div>
+                <div class="presskit-pk">
+                    <img src="@Url.Content("~/Content/img/glyphicons/glyphicons_074_cup.png")" /></div>
+                <div class="presskit-tw">
+                    <img src="@Url.Content("~/Content/img/glyphicons/glyphicons_074_cup.png")" /></div>
+            </div>
 
-<div class="wrapper">
-    <div class="jlogo"></div>
-    <div id="presskit">
-    <div id="presskit-fb"><img src="@Url.Content("~/Content/img/glyphicons/glyphicons_390_facebook.png")" /></div>
-    <div id="presskit-ap"><img src="@Url.Content("~/Content/img/glyphicons/glyphicons_067_cleaning.png")" /></div>
-    <div id="presskit-pk"><img src="@Url.Content("~/Content/img/glyphicons/glyphicons_074_cup.png")" /></div>
-    <div id="presskit-tw"><img src="@Url.Content("~/Content/img/glyphicons/glyphicons_074_cup.png")" /></div>
-    </div>
+            <nav id="meny">
 
-	<nav id="meny">
-		<ul id="nav" class="sf-menu">
-            <li>@Html.ActionLink("Start", "index", "Home")</li>
-
-            <li>@Html.ActionLink("Jesper Caron", "index", "Default")</li>
-                <ul>
-                    <li>@Html.ActionLink("Föreläsare", "index", "Default")</li>
-                    <li>@Html.ActionLink("Presentation", "index", "Default")</li>
-                    <li>@Html.ActionLink("Snabbfakta", "index", "Default")</li>
-                </ul>
-            <li>@Html.ActionLink("Utgångspunkt", "index", "Default")</li>
-                <ul>
-                    <li>@Html.ActionLink("livsvision", "index", "Default")</li>
-                    <li>@Html.ActionLink("Mental konditionsträning", "index", "Default")</li>
-                    <li>@Html.ActionLink("Positiv Psykologi", "index", "Default")</li>
-                    <li>@Html.ActionLink("Den stora tillståndsstudien", "index", "Default")</li>
-                </ul>
-
-            <li>@Html.ActionLink("Föreläsningar", "index", "Default")</li>
-               <ul>
-                    <li>@Html.ActionLink("Kunder", "index", "Default")</li>
-                    <li>@Html.ActionLink("Erkännande", "index", "Default")</li>
-                    <li>@Html.ActionLink("Om föreläsningarna", "index", "Default")</li>
-                </ul>
-
-            <li>@Html.ActionLink("Nyheter", "index", "Post")</li>
-            <li>@Html.ActionLink("Blogg", "Blog", "Post")</li>
-            <li>@Html.ActionLink("Event", "index", "Event")</li>        
-            <li>@Html.ActionLink("Statistik", "index", "Statistics")</li>
-            <li>@Html.ActionLink("Kontakt", "index", "Contact")</li>
-
-            @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
-            {
-                <li>@Html.ActionLink("Skapa ny post", "CreatePost", "Post")</li>
+                <ul id="nav" class="sf-menu">
+                    <li>@Html.ActionLink("Start", "index", "Home")</li>
+                    <li>@Html.ActionLink("Jesper Caron", "index", "Default")</li>
+                    <ul>
+                        <li>@Html.ActionLink("Föreläsare", "index", "Default")</li>
+                        <li>@Html.ActionLink("Presentation", "index", "Default")</li>
+                        <li>@Html.ActionLink("Snabbfakta", "index", "Default")</li>
+                    </ul>
+                    <li>@Html.ActionLink("Utgångspunkt", "index", "Default")</li>
+                    <ul>
+                        <li>@Html.ActionLink("livsvision", "index", "Default")</li>
+                        <li>@Html.ActionLink("Mental konditionsträning", "index", "Default")</li>
+                        <li>@Html.ActionLink("Positiv Psykologi", "index", "Default")</li>
+                        <li>@Html.ActionLink("Den stora tillståndsstudien", "index", "Default")</li>
+                    </ul>
+                    <li>@Html.ActionLink("Föreläsningar", "index", "Default")</li>
+                    <ul>
+                        <li>@Html.ActionLink("Kunder", "index", "Default")</li>
+                        <li>@Html.ActionLink("Erkännande", "index", "Default")</li>
+                        <li>@Html.ActionLink("Om föreläsningarna", "index", "Default")</li>
+                    </ul>
+                    <li>@Html.ActionLink("Nyheter", "index", "Post")</li>
+                    <li>@Html.ActionLink("Blogg", "Blog", "Post")</li>
+                    <li>@Html.ActionLink("Event", "index", "Event")</li>
+                    <li>@Html.ActionLink("Statistik", "index", "Statistics")</li>
+                    <li>@Html.ActionLink("Kontakt", "index", "Contact")</li>
+                    @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
+                    {
+                        <li>@Html.ActionLink("Skapa ny post", "CreatePost", "Post")</li>
             
-                <li>@Html.ActionLink("Skapa nytt event", "CreateEvent", "Event")</li>
-            }
-        
-    </ul>
-    </nav>
-    <div id="combo-holder"></div>
-</div>
-</header>
+                        <li>@Html.ActionLink("Skapa nytt event", "CreateEvent", "Event")</li>
+                    }
+                </ul>
+            </nav>
 
-<div id="main">	
-    <div class="wrapper clearfix">
-     @RenderBody()
-    </div>
-</div>
+            <div id="combo-holder">
+            </div>
 
+        </div>
+    </header>
 
-<div id="footer">
-    
-    <div id="contact-sidebar" class="block">
-
-    
-    <div id="presskit">
-    <div id="presskit-fb"><img src="@Url.Content("~/Content/img/glyphicons/glyphicons_390_facebook.png")" /></div>
-    <div id="presskit-ap"><img src="@Url.Content("~/Content/img/glyphicons/glyphicons_067_cleaning.png")" /></div>
-    <div id="presskit-pk"><img src="@Url.Content("~/Content/img/glyphicons/glyphicons_074_cup.png")" /></div>
-    <div id="presskit-tw"><img src="@Url.Content("~/Content/img/glyphicons/glyphicons_074_cup.png")" /></div>
+    <div id="main">
+        <div class="wrapper clearfix">
+            @RenderBody()
+        </div>
     </div>
 
+    <div id="footer">
+        <div class="wrapper clearfix">
+
+            <aside class="conact-sidebar footer-block">
+                <div class="block">
+                    <h4>
+                        Adress</h4>
+                    <ul class="address-block">
+                        <li class="address">Address line, city, state ZIP</li>
+                        <li class="phone">+123 456 789</li>
+                        <li class="mobile">+123 456 789</li>
+                        <li class="email"><a href="mailto:email@server.com">test@test.com</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="footer-block footer-presskit">
+            
+                <div class="footer-presskit-fb">
+                    <img src="@Url.Content("~/Content/img/glyphicons/glyphicons_390_facebook.png")" /></div>
+                <div class="footer-presskit-ap">
+                    <img src="@Url.Content("~/Content/img/glyphicons/glyphicons_067_cleaning.png")" /></div>
+                <div class="footer-presskit-pk">
+                    <img src="@Url.Content("~/Content/img/glyphicons/glyphicons_074_cup.png")" /></div>
+                <div class="footer-presskit-tw">
+                    <img src="@Url.Content("~/Content/img/glyphicons/glyphicons_074_cup.png")" /></div>
+            
+            </div>
+
+            <div class="login-form footer-block">
+                @Html.Partial("_LogOn", new LogOnModel())
+            </div>
+
+        </div>
     </div>
-
-    <div class="wrapper clearfix">
-
-
-@Html.Action("_LogOn", "Account")
-
-<aside id="contact-sidebar">
-		        		<div class="block">
-			        		<h4>Adress</h4> 		
-			        		<ul class="address-block">
-			        			<li class="address">Address line, city, state ZIP</li>
-			        			<li class="phone">+123 456 789</li>
-			        			<li class="mobile">+123 456 789</li>
-			        			<li class="email"><a href="mailto:email@server.com">test@test.com</a></li>
-			        		</ul>
-			        		
-		        		</div>	        	
-		        	</aside>
-     </div>
-</div>
 </body>
 </html>
-
-
-				

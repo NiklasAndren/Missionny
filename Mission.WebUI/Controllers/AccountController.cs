@@ -22,7 +22,7 @@ namespace Mission.Controllers
 
         public PartialViewResult _LogOn()
         {
-
+            var model = new LogOnModel();
             return PartialView();
         }
 
@@ -32,6 +32,7 @@ namespace Mission.Controllers
         [HttpPost]
         public ActionResult _LogOn(LogOnModel model, string returnUrl)
         {
+            returnUrl = "";
             if (ModelState.IsValid)
             {
                 if (_membership.ValidateUser(model.UserName, model.Password))
