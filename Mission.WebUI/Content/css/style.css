@@ -7,6 +7,37 @@
 
 /* GENERAL ------------------------------------------------------------*/
 
+.presskit-fb,
+.presskit-ap,
+.presskit-pk,
+.presskit-tw
+{
+    width: 31%;
+    height: 89%;
+    float: left;
+    padding-left: 1px;
+    padding-top: 2px;
+    background: #EBEBE8;
+    margin-bottom: 2px;
+    margin-left: 2px;
+}
+
+#presskit
+{
+   margin-top: -40px;
+    float: right;
+    border-radius: 5px;
+}
+
+.jlogo
+{
+    background: url(../img/alpha.png) no-repeat;
+    background-size: 100%;
+    height: 73px;
+    width: 101px;
+    display: block;
+}
+
 .excerpt img
 {
     max-width:540px;   
@@ -829,8 +860,17 @@ article .meta div{
 }
 
 article .meta .comments{
+	border-left: 1px solid #cecece;
+	background: url(../img/icon-comments.png) no-repeat;
+}
+
+article .meta .edit{
 	border-left: 1px solid #cecece;	
-	border-right: 1px solid #cecece;
+	background: url(../img/glyphicons/glyphicons_033_luggage.png) no-repeat;
+}
+
+article .meta .delete{
+	border-left: 1px solid #cecece;	
 	background: url(../img/icon-comments.png) no-repeat;
 }
 
@@ -839,12 +879,14 @@ article .meta .user{
 }
 
 article .meta .categories{
-	background: url(../img/icon-tags.png) no-repeat;
+	background: url(../img/glyphicons/glyphicons_045_calendar.png) no-repeat;
+	background-size:24%;
 }
 
 article .meta .categories,
 article .meta .comments,
-article .meta .user{
+article .meta .edit,
+article .meta .delete{
 	background-position: 5px 12px;	
 }
 

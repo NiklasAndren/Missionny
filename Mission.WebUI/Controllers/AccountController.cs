@@ -20,18 +20,19 @@ namespace Mission.Controllers
         //
         // GET: /Account/LogOn
 
-        public ActionResult LogOn()
+        public PartialViewResult _LogOn()
         {
-          
-            return View();
+            var model = new LogOnModel();
+            return PartialView();
         }
 
         //
         // POST: /Account/LogOn
 
         [HttpPost]
-        public ActionResult LogOn(LogOnModel model, string returnUrl)
+        public ActionResult _LogOn(LogOnModel model, string returnUrl)
         {
+            returnUrl = "";
             if (ModelState.IsValid)
             {
                 if (_membership.ValidateUser(model.UserName, model.Password))
