@@ -16,9 +16,9 @@ namespace Mission.Domain.Entities
         public string Username { get; set; }
         public int Gender { get; set; }
         public int Age { get; set; }
-        public Guid EventQuestionID { get; set; }
         [Range(1, 5)]
         public int Score { get; set; }
-        public virtual ICollection <EventQuestion> EventQuestion { get; set; }
+        public Guid EventQuestionID { get; set; }
+        public virtual EventQuestion EventQuestion { get; set; }
     }
 }

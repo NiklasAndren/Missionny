@@ -8,6 +8,7 @@ using Mission.Domain.Repositories.Abstract;
 using Mission.Domain.Entities;
 using Mission.WebUI.Infrastructure;
 using Mission.WebUI.ViewModels;
+using System.Web.Script.Serialization;
 
 namespace Mission.WebUI.Controllers
 {
@@ -110,5 +111,30 @@ namespace Mission.WebUI.Controllers
             } 
             return View();
         }
+
+        public ActionResult Statistics()
+        {
+            List<Event> events = _eventRepo.FindAll().ToList();
+
+            return View(events);
+        }
+
+        public JsonResult StatisticsDetails(Guid id)
+        {
+            var answers = _eventQuestionRepo.FindAll(e => e.EventID == id).SelectMany(e => e.Answers).GroupBy(e => e.Age).ToList();
+
+            return Json(answers);
+
+        }
+
+        public ActionResult EventStatistics(Guid id)
+        {
+
+            return View(id);
+
+        }
+        
+
+
     }
 }

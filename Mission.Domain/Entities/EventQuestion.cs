@@ -12,5 +12,6 @@ namespace Mission.Domain.Entities
         public string Question { get; set; }
         public Guid EventID { get; set; }
         public virtual Event Event { get; set;}
+        public virtual ICollection<Answer> Answers { get; set; }
     }
 }
