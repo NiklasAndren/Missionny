@@ -23,10 +23,18 @@
     </div>
 </div>
 <!-- ENDS headline -->
-<div id="two-thirds">
+
     <div class="home-block">
-        <h2 class="home-block-heading" id="customers">
+        <h2 class="home-block-heading">
             <span>KUNDER</span></h2>
+        <figure>
+            <figcaption>
+                <strong>Pellentesque habitant morbi</strong> <span>Pellentesque habitant morbi tristique
+                    senegestas. Vestibulum tortor quam</span> <em>December 08, 2011</em>
+            </figcaption>
+            <a href="#" class="thumb">
+                <img src="@Url.Content("~/Content/img/kunder/02.png")" alt="Alt text" /></a>
+        </figure>
         <figure>
             <figcaption>
                 <strong>Pellentesque habitant morbi</strong> <span>Pellentesque habitant morbi tristique
@@ -59,6 +67,20 @@
                 <a href="#" class="thumb">
                     <img src="@Url.Content("~/Content/img/kunder/05.png")" alt="Alt text" /></a>
             </figure>
+            <figure>
+                <figcaption>
+                    <strong>Kundnamn</strong> <span>Trolol lol hej jag heter Niklas.</span>
+                </figcaption>
+                <a href="#" class="thumb">
+                    <img src="@Url.Content("~/Content/img/kunder/05.png")" alt="Alt text" /></a>
+            </figure>
+            <figure>
+                <figcaption>
+                    <strong>Kundnamn</strong> <span>Trolol lol hej jag heter Niklas.</span>
+                </figcaption>
+                <a href="#" class="thumb">
+                    <img src="@Url.Content("~/Content/img/kunder/05.png")" alt="Alt text" /></a>
+            </figure>
             <figure class="last">
                 <figcaption>
                     <strong>Pellentesque habitant</strong> <span>Pellentesque habitant morbi tristiquem
@@ -75,8 +97,13 @@
 					<li><a href="#">3</a></li>
 				    </ul>*@
     </div>
-</div>
-<div id="one-third">
+
+
+<div class="wrapper clearfix">
+    <h2 class="home-block-heading" id="customers"">
+
+        <span>NYHETER</span></h2>
+        <div id="one-third">
     <div id="headline">
         <em id="corner"></em>
         <script type="text/javascript" src="@Url.Content("~/Content/js/form-validation.js")"></script>
@@ -110,8 +137,7 @@
         </form>
     </div>
 </div>
-<div class="wrapper clearfix">
-    <h2 class="home-block-heading">
-        <span>NYHETER</span></h2>
+
     @Html.Partial("_news")
+
 </div>

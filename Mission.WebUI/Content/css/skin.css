@@ -17,7 +17,7 @@ body a
 
 body a:hover, #top-widget-holder a:hover, #nav > li > a:hover, .project-heading .launch:hover
 {
-    color: #ea4c88;
+    color: #49AFCD;
 }
 
 h1, h2, h3, h4, h5, h6
@@ -52,9 +52,9 @@ body
 
 /* HEADER ------------------------------------------------------------*/
 
-header
+header, footer
 {
-    background: #333;
+    background: url(../img/wild_oliva.png) repeat-x;
 }
 /*url(../img/header.png) bottom left repeat-x*/
 
@@ -283,7 +283,7 @@ article .meta
 
 #footer
 {
-    background-color: #333;
+    background: url(../img/wild_oliva.png) repeat-x;
 }
 
 footer .wrapper

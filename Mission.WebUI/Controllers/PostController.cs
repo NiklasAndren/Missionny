@@ -33,7 +33,7 @@ namespace Mission.WebUI.Controllers
             return View(AllPosts);
         }
 
-        
+        [AuthorizeAdmin]
         public ActionResult CreatePost(){
             var post = new Post();
             return View(post);
@@ -63,12 +63,14 @@ namespace Mission.WebUI.Controllers
             return View(bc);
         }
 
+        [AuthorizeAdmin]
         public ActionResult Edit(Guid id) {
             Post post = _postRepo.FindByID(id);
             return View(post);
         }
 
         [HttpPost]
+        [AuthorizeAdmin]
         public ActionResult Edit(Post post) {
             post.Date = DateTime.Now;
             post.Body = HttpUtility.HtmlDecode(post.Body);
@@ -79,6 +81,7 @@ namespace Mission.WebUI.Controllers
                 return RedirectToAction("Blog", "Post");        
         }
 
+        [AuthorizeAdmin]
         public ActionResult Delete(Guid id)
         {
             Post post = _postRepo.FindByID(id);
@@ -91,6 +94,7 @@ namespace Mission.WebUI.Controllers
 
 
         [HttpPost]
+        [AuthorizeAdmin]
         public ActionResult _CreateComment(FormCollection commentCollection)
         {
             if (ModelState.IsValid)
@@ -108,6 +112,7 @@ namespace Mission.WebUI.Controllers
             return PartialView();
         }
 
+        [AuthorizeAdmin]
         public ActionResult DeleteComment(Guid id)
         {
             Comment comment = _commentRepo.FindByID(id);
