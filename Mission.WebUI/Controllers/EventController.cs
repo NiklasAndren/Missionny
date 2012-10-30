@@ -47,6 +47,7 @@ namespace Mission.WebUI.Controllers
             return RedirectToAction("Index", "Event");
         }
 
+        [AuthorizeAdmin]
         public ActionResult Edit(Guid id)
         {
             Event events = _eventRepo.FindByID(id);
@@ -54,6 +55,7 @@ namespace Mission.WebUI.Controllers
         }
 
         [HttpPost]
+        [AuthorizeAdmin]
         public ActionResult Edit(Event events)
         {
             events.Date = DateTime.Now;
@@ -63,6 +65,7 @@ namespace Mission.WebUI.Controllers
             return RedirectToAction("Index", "Event");
         }
 
+        [AuthorizeAdmin]
         public ActionResult Delete(Guid id)
         {
             Event events = _eventRepo.FindByID(id);
@@ -70,6 +73,7 @@ namespace Mission.WebUI.Controllers
             return RedirectToAction("Index", "Event");
         }
 
+        [AuthorizeAdmin]
         public ActionResult CreateEventQuestion(Guid id)
         {
             var vm = new vm_EventQuestion();
@@ -80,6 +84,7 @@ namespace Mission.WebUI.Controllers
         }
 
         [HttpPost]
+        [AuthorizeAdmin]
         public ActionResult CreateEventQuestion(EventQuestion eq)
         {
             eq.ID = Guid.NewGuid();
@@ -87,6 +92,7 @@ namespace Mission.WebUI.Controllers
             return RedirectToAction("Index", "Event");
         }
 
+        [AuthorizeAdmin]
         public ActionResult CreateAnswer(Guid id)
         {
             var vm = new vm_AnswerEventQuestion();
@@ -94,6 +100,7 @@ namespace Mission.WebUI.Controllers
             return View(vm);
         }
         [HttpPost]
+        [AuthorizeAdmin]
         public ActionResult CreateAnswer(vm_AnswerEventQuestion Answer)
         {
             foreach (var answer in Answer.Answers)

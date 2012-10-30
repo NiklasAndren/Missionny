@@ -29,7 +29,7 @@ jQuery(document).ready(function($){
 		// web
 		var web = $("input#web").val();
 		if(web == ""){
-			$("#error").fadeIn().text("Web required");
+			$("#error").fadeIn().text("Välj region");
 			$("input#web").focus();
 			return false;
 		}

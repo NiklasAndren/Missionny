@@ -108,7 +108,7 @@ body a{
 #logo:hover{ opacity: 0.8;}
 
 h1,h2,h3,h4,h5,h6{
-	font-family: 'Yanone Kaffeesatz', Arial, sans-serif;
+	font-family: 'Convergence', sans-serif;
 	font-weight: 400;
 }
 
@@ -497,7 +497,7 @@ nav a{
 
 .home-block figcaption em{ font-weight: bold; }
 
-.one-third-thumbs figure{ width: 193px; }
+.one-third-thumbs figure{ width: 172px; }
 
 .one-fourth-thumbs figure{ width: 220px; }
 
@@ -777,7 +777,7 @@ nav a{
 #posts-list,
 #post-content{
 	position: relative;
-	width: 700px;
+	width: 610px;
 	float: left;
 	margin-right: 20px;
 }
@@ -790,12 +790,13 @@ nav a{
 
 #posts-list .entry-date{
 	position: absolute;
-	top: 0px;
-	left: 23px;
+	top: 5px;
+	left: 5px;
 	width: 97px;
 	height: 97px;
 	background: url(../img/date.png) no-repeat;
-	font-family: 'Yanone Kaffeesatz', Arial, sans-serif;
+	font-family: 'Convergence', Arial, sans-serif;
+	
 }
 
 #posts-list .entry-date .number{
@@ -810,10 +811,18 @@ nav a{
 }
 
 
-#posts-list article{
+#posts-list article
+{
+    background-color:#fff;
 	position: relative;
-	padding-left: 160px;
+	padding-left: 130px;
 	margin-bottom: 40px;
+	border: 1px solid #cecece;
+	padding-bottom:10px;
+	-webkit-box-shadow:  1px 1px 1px 1px rgba(00, 00, 00, 0.3);
+        
+        box-shadow:  1px 1px 1px 1px rgba(00, 00, 00, 0.3);
+    
 }
 
 #posts-list .feature-image,
@@ -989,7 +998,7 @@ article .meta .delete{
 	width: 260px; /* 300 - 40 padding */
 	min-height: 275px;
 	padding: 70px 20px 20px 20px;;
-	margin-top:-8px;
+	margin-top:-67px;
 	-webkit-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
 	-moz-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
 	-o-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
@@ -1055,7 +1064,8 @@ article .meta .delete{
 
 #customers 
 {
-    width:102%;    
+    width:67%;
+      
 }
 
 
