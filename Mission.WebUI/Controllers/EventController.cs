@@ -98,6 +98,7 @@ namespace Mission.WebUI.Controllers
         {
             foreach (var answer in Answer.Answers)
             {
+               
                 var qAnswer = new Answer
                 {
                     Age = Answer.Age,
@@ -112,26 +113,27 @@ namespace Mission.WebUI.Controllers
             return View();
         }
 
-        public ActionResult Statistics()
-        {
-            List<Event> events = _eventRepo.FindAll().ToList();
-
-            return View(events);
-        }
-
         public JsonResult StatisticsDetails(Guid id)
         {
-            var answers = _eventQuestionRepo.FindAll(e => e.EventID == id).SelectMany(e => e.Answers).GroupBy(e => e.Age).ToList();
+            var answers = from e in (_eventQuestionRepo.FindAll(e => e.EventID == id).SelectMany(e => e.Answers))
+                          group e by new { e.Gender, e.AgeSpan } 
+                          into GenderGroup
+                          select new AnswerResult
+                          {
+                              Gender =  GenderGroup.Key.Gender,
+                              AgeSpan = GenderGroup.Key.AgeSpan,
+                              Score = GenderGroup.Select(g => g.Score).Average()
+                          };
 
-            return Json(answers);
+            return Json(answers, JsonRequestBehavior.AllowGet);
 
         }
 
         public ActionResult EventStatistics(Guid id)
         {
 
-            return View(id);
 
+            return View(id);
         }
         
 

@@ -29,4 +29,11 @@ namespace Mission.WebUI.ViewModels
             new SelectListItem {Text = "5" , Value = "5"}   
         };
     }
+
+    public class AnswerResult
+    {
+        public AgeSpan AgeSpan { get; set; }
+        public int Gender { get; set; }
+        public double Score { get; set; }
+    }
 }
