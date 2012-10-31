@@ -3,24 +3,26 @@
 }
 @using Mission.WebUI.ViewModels
 @model vm_AnswerEventQuestion
-<h2>CreateAnswere</h2>
+
 
 @using (Html.BeginForm()) { 
     <p>
-        Namn: @Html.EditorFor(a => a.Username)
+        Namn <br /> 
+        @Html.EditorFor(a => a.Username)
     </p>
     <p>
         @Html.RadioButtonFor(a => a.Gender, 0)Man
         @Html.RadioButtonFor(a => a.Gender, 1)Kvinna
     </p>
     <p>
+        Ålder<br />
         @Html.EditorFor(a => a.Age)
     </p>
    
     @Html.EditorFor(a => a.Answers)
     
     <div>
-        <input type="submit" value ="Skapa post"/>
+        <input type="submit" value ="Spara"/>
     </div>
     
 }

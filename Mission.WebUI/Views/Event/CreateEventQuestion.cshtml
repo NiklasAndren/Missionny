@@ -1,14 +1,10 @@
-﻿@{
-    ViewBag.Title = "CreateEventQuestion";
-}
+﻿
 @using Mission.WebUI.ViewModels
 @model vm_EventQuestion
 @{
     var EventID = Model.Event.ID;
     var Question = "";
 }
-<h2>
-    CreateEventQuestion</h2>
 <div>
     <p>@Model.Event.HeadLine</p>
     <p>@MvcHtmlString.Create(@Model.Event.Description)</p>

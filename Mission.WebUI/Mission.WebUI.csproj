@@ -2643,6 +2643,8 @@
     <Content Include="Views\Shared\EditorTemplates\AnswerVM.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\LogOn.cshtml" />
     <Content Include="Views\Event\EventStatistics.cshtml" />
+    <Content Include="Views\Event\Overview.cshtml" />
+    <Content Include="Views\Event\SingleEvent.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

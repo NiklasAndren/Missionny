@@ -16,7 +16,7 @@
             console.log(Categories);
             console.log(google);
             var data = google.visualization.arrayToDataTable(Categories);          
-            var options = { title: 'Company Performance', hAxis: { title: 'Year', titleTextStyle: { color: 'red'}} };
+            var options = { title: 'Betyg för event', hAxis: { title: 'Åldersspann', titleTextStyle: { color: 'red'}} };
             var chart = new google.visualization.ColumnChart(document.getElementById('chart_div')); chart.draw(data, options);
         }
     });

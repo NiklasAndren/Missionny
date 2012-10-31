@@ -22,10 +22,6 @@ namespace Mission.Domain.Entities
     
     public class Answer : IEntity
     {
-
-     
-
-
         public Guid ID { get; set; }
         public string Username { get; set; }
         public int Gender { get; set; }

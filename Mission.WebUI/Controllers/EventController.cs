@@ -138,11 +138,18 @@ namespace Mission.WebUI.Controllers
 
         public ActionResult EventStatistics(Guid id)
         {
-
-
             return View(id);
         }
-        
+        [AuthorizeAdmin]
+        public ActionResult Overview() {
+            List<Event> AllEvents = _eventRepo.FindAll().ToList();
+            return View (AllEvents);
+        }
+
+        public ActionResult SingleEvent(Guid id) {
+            var Event = _eventRepo.FindByID(id);
+            return View(Event);
+        }
 
 
     }
