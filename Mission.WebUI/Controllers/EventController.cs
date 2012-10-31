@@ -123,14 +123,14 @@ namespace Mission.WebUI.Controllers
         public JsonResult StatisticsDetails(Guid id)
         {
             var answers = from e in (_eventQuestionRepo.FindAll(e => e.EventID == id).SelectMany(e => e.Answers))
-                          group e by new { e.Gender, e.AgeSpan } 
+                          group e by new { e.AgeSpan } 
                           into GenderGroup
-                          select new AnswerResult
-                          {
-                              Gender =  GenderGroup.Key.Gender,
-                              AgeSpan = GenderGroup.Key.AgeSpan,
-                              Score = GenderGroup.Select(g => g.Score).Average()
-                          };
+                              select new AnswerResult
+                              {
+                                  AgeSpan = GenderGroup.Key.AgeSpan,
+                                  mScore = GenderGroup.Where(g => g.Gender == 0).Select(g => g.Score).DefaultIfEmpty(0).Average(),
+                                  fScore = GenderGroup.Where(g => g.Gender == 1).Select(g => g.Score).DefaultIfEmpty(0).Average()
+                              };
 
             return Json(answers, JsonRequestBehavior.AllowGet);
 
