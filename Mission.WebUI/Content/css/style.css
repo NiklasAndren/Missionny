@@ -1206,3 +1206,10 @@ td a:first-child{border-left: 0px solid black !important;}
     background-position: -1px -1px;
 }
 .excerpt span {display: none;}
+
+
+#subscribe-link
+{
+     color: #FFFFFF;
+     margin-left: 40px;
+}
