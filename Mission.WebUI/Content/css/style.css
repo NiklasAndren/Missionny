@@ -777,7 +777,7 @@ nav a{
 #posts-list,
 #post-content{
 	position: relative;
-	width: 610px;
+	width: 100%;
 	float: left;
 	margin-right: 20px;
 }
@@ -1100,11 +1100,23 @@ footer .wrapper,
 	width: 50%;
 	float: right;
 }
-
 .statisticsTable table
 {   
-    border-radius: 10px;
-    overflow: hidden;
+    width: 100%;
+}
+
+.statisticsTable 
+{   
+    border-radius: 10px ;
+    overflow: hidden ;
+    box-shadow: 2px 2px 3px 2px #aaa;
+    margin-top: 10px;
+    width: 100%;
+}
+.statisticsTable
+{   
+    border-radius: 10px ;
+    overflow: hidden ;
     box-shadow: 2px 2px 3px 2px #aaa;
     margin-top: 10px;
     width: 100%;
@@ -1127,3 +1139,20 @@ tr:nth-child(odd) {background: #FFF}
 td:nth-child(even){width: 40%;}
 th:nth-child(odd){text-align:left; padding-left: 10px;}
 td a:first-child{border-left: 0px solid black !important;}
+
+
+.charts
+{
+ text-align: center;
+}
+.charts p{font-size: 20px; }
+
+.chartDiv
+{   
+    background-color: #fff;
+    margin: auto;
+    box-shadow: 2px 2px 3px 2px #aaa;
+    margin-bottom: 20px     
+}
+
+.newsDiv{width:610px;}

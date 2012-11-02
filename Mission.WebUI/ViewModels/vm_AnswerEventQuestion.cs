@@ -32,8 +32,8 @@ namespace Mission.WebUI.ViewModels
 
     public class AnswerResult
     {
-        public AgeSpan AgeSpan { get; set; }
-       // public int Gender { get; set; }
+        public string AgeSpan { get; set; }
+        public string Question { get; set; }
         public double mScore { get; set; }
         public double fScore { get; set; }
     }

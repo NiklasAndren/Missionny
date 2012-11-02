@@ -8,18 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Mission.Domain.Entities
 {
-    public enum Gender { Male, Female }
-
-    public enum AgeSpan
-    {
-        e18_26 = 26,
-        e27_36 = 36,
-        e37_46 = 46,
-        e47_56 = 56,
-        e57_65 = 65,
-        e66 = 66
-    }
-    
+    public enum Gender { Male, Female }   
     public class Answer : IEntity
     {
         public Guid ID { get; set; }
@@ -30,22 +19,22 @@ namespace Mission.Domain.Entities
         public int Score { get; set; }
         public Guid EventQuestionID { get; set; }
         public virtual EventQuestion EventQuestion { get; set; }
-        public AgeSpan AgeSpan
+        public string AgeSpan
         {
             get
             {
                 if (Age <= 26)
-                    return AgeSpan.e18_26;
+                    return "18-26";
                 else if (Age <= 36)
-                    return AgeSpan.e27_36;
+                    return "27-36";
                 else if (Age <= 46)
-                    return AgeSpan.e37_46;
+                    return "37-46";
                 else if (Age <= 56)
-                    return AgeSpan.e47_56;
+                    return "47-56";
                 else if (Age <= 65)
-                    return AgeSpan.e57_65;
+                    return "57-65";
                 else
-                    return AgeSpan.e66;
+                    return "66+";
             }
         }
 

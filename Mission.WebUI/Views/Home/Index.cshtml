@@ -1,9 +1,7 @@
 ﻿@using Mission.Domain.Entities
 @using Mission.WebUI.ViewModels
-@model List<Post>
-@{
-    ViewBag.Title = "Jesper Caron";
-}
+@model vm_PostSubscriber
+
 <div id="slider-holder" class="clearfix">
     <!-- slider -->
     <div class="flexslider home-slider">
@@ -90,12 +88,6 @@
                     <img src="@Url.Content("~/Content/img/kunder/02.png")" alt="Alt text" /></a>
             </figure>
         </div>
-        @*<ul class="pager">
-					
-					<li class="active"><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-				    </ul>*@
     </div>
 
 
@@ -107,37 +99,39 @@
     <div id="headline">
         <em id="corner"></em>
         <script type="text/javascript" src="@Url.Content("~/Content/js/form-validation.js")"></script>
-        <form id="contactForm" action="#" method="post">
+       
+        <div id="contactForm">
+         @using (Html.BeginForm()){
         <h2>
             Nyhetsbrev</h2>
         <p>
             Premunemera gärna på mitt nyhetsbrev för nya fräscha nyheter</p>
+            
         <fieldset>
             <legend>.</legend>
             <div>
-                <input name="name" id="name" type="text" class="form-poshytip" title="Enter your full name" />
-                <label>
-                    Namn</label>
+                @Html.EditorFor(s => s.Subscriber.Name, new {id="name", type="text", @class="form-poshytip", title="Enter your full name" })                
+                <label>Namn</label>
             </div>
             <div>
-                <input name="email" id="email" type="text" class="form-poshytip" title="Enter your email address" />
-                <label>
-                    Email</label>
+                @Html.EditorFor(s => s.Subscriber.Email, new{id="email", type="text", @class="form-poshytip", title="Enter your email address"})
+                <label>Email</label>
             </div>
             <div>
-                <input name="web" id="web" type="text" class="form-poshytip" title="Enter your website" />
-                <label>
-                    Stad</label>
+                @Html.EditorFor(s => s.Subscriber.City, new {id="web", type="text", @class="form-poshytip"})
+                <label>Stad</label>
             </div>
-            <p>
-                <input type="button" value="Skicka" name="submit" id="submit" />
-                <span id="error" class="warning"></span>
-            </p>
+            <div>
+                <input type="submit" value ="Prenumerera" id="submit"/>
+            </div>
+            <span id="error" class="warning"></span>
         </fieldset>
-        </form>
+        }
+        </div>
+        
     </div>
 </div>
-
-    @Html.Partial("_news")
-
+    <div class="newsDiv">
+        @Html.Partial("_news", Model.Post)
+    </div>
 </div>

@@ -9,22 +9,35 @@ using Mission.Domain.Entities;
 using System.Data.Entity;
 using Mission.Domain.Repositories.Abstract;
 using Mission.WebUI.Infrastructure;
+using Mission.WebUI.ViewModels;
 
 namespace Mission.WebUI.Controllers
 {
     public class HomeController : Controller
     {
          private IRepository<Post> _postRepo;
-         public HomeController(IRepository<Post> postRepo)
+         private IRepository<Subscriber> _subscriberRepo;
+         public HomeController(IRepository<Post> postRepo, IRepository<Subscriber> subscriberRepo)
         {
+            _subscriberRepo = subscriberRepo;
             _postRepo = postRepo;
         }
 
         public ActionResult Index()
         {
-            List<Post> post = _postRepo.FindAll().Take(3).ToList();
+            var vm = new vm_PostSubscriber();
+                vm.Post = _postRepo.FindAll().Take(3).OrderByDescending(p => p.Date).ToList();
+            return View(vm);
+        }
 
-            return View(post);
+        [HttpPost]
+        public ActionResult Index(Subscriber subscriber)
+        {
+            subscriber.ID = Guid.NewGuid();
+            _subscriberRepo.Save(subscriber);
+            var vm = new vm_PostSubscriber();
+                vm.Post = _postRepo.FindAll().Take(3).ToList();
+            return View(vm);
         }
 
     }

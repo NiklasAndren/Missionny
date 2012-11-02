@@ -22,7 +22,6 @@ namespace Mission.WebUI.Controllers
             _eventQuestionRepo = eventQuestion;
             _eventRepo = eventRepo;
             _answerRepository = answerRepository;
-
         }
 
         public ActionResult Index()
@@ -89,7 +88,7 @@ namespace Mission.WebUI.Controllers
         {
             eq.ID = Guid.NewGuid();
             _eventQuestionRepo.Save(eq);
-            return RedirectToAction("Index", "Event");
+            return RedirectToAction("CreateEventQuestion", "Event");
         }
 
         [AuthorizeAdmin]
@@ -117,20 +116,38 @@ namespace Mission.WebUI.Controllers
                 };
                 _answerRepository.Save(qAnswer);
             } 
-            return View();
+            return RedirectToAction("CreateAnswer", "Event");
         }
 
         public JsonResult StatisticsDetails(Guid id)
         {
-            var answers = from e in (_eventQuestionRepo.FindAll(e => e.EventID == id).SelectMany(e => e.Answers))
-                          group e by new { e.AgeSpan } 
-                          into GenderGroup
-                              select new AnswerResult
-                              {
-                                  AgeSpan = GenderGroup.Key.AgeSpan,
-                                  mScore = GenderGroup.Where(g => g.Gender == 0).Select(g => g.Score).DefaultIfEmpty(0).Average(),
-                                  fScore = GenderGroup.Where(g => g.Gender == 1).Select(g => g.Score).DefaultIfEmpty(0).Average()
-                              };
+            List<EventQuestion> eq = _eventQuestionRepo.FindAll(e => e.EventID == id).ToList();
+            List<List<AnswerResult>> answers = new List<List<AnswerResult>>();
+
+            answers.Add((from e in (eq.SelectMany(e => e.Answers))
+                        group e by new { e.AgeSpan }
+                            into GenderGroup
+                            select new AnswerResult
+                                {
+                                    AgeSpan = GenderGroup.Key.AgeSpan,
+                                    mScore = GenderGroup.Where(g => g.Gender == 0).Select(g => g.Score).DefaultIfEmpty(0).Average(),
+                                    fScore = GenderGroup.Where(g => g.Gender == 1).Select(g => g.Score).DefaultIfEmpty(0).Average()
+                                }).OrderBy(a => a.AgeSpan).ToList());
+
+            
+            foreach (var eventquestion in eq) {
+                answers.Add((from e in (_answerRepository.FindAll(e => e.EventQuestionID == eventquestion.ID))
+                             group e by new { e.AgeSpan }
+                                 into GenderGroup
+                                 select new AnswerResult
+                                 {
+                                     Question = eventquestion.Question,
+                                     AgeSpan = GenderGroup.Key.AgeSpan,
+                                     mScore = GenderGroup.Where(g => g.Gender == 0).Select(g => g.Score).DefaultIfEmpty(0).Average(),
+                                     fScore = GenderGroup.Where(g => g.Gender == 1).Select(g => g.Score).DefaultIfEmpty(0).Average()
+                                 }).OrderBy(a => a.AgeSpan).ToList());
+            }
+
 
             return Json(answers, JsonRequestBehavior.AllowGet);
 
@@ -150,7 +167,5 @@ namespace Mission.WebUI.Controllers
             var Event = _eventRepo.FindByID(id);
             return View(Event);
         }
-
-
     }
 }
