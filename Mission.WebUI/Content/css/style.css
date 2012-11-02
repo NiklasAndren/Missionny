@@ -31,11 +31,13 @@
 
 .jlogo
 {
-    background: url(../img/alpha.png) no-repeat;
+    background-image: url("../img/testlogo_baralogo.png");
     background-size: 100%;
-    height: 73px;
-    width: 101px;
-    display: block;
+    float: left;
+    height: 120px;
+    width: 120px;  
+    background-repeat:no-repeat;   
+    margin-top: 11px;
 }
 
 .excerpt img
@@ -44,7 +46,9 @@
 }
 
 #meny {
-    padding-top:35px;
+    float: right;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 
 #headtext {
@@ -57,7 +61,7 @@ footer, header, nav, section, audio, video {
 }
 
 header {
-	height: 10em;
+	height:120px;
 }
 
 .clearfix{ clear:both; }
@@ -246,17 +250,16 @@ nav a{
 }
 
 #nav li{
-	margin-right: 20px;
+	margin-left: 20px;
 }
 
 #nav>li>a{
-	font-family: 'Yanone Kaffeesatz', Arial, sans-serif;
-	font-size: 18px;
-	font-weight: 300;
 	display: block;
-	overflow: hidden;
-	padding: 0px 0px 7px 0px;
-	text-shadow: 2px 2px 0px rgba(0, 0, 0, .6);
+    font-family: 'Didact Gothic',sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    overflow: hidden;
+    padding: 0 0 7px;
 }
 
 
@@ -1157,5 +1160,48 @@ td a:first-child{border-left: 0px solid black !important;}
 
 .newsDiv{width:610px;}
 
-då
-hejhej
+.CreatePost .text-box, 
+.CreateEvent .text-box
+{
+    width:100%;
+    height:30px;
+    padding:0px;
+}
+
+#unsubscribe
+{
+    display:none;
+}
+
+#subscribe
+{
+    display:block;
+}
+
+#facebook, #actionplant, #presskit
+{
+    float: right;
+    height: 45px;
+    margin-bottom: 32px;
+    margin-top: 19px;
+    width: 45px;
+    margin-left:5px;
+    border-radius:5px;
+}
+
+#facebook
+{
+    background: url(../img/facebook_logo.jpg) no-repeat;
+}
+
+#actionplant
+{
+    background: url(../img/actionplant_mini.png) no-repeat;
+    background-color: #BDC8F3;
+}
+#presskit
+{
+    background: url(../img/FilmRoll2.png) no-repeat;
+    background-color:#aaaafb;
+    background-position: -1px -1px;
+}

@@ -99,33 +99,39 @@
     <div id="headline">
         <em id="corner"></em>
         <script type="text/javascript" src="@Url.Content("~/Content/js/form-validation.js")"></script>
-       
+       <script type="text/javascript" src="@Url.Content("~/Content/js/subscriber.js")"></script>
         <div id="contactForm">
          @using (Html.BeginForm()){
-        <h2>
-            Nyhetsbrev</h2>
-        <p>
-            Premunemera gärna på mitt nyhetsbrev för nya fräscha nyheter</p>
+             <div id="subscribe">
+                <h2>
+                    Nyhetsbrev</h2>
+                <p>
+                    Premunemera gärna på mitt nyhetsbrev för nya fräscha nyheter</p>
             
-        <fieldset>
-            <legend>.</legend>
-            <div>
-                @Html.EditorFor(s => s.Subscriber.Name, new {id="name", type="text", @class="form-poshytip", title="Enter your full name" })                
-                <label>Namn</label>
-            </div>
-            <div>
-                @Html.EditorFor(s => s.Subscriber.Email, new{id="email", type="text", @class="form-poshytip", title="Enter your email address"})
-                <label>Email</label>
-            </div>
-            <div>
-                @Html.EditorFor(s => s.Subscriber.City, new {id="web", type="text", @class="form-poshytip"})
-                <label>Stad</label>
-            </div>
-            <div>
-                <input type="submit" value ="Prenumerera" id="submit"/>
-            </div>
-            <span id="error" class="warning"></span>
-        </fieldset>
+                <fieldset>
+                    <legend>.</legend>
+                    <div>
+                        @Html.EditorFor(s => s.Subscriber.Name, new {id="name", type="text", @class="form-poshytip", title="Enter your full name" })                
+                        <label>Namn</label>
+                    </div>
+                    <div>
+                        @Html.EditorFor(s => s.Subscriber.Email, new{id="email", type="text", @class="form-poshytip", title="Enter your email address"})
+                        <label>Email</label>
+                    </div>
+                    <div>
+                        @Html.EditorFor(s => s.Subscriber.City, new {id="web", type="text", @class="form-poshytip"})
+                        <label>Stad</label>
+                    </div>
+                    <div>
+                        <input type="submit" value ="Prenumerera" id="submit"/>
+                    </div>
+                    <div><a class="subscribe-link">Avregistrera</a></div>
+                    <span id="error" class="warning"></span>
+                </fieldset>
+              </div>
+             <div id="unsubscribe">
+                @Html.Partial("_Unsubscribe")
+             </div>
         }
         </div>
         

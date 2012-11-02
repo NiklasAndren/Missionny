@@ -7,7 +7,7 @@ body
 
 body, .home-block-heading span, .page-heading span
 {
-    background: #ebebe8;
+    background: #eee;
 }
 
 body a
@@ -52,9 +52,9 @@ body
 
 /* HEADER ------------------------------------------------------------*/
 
-header, footer
+header, #footer
 {
-    background: url(../img/wild_oliva.png) repeat-x;
+    background: url(../img/new_tile.png) repeat;
 }
 /*url(../img/header.png) bottom left repeat-x*/
 
@@ -281,10 +281,6 @@ article .meta
 
 /* FOOTER ------------------------------------------------------------*/
 
-#footer
-{
-    background: url(../img/wild_oliva.png) repeat-x;
-}
 
 footer .wrapper
 {

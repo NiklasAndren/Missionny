@@ -69,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -100,6 +99,7 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\superfish.css" />
     <Content Include="Content\css\widgets.css" />
+    <Content Include="Content\img\actionplant_mini.png" />
     <Content Include="Content\img\alpha.png" />
     <Content Include="Content\img\arrows.png" />
     <Content Include="Content\img\date.png" />
@@ -115,6 +115,9 @@
     <Content Include="Content\img\dummies\featured-7.jpg" />
     <Content Include="Content\img\dummies\featured-8.jpg" />
     <Content Include="Content\img\dummies\featured-9.jpg" />
+    <Content Include="Content\img\facebook_logo.gif" />
+    <Content Include="Content\img\facebook_logo.jpg" />
+    <Content Include="Content\img\FilmRoll2.png" />
     <Content Include="Content\img\footer.png" />
     <Content Include="Content\img\glyphicons\glyphicons_000_glass.png" />
     <Content Include="Content\img\glyphicons\glyphicons_001_leaf.png" />
@@ -532,6 +535,7 @@
     <Content Include="Content\img\kunder\06.png" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\logotype.jpg" />
+    <Content Include="Content\img\new_tile.png" />
     <Content Include="Content\img\noise.png" />
     <Content Include="Content\img\oblique-lines.png" />
     <Content Include="Content\img\plus.png" />
@@ -562,6 +566,8 @@
     <Content Include="Content\img\social\vimeo.png" />
     <Content Include="Content\img\social\youtube.png" />
     <Content Include="Content\img\tags.png" />
+    <Content Include="Content\img\testlogo.png" />
+    <Content Include="Content\img\testlogo_baralogo.png" />
     <Content Include="Content\img\top-open.png" />
     <Content Include="Content\img\slides\_A8B2972.tif" />
     <Content Include="Content\img\slides\_A8B2987.tif" />
@@ -659,6 +665,7 @@
     <Content Include="Content\js\prettyPhoto\js\jquery-1.4.4.min.js" />
     <Content Include="Content\js\prettyPhoto\js\jquery.prettyPhoto.js" />
     <Content Include="Content\js\prettyPhoto\xhr_response.html" />
+    <Content Include="Content\js\subscriber.js" />
     <Content Include="Content\js\superfish-1.4.8\changelog.txt" />
     <Content Include="Content\js\superfish-1.4.8\css\superfish-navbar.css" />
     <Content Include="Content\js\superfish-1.4.8\css\superfish-vertical.css" />
@@ -2631,7 +2638,6 @@
     <Content Include="Views\Event\CreateEvent.cshtml" />
     <Content Include="Views\Post\Edit.cshtml" />
     <Content Include="Views\Event\Edit.cshtml" />
-    <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Shared\_CreateComment.cshtml" />
     <Content Include="Views\News\Index.cshtml">
       <SubType>Code</SubType>
@@ -2646,6 +2652,7 @@
     <Content Include="Views\Event\EventStatistics.cshtml" />
     <Content Include="Views\Event\Overview.cshtml" />
     <Content Include="Views\Event\SingleEvent.cshtml" />
+    <Content Include="Views\Home\_Unsubscribe.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

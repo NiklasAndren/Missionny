@@ -40,5 +40,11 @@ namespace Mission.WebUI.Controllers
             return View(vm);
         }
 
+        public ActionResult Unsubscribe()
+        {
+            return View();
+        }
+
+
     }
 }
