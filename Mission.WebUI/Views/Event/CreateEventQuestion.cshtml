@@ -6,26 +6,28 @@
     var Question = "";
 }
 <div>
-    <p>@Model.Event.HeadLine</p>
-    <p>@MvcHtmlString.Create(@Model.Event.Description)</p>
+    <h2>@Model.Event.HeadLine</h2>
+    <div class="eventQuestion">
+        <p>@MvcHtmlString.Create(@Model.Event.Description)</p> 
+    </div>
     <div>
         @foreach (var eq in Model.EventQuestions)
         { 
-            <br />
-            @eq.Question
-            <br />
+        <div class="eventQuestions">
+           <p>@eq.Question</p>
+        </div>       
         }
     </div>
 </div>
 @using (Html.BeginForm("CreateEventQuestion", "Event"))
 { 
-    <p>
-        <br />
+    <div class="CreatePost">
         Ny fråga
         <br />
-        @Html.TextAreaFor(p => Question)
+        @Html.TextAreaFor(p => Question, new { id = "editor", style = "width:100%", height = "100%" })
         @Html.HiddenFor(p => EventID)
-    </p>
+    
+    </div>
     <div>
         <input type="submit" value="Skapa eventfråga" />
     </div>
