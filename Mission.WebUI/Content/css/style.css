@@ -776,6 +776,8 @@ nav a{
 
 /* BLOG ------------------------------------------------------------*/
 
+#posts-list .post-h2 { font-size: 20px;} 
+
 .floated-content,
 #posts-list,
 #post-content{
