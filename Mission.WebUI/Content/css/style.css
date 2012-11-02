@@ -792,13 +792,14 @@ nav a{
 }
 
 #posts-list .entry-date{
-	position: absolute;
+	margin-right: 10px;
 	top: 5px;
 	left: 5px;
 	width: 97px;
 	height: 97px;
 	background: url(../img/date.png) no-repeat;
 	font-family: 'Convergence', Arial, sans-serif;
+	float:left;
 	
 }
 
@@ -816,16 +817,13 @@ nav a{
 
 #posts-list article
 {
+    padding: 0px 15px 10px 15px;
     background-color:#fff;
 	position: relative;
-	padding-left: 130px;
 	margin-bottom: 40px;
 	border: 1px solid #cecece;
-	padding-bottom:10px;
 	-webkit-box-shadow:  1px 1px 1px 1px rgba(00, 00, 00, 0.3);
-        
-        box-shadow:  1px 1px 1px 1px rgba(00, 00, 00, 0.3);
-    
+    box-shadow:  1px 1px 1px 1px rgba(00, 00, 00, 0.3);  
 }
 
 #posts-list .feature-image,
@@ -854,9 +852,12 @@ nav a{
 	opacity: 0.2;
 }
 
-#posts-list .post-heading{
+#posts-list .post-heading
+{
+    margin-right:60px;
 	margin-bottom: 20px;
 	line-height: 1.0em;
+	text-align:center;
 }
 
 #posts-list .excerpt,
@@ -1159,7 +1160,6 @@ td a:first-child{border-left: 0px solid black !important;}
 }
 
 .newsDiv{width:610px;}
-
 .CreatePost .text-box, 
 .CreateEvent .text-box
 {
@@ -1205,3 +1205,4 @@ td a:first-child{border-left: 0px solid black !important;}
     background-color:#aaaafb;
     background-position: -1px -1px;
 }
+.excerpt span {display: none;}

@@ -585,6 +585,7 @@
     <Content Include="Content\js\comments.js" />
     <Content Include="Content\js\css3-mediaqueries.js" />
     <Content Include="Content\js\custom.js" />
+    <Content Include="Content\js\excerpt.js" />
     <Content Include="Content\js\form-validation.js" />
     <Content Include="Content\js\imagesloaded.js" />
     <Content Include="Content\js\jquery-1.6.4.min.js" />

@@ -9,15 +9,20 @@
 
 <div id="posts-list">
     @foreach (var news in Model)
-    { 
-    
+    {
+        var link = "";
+        if (news.Type == 0)
+        {
+            link = "Index";
+        }
+        else { link = "blog"; };     
         <article class="format-standard">
             <div class="entry-date">
                 <div class="number">@news.Date.Day</div>
                 <div class="year">@news.Date.ToString("MMM"),@news.Date.Year</div>
             </div>
             <h2 class="post-heading">
-                <a href="#">@news.Title</a></h2>
+               @news.Title</h2>
             <div class="excerpt">@MvcHtmlString.Create(@news.Body)</div>
             <div class="meta">
                 <div class="categories">@news.Date.ToString("HH:mm:ss")</div>

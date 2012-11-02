@@ -10,7 +10,7 @@
         <div class="number">@Model.Date.Day</div>
         <div class="year">@Model.Date.ToString("MMM"),@Model.Date.Year</div>
     </div>
-	<h2  class="post-heading"><a href="single.html">@Model.Title</a></h2>
+	<h2  class="post-heading">@Model.Title</h2>
 	<div class="excerpt">@MvcHtmlString.Create(@Model.Body)</div>
 		@*<a href="single.html" class="read-more">continue &#8594;</a>*@
 		@Html.Partial("_PostMeta", Model)
