@@ -7,7 +7,7 @@ body
 
 body, .home-block-heading span, .page-heading span
 {
-    background: #eee;
+    background: url(../img/background.png);
 }
 
 body a

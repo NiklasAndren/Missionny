@@ -31,7 +31,7 @@
 
 .jlogo
 {
-    background-image: url("../img/testlogo_baralogo.png");
+    background-image: url("../img/logo120.png");
     background-size: 100%;
     float: left;
     height: 120px;
@@ -820,12 +820,8 @@ nav a{
 #posts-list article
 {
     padding: 0px 15px 10px 15px;
-    background-color:#fff;
 	position: relative;
 	margin-bottom: 40px;
-	border: 1px solid #cecece;
-	-webkit-box-shadow:  1px 1px 1px 1px rgba(00, 00, 00, 0.3);
-    box-shadow:  1px 1px 1px 1px rgba(00, 00, 00, 0.3);  
 }
 
 #posts-list .feature-image,
@@ -859,7 +855,6 @@ nav a{
     margin-right:60px;
 	margin-bottom: 20px;
 	line-height: 1.0em;
-	text-align:center;
 }
 
 #posts-list .excerpt,
@@ -1212,7 +1207,7 @@ td a:first-child{border-left: 0px solid black !important;}
 
 #presskit
 {
-    background: url(../img/FilmRoll2.png) no-repeat;
+    background: url(../img/FilmRoll2_white.png) no-repeat;
     background-position: -1px -1px;
 }
 .excerpt span {display: none;}
