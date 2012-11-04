@@ -105,34 +105,10 @@
         <div id="contactForm">
          @using (Html.BeginForm()){
              <div id="subscribe">
-                <h2>
-                    Nyhetsbrev</h2>
-                <p>
-                    Premunemera gärna på mitt nyhetsbrev för nya fräscha nyheter</p>
-            
-                <fieldset>
-                    <legend>.</legend>
-                    <div>
-                        @Html.EditorFor(s => s.Subscriber.Name, new {id="name", type="text", @class="form-poshytip", title="Enter your full name" })                
-                        <label>Namn</label>
-                    </div>
-                    <div>
-                        @Html.EditorFor(s => s.Subscriber.Email, new{id="email", type="text", @class="form-poshytip", title="Enter your email address"})
-                        <label>Email</label>
-                    </div>
-                    <div>
-                        @Html.EditorFor(s => s.Subscriber.City, new {id="web", type="text", @class="form-poshytip"})
-                        <label>Stad</label>
-                    </div>
-                    <div>
-                        <input type="submit" value ="Prenumerera" id="submit"/>
-                        <a class="subscribe-link">Avregistrera</a>
-                    </div>
-                    <span id="error" class="warning"></span>
-                </fieldset>
+                @Html.Partial("_Subscribe", @Model.Subscriber)
               </div>
              <div id="unsubscribe">
-                @Html.Partial("_Unsubscribe")
+                @Html.Partial("_Unsubscribe", @Model.Subscriber)
              </div>
         }
         </div>

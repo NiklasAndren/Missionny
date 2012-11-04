@@ -88,39 +88,24 @@
             <div id="facebook"></div>
             <div id="presskit"></div>
             <div id="actionplant"></div>
-            <nav id="meny">
-
-                <ul id="nav" class="sf-menu">
-                    <li>@Html.ActionLink("Start", "index", "Home")</li>
-                    <li>@Html.ActionLink("Jesper Caron", "index", "Default")</li>
-                    <ul>
-                        <li>@Html.ActionLink("Föreläsare", "index", "Default")</li>
-                        <li>@Html.ActionLink("Presentation", "index", "Default")</li>
-                        <li>@Html.ActionLink("Snabbfakta", "index", "Default")</li>
-                    </ul>
-                    <li>@Html.ActionLink("Utgångspunkt", "index", "Default")</li>
-                    <ul>
-                        <li>@Html.ActionLink("livsvision", "index", "Default")</li>
-                        <li>@Html.ActionLink("Mental konditionsträning", "index", "Default")</li>
-                        <li>@Html.ActionLink("Positiv Psykologi", "index", "Default")</li>
-                        <li>@Html.ActionLink("Den stora tillståndsstudien", "index", "Default")</li>
-                    </ul>
-                    <li>@Html.ActionLink("Föreläsningar", "index", "Default")</li>
-                    <ul>
-                        <li>@Html.ActionLink("Kunder", "index", "Default")</li>
-                        <li>@Html.ActionLink("Erkännande", "index", "Default")</li>
-                        <li>@Html.ActionLink("Om föreläsningarna", "index", "Default")</li>
-                    </ul>
-                    <li>@Html.ActionLink("Nyheter", "index", "Post")</li>
-                    <li>@Html.ActionLink("Blogg", "Blog", "Post")</li>
-                    <li>@Html.ActionLink("Event", "index", "Event")</li>
-                    <li>@Html.ActionLink("Kontakt", "index", "Contact")</li>
+            <div id="admin">
                     @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
                     {
                         <li>@Html.ActionLink("Skapa ny post", "CreatePost", "Post")</li>
                         <li>@Html.ActionLink("Skapa nytt event", "CreateEvent", "Event")</li>
                         <li>@Html.ActionLink("Översikt", "Overview", "Event")</li>
-                    }
+                    }</div>
+            <nav id="meny">
+
+                <ul id="nav" class="sf-menu">
+                    <li>@Html.ActionLink("Start", "index", "Home")</li>
+                    <li>@Html.ActionLink("Jesper Caron", "index", "Default")</li>
+                    <li>@Html.ActionLink("Utgångspunkt", "index", "Default")</li>                    
+                    <li>@Html.ActionLink("Föreläsningar", "index", "Default")</li>            
+                    <li>@Html.ActionLink("Nyheter", "index", "Post")</li>
+                    <li>@Html.ActionLink("Blogg", "Blog", "Post")</li>
+                    <li>@Html.ActionLink("Event", "index", "Event")</li>
+                    <li>@Html.ActionLink("Kontakt", "index", "Contact")</li>
                 </ul>
             </nav>
 
