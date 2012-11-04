@@ -1029,7 +1029,7 @@ article .meta .delete{
     margin-bottom: 33px;
 }
 
-#headline #submit, .login
+#headline #submit, #login-form #submit
 {
     cursor:pointer;
     color: #ffffff;
@@ -1050,7 +1050,7 @@ article .meta .delete{
     font-size: 100%;
 }
 
-#headline #submit:hover, .login
+#headline #submit:hover, #login-form #submit:hover
 {
     background-color:#49afdd;
     background-image: -webkit-gradient(linear, 0 0, 0 100%, to(#2f96b4), from(#5bc0de));

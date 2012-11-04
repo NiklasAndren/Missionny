@@ -17,8 +17,9 @@ else
 
 using (Html.BeginForm("_LogOn", "Account", FormMethod.Post))
 {
-        
+        <div id="contactForm">
         <fieldset>
+        
             <div class="editor-label">
                 @Html.LabelFor(m => m.UserName)
             </div>
@@ -41,9 +42,11 @@ using (Html.BeginForm("_LogOn", "Account", FormMethod.Post))
             </div>
 
             <p>
-                <input type="submit" class="login text-box single-line" value="Log On" />
+                <input type="submit" id="submit" value="Log On" />
             </p>
+        
         </fieldset>
+        </div>
     }
 
 }
