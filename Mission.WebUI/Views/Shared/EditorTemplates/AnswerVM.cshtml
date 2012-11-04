@@ -1,8 +1,7 @@
 ﻿@model Mission.WebUI.ViewModels.AnswerVM
 @using Mission.WebUI.Infrastructure
-
 @Html.HiddenFor(m => m.QuestionID)
-<p>
-@Html.DisplayFor(m => m.Question)
-</p>
-@Html.RadioButtonForSelectList(m => m.Selected, Model.SelectList)
+<div class="answerQuestion">
+            @Html.DisplayFor(m => m.Question)<br />
+            @Html.RadioButtonForSelectList(m => m.Selected, Model.SelectList)
+</div>

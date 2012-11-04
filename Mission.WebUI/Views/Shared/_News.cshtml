@@ -1,4 +1,4 @@
-﻿<div id="posts-list">
+﻿<div id="posts-list" class="post-list-partial">
     @{var n = 1;}
     @foreach (var news in Model)
     {        
@@ -6,13 +6,13 @@
             if(news.Type == 0){
                 link = "Index";            
             }else{ link = "blog";};        
-        <article class="format-standard">
+        <article class="format-standard" id="@news.ID">
             <div class="entry-date">
                 <div class="number">@news.Date.Day</div>
                 <div class="year">@news.Date.ToString("MMM"),@news.Date.Year</div>
             </div>
-            <h2 class="post-heading">
-                   <a href="Post/@link">@news.Title</a>
+            <h2 class="post-heading post-h2">
+                   <a href="Post/@link#@news.ID">@news.Title</a>
                 </h2>
             <div class="excerpt" id="news-@n">@MvcHtmlString.Create(@news.Body)</div>
             <div class="meta">
