@@ -9,14 +9,15 @@
     [ @Html.ActionLink("Log Off", "LogOff", "Account") ]</text>
 }
 else
-{
+{   
+    <h3>Login</h3>
     @*@:[ @Html.ActionLink("Log On", "LogOn", "Account") ]*@
     
     @Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
 
-    using (Html.BeginForm("_LogOn", "Account", FormMethod.Post))
-    {
-   
+using (Html.BeginForm("_LogOn", "Account", FormMethod.Post))
+{
+        
         <fieldset>
             <div class="editor-label">
                 @Html.LabelFor(m => m.UserName)
@@ -40,7 +41,7 @@ else
             </div>
 
             <p>
-                <input type="submit" value="Log On" />
+                <input type="submit" class="login text-box single-line" value="Log On" />
             </p>
         </fieldset>
     }

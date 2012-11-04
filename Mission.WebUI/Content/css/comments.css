@@ -258,7 +258,7 @@
 	margin-bottom: 20px;
 }
 
-#contactForm input,
+#contactForm input, .valid
 #contactForm textarea,
 #commentform input,
 #commentform textarea{
