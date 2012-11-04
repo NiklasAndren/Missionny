@@ -1,8 +1,8 @@
 ﻿@model Mission.WebUI.ViewModels.vm_PostSubscriber
 <h2>
-    Avregistrering</h2>
+    Nyhetsbrev</h2>
 <p>
-    Skriv in namn och email adress för att avregistrera dig på mitt nyhetsbrev</p>
+    Premunemera gärna på mitt nyhetsbrev för nya fräscha nyheter</p>
 <fieldset>
     <legend>.</legend>
     <div>
@@ -16,8 +16,13 @@
             Email</label>
     </div>
     <div>
-        <input type="submit" value="Avregistrera" id="submit" />
-        <a class="subscribe-link">Prenumerera</a>
+        @Html.EditorFor(s => s.Subscriber.City, new { id = "web", type = "text", @class = "form-poshytip" })
+        <label>
+            Stad</label>
+    </div>
+    <div>
+        <input type="submit" value="Prenumerera" id="submit" />
+        <a class="subscribe-link">Avregistrera</a>
     </div>
     <span id="error" class="warning"></span>
 </fieldset>
