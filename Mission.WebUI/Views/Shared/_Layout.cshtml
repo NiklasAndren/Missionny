@@ -16,7 +16,8 @@
     <script src="@Url.Content("~/Content/js/tabs.js")"></script>
     <script src="@Url.Content("~/Content/js/comments.js")"></script>
     <!-- Tweet -->
-    <link href='http://fonts.googleapis.com/css?family=Convergence' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Convergence' rel='stylesheet'
+        type='text/css'>
     <link rel="stylesheet" href="@Url.Content("~/Content/css/jquery.tweet.css")" media="all"  />
     <script src="@Url.Content("~/Content/js/tweet/jquery.tweet.js")" ></script>
     <!-- ENDS Tweet -->
@@ -38,7 +39,8 @@
     <!-- GOOGLE FONTS -->
     <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300' rel='stylesheet'
         type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet'
+        type='text/css'>
     <!-- Flex Slider -->
     <link rel="stylesheet" href="@Url.Content("~/Content/css/flexslider.css")" >
     <script src="@Url.Content("~/Content/js/jquery.flexslider-min.js")"></script>
@@ -49,7 +51,6 @@
     <script src="@Url.Content("~/Content/js/modernizr.js")"></script>
     <!-- SKIN -->
     <link rel="stylesheet" media="all" href="@Url.Content("~/Content/css/skin.css")"/>
-
     <!--Google Analyticsstuff-->
     <script type="text/javascript">
 
@@ -67,8 +68,7 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
 
-</script> 
-
+    </script>
 </head>
 <body>
     <header class="clearfix">
@@ -114,7 +114,6 @@
                     <li>@Html.ActionLink("Nyheter", "index", "Post")</li>
                     <li>@Html.ActionLink("Blogg", "Blog", "Post")</li>
                     <li>@Html.ActionLink("Event", "index", "Event")</li>
-                    <li>@Html.ActionLink("Kontakt", "index", "Contact")</li>
                     @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
                     {
                         <li>@Html.ActionLink("Skapa ny post", "CreatePost", "Post")</li>
@@ -129,16 +128,13 @@
 
         </div>
     </header>
-
     <div id="main">
         <div class="wrapper clearfix">
             @RenderBody()
         </div>
     </div>
-
     <div id="footer">
         <div class="wrapper clearfix">
-
             <aside class="conact-sidebar footer-block">
                 <div class="block">
                     <h4>
@@ -151,9 +147,7 @@
                     </ul>
                 </div>
             </aside>
-
             <div class="footer-block footer-presskit">
-            
                 <div class="footer-presskit-fb">
                     <img src="@Url.Content("~/Content/img/glyphicons/glyphicons_390_facebook.png")" /></div>
                 <div class="footer-presskit-ap">
@@ -162,13 +156,10 @@
                     <img src="@Url.Content("~/Content/img/glyphicons/glyphicons_074_cup.png")" /></div>
                 <div class="footer-presskit-tw">
                     <img src="@Url.Content("~/Content/img/glyphicons/glyphicons_074_cup.png")" /></div>
-            
             </div>
-
             <div class="login-form footer-block">
                 @Html.Partial("_LogOn", new LogOnModel())
             </div>
-
         </div>
     </div>
 </body>
