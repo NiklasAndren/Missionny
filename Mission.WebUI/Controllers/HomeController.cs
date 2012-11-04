@@ -45,6 +45,9 @@ namespace Mission.WebUI.Controllers
             return View();
         }
 
+        public ActionResult Lectures(){
+        return View();
+        }
 
     }
 }
