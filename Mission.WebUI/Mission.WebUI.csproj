@@ -2658,6 +2658,7 @@
     <Content Include="Views\Event\SingleEvent.cshtml" />
     <Content Include="Views\Home\_Unsubscribe.cshtml" />
     <Content Include="Views\Home\_Subscribe.cshtml" />
+    <Content Include="Views\Home\Lectures.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

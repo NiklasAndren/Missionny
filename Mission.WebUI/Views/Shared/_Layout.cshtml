@@ -101,7 +101,7 @@
                     <li>@Html.ActionLink("Start", "index", "Home")</li>
                     <li>@Html.ActionLink("Jesper Caron", "index", "Default")</li>
                     <li>@Html.ActionLink("Utgångspunkt", "index", "Default")</li>                    
-                    <li>@Html.ActionLink("Föreläsningar", "index", "Default")</li>            
+                    <li>@Html.ActionLink("Föreläsningar", "Lectures", "Home")</li>            
                     <li>@Html.ActionLink("Nyheter", "index", "Post")</li>
                     <li>@Html.ActionLink("Blogg", "Blog", "Post")</li>
                     <li>@Html.ActionLink("Event", "index", "Event")</li>
@@ -119,34 +119,31 @@
         </div>
     </div>
     <div id="footer">
-        <div class="wrapper clearfix">
-            
-                <div class="block">
-                    <h4>
-                        Adress</h4>
-                    <ul class="address-block">
-                        <li class="address">Actionplant</li>
-                        <li>Fabriksgatan 10</li>
-                        <li>503 38 BORÅS</li>
-                        <li class="phone">Mobil | 0731 - 80 01 11</li>
-                        <li>Kontor | 0733 - 41 04 30</li>
-                        <li class="mobile">+123 456 789</li>
-                        <li class="email"><a href="mailto:email@server.com">test@test.com</a></li>
-                    </ul>
-                </div>
-            
-            <div class="footer-block footer-presskit">
-                <div class="footer-presskit-fb">
-                    <img src="@Url.Content("~/Content/img/glyphicons/glyphicons_390_facebook.png")" /></div>
-                <div class="footer-presskit-ap">
-                    <img src="@Url.Content("~/Content/img/glyphicons/glyphicons_067_cleaning.png")" /></div>
-                <div class="footer-presskit-pk">
-                    <img src="@Url.Content("~/Content/img/glyphicons/glyphicons_074_cup.png")" /></div>
-                <div class="footer-presskit-tw">
-                    <img src="@Url.Content("~/Content/img/glyphicons/glyphicons_074_cup.png")" /></div>
-            </div>
+        <div class="wrapper clearfix" id="columnWrapper">
             <div id="login-form">
                 @Html.Partial("_LogOn", new LogOnModel())
+            </div>
+            <div class="block contactInfo">
+                <h3>
+                    Adress</h3>
+                <ul class="address-block">
+                    <li class="address">&nbsp Actionplant</li>
+                    <li>&nbsp Fabriksgatan 10</li>
+                    <li>&nbsp 503 38 BORÅS </li>
+                    <br />
+                    <li class="phone">&nbsp Mobil | 0731 - 80 01 11</li>
+                    <li>&nbsp Kontor | 733 - 41 04 30</li><br />
+                    <li class="email">&nbsp office@jespercaron.se</li>
+                </ul>
+            </div>
+            <div id="footerActionplant">
+                <h3>
+                    Actionplant  <img alt="Actionplant" width="40px" height="40px" src="@Url.Content("~/Content/img/actionplant_mini_green.png")" /></h3>
+                <p>
+                    Arbetslös? Då kan du få tre månader GRATIS professionell jobbcoaching! I Actionplant
+                    blir du coachad av professionella coacher.<br />
+                    
+                </p>
             </div>
         </div>
     </div>
