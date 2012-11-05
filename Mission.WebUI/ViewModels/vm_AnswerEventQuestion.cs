@@ -36,5 +36,7 @@ namespace Mission.WebUI.ViewModels
         public string Question { get; set; }
         public double mScore { get; set; }
         public double fScore { get; set; }
+        public int mCount { get; set; }
+        public int fCount { get; set; }
     }
 }

@@ -123,6 +123,8 @@ namespace Mission.WebUI.Controllers
         {
             List<EventQuestion> eq = _eventQuestionRepo.FindAll(e => e.EventID == id).ToList();
             List<List<AnswerResult>> answers = new List<List<AnswerResult>>();
+            int maleCount = eq.FirstOrDefault().Answers.Where(q => q.Gender == 0).Count();
+            int femaleCount = eq.FirstOrDefault().Answers.Where(q => q.Gender == 1).Count();
 
             answers.Add((from e in (eq.SelectMany(e => e.Answers))
                         group e by new { e.AgeSpan }
@@ -131,7 +133,9 @@ namespace Mission.WebUI.Controllers
                                 {
                                     AgeSpan = GenderGroup.Key.AgeSpan,
                                     mScore = GenderGroup.Where(g => g.Gender == 0).Select(g => g.Score).DefaultIfEmpty(0).Average(),
-                                    fScore = GenderGroup.Where(g => g.Gender == 1).Select(g => g.Score).DefaultIfEmpty(0).Average()
+                                    fScore = GenderGroup.Where(g => g.Gender == 1).Select(g => g.Score).DefaultIfEmpty(0).Average(),
+                                    mCount = maleCount,
+                                    fCount = femaleCount
                                 }).OrderBy(a => a.AgeSpan).ToList());
 
             
@@ -144,7 +148,9 @@ namespace Mission.WebUI.Controllers
                                      Question = eventquestion.Question,
                                      AgeSpan = GenderGroup.Key.AgeSpan,
                                      mScore = GenderGroup.Where(g => g.Gender == 0).Select(g => g.Score).DefaultIfEmpty(0).Average(),
-                                     fScore = GenderGroup.Where(g => g.Gender == 1).Select(g => g.Score).DefaultIfEmpty(0).Average()
+                                     fScore = GenderGroup.Where(g => g.Gender == 1).Select(g => g.Score).DefaultIfEmpty(0).Average(),
+                                     mCount = maleCount,
+                                     fCount = femaleCount
                                  }).OrderBy(a => a.AgeSpan).ToList());
             }
 
@@ -159,7 +165,7 @@ namespace Mission.WebUI.Controllers
         }
         [AuthorizeAdmin]
         public ActionResult Overview() {
-            List<Event> AllEvents = _eventRepo.FindAll().ToList();
+            List<Event> AllEvents = _eventRepo.FindAll().OrderByDescending(e => e.Date).ToList();
             return View (AllEvents);
         }
 

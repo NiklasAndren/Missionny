@@ -993,7 +993,7 @@ article .meta .delete{
 
  #headline
  {
-    height:306px; 
+    /*height:306px;*/ 
 	position: relative;
 	float: right;
 	width: 260px; /* 300 - 40 padding */
@@ -1280,4 +1280,11 @@ td a:first-child{border-left: 0px solid black !important;}
 #contactForm, .address-block, #footerActionplant p{border-top: 1px dashed #656565; padding-top: 3em; }
 
 
-
+.questionDiv
+{
+    width: 45%;
+    float:left;
+    margin-right:2.5%;
+    margin-left:2.5%;
+       
+}
