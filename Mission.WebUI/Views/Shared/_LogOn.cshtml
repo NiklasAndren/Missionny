@@ -20,25 +20,25 @@ using (Html.BeginForm("_LogOn", "Account", FormMethod.Post))
         <div id="contactForm">
         <fieldset>
         
-            <div class="editor-label">
-                @Html.LabelFor(m => m.UserName)
+            <div class="editor-label login-label">
+                Användarnamn
             </div>
             <div class="editor-field">
                 @Html.TextBoxFor(m => m.UserName)
                 @Html.ValidationMessageFor(m => m.UserName)
             </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(m => m.Password)
+            <div class="editor-label login-label">
+                Lösenord
             </div>
             <div class="editor-field">
                 @Html.PasswordFor(m => m.Password)
                 @Html.ValidationMessageFor(m => m.Password)
             </div>
 
-            <div class="editor-label">
+            <div class="editor-label login-label">
                 @Html.CheckBoxFor(m => m.RememberMe)
-                @Html.LabelFor(m => m.RememberMe)
+                Kom ihåg mig
             </div>
 
             <p>

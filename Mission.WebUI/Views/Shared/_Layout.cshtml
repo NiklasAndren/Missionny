@@ -85,9 +85,9 @@
 </div>*@
         <div class="wrapper">
             <div class="jlogo"></div>
-            <div id="facebook"></div>
-            <div id="presskit"></div>
-            <div id="actionplant"></div>
+            
+            <div id="searchdiv">@Html.Partial("_SearchResult")</div>
+
             <div id="admin">
                     @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
                     {
@@ -104,7 +104,7 @@
                     <li>@Html.ActionLink("Föreläsningar", "Lectures", "Home")</li>            
                     <li>@Html.ActionLink("Nyheter", "index", "Post")</li>
                     <li>@Html.ActionLink("Blogg", "Blog", "Post")</li>
-                    <li>@Html.ActionLink("Event", "index", "Event")</li>
+                    <li>@Html.ActionLink("On tour", "index", "Event")</li>
                 </ul>
             </nav>
 
@@ -135,6 +135,10 @@
                     <li>&nbsp Kontor | 733 - 41 04 30</li><br />
                     <li class="email">&nbsp office@jespercaron.se</li>
                 </ul>
+
+                <div id="facebook"></div>
+                <div id="presskit"></div>
+
             </div>
             <div id="footerActionplant">
                 <h3>

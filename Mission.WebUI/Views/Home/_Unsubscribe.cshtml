@@ -3,21 +3,22 @@
     Avregistrering</h2>
 <p>
     Skriv in namn och email adress för att avregistrera dig på mitt nyhetsbrev</p>
-<fieldset>
-    <legend>.</legend>
-    <div>
-        @Html.EditorFor(s => s.Subscriber.Name, new { id = "name", type = "text", @class = "form-poshytip", title = "Enter your full name" })
-        <label>
-            Namn</label>
-    </div>
-    <div>
-        @Html.EditorFor(s => s.Subscriber.Email, new { id = "email", type = "text", @class = "form-poshytip", title = "Enter your email address" })
-        <label>
-            Email</label>
-    </div>
-    <div>
-        <input type="submit" value="Avregistrera" id="submit" />
-        <a class="subscribe-link">Prenumerera</a>
-    </div>
-    <span id="error" class="warning"></span>
-</fieldset>
+@using (Html.BeginForm("Unsubscribe", "Home"))
+{
+    <fieldset>
+        <legend>.</legend>
+        <div>
+            @Html.EditorFor(s => s.Subscriber.Name, new { id = "name", type = "text", @class = "form-poshytip", title = "Enter your email address" })
+            <label>Namn</label>
+        </div>
+        <div>
+            @Html.EditorFor(s => s.Subscriber.Email, new { id = "email", type = "text", @class = "form-poshytip", title = "Enter your email address" })
+            <label>Email</label>
+        </div>
+        <div>
+            <input type="submit" value="Avregistrera" id="submit" />
+            <a class="subscribe-link">Prenumerera</a>
+        </div>
+        <span id="error" class="warning"></span>
+    </fieldset>
+}

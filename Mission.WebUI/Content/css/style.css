@@ -4,7 +4,12 @@
 @import url('comments.css');
 @import url('widgets.css');
 
-
+input[type="text"]:focus,
+input[type="password"]:focus
+{
+    box-shadow: 0px 0px 4px 0px #49AFDD inset !important;
+    outline:none;
+}
 /* GENERAL ------------------------------------------------------------*/
 
 .presskit-fb,
@@ -31,7 +36,7 @@
 
 .jlogo
 {
-    background-image: url("../img/logo120.png");
+    background-image: url("../img/testlogo_baralogo.png");
     background-size: 100%;
     float: left;
     height: 120px;
@@ -49,6 +54,8 @@
     float: right;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+    margin-top: 52px;
+    clear: right;
 }
 
 #headtext {
@@ -112,13 +119,13 @@ body a{
 #logo:hover{ opacity: 0.8;}
 
 h1,h2,h3,h4,h5,h6{
-	font-family: 'Convergence', sans-serif;
 	font-weight: 400;
+	padding-bottom
 }
 
 h1{ font-size: 48px;}
 
-h2{ font-size: 36px; }
+h2{ font-size: 30px; }
 
 h3{ font-size: 24px; }
 
@@ -819,9 +826,11 @@ nav a{
 
 #posts-list article
 {
-    padding: 0px 15px 10px 15px;
+    padding: 15px 15px 10px 15px;
 	position: relative;
 	margin-bottom: 40px;
+	box-shadow:0px 0px 8px 1px #aaa;
+	background-color:#eee;
 }
 
 #posts-list .feature-image,
@@ -1086,6 +1095,12 @@ footer .wrapper,
 	padding-top: 40px;
 }
 
+.login-label
+{
+    color: white;
+    margin-bottom: 10px;
+}
+
 
 
 /* FOOTER BOTTOM ------------------------------------------------------------*/
@@ -1179,15 +1194,16 @@ td a:first-child{border-left: 0px solid black !important;}
     display:block;
 }
 
-#facebook, #actionplant, #presskit, #admin
+#facebook, #actionplant, #presskit
 {
-    float: right;
+    float: left;
     height: 45px;
     margin-bottom: 32px;
-    margin-top: 19px;
+    margin-top: 30px;
     width: 45px;
     margin-left:5px;
     border-radius:5px;
+    
 }
 
 #facebook
@@ -1195,19 +1211,9 @@ td a:first-child{border-left: 0px solid black !important;}
     background: url(../img/Facebook-f.png) no-repeat;
 }
 
-#actionplant
-{
-    background: url(../img/actionplant_mini.png) no-repeat;
-}
-
-#actionplant:hover
-{
-    background: url(../img/actionplant_mini_green.png) no-repeat;
-}
-
 #presskit
 {
-    background: url(../img/FilmRoll2_white.png) no-repeat;
+    background: url(../img/FilmRoll2.png) no-repeat;
     background-position: -1px -1px;
 }
 .excerpt span {display: none;}
@@ -1221,24 +1227,35 @@ td a:first-child{border-left: 0px solid black !important;}
 
 #admin
 {
-    width:150px;
-    list-style:none;
+    width: 258px;
+    list-style: none;
+    height: 5px;
+    float: right;
+    font-size: 14px;
+    margin-top: 40px;
 }
 
 #admin li a
 {
-    color:white;
+    color:#e2e0d7;
     font-family: 'Didact Gothic',sans-serif;
+}
+
+#admin li
+{
+    float: left;
+    padding-left: 10px;
 }
 
 #admin li a:hover
 {
-    color:#ef6b4d;
+    color:#49afcd;
 }
 
 #facebook:hover, #actionplant:hover, #presskit:hover
 {
 }
+
 .eventQuestion{ display: block; font-size: 20px; margin-top:40px; margin-bottom:15px;  }
 .eventQuestions{ display:block; font-size: 15px; margin-top:15px; margin-bottom:15px; }
 
@@ -1287,4 +1304,71 @@ td a:first-child{border-left: 0px solid black !important;}
     margin-right:2.5%;
     margin-left:2.5%;
        
+}
+
+textarea
+{
+    resize:both !important;
+}
+
+#social-box
+{
+   position: relative;
+    float: right;
+    width: 260px;
+    min-height: 275px;
+    padding: 20px 20px 20px 20px;
+    margin-top: 30px;
+    -webkit-box-shadow: 2px 2px 0px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
+    -o-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, .2);
+    background-color:#555;
+}
+
+.social-fb, .social-tw, .social-yt, .social-in
+{
+    float:left;
+    clear:both;
+}
+
+#social-box img
+{
+    width:40%;
+}
+
+#searchfield
+{   
+    float: right;
+    margin-top: 17px;
+    border-radius: 20px;
+    background-color: #EAEAEA;
+    width: 135px;
+    height: 20px;
+    padding-left: 25px; 
+    border:none;
+}
+
+.searchdiv h2
+{
+    padding-bottom:30px;
+    
+}
+
+#searchsubmit
+{
+    width: 20px;w
+    height: 20px;
+    border: none;
+    cursor: pointer;
+    background: transparent url(../img/magnifier.png) no-repeat;
+    float: right;
+    margin-right: -24px;
+    margin-top: 21px;
+}
+
+#searchfield:focus
+{
+    background:white;
+    outline:none;
 }

@@ -99,6 +99,7 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\superfish.css" />
     <Content Include="Content\css\widgets.css" />
+    <Content Include="Content\fonts\fontello.svg" />
     <Content Include="Content\img\actionplant_mini.png" />
     <Content Include="Content\img\actionplant_mini_green.png" />
     <Content Include="Content\img\actionplant_min_whitei.png" />
@@ -541,10 +542,13 @@
     <Content Include="Content\img\kunder\04.png" />
     <Content Include="Content\img\kunder\05.png" />
     <Content Include="Content\img\kunder\06.png" />
+    <Content Include="Content\img\kunder\07.png" />
+    <Content Include="Content\img\kunder\08.png" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\logo120.png" />
     <Content Include="Content\img\logo250.png" />
     <Content Include="Content\img\logotype.jpg" />
+    <Content Include="Content\img\magnifier.png" />
     <Content Include="Content\img\new_tile.png" />
     <Content Include="Content\img\noise.png" />
     <Content Include="Content\img\oblique-lines.png" />
@@ -2601,6 +2605,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\css\.DS_Store" />
+    <None Include="Content\fonts\fontello.eot" />
+    <None Include="Content\fonts\fontello.ttf" />
+    <None Include="Content\fonts\fontello.woff" />
     <None Include="Content\img\.DS_Store" />
     <None Include="Content\img\dummies\.DS_Store" />
     <None Include="Content\js\.DS_Store" />
@@ -2666,6 +2673,8 @@
     <Content Include="Views\Home\_Unsubscribe.cshtml" />
     <Content Include="Views\Home\_Subscribe.cshtml" />
     <Content Include="Views\Home\Lectures.cshtml" />
+    <Content Include="Views\Shared\_SearchResult.cshtml" />
+    <Content Include="Views\Post\Search.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
