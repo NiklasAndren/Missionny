@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Mission.Domain.Entities;
+using Mission.Domain.Repositories;
 
 namespace Mission.WebUI.Infrastructure
 {
-    // Källkoden ärligt stulen från: http://stackoverflow.com/questions/10064631/mvc-3-access-for-specific-user-only
+
     public class AuthorizeAdminAttribute : AuthorizeAttribute
     {
         protected override bool AuthorizeCore(HttpContextBase httpContext)
@@ -27,5 +29,20 @@ namespace Mission.WebUI.Infrastructure
         {
             return context.User.Identity.Name.ToLower() == "jesper";
         }
-	}
+
+
+        public static bool IsAuthorizedCompany(HttpContextBase context/*, Guid EventID*/)
+        {
+            var userRepo = new Repository<User>();
+            var user = userRepo.FindAll(u => u.UserName.ToLower() == context.User.Identity.Name.ToLower()).FirstOrDefault();
+            //var EventOwnerID = user.UserName;
+            if (user == null)
+                return false;
+            else
+                return true;
+                //user == null ? false : user.ID == EventID;
+        }
+    }
+
+
 }

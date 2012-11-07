@@ -19,5 +19,6 @@ namespace Mission.Domain.Entities
         public string City { get; set; }
         public string  PasswordHash { get; set; }
         public string  Salt { get; set; }
+        public virtual ICollection<Event> Event { get; set; }
     }
 }

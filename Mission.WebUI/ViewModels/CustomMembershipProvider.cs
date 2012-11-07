@@ -6,6 +6,7 @@ using System.Text;
 using System.Web.Security;
 using Mission.Domain.Repositories;
 using Mission.Domain.Entities;
+using Mission.Domain.Repositories.Abstract;
 
 namespace Mission.WebUI.ViewModels
 {
@@ -214,6 +215,17 @@ namespace Mission.WebUI.ViewModels
             throw new NotImplementedException();
         }
 
+         public bool UpdateUser(string username, string newPassword, string email)
+        {
+            IAppUserRepository userRepo = new AppUserRepository();
+            var user = userRepo.FindAll(u => u.UserName == username).FirstOrDefault();
+            user.Salt = BCrypt.Net.BCrypt.GenerateSalt();
+            user.PasswordHash = GetBcryptHash(newPassword, user.Salt);
+            user.UserEmailAddress = email;
+            userRepo.Save(user);
+            //throw new NotImplementedException();
+            return true;
+        }
         // Not Used:
 
         //protected virtual byte[] DecryptPassword(byte[] encodedPassword);
