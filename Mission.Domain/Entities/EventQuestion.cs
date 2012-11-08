@@ -13,5 +13,6 @@ namespace Mission.Domain.Entities
         public Guid EventID { get; set; }
         public virtual ICollection<Event> Event { get; set;}
         public virtual ICollection<Answer> Answers { get; set; }
+        public DateTime Date { get; set; }
     }
 }

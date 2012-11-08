@@ -15,7 +15,7 @@
                     Categories.push(AgeScore);
                 }
                 var data = google.visualization.arrayToDataTable(Categories);
-                var options = { title: 'Manliga röster : ' + x[0][2]["mCount"] + ' Kvinnliga röster : ' + x[0][2]["fCount"], hAxis: { title: '', titleTextStyle: { color: 'black'}} };
+                var options = { title: 'Manliga röster : ' + x[0][0]["mCount"] + ' Kvinnliga röster : ' + x[0][0]["fCount"], hAxis: { title: '', titleTextStyle: { color: 'black'}} };
                 var chart = new google.visualization.ColumnChart(document.getElementById('chart_div')); chart.draw(data, options);
                 for (n = 1; n < x.length; n++) {
                     Categories = [['Age', 'Male score', 'Female score']];
