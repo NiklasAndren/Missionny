@@ -3,7 +3,7 @@
         var t = "#news-" + x;
         var textToHide = $(t).text().substring(100);
         $(t).text().substring(101);
-        var visibleText = $(t).text().substring(1, 230);
+        var visibleText = $(t).text().substring(1, 160);
         var link = $(t).closest('article').find('h2').find('a').attr('href');
         $(t)
             .html(visibleText + ('...<span>' + textToHide + '</span>'))

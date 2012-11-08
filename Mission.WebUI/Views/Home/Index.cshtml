@@ -11,7 +11,7 @@
             <li>
                 <img src="@Url.Content("~/Content/img/slides/01.png")" alt="alt text" />
                 <p class="flex-caption">
-                    "Jag är en quote"</p>
+                    "<strong>Frigör</strong> | din inre styrka"</p>
             </li>
             <li>
                 <img src="@Url.Content("~/Content/img/slides/02.png")" alt="alt text" />
@@ -27,30 +27,7 @@
     <div class="home-block">
         <h2 class="home-block-heading">
             <span>KUNDER</span></h2>
-        <figure>
-            <figcaption>
-                <strong>Pellentesque habitant morbi</strong> <span>Pellentesque habitant morbi tristique
-                    senegestas. Vestibulum tortor quam</span> <em>December 08, 2011</em>
-            </figcaption>
-            <a href="#" class="thumb">
-                <img src="@Url.Content("~/Content/img/kunder/02.png")" alt="Alt text" /></a>
-        </figure>
-        <figure>
-            <figcaption>
-                <strong>Pellentesque habitant morbi</strong> <span>Pellentesque habitant morbi tristique
-                    senegestas. Vestibulum tortor quam</span> <em>December 08, 2011</em>
-            </figcaption>
-            <a href="#" class="thumb">
-                <img src="@Url.Content("~/Content/img/kunder/02.png")" alt="Alt text" /></a>
-        </figure>
-        <figure class="last">
-            <figcaption>
-                <strong>Pellentesque habitant morbi</strong> <span>Pellentesque habitant morbi tristique
-                    senectturpis egestas. Vestibulum tortor quam</span> <em>December 08, 2011</em>
-            </figcaption>
-            <a href="#" class="thumb">
-                <img src="@Url.Content("~/Content/img/kunder/04.png")" alt="Alt text" /></a>
-        </figure>
+        
         <div class="one-third-thumbs clearfix">
             <figure>
                 <figcaption>
@@ -58,28 +35,28 @@
                         tortor quam</span> <em>December 08, 2011</em>
                 </figcaption>
                 <a href="#" class="thumb">
-                    <img src="@Url.Content("~/Content/img/kunder/05.png")" alt="Alt text" /></a>
+                    <img src="@Url.Content("~/Content/img/kunder/06.png")" alt="Alt text" /></a>
             </figure>
             <figure>
                 <figcaption>
                     <strong>Kundnamn</strong> <span>Trolol lol hej jag heter Niklas.</span>
                 </figcaption>
                 <a href="#" class="thumb">
-                    <img src="@Url.Content("~/Content/img/kunder/05.png")" alt="Alt text" /></a>
+                    <img src="@Url.Content("~/Content/img/kunder/01.png")" alt="Alt text" /></a>
             </figure>
             <figure>
                 <figcaption>
                     <strong>Kundnamn</strong> <span>Trolol lol hej jag heter Niklas.</span>
                 </figcaption>
                 <a href="#" class="thumb">
-                    <img src="@Url.Content("~/Content/img/kunder/05.png")" alt="Alt text" /></a>
+                    <img src="@Url.Content("~/Content/img/kunder/02.png")" alt="Alt text" /></a>
             </figure>
             <figure>
                 <figcaption>
                     <strong>Kundnamn</strong> <span>Trolol lol hej jag heter Niklas.</span>
                 </figcaption>
                 <a href="#" class="thumb">
-                    <img src="@Url.Content("~/Content/img/kunder/05.png")" alt="Alt text" /></a>
+                    <img src="@Url.Content("~/Content/img/kunder/07.png")" alt="Alt text" /></a>
             </figure>
             <figure class="last">
                 <figcaption>
@@ -87,7 +64,7 @@
                         tortor quam</span> <em>December 08, 2011</em>
                 </figcaption>
                 <a href="#" class="thumb">
-                    <img src="@Url.Content("~/Content/img/kunder/02.png")" alt="Alt text" /></a>
+                    <img src="@Url.Content("~/Content/img/kunder/08.png")" alt="Alt text" /></a>
             </figure>
         </div>
     </div>
@@ -100,22 +77,61 @@
         <div id="one-third">
         <div id="headline">
         <em id="corner"></em>
-        <script type="text/javascript" src="@Url.Content("~/Content/js/form-validation.js")"></script>
        <script type="text/javascript" src="@Url.Content("~/Content/js/subscriber.js")"></script>
-        <div id="contactForm">
-         @using (Html.BeginForm()){
-             <div id="subscribe">
-                @Html.Partial("_Subscribe", @Model.Subscriber)
-              </div>
-             <div id="unsubscribe">
-                @Html.Partial("_Unsubscribe", @Model.Subscriber)
-             </div>
-        }
+        <div id="newsForm">
+                @if (ViewBag.SaveMessage != null || TempData["error"] != null)
+                {
+                    <p style="color:#2CF12C; font-size:18px;">@ViewBag.SaveMessage</p>
+                    
+                    if (TempData["error"] != null)
+                    {
+                        <p style="color:red; float:left; font-size:18px;">@TempData["error"]</p>
+                        @Html.Partial("_Unsubscribe", @Model.Subscriber)
+                    }
+                }
+                else
+                {
+                    <div id="subscribe">@Html.Partial("_Subscribe", @Model.Subscriber)</div>
+                    <div id="unsubscribe">@Html.Partial("_Unsubscribe", @Model.Subscriber)</div>
+                }
         </div>
-        
     </div>
+
+    
+
 </div>
     <div class="newsDiv">
-        @Html.Partial("_news", Model.Post)
-    </div>
+    <div id="posts-list" class="post-list-partial">
+    @{var n = 1;}
+    @foreach (var news in Model.Post)
+    {
+        var link = "";
+        if (news.Type == 0)
+        {
+            link = "Index";
+        }
+        else { link = "blog"; };        
+        <article class="format-standard" id="@news.ID">
+            <div class="entry-date">
+                <div class="number">@news.Date.Day</div>
+                <div class="year">@news.Date.ToString("MMM"),@news.Date.Year</div>
+            </div>
+            <h2 class="post-heading post-h2">
+                   <a href="Post/@link#@news.ID">@news.Title</a>
+                </h2>
+            <div class="excerpt" id="news-@n">@MvcHtmlString.Create(@news.Body)</div>
+          
+        </article>
+        n = n + 1;
+    }
+</div>
+</div>
+
+<div id="social-box">
+<div class="social-fb"><img src="@Url.Content("~/Content/img/facebook.png")" /></div>
+<div class="social-fb"><img src="@Url.Content("~/Content/img/twitter.png")" /></div>
+<div class="social-fb"><img src="@Url.Content("~/Content/img/linked in.png")" /></div>
+<div class="social-fb"><img src="@Url.Content("~/Content/img/youtube.png")" /></div>
+
+</div>
 </div>

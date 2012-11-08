@@ -258,6 +258,7 @@
 	margin-bottom: 20px;
 }
 
+#newsForm input[type="text"],
 #contactForm input, .valid
 #contactForm textarea,
 #commentform input,
@@ -273,6 +274,7 @@
 	overflow: auto;
 }
 
+#newsForm input[type="text"],
 #contactForm input:focus,
 #contactForm textarea:focus,
 #commentform input:focus,
@@ -284,6 +286,7 @@
 	box-shadow: 0px 0px 3px rgba(234,76,136,.4);
 }
 
+#newsForm input[type="text"],
 #contactForm input[type="text"],
 #commentform input[type="text"],
 #contactForm input[type="password"]{

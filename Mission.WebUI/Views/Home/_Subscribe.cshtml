@@ -3,17 +3,19 @@
     Nyhetsbrev</h2>
 <p>
     Premunemera gärna på mitt nyhetsbrev för nya fräscha nyheter</p>
+    @using (Html.BeginForm("index", "Home", "post"))
+    {
 <fieldset>
     <legend>.</legend>
     <div>
+        <span style="color:Red;">@Html.ValidationMessageFor(s => s.Subscriber.Name)</span>
         @Html.EditorFor(s => s.Subscriber.Name, new { id = "name", type = "text", @class = "form-poshytip", title = "Enter your full name" })
-        <label>
-            Namn</label>
+        <label>Namn</label>
     </div>
     <div>
+        <span style="color:Red;">@Html.ValidationMessageFor(s => s.Subscriber.Email)</span>
         @Html.EditorFor(s => s.Subscriber.Email, new { id = "email", type = "text", @class = "form-poshytip", title = "Enter your email address" })
-        <label>
-            Email</label>
+        <label>Email</label>
     </div>
     <div>
         @Html.EditorFor(s => s.Subscriber.City, new { id = "web", type = "text", @class = "form-poshytip" })
@@ -24,5 +26,6 @@
         <input type="submit" value="Prenumerera" id="submit" />
         <a class="subscribe-link">Avregistrera</a>
     </div>
-    <span id="error" class="warning"></span>
+    <div id="error" class="warning"></div>
 </fieldset>
+    }

@@ -18,10 +18,12 @@ namespace Mission.WebUI.Controllers
     {
         private IRepository<Post> _postRepo;
         private IRepository<Comment> _commentRepo;
-        public PostController(IRepository<Post> postRepo, IRepository<Comment> commentRepo)
+        private IRepository<SearchResult> _searchRepo;
+        public PostController(IRepository<Post> postRepo, IRepository<Comment> commentRepo, IRepository<SearchResult> searchRepo)
         {
             _postRepo = postRepo;
             _commentRepo = commentRepo;
+            _searchRepo = searchRepo;
         }
 
         //
@@ -119,5 +121,29 @@ namespace Mission.WebUI.Controllers
             _commentRepo.Delete(comment);
             return RedirectToAction("Blog", "Post");
         }
+
+        public ActionResult Search(string search)
+        {
+            List<SearchResult> searchResult = new List<SearchResult>();
+
+            if (!string.IsNullOrEmpty(search))
+            {
+
+                var posts = _postRepo.FindAll().Where(p => p.Title.Contains(search.ToLower()) || p.Body.Contains(search.ToLower())).ToList();
+                
+                foreach (var post in posts)
+                {
+                    SearchResult searchTest = new SearchResult();
+                    searchTest.Title = post.Title;
+                    searchTest.Excerpt = post.Body;
+                    searchTest.Url = "/Post/index/" + post.ID;
+                    searchResult.Add(searchTest);
+                }
+            }
+            ViewBag.SearchWord = search;
+            return View(searchResult);
+        }
+
+
     }   
 }

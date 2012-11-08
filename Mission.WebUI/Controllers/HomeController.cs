@@ -33,16 +33,53 @@ namespace Mission.WebUI.Controllers
         [HttpPost]
         public ActionResult Index(Subscriber subscriber)
         {
-            subscriber.ID = Guid.NewGuid();
-            _subscriberRepo.Save(subscriber);
-            var vm = new vm_PostSubscriber();
-                vm.Post = _postRepo.FindAll().Take(3).ToList();
-            return View(vm);
+            if (ModelState.IsValid)
+            {
+                var existing = _subscriberRepo.FindAll(s => s.Email == subscriber.Email);
+                
+                    subscriber.ID = Guid.NewGuid();
+                    _subscriberRepo.Save(subscriber);
+                    ViewBag.SaveMessage = "Prenumeration påbörjad!";
+                    var vm = new vm_PostSubscriber();
+                    vm.Post = _postRepo.FindAll().Take(3).ToList();
+
+                    return View(vm);
+                
+            }
+            else
+            {
+                ViewBag.SaveMessage = "Subscription unsuccessful";
+
+                return View();
+            }
+
+           
         }
 
-        public ActionResult Unsubscribe()
+        [HttpPost]
+        public ActionResult Unsubscribe(Subscriber subscriber)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                Subscriber unsubscriber = _subscriberRepo.FindAll(e => e.Email == subscriber.Email && e.Name == subscriber.Name).FirstOrDefault();
+
+                if (unsubscriber == null)
+                {
+                    TempData["error"] = "Namn eller Email hittades inte";
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    _subscriberRepo.Delete(unsubscriber);
+                    TempData["error"] = "Du är nu inte längre registrerad och kommer inte få nyhetsbrev längre!";
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                TempData["error"] = "Hoppsan, där var det nåt som gick fel";
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         public ActionResult Lectures(){

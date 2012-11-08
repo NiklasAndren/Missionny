@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Mission.Domain.Entities.SearchResult>
+          
+@{
+    ViewBag.Title = "Search";
+}
+
+<div class="searchdiv">
+    <h2>Sökord: @ViewBag.SearchWord</h2>
+    
+    @if (@Model != null)
+    {
+        foreach (var searchObject in Model)
+        {
+     
+         <article>
+          <a href="@searchObject.Url"> <h3>@searchObject.Title</h3> </a>
+       
+            <p>@searchObject.Excerpt</p>
+         </article>
+        }
+    }
+    else
+    {
+        <p>Inga resultat hittades</p>
+    }
+</div>
