@@ -89,12 +89,21 @@
             <div id="searchdiv">@Html.Partial("_SearchResult")</div>
 
             <div id="admin">
+                <ul>
+                 
+
                     @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
                     {
                         <li>@Html.ActionLink("Skapa ny post", "CreatePost", "Post")</li>
                         <li>@Html.ActionLink("Skapa nytt event", "CreateEvent", "Event")</li>
                         <li>@Html.ActionLink("Översikt", "Overview", "Event")</li>
-                    }</div>
+                    }
+                    @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAuthorizedCompany(this.Context) && !Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
+                 { 
+                        <li>@Html.ActionLink("Mitt event", "EventForCompany", "Event", new { name = this.Context.User.Identity.Name.ToLower().ToString() }, null)</li>
+                 }
+                    </ul>
+            </div>
             <nav id="meny">
 
                 <ul id="nav" class="sf-menu">
@@ -102,9 +111,11 @@
                     <li>@Html.ActionLink("Jesper Caron", "index", "Default")</li>
                     <li>@Html.ActionLink("Utgångspunkt", "index", "Default")</li>                    
                     <li>@Html.ActionLink("Föreläsningar", "Lectures", "Home")</li>            
-                    <li>@Html.ActionLink("Nyheter", "index", "Post")</li>
+                    <li>@Html.ActionLink("Nyheter", "Index", "Post")</li>
                     <li>@Html.ActionLink("Blogg", "Blog", "Post")</li>
+                    <li>@Html.ActionLink("Event", "index", "Event")</li>
                     <li>@Html.ActionLink("On tour", "index", "Event")</li>
+                    <li>@Html.ActionLink("Event", "OpenEvents", "Event")</li>
                 </ul>
             </nav>
 
@@ -142,11 +153,11 @@
             </div>
             <div id="footerActionplant">
                 <h3>
-                    Actionplant  <img alt="Actionplant" width="40px" height="40px" src="@Url.Content("~/Content/img/actionplant_mini_green.png")" /></h3>
+                    Actionplant
+                    <img alt="Actionplant" width="40px" height="40px" src="@Url.Content("~/Content/img/actionplant_mini_green.png")" /></h3>
                 <p>
                     Arbetslös? Då kan du få tre månader GRATIS professionell jobbcoaching! I Actionplant
                     blir du coachad av professionella coacher.<br />
-                    
                 </p>
             </div>
         </div>

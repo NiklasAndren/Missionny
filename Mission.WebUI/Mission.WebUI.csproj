@@ -85,6 +85,7 @@
     <Compile Include="ViewModels\CustomMembershipProvider.cs" />
     <Compile Include="ViewModels\vm_AnswerEventQuestion.cs" />
     <Compile Include="ViewModels\vm_EventQuestion.cs" />
+    <Compile Include="ViewModels\vm_EventUser.cs" />
     <Compile Include="ViewModels\vm_PostSubscriber.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -694,6 +695,7 @@
     <Content Include="Content\js\superfish-1.4.8\js\superfish.js" />
     <Content Include="Content\js\superfish-1.4.8\js\supersubs.js" />
     <Content Include="Content\js\tabs.js" />
+    <Content Include="Content\js\togglePassword.js" />
     <Content Include="Content\js\tweet\index.css" />
     <Content Include="Content\js\tweet\index.html" />
     <Content Include="Content\js\tweet\jquery.tweet.js" />
@@ -2675,6 +2677,8 @@
     <Content Include="Views\Home\Lectures.cshtml" />
     <Content Include="Views\Shared\_SearchResult.cshtml" />
     <Content Include="Views\Post\Search.cshtml" />
+    <Content Include="Views\Event\OpenEvents.cshtml" />
+    <Content Include="Views\Event\EventForCompany.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

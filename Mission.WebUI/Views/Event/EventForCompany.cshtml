@@ -7,8 +7,7 @@
     <h2 class="page-heading">
         <span>Event</span></h2>
     @foreach (var events in Model)
-    { 
-    
+    {     
         <article class="format-standard">
 			<div class="entry-date"><div class="number">@events.Date.Day</div><div class="year">@events.Date.ToString("MMM"),@events.Date.Year</div></div>
 			<h2  class="post-heading"><a href="Event/SingleEvent/@events.ID">@events.HeadLine</a></h2>
