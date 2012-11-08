@@ -153,8 +153,21 @@ namespace Mission.WebUI.Controllers
         {
             List<EventQuestion> eq = _eventQuestionRepo.FindAll(e => e.EventID == id).ToList();
             List<List<AnswerResult>> answers = new List<List<AnswerResult>>();
-            int maleCount = eq.FirstOrDefault().Answers.Where(q => q.Gender == 0).Count();
-            int femaleCount = eq.FirstOrDefault().Answers.Where(q => q.Gender == 1).Count();
+            int maleCount;
+            int femaleCount;
+
+            if (eq.FirstOrDefault().Answers.Where(q => q.Gender == 0) == null){
+                maleCount = 0;
+            }
+            else{
+                maleCount = eq.FirstOrDefault().Answers.Where(q => q.Gender == 0).Count();
+            }
+            if (eq.FirstOrDefault().Answers.Where(q => q.Gender == 1) == null){
+                femaleCount = 0;               
+            }
+            else{
+                femaleCount = eq.FirstOrDefault().Answers.Where(q => q.Gender == 1).Count();
+            }
 
             answers.Add((from e in (eq.SelectMany(e => e.Answers))
                         group e by new { e.AgeSpan }

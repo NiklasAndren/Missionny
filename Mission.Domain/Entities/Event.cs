@@ -21,7 +21,8 @@ namespace Mission.Domain.Entities
         [Required(ErrorMessage = "Fyll i titel")]
         public String HeadLine { get; set; }
         public String Description { get; set; }
-        public int OpenEvent { get; set; }      
+        public int OpenEvent { get; set; }
         public virtual ICollection<EventQuestion> EventQuestions { get; set; }
+        public List<string> StaticQuestions { get; set {  } }
     }
 }
