@@ -14,14 +14,9 @@
 			<div class="excerpt">@MvcHtmlString.Create(@events.Description)</div>
 			<div class="meta">
 				<div class="categories">@events.City</div>
-                @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
-                {
-					<div class="comments"><a>@Html.ActionLink("Ändra", "Edit", "Event", new { id = events.ID }, null)</a></div>
-					<div class="user"><a>@Html.ActionLink("Ta bort", "Delete", "Event", new { id = events.ID }, null)</a></div>
-                    <div class=""><a>@Html.ActionLink("Skapa eventfråga", "CreateEventQuestion", "Event", new { id = events.ID}, null)</a></div>
-                    <div class=""><a>@Html.ActionLink("Skapa svar", "CreateAnswer", "Event", new { id = events.ID }, null)</a></div>
-                    <div class=""><a>@Html.ActionLink("Statistik", "EventStatistics", "Event", new { id = events.ID }, null)</a></div>
-                }
+               
+                 <div class=""><a>@Html.ActionLink("Statistik", "EventStatistics", "Event", new { id = events.ID }, null)</a></div>
+                
             </div>
 		</article>
     }</div>

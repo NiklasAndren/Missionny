@@ -66,18 +66,16 @@ namespace Mission.WebUI.Controllers
                 }
                 else {                   
                     cmp.CreateUser(vm.Username, vm.Password, vm.Email, "", "", true, null, out status);
-                    user.UserEmailAddress = vm.Email;
-                    user.Event.Add(vm.Event);
-                    _userRepository.Save(user);
+                    User newUser = _userRepository.FindAll(u => u.UserName == vm.Username).FirstOrDefault();
+                    newUser.UserEmailAddress = vm.Email;
+                    newUser.Event.Add(vm.Event);
+                    _userRepository.Save(newUser);
                 }
             }
             else
             {
                 _eventRepo.Save(vm.Event);
             }
-            
-
-            
             return RedirectToAction("Index", "Event");
         }
 
@@ -95,7 +93,6 @@ namespace Mission.WebUI.Controllers
             events.Date = DateTime.Now;
             events.Description = HttpUtility.HtmlDecode(events.Description);
             _eventRepo.Save(events);
-
             return RedirectToAction("Index", "Event");
         }
 
@@ -113,8 +110,6 @@ namespace Mission.WebUI.Controllers
             var vm = new vm_EventQuestion();
             vm.Event = _eventRepo.FindByID(id);
             vm.EventQuestions = _eventQuestionRepo.FindAll(p => p.EventID == id).OrderBy(p => p.Date).ToList();
-            
-
             return View(vm);
         }
 
@@ -140,8 +135,7 @@ namespace Mission.WebUI.Controllers
         public ActionResult CreateAnswer(vm_AnswerEventQuestion Answer)
         {
             foreach (var answer in Answer.Answers)
-            {
-               
+            {              
                 var qAnswer = new Answer
                 {
                     Age = Answer.Age,
@@ -174,8 +168,7 @@ namespace Mission.WebUI.Controllers
                                     mCount = maleCount,
                                     fCount = femaleCount
                                 }).OrderBy(a => a.AgeSpan).ToList());
-
-            
+           
             foreach (var eventquestion in eq) {
                 answers.Add((from e in (_answerRepository.FindAll(e => e.EventQuestionID == eventquestion.ID))
                              group e by new { e.AgeSpan }
@@ -190,8 +183,6 @@ namespace Mission.WebUI.Controllers
                                      fCount = femaleCount
                                  }).OrderBy(a => a.AgeSpan).ToList());
             }
-
-
             return Json(answers, JsonRequestBehavior.AllowGet);
 
         }

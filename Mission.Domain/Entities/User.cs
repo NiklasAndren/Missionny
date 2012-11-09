@@ -6,7 +6,7 @@ using Mission.Domain.Entities.Abstract;
 
 namespace Mission.Domain.Entities
 {
-    public enum Role { User, Admin, ContactPerson, Colleague }
+    public enum Role { User, Admin, ContactPerson, Colleague, Company }
 
     public class User : IEntity
    

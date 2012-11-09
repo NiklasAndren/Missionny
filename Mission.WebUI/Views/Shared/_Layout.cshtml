@@ -100,7 +100,7 @@
                     }
                     @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAuthorizedCompany(this.Context) && !Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
                  { 
-                        <li>@Html.ActionLink("Mitt event", "EventForCompany", "Event", new { name = this.Context.User.Identity.Name.ToLower().ToString() }, null)</li>
+                        <li>@Html.ActionLink("Mina event", "EventForCompany", "Event", new { name = this.Context.User.Identity.Name.ToLower().ToString() }, null)</li>
                  }
                     </ul>
             </div>
@@ -111,7 +111,7 @@
                     <li>@Html.ActionLink("Jesper Caron", "index", "Default")</li>
                     <li>@Html.ActionLink("Utgångspunkt", "index", "Default")</li>                    
                     <li>@Html.ActionLink("Föreläsningar", "Lectures", "Home")</li>            
-                    <li>@Html.ActionLink("Nyheter", "Index", "Post")</li>
+                    <li>@Html.ActionLink("In Action", "Index", "Post")</li>
                     <li>@Html.ActionLink("Blogg", "Blog", "Post")</li>
                     <!--<li>@Html.ActionLink("Event", "index", "Event")</li>-->
                     <li>@Html.ActionLink("On tour", "index", "Event")</li>
