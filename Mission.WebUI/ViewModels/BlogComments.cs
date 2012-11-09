@@ -10,5 +10,6 @@ namespace Mission.WebUI.ViewModels
     {
         public List<Post> Posts { get; set; }
         public List<Comment> BlogComment { get; set; }
+        public Dictionary<string, int> ArkivCount { get; set; }
     }
 }

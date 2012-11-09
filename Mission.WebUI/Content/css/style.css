@@ -54,7 +54,7 @@ input[type="password"]:focus
     float: right;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    margin-top: 52px;
+    margin-top: 44px;
     clear: right;
 }
 
@@ -1232,7 +1232,8 @@ td a:first-child{border-left: 0px solid black !important;}
     height: 5px;
     float: right;
     font-size: 14px;
-    margin-top: 40px;
+    margin-top: 10px;
+    clear:right;
 }
 
 #admin li a
@@ -1330,11 +1331,22 @@ textarea
 {
     float:left;
     clear:both;
+    width:100%;
 }
 
 #social-box img
 {
     width:40%;
+    float:left;
+}
+
+#social-box span
+{
+    margin-top:42px;
+    color:white;
+    float:left;
+    font-family: 'Shadows Into Light Two', cursive;
+    font-size:33px;
 }
 
 #searchfield
@@ -1371,4 +1383,31 @@ textarea
 {
     background:white;
     outline:none;
+}
+
+#bloggarkiv
+{
+    float:right; 
+    width:26%; 
+    height:200px; 
+    background-color:#555;
+    box-shadow:0px 0px 8px 1px #aaa;
+}
+
+#bloggarkiv h2
+{
+    color:White;
+    margin:20px;
+    text-align:center;
+}
+
+#bloggarkiv p
+{
+    color:white;
+    margin-left:20px;
+}
+
+.post-lists-blogg article
+{
+	width:67%;
 }
