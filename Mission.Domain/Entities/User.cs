@@ -6,7 +6,7 @@ using Mission.Domain.Entities.Abstract;
 
 namespace Mission.Domain.Entities
 {
-    public enum Role { User, Admin, ContactPerson, Colleague }
+    public enum Role { User, Admin, ContactPerson, Colleague, Company }
 
     public class User : IEntity
    
@@ -19,5 +19,6 @@ namespace Mission.Domain.Entities
         public string City { get; set; }
         public string  PasswordHash { get; set; }
         public string  Salt { get; set; }
+        public virtual ICollection<Event> Event { get; set; }
     }
 }

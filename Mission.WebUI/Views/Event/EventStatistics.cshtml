@@ -8,25 +8,25 @@
             'url': '/Event/StatisticsDetails/' + '@Model.ToString()',
             'dataType': 'json',
             'success': function drawChart(x) {
-                var Categories = [['Age', 'Male score', 'Female score']];
-                var AgeScore;
-                var options = { title: 'Antal: ' + ' M = ' + x[0][2]["mCount"] + ' F = ' + x[0][3]["fCount"], hAxis: { title: '', titleTextStyle: { color: 'black'}} };
+                var Categories = [['Age', 'Manlig poäng', 'Kvinnlig poäng']];
+                var AgeScore;              
                 for (var i in x[0]) {
                     AgeScore = [x[0][i]["AgeSpan"], x[0][i]["mScore"], x[0][i]["fScore"]];
                     Categories.push(AgeScore);
                 }
                 var data = google.visualization.arrayToDataTable(Categories);
+                var options = { title: 'Antal män : ' + x[0][0]["mCount"] + ' Antal kvinnor : ' + x[0][0]["fCount"], hAxis: { title: '', titleTextStyle: { color: 'black'}} };
                 var chart = new google.visualization.ColumnChart(document.getElementById('chart_div')); chart.draw(data, options);
                 for (n = 1; n < x.length; n++) {
-                    Categories = [['Age', 'Male score', 'Female score']];
+                    Categories = [['Age', 'Manlig poäng', 'Kvinnlig poäng']];
                     for (var a in x[n]) {
                         AgeScore = [x[n][a]["AgeSpan"], x[n][a]["mScore"], x[n][a]["fScore"]];
                         Categories.push(AgeScore);
                     }
                     $('.charts').append('<div class="questionDiv"><p>'+x[n][a]["Question"]+'</p><div class ="chartDiv" id="chart_div' + n + '" style=" height: 250px;"></div></div>');
                     data = google.visualization.arrayToDataTable(Categories);
-                    var options = { title: '', hAxis: { title: '', titleTextStyle: { color: 'black'}} };
-                    var charts = new google.visualization.ColumnChart(document.getElementById('chart_div' + n)); charts.draw(data, options);
+                    var options1 = { title: '', hAxis: { title: '', titleTextStyle: { color: 'black'}} };
+                    var charts = new google.visualization.ColumnChart(document.getElementById('chart_div' + n)); charts.draw(data, options1);
                 }
                
             }

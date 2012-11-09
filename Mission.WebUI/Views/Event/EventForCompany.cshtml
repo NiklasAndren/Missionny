@@ -1,0 +1,23 @@
+﻿@using Mission.Domain.Entities
+@model List<Event>
+@{
+    ViewBag.Title = "Index";
+}
+<div id="posts-list">
+    <h2 class="page-heading">
+        <span>Event</span></h2>
+    @foreach (var events in Model)
+    {     
+        <article class="format-standard">
+			<div class="entry-date"><div class="number">@events.Date.Day</div><div class="year">@events.Date.ToString("MMM"),@events.Date.Year</div></div>
+			<h2  class="post-heading"><a href="Event/SingleEvent/@events.ID">@events.HeadLine</a></h2>
+			<div class="excerpt">@MvcHtmlString.Create(@events.Description)</div>
+			<div class="meta">
+				<div class="categories">@events.City</div>
+               
+                 <div class=""><a>@Html.ActionLink("Statistik", "EventStatistics", "Event", new { id = events.ID }, null)</a></div>
+                
+            </div>
+		</article>
+    }</div>
+</div> 

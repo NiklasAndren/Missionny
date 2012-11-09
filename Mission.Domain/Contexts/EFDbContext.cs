@@ -12,9 +12,10 @@ namespace Mission.Domain.Contexts
     public class EFDbContext : DbContext
     {
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Comment> Comments { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Event> Events { get; set; }
-        public DbSet<Comment> Comments { get; set; }
+        public DbSet<EventQuestion> EventQuestions { get; set; }
         public DbSet<Answer> Answeres { get; set; }
         public DbSet<Subscriber> Subscribers { get; set; }
     }
@@ -25,18 +26,17 @@ namespace Mission.Domain.Contexts
 
         protected override void Seed(EFDbContext context)
         {
-           
-           
             var fakeData = new FakeData();
-            fakeData.testUserList().ForEach(s => context.Users.Add(s));
+            
             context.SaveChanges();
             fakeData.testPostList().ForEach(s => context.Posts.Add(s));
             fakeData.testNewsList().ForEach(s => context.Posts.Add(s));
             fakeData.testEventList().ForEach(s => context.Events.Add(s));
+            fakeData.testCommentList().ForEach(s => context.Comments.Add(s));
+            fakeData.testEventQuestionList().ForEach(s => context.EventQuestions.Add(s));
+           // fakeData.testAnswerList().ForEach(s => context.Answeres.Add(s));
             User JesperSomAdmin = new User { UserName = "Jesper", Salt = "$2a$10$/XJG8qJZgw4ZdbV.k/Tne.", PasswordHash = "$2a$10$/XJG8qJZgw4ZdbV.k/Tne.GNk94mOT7f1AuhaW.v2rj5qmJ1j2fF.", Role = 1, UserEmailAddress = "JesperDude@ngnmail.com", ID = Guid.NewGuid() };
-
             context.Users.Add(JesperSomAdmin);
-
             context.SaveChanges();
         }
     }

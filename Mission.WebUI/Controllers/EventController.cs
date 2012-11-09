@@ -9,6 +9,8 @@ using Mission.Domain.Entities;
 using Mission.WebUI.Infrastructure;
 using Mission.WebUI.ViewModels;
 using System.Web.Script.Serialization;
+using System.Web.Security;
+
 
 namespace Mission.WebUI.Controllers
 {
@@ -17,11 +19,13 @@ namespace Mission.WebUI.Controllers
         private IRepository<Event> _eventRepo;
         private IRepository<EventQuestion> _eventQuestionRepo;
         private IRepository<Answer> _answerRepository;
-        public EventController(IRepository<Event> eventRepo, IRepository<EventQuestion> eventQuestion, IRepository<Answer> answerRepository)
+        private IRepository<User> _userRepository;
+        public EventController(IRepository<Event> eventRepo, IRepository<EventQuestion> eventQuestion, IRepository<Answer> answerRepository, IRepository<User> userRepository)
         {
             _eventQuestionRepo = eventQuestion;
             _eventRepo = eventRepo;
             _answerRepository = answerRepository;
+            _userRepository = userRepository;
         }
 
         public ActionResult Index()
@@ -32,17 +36,46 @@ namespace Mission.WebUI.Controllers
         [AuthorizeAdmin]
         public ActionResult CreateEvent()
         {
-            Event NewEvent = new Event();
+            vm_EventUser vm = new vm_EventUser();
+                vm.Event = new Event();
+                      
             return View();
         }
 
         [HttpPost]
         [AuthorizeAdmin]
-        public ActionResult CreateEvent(Event newEvent)
+        public ActionResult CreateEvent(vm_EventUser vm)
         {
-            newEvent.ID = Guid.NewGuid();
-            newEvent.Description = HttpUtility.HtmlDecode(newEvent.Description);
-            _eventRepo.Save(newEvent);
+            vm.Event.ID = Guid.NewGuid();
+            foreach (var eq in Event.InitialQuestion)
+            {
+                var question = new EventQuestion { ID = Guid.NewGuid(), Question = eq, EventID = vm.Event.ID, Date = DateTime.Now };
+                _eventQuestionRepo.Save(question);
+            }  
+            vm.Event.Company = vm.Username;
+            vm.Event.Description = HttpUtility.HtmlDecode(vm.Event.Description);
+            CustomMembershipProvider cmp = new CustomMembershipProvider();
+            var status = new MembershipCreateStatus();
+
+            if (!string.IsNullOrEmpty(vm.Password))
+            {
+                User user = _userRepository.FindAll(u => u.UserName == vm.Username).FirstOrDefault();
+                if (user != null)
+                {
+                    cmp.UpdateUser(vm.Username, vm.Password, vm.Email);
+                }
+                else {                   
+                    cmp.CreateUser(vm.Username, vm.Password, vm.Email, "", "", true, null, out status);
+                    User newUser = _userRepository.FindAll(u => u.UserName == vm.Username).FirstOrDefault();
+                    newUser.UserEmailAddress = vm.Email;
+                    newUser.Event.Add(vm.Event);
+                    _userRepository.Save(newUser);
+                }
+            }
+            else
+            {
+                _eventRepo.Save(vm.Event);
+            }
             return RedirectToAction("Index", "Event");
         }
 
@@ -60,7 +93,6 @@ namespace Mission.WebUI.Controllers
             events.Date = DateTime.Now;
             events.Description = HttpUtility.HtmlDecode(events.Description);
             _eventRepo.Save(events);
-
             return RedirectToAction("Index", "Event");
         }
 
@@ -77,8 +109,7 @@ namespace Mission.WebUI.Controllers
         {
             var vm = new vm_EventQuestion();
             vm.Event = _eventRepo.FindByID(id);
-            vm.EventQuestions = _eventQuestionRepo.FindAll(p => p.EventID == id).ToList();
-
+            vm.EventQuestions = _eventQuestionRepo.FindAll(p => p.EventID == id).OrderBy(p => p.Date).ToList();
             return View(vm);
         }
 
@@ -87,6 +118,7 @@ namespace Mission.WebUI.Controllers
         public ActionResult CreateEventQuestion(EventQuestion eq)
         {
             eq.ID = Guid.NewGuid();
+            eq.Date = DateTime.Now;
             _eventQuestionRepo.Save(eq);
             return RedirectToAction("CreateEventQuestion", "Event");
         }
@@ -103,8 +135,7 @@ namespace Mission.WebUI.Controllers
         public ActionResult CreateAnswer(vm_AnswerEventQuestion Answer)
         {
             foreach (var answer in Answer.Answers)
-            {
-               
+            {              
                 var qAnswer = new Answer
                 {
                     Age = Answer.Age,
@@ -123,8 +154,8 @@ namespace Mission.WebUI.Controllers
         {
             List<EventQuestion> eq = _eventQuestionRepo.FindAll(e => e.EventID == id).ToList();
             List<List<AnswerResult>> answers = new List<List<AnswerResult>>();
-            int maleCount = eq.FirstOrDefault().Answers.Where(q => q.Gender == 0).Count();
-            int femaleCount = eq.FirstOrDefault().Answers.Where(q => q.Gender == 1).Count();
+            int maleCount = eq.FirstOrDefault().Answers == null ? 0 : eq.FirstOrDefault().Answers.Where(q => q.Gender == 0).Count();
+            int femaleCount = eq.FirstOrDefault().Answers == null ? 0 : eq.FirstOrDefault().Answers.Where(q => q.Gender == 1).Count();
 
             answers.Add((from e in (eq.SelectMany(e => e.Answers))
                         group e by new { e.AgeSpan }
@@ -137,8 +168,7 @@ namespace Mission.WebUI.Controllers
                                     mCount = maleCount,
                                     fCount = femaleCount
                                 }).OrderBy(a => a.AgeSpan).ToList());
-
-            
+           
             foreach (var eventquestion in eq) {
                 answers.Add((from e in (_answerRepository.FindAll(e => e.EventQuestionID == eventquestion.ID))
                              group e by new { e.AgeSpan }
@@ -153,8 +183,6 @@ namespace Mission.WebUI.Controllers
                                      fCount = femaleCount
                                  }).OrderBy(a => a.AgeSpan).ToList());
             }
-
-
             return Json(answers, JsonRequestBehavior.AllowGet);
 
         }
@@ -173,5 +201,24 @@ namespace Mission.WebUI.Controllers
             var Event = _eventRepo.FindByID(id);
             return View(Event);
         }
+
+        public ActionResult OpenEvents() 
+        {
+            vm_EventUser eu = new vm_EventUser();
+            List<Event> openEvents = _eventRepo.FindAll(e => e.OpenEvent == (int)OpenEvent.Open).ToList();
+            return View(openEvents);
+        }
+
+
+        public ActionResult EventForCompany(string name)
+        {
+            User user = _userRepository.FindAll(u => u.UserName == name.ToLower()).FirstOrDefault();
+
+
+            List<Event> companyEvents = _eventRepo.FindAll(e => e.UserID == user.ID).ToList();
+            return View(companyEvents);
+        }
     }
+
+
 }

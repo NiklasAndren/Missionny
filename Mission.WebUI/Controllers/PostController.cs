@@ -98,7 +98,6 @@ namespace Mission.WebUI.Controllers
 
 
         [HttpPost]
-        [AuthorizeAdmin]
         public ActionResult _CreateComment(FormCollection commentCollection)
         {
             if (ModelState.IsValid)
