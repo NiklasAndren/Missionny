@@ -8,6 +8,16 @@
 
 <div id="posts-list" class="post-lists-blogg">
     <h2 class="page-heading"><span>@Model.Posts.FirstOrDefault().Date.ToString("MMMM")</span></h2>
+    <div id="bloggarkiv">
+
+        <h2>Arkiv</h2>
+
+            @foreach(var arkiv in Model.ArkivCount)
+            {
+                <p>@Html.ActionLink(arkiv.Key, "Arkiv", "Post", new { month = arkiv.Key }, null) (@arkiv.Value)</p>
+            }
+
+        </div>
 
 @foreach (var post in Model.Posts)
 {

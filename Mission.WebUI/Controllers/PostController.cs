@@ -59,11 +59,11 @@ namespace Mission.WebUI.Controllers
 
         public ActionResult Blog()
         {
+            var monthcount = _postRepo.FindAll(e => e.Type == 1).GroupBy(e => e.Date);
+
             BlogComments bc = new BlogComments();
             bc.Posts = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.Blog).OrderByDescending(p => p.Date).ToList();
             bc.BlogComment = _commentRepo.FindAll().OrderByDescending(p => p.Date).ToList();
-            bc.ArkivCount = _postRepo.FindAll(e => e.Type == 1).GroupBy(e => e.Date.ToString("MMMM")).ToDictionary(g => g.Key, g => g.ToList().Count);
-
             return View(bc);
         }
 
@@ -153,16 +153,16 @@ namespace Mission.WebUI.Controllers
             return View(searchResult);
         }
 
-        public ActionResult Arkiv(string month)
+       /* public ActionResult Arkiv(string month)
         {
             BlogComments bc = new BlogComments();
 
             bc.Posts = _postRepo.FindAll(e => e.Type == 1).Where(e => e.Date.ToString("MMMM") == month).OrderByDescending(o => o.Date).ToList();
             bc.BlogComment = _commentRepo.FindAll().OrderByDescending(p => p.Date).ToList();
-            bc.ArkivCount = null;
+            bc.ArkivCount = _postRepo.FindAll(e => e.Type == 1).GroupBy(e => e.Date).ToDictionary(g => g.Key, g => g.ToList().Count); ;
 
             return View(bc);
-        }
+        }*/
             
 
 
