@@ -24,9 +24,9 @@ namespace Mission.Domain.Entities
         public int OpenEvent { get; set; }
         public virtual ICollection<EventQuestion> EventQuestions { get; set; }
         public static List<string> InitialQuestion = new List<string> { 
-            "Pedagogik - Vad tycker du om Jesper Carons förmåga att lära ut?", 
-            "Föreläsningen - Vad tycker du om innehållet i Jesper Carons föreläsning?", 
-            "Övningar - Vad tycker du som helhet om de övningar som ni fick göra?", 
-            "Ditt totala intryck - Vilket är ditt totala intryck av dagen?" };
+            "1. Pedagogik - Vad tycker du om Jesper Carons förmåga att lära ut?", 
+            "2. Föreläsningen - Vad tycker du om innehållet i Jesper Carons föreläsning?", 
+            "3. Övningar - Vad tycker du som helhet om de övningar som ni fick göra?", 
+            "4. Ditt totala intryck - Vilket är ditt totala intryck av dagen?" };
     }
 }

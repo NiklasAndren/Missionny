@@ -10,6 +10,8 @@ using Mission.WebUI.Infrastructure;
 using Mission.WebUI.ViewModels;
 using System.Web.Script.Serialization;
 using System.Web.Security;
+using System.Data.Entity.Validation;
+using System.Text;
 
 
 namespace Mission.WebUI.Controllers
@@ -20,12 +22,14 @@ namespace Mission.WebUI.Controllers
         private IRepository<EventQuestion> _eventQuestionRepo;
         private IRepository<Answer> _answerRepository;
         private IRepository<User> _userRepository;
-        public EventController(IRepository<Event> eventRepo, IRepository<EventQuestion> eventQuestion, IRepository<Answer> answerRepository, IRepository<User> userRepository)
+        private IRepository<Subscriber> _subScriberRepository;
+        public EventController(IRepository<Event> eventRepo, IRepository<EventQuestion> eventQuestion, IRepository<Answer> answerRepository, IRepository<User> userRepository, IRepository<Subscriber> subScriberRepo)
         {
             _eventQuestionRepo = eventQuestion;
             _eventRepo = eventRepo;
             _answerRepository = answerRepository;
             _userRepository = userRepository;
+            _subScriberRepository = subScriberRepo;
         }
 
         public ActionResult Index()
@@ -127,26 +131,71 @@ namespace Mission.WebUI.Controllers
         public ActionResult CreateAnswer(Guid id)
         {
             var vm = new vm_AnswerEventQuestion();
-            vm.Answers = _eventQuestionRepo.FindAll(eq => eq.EventID == id).Select(q => new AnswerVM { Question = q.Question, QuestionID = q.ID }).ToList();
+            vm.Questions = _eventQuestionRepo.FindAll(eq => eq.EventID == id).OrderBy(eq => eq.Question).ToList();
+            vm.EventQuestionIDs = _eventQuestionRepo.FindAll(eq => eq.EventID == id).Select(e => e.ID.ToString()).Aggregate((i, j) => i + ";" + j);
             return View(vm);
         }
         [HttpPost]
         [AuthorizeAdmin]
         public ActionResult CreateAnswer(vm_AnswerEventQuestion Answer)
         {
-            foreach (var answer in Answer.Answers)
+
+            var eventQuestionIDs = Answer.EventQuestionIDs.Split(';').Select(e => new Guid(e)).ToList();
+            var scoreArray = Answer.StringAnswers.ToCharArray().Select(c => int.Parse(c.ToString()));
+
+            List<int> ar = new List<int>();
+            for(int n =0; n < Answer.StringAnswers.Length; n++)
+            {
+                ar.Add(int.Parse(Answer.StringAnswers[n].ToString()));
+            }            
+            int i = 0;
+            foreach (var id in eventQuestionIDs)
             {              
                 var qAnswer = new Answer
                 {
-                    Age = Answer.Age,
-                    EventQuestionID = answer.QuestionID,                 
+                    Age = Answer.Age,                 
                     Username = Answer.Username, 
+                    Email = Answer.Email,
                     ID = Guid.NewGuid(),
                     Gender = Answer.Gender,
-                    Score = Int32.Parse(answer.Selected)
+                    EventQuestionID = id,
+                    Score = ar[i]
                 };
-                _answerRepository.Save(qAnswer);
-            } 
+                i++;
+                try
+                    {                       
+                    _answerRepository.Save(qAnswer);
+                    }
+                    catch (DbEntityValidationException ex)
+                    {
+                    StringBuilder sb = new StringBuilder();
+
+                    foreach (var failure in ex.EntityValidationErrors)
+                    {
+                        sb.AppendFormat("{0} failed validation\n",
+                failure.Entry.Entity.GetType());
+
+                        foreach (var error in failure.ValidationErrors)
+                        {
+                        sb.AppendFormat("- {0} : {1}", error.PropertyName, error.ErrorMessage);
+                        sb.AppendLine();
+                        }
+                    }
+                        throw new DbEntityValidationException("Entity Validation Failed - errors follow:\n" + sb.ToString(), ex);
+                }
+            }
+            if (!string.IsNullOrEmpty(Answer.Email))
+            {
+                Subscriber subscriber = _subScriberRepository.FindAll(s => s.Email == Answer.Email).FirstOrDefault();
+                if(subscriber == null){
+                    subscriber = new Subscriber();
+                    subscriber.Email = Answer.Email;
+                    subscriber.City = Answer.City;
+                    subscriber.Name = Answer.Username;
+                    subscriber.ID = Guid.NewGuid();
+                    _subScriberRepository.Save(subscriber);
+                }
+            }
             return RedirectToAction("CreateAnswer", "Event");
         }
 
@@ -184,7 +233,22 @@ namespace Mission.WebUI.Controllers
                                  }).OrderBy(a => a.AgeSpan).ToList());
             }
             return Json(answers, JsonRequestBehavior.AllowGet);
+        }
 
+        public JsonResult YearsStatistics()
+        {
+            List<Event> allEvents = _eventRepo.FindAll().ToList();
+            List<List<AnswerResult>> answers = new List<List<AnswerResult>>();
+            foreach(var Event in allEvents ){
+                List<EventQuestion> eq = _eventQuestionRepo.FindAll(e => e.EventID == Event.ID).ToList();
+                foreach (var eventQ in eq) { 
+                  
+                }
+                
+                
+            }
+
+            return Json(answers, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult EventStatistics(Guid id)
