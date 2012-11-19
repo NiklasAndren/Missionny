@@ -107,7 +107,6 @@ body p{
 }
 
 h4{padding-bottom: 10px !important; padding-top: 10px !important;}
-body li{color:#555;}
 
 ul {list-style-type:circle; }
 
@@ -892,7 +891,7 @@ article .meta div{
 
 article .meta .comments{
 	border-left: 1px solid #cecece;
-	background: url(../img/icon-comments.png) no-repeat;
+	/*background: url(../img/icon-comments.png) no-repeat;*/
 }
 
 article .meta .edit{
@@ -1020,7 +1019,7 @@ article .meta .delete{
 	width: 260px; /* 300 - 40 padding */
 	min-height: 275px;
 	padding: 70px 20px 20px 20px;;
-	margin-top:-67px;
+	margin-top:-47px;
 	-webkit-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
 	-moz-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
 	-o-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
@@ -1307,7 +1306,7 @@ td a:first-child{border-left: 0px solid black !important;}
 #login-form{float:left; width: 30%;}
 #footerActionplant{float:right; width: 30%;}
  .contactInfo{margin-left:5%; float:left; width: 30%;}
-#contactForm, .address-block, #footerActionplant p{border-top: 1px dashed #656565; padding-top: 3em; }
+#contactForm, .address-block, #footerActionplant p{border-top: 1px dashed #656565; padding-top: 3em; list-style:none; }
 
 
 .questionDiv
@@ -1414,10 +1413,20 @@ textarea
     text-align:center;
 }
 
-#bloggarkiv p a
+#bloggarkiv p, #bloggarkiv p a
 {
     color:white;
+}
+
+#bloggarkiv p 
+{
+    margin-bottom:5px;
     margin-left:20px;
+}
+
+#bloggarkiv p a:hover
+{
+    color:#49afcd;
 }
 
 .post-lists-blogg article

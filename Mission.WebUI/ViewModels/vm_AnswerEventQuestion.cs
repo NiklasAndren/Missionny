@@ -13,6 +13,7 @@ namespace Mission.WebUI.ViewModels
         public int Gender { get; set; }
         public int Age { get; set; }
         public List<AnswerVM> Answers { get; set; }
+        public string Words { get; set; }
     }
 
     public class AnswerVM

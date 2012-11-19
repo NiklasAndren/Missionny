@@ -14,7 +14,7 @@
 
             @foreach(var arkiv in Model.ArkivCount)
             {
-                <p>@Html.ActionLink(arkiv.Key, "Arkiv", "Post", new { month = arkiv.Key }, null) (@arkiv.Value)</p>
+                <p>@Html.ActionLink(arkiv.Key.ToString("MMMM"), "Arkiv", "Post", new { month = arkiv.Key.ToString("MMMM") }, null) (@arkiv.Value)</p>
             }
 
         </div>

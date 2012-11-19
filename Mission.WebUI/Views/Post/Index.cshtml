@@ -15,8 +15,11 @@
         {
             link = "Index";
         }
-        else { link = "blog"; };     
-        <article class="format-standard" id="@news.ID">
+        else { link = "blog"; };
+
+        string title = news.Title.Replace(" ", "_");
+        
+        <article class="format-standard" id="@title">
             <div class="entry-date">
                 <div class="number">@news.Date.Day</div>
                 <div class="year">@news.Date.ToString("MMM"),@news.Date.Year</div>

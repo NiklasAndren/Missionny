@@ -91,6 +91,7 @@
   <ItemGroup>
     <Content Include="Content\css\comments.css" />
     <Content Include="Content\css\flexslider.css" />
+    <Content Include="Content\css\fontello.css" />
     <Content Include="Content\css\jquery.tweet.css" />
     <Content Include="Content\css\lessframework.css" />
     <Content Include="Content\css\philip.py" />
@@ -2684,6 +2685,7 @@
     <Content Include="Views\Post\Arkiv.cshtml" />
     <Content Include="Views\Event\OpenEvents.cshtml" />
     <Content Include="Views\Event\EventForCompany.cshtml" />
+    <Content Include="Views\Post\_Arkiv.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

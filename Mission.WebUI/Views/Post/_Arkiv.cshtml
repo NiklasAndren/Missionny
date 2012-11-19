@@ -1,0 +1,14 @@
+﻿@model List<Mission.WebUI.ViewModels.ArkivModel>
+
+<div id="bloggarkiv">
+        <h2>Arkiv</h2>
+           @* @foreach(var arkiv in Model.ArkivCount.)
+            {
+                <p>@Html.ActionLink(arkiv.Key.ToString("MMMM"), "Arkiv", "Post", new { month = arkiv.Key.ToString("MMMM") }, null) (@arkiv.Value)</p>
+            }*@
+
+            @foreach (var arkiv in Model)
+            {
+                    <p>arkiv.Month (@arkiv.Count)</p>
+            }
+        </div>

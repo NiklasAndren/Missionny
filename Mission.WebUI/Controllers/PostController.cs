@@ -59,11 +59,10 @@ namespace Mission.WebUI.Controllers
 
         public ActionResult Blog()
         {
-            var monthcount = _postRepo.FindAll(e => e.Type == 1).GroupBy(e => e.Date);
-
             BlogComments bc = new BlogComments();
             bc.Posts = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.Blog).OrderByDescending(p => p.Date).ToList();
             bc.BlogComment = _commentRepo.FindAll().OrderByDescending(p => p.Date).ToList();
+            bc.ArkivCount = _postRepo.FindAll(e => e.Type == 1).GroupBy(e => e.Date.Year).ToDictionary(g => g.Key, g => g.ToList().Count);
             return View(bc);
         }
 
@@ -153,18 +152,37 @@ namespace Mission.WebUI.Controllers
             return View(searchResult);
         }
 
-       /* public ActionResult Arkiv(string month)
+        public PartialViewResult _Arkiv()
         {
-            BlogComments bc = new BlogComments();
+                  var Calendar = from e in (_postRepo.FindAll(e => e.Type == 1))
+                           group e by new { e.Date.Year, e.Date.Month }
+                            into CalendarGroup
+                          select new ArkivModel
+                           {
+                              Year = CalendarGroup.Key.Year,
+                              Month = CalendarGroup.FirstOrDefault().Date.ToString("MMMM"),
+                              Count = CalendarGroup.Count()
+                           };
+                        
 
-            bc.Posts = _postRepo.FindAll(e => e.Type == 1).Where(e => e.Date.ToString("MMMM") == month).OrderByDescending(o => o.Date).ToList();
-            bc.BlogComment = _commentRepo.FindAll().OrderByDescending(p => p.Date).ToList();
-            bc.ArkivCount = _postRepo.FindAll(e => e.Type == 1).GroupBy(e => e.Date).ToDictionary(g => g.Key, g => g.ToList().Count); ;
-
-            return View(bc);
-        }*/
-            
-
-
+            return PartialView(Calendar);
+        }
     }   
 }
+
+/*
+    var answers = from e in (_eventQuestionRepo.FindAll(e => e.EventID == id).SelectMany(e => e.Answers))
+ 
+	group e by new { e.Gender, e.AgeSpan }
+	into GenderGroup 
+	select new AnswerResult
+	{
+		//Gender =  GenderGroup.Key.Gender,
+		AgeSpan = GenderGroup.Key.AgeSpan,
+		mScore = GenderGroup.Where(g => g.Gender == 0).Select(g => g.Score).Average(),
+		fScore = GenderGroup.Where(g => g.Gender == 1).Select(g => g.Score).Average()
+     };
+             
+    return Json(answers, JsonRequestBehavior.AllowGet);
+       }
+ */
