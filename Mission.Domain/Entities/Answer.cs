@@ -15,26 +15,26 @@ namespace Mission.Domain.Entities
         public string Username { get; set; }
         public int Gender { get; set; }
         public int Age { get; set; }
-        [Range(1, 5)]
         public int Score { get; set; }
+        public string Email { get; set; }
         public Guid EventQuestionID { get; set; }
         public virtual EventQuestion EventQuestion { get; set; }
         public string AgeSpan
         {
             get
             {
-                if (Age <= 26)
-                    return "18-26";
-                else if (Age <= 36)
-                    return "27-36";
-                else if (Age <= 46)
-                    return "37-46";
-                else if (Age <= 56)
-                    return "47-56";
-                else if (Age <= 65)
-                    return "57-65";
+                if (Age <= 19)
+                    return "0-19";
+                else if (Age <= 29)
+                    return "20-29";
+                else if (Age <= 39)
+                    return "30-39";
+                else if (Age <= 49)
+                    return "40-49";
+                else if (Age <= 59)
+                    return "50-59";
                 else
-                    return "66+";
+                    return "60+";
             }
         }
 

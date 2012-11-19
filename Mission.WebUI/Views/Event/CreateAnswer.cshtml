@@ -17,10 +17,19 @@
     <p>
         Ålder<br />
         @Html.EditorFor(a => a.Age)
-    </p>   
-    <div class="selectList"> 
-        @Html.EditorFor(a => a.Answers)
-    </div>
+    </p>       
+    <p>
+        Epost<br />
+        @Html.EditorFor(a => a.Email)<br />
+        Stad<br />
+        @Html.EditorFor(a => a.City)
+    </p>
+    <div class="selectList">       
+        @Html.DisplayFor(a => a.Questions)       
+        @Html.HiddenFor(a => a.EventQuestionIDs)
+        Svar:<br />
+        @Html.EditorFor(a => a.StringAnswers)
+    </div> 
     <div>
         <input type="submit" value ="Spara"/>
     </div>
