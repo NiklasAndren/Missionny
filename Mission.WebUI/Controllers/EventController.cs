@@ -23,13 +23,15 @@ namespace Mission.WebUI.Controllers
         private IRepository<Answer> _answerRepository;
         private IRepository<User> _userRepository;
         private IRepository<Subscriber> _subScriberRepository;
-        public EventController(IRepository<Event> eventRepo, IRepository<EventQuestion> eventQuestion, IRepository<Answer> answerRepository, IRepository<User> userRepository, IRepository<Subscriber> subScriberRepo)
+        private IRepository<Words> _wordRepository;
+        public EventController(IRepository<Event> eventRepo, IRepository<EventQuestion> eventQuestion, IRepository<Answer> answerRepository, IRepository<User> userRepository, IRepository<Subscriber> subScriberRepo, IRepository<Words> wordRepository)
         {
             _eventQuestionRepo = eventQuestion;
             _eventRepo = eventRepo;
             _answerRepository = answerRepository;
             _userRepository = userRepository;
             _subScriberRepository = subScriberRepo;
+            _wordRepository = wordRepository;
         }
 
         public ActionResult Index()
@@ -139,7 +141,29 @@ namespace Mission.WebUI.Controllers
         [AuthorizeAdmin]
         public ActionResult CreateAnswer(vm_AnswerEventQuestion Answer)
         {
+
+            List<string> words = Answer.Words.Split(',').ToList();
+
+            foreach (var singleword in words)
+            {
+                var word = _wordRepository.FindAll(w => w.Word == singleword).FirstOrDefault();
+                if (word != null)
+                {
+                    word.WordCount = word.WordCount + 1;
+                    _wordRepository.Save(word);
+                }
+                else
+                {
+                    var newword = new Words();
+                    newword.WordCount = 1;
+                    newword.ID = Guid.NewGuid();
+                    newword.Word = singleword;
+                    _wordRepository.Save(newword);
+                }
+            }
+
             var eventQuestionIDs = Answer.EventQuestionIDs.Split(';').Select(e => new Guid(e)).ToList();
+
             List<int> ar = new List<int>();
             for(int n =0; n < Answer.StringAnswers.Length; n++)
             {
@@ -160,8 +184,8 @@ namespace Mission.WebUI.Controllers
                 };
                 i++;
                 try
-                    {                       
-                    _answerRepository.Save(qAnswer);
+                    {
+                        _answerRepository.Save(qAnswer);
                     }
                     catch (DbEntityValidationException ex)
                     {
@@ -278,8 +302,12 @@ namespace Mission.WebUI.Controllers
         }
         [AuthorizeAdmin]
         public ActionResult Overview() {
-            List<Event> AllEvents = _eventRepo.FindAll().OrderByDescending(e => e.Date).ToList();
-            return View (AllEvents);
+
+            var wc = new WordCountModel();
+
+            wc.EventList = _eventRepo.FindAll().OrderByDescending(e => e.Date).ToList();
+            wc.Word = _wordRepository.FindAll().OrderByDescending(w => w.WordCount).ToList();
+            return View (wc);
         }
 
         public ActionResult SingleEvent(Guid id) {
@@ -301,6 +329,8 @@ namespace Mission.WebUI.Controllers
             List<Event> companyEvents = _eventRepo.FindAll(e => e.UserID == user.ID).ToList();
             return View(companyEvents);
         }
+
+       
     }
 
 

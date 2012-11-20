@@ -4,9 +4,10 @@
 @{
     ViewBag.Title = "Blog";
 }
-<div id="posts-list">
+<div id="posts-list" class="post-lists-blogg">
     <h2 class="page-heading">
         <span>BLOGG</span></h2>
+        @Html.Partial("_Arkiv")
         @Html.DisplayFor(p => p.Posts)
-</div>
+</div> 
 

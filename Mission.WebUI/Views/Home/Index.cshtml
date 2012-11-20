@@ -1,4 +1,4 @@
-﻿@using Mission.Domain.Entities
+﻿ @using Mission.Domain.Entities
 @using Mission.WebUI.ViewModels
 @model vm_PostSubscriber 
    
@@ -110,14 +110,17 @@
         {
             link = "Index";
         }
-        else { link = "blog"; };        
-        <article class="format-standard" id="@news.ID">
+        else { link = "blog"; };
+       
+            string title = news.Title.Replace(" ", "_");
+                
+        <article class="format-standard" id="@title">
             <div class="entry-date">
                 <div class="number">@news.Date.Day</div>
                 <div class="year">@news.Date.ToString("MMM"),@news.Date.Year</div>
             </div>
             <h2 class="post-heading post-h2">
-                   <a href="Post/@link#@news.ID">@news.Title</a>
+                   <a href="Post/@link#@title">@news.Title</a>
                 </h2>
             <div class="excerpt" id="news-@n">@MvcHtmlString.Create(@news.Body)</div>
           
@@ -127,11 +130,12 @@
 </div>
 </div>
 
+<link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
 <div id="social-box">
-<div class="social-fb"><img src="@Url.Content("~/Content/img/facebook.png")" /></div>
-<div class="social-fb"><img src="@Url.Content("~/Content/img/twitter.png")" /></div>
-<div class="social-fb"><img src="@Url.Content("~/Content/img/linked in.png")" /></div>
-<div class="social-fb"><img src="@Url.Content("~/Content/img/youtube.png")" /></div>
+<div class="social-fb"><img src="@Url.Content("~/Content/img/facebook104.png")" /> <span>Facebook</span></div>
+<div class="social-fb"><img src="@Url.Content("~/Content/img/twitter104.png")" /><span>Twitter</span></div>
+<div class="social-fb"><img src="@Url.Content("~/Content/img/linkedin104.png")" /><span>Linked-in</span></div>
+<div class="social-fb"><img src="@Url.Content("~/Content/img/youtube104.png")" /><span>Youtube</span></div>
 
 </div>
 </div>

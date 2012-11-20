@@ -29,6 +29,10 @@
         @Html.HiddenFor(a => a.EventQuestionIDs)
         Svar:<br />
         @Html.EditorFor(a => a.StringAnswers)
+    </div>
+    <div class="wordcount">
+        ord:<br />
+        @Html.EditorFor(a => a.Words)
     </div> 
     <div>
         <input type="submit" value ="Spara"/>

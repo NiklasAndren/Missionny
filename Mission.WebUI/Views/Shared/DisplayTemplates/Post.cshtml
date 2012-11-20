@@ -5,7 +5,7 @@
     List<Comment> orderedComments = Model.Comments.OrderByDescending(c => c.Date).ToList();
 }
 
-<article class="format-standard" id="@Model.ID">
+<article class="format-standard" id="@Model.Title">
 	<div class="entry-date">
         <div class="number">@Model.Date.Day</div>
         <div class="year">@Model.Date.ToString("MMM"),@Model.Date.Year</div>

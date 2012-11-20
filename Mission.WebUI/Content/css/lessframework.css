@@ -61,9 +61,15 @@ px      68    160    252    344    436    528    620    712    */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	
+	.jlogo {width: 97px; height: 80px;}
+	#meny{width:100%; margin-top:0px;}
+	
+	#nav li{margin-left:22px;}
+	#nav > li > a{font-size:14px;}
 	
 	#nav {
 		display: block;
+		
 	}
 	
 	#comboNav {
@@ -108,13 +114,35 @@ px      68    160    252    344    436    528    620    712    */
 		margin-right: 24px;
 	}
 	
+	.newsDiv{width:500px;}
+	#headline{width: 160px;}
+	
 	.recent-post .post-head {
 		width: 95px;
 	}
 	
+	#social-box{width:100%; min-height: 137px; padding: 0px;}
+	.social-fb, .social-tw, .social-yt, .social-in{clear:none; width: 20%;
+margin-left: 33px; height: 130px;}
+
+    #social-box span {margin-top: -4px; font-size: 20px; margin-left: 16px;}
+	
+	#newsForm input[type="text"], #contactForm input[type="text"], #commentform input[type="text"], #contactForm input[type="password"]
+	{width:129px;}
+	
+	#footer h3 img {
+float: right;
+margin-top: -14px;
+margin-right: 8px;
+}
+
+#footer {
+padding-bottom: 0px;
+}
+	
 	/* home blocks */
 	
-	.one-third-thumbs figure { width: 224px; }
+	.one-third-thumbs figure { width: 126px; }
 	
 	.one-fourth-thumbs figure{ 
 		width: 160px;
@@ -227,8 +255,9 @@ px      68    160    252    */
 	/* home blocks */
 	
 	.one-third-thumbs figure,
-	.one-fourth-thumbs figure { width: 100%; }
+	.one-fourth-thumbs figure { width: 28%; }
 	
+	#headline {margin:20px;}
 	/* nav */
 	
 	#nav>li{

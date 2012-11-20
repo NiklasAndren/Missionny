@@ -87,10 +87,12 @@
     <Compile Include="ViewModels\vm_EventQuestion.cs" />
     <Compile Include="ViewModels\vm_EventUser.cs" />
     <Compile Include="ViewModels\vm_PostSubscriber.cs" />
+    <Compile Include="ViewModels\WordCountModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\comments.css" />
     <Content Include="Content\css\flexslider.css" />
+    <Content Include="Content\css\fontello.css" />
     <Content Include="Content\css\jquery.tweet.css" />
     <Content Include="Content\css\lessframework.css" />
     <Content Include="Content\css\philip.py" />
@@ -124,6 +126,7 @@
     <Content Include="Content\img\dummies\featured-8.jpg" />
     <Content Include="Content\img\dummies\featured-9.jpg" />
     <Content Include="Content\img\Facebook-f.png" />
+    <Content Include="Content\img\facebook104.png" />
     <Content Include="Content\img\facebook_logo.gif" />
     <Content Include="Content\img\facebook_logo.jpg" />
     <Content Include="Content\img\FilmRoll2.png" />
@@ -545,6 +548,7 @@
     <Content Include="Content\img\kunder\06.png" />
     <Content Include="Content\img\kunder\07.png" />
     <Content Include="Content\img\kunder\08.png" />
+    <Content Include="Content\img\linkedin104.png" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\logo120.png" />
     <Content Include="Content\img\logo250.png" />
@@ -596,7 +600,9 @@
     <Content Include="Content\img\slides\_A8B3520.tif" />
     <Content Include="Content\img\slides\_A8B3534.tif" />
     <Content Include="Content\img\slides\_A8B3539.tif" />
+    <Content Include="Content\img\twitter104.png" />
     <Content Include="Content\img\wild_oliva.png" />
+    <Content Include="Content\img\youtube104.png" />
     <Content Include="Content\js\comments.js" />
     <Content Include="Content\js\css3-mediaqueries.js" />
     <Content Include="Content\js\custom.js" />
@@ -2676,10 +2682,13 @@
     <Content Include="Views\Home\Lectures.cshtml" />
     <Content Include="Views\Shared\_SearchResult.cshtml" />
     <Content Include="Views\Post\Search.cshtml" />
+    <Content Include="Views\Post\Arkiv.cshtml" />
     <Content Include="Views\Event\OpenEvents.cshtml" />
     <Content Include="Views\Event\EventForCompany.cshtml" />
+    <Content Include="Views\Post\_Arkiv.cshtml" />
     <Content Include="Views\Event\YearsStatistics.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\EventQuestion.cshtml" />
+    <Content Include="Views\Event\_WordCount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Shared\EditorTemplates\" />

@@ -1,7 +1,10 @@
 ﻿@model Mission.Domain.Entities.Post
+ 
+ <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/fontello.css")" />
+           
 <div class="meta">
     <div class="categories">@Model.Date.ToString("HH:mm:ss")</div>
-    <div class="comments"><a>Kommentarer</a></div>
+    <div class="comments"><i class="icon-chat"></i><a>Kommentarer</a></div>
     @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
     {
                                 

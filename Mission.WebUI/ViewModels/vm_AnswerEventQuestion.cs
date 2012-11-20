@@ -14,17 +14,19 @@ namespace Mission.WebUI.ViewModels
         public int Gender { get; set; }
         public string City { get; set; }
         public int Age { get; set; }
+        public List<AnswerVM> Answers { get; set; }
+        public string Words { get; set; }
         public string StringAnswers { get; set; }
         public List<EventQuestion> Questions { get; set; }
         public string EventQuestionIDs { get; set; }
 
     }
 
-    //public class AnswerVM
-    //{
-    //    public string Question { get; set; }
-    //    public Guid QuestionID { get; set; }
-    //}
+    public class AnswerVM
+    {
+       public string Question { get; set; }
+        public Guid QuestionID { get; set; }
+    }
 
     public class AnswerResult
     {

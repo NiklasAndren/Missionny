@@ -18,6 +18,7 @@ namespace Mission.Domain.Contexts
         public DbSet<EventQuestion> EventQuestions { get; set; }
         public DbSet<Answer> Answeres { get; set; }
         public DbSet<Subscriber> Subscribers { get; set; }
+        public DbSet<Words> Words { get; set; }
     }
 
     public class MissionInitializer : DropCreateDatabaseIfModelChanges<EFDbContext>

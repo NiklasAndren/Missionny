@@ -1,5 +1,4 @@
-﻿@using Mission.Domain.Entities
-@model List<Event>
+﻿@model Mission.WebUI.ViewModels.WordCountModel
 
 <div class = "statisticsTable">
     <table>
@@ -11,7 +10,7 @@
                 Admin
             </th>
         </tr>
-        @foreach (var events in Model)
+        @foreach (var events in Model.EventList)
         { 
             <tr>
                 <td>
@@ -28,3 +27,8 @@
         }
     </table>
 </div>
+<h2 class="page-heading">
+        <span>Wordcount</span></h2>
+<div class = "statisticsTable">
+ @Html.Partial("_WordCount", Model.Word)
+ </div>
