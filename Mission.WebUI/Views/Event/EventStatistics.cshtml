@@ -1,4 +1,4 @@
-﻿@model Guid
+﻿m@model Guid
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
     google.load("visualization", "1", { packages: ["corechart"] });
@@ -8,7 +8,7 @@
             'url': '/Event/StatisticsDetails/' + '@Model.ToString()',
             'dataType': 'json',
             'success': function drawChart(x) {
-                var Categories = [['Age', 'Manlig poäng', 'Kvinnlig poäng']];
+                var Categories = [['Age', 'Man', 'Kvinna']];
                 var AgeScore;              
                 for (var i in x[0]) {
                     AgeScore = [x[0][i]["AgeSpan"], x[0][i]["mScore"], x[0][i]["fScore"]];
@@ -18,12 +18,12 @@
                 var options = { title: 'Antal män : ' + x[0][0]["mCount"] + ' Antal kvinnor : ' + x[0][0]["fCount"], hAxis: { title: '', titleTextStyle: { color: 'black'}} };
                 var chart = new google.visualization.ColumnChart(document.getElementById('chart_div')); chart.draw(data, options);
                 for (n = 1; n < x.length; n++) {
-                    Categories = [['Age', 'Manlig poäng', 'Kvinnlig poäng']];
+                    Categories = [['Age', 'Man', 'Kvinna']];
                     for (var a in x[n]) {
                         AgeScore = [x[n][a]["AgeSpan"], x[n][a]["mScore"], x[n][a]["fScore"]];
                         Categories.push(AgeScore);
                     }
-                    $('.charts').append('<div class="questionDiv"><p>'+x[n][a]["Question"]+'</p><div class ="chartDiv" id="chart_div' + n + '" style=" height: 250px;"></div></div>');
+                    $('.charts').append('<div class="questionDiv"><p>'+x[n][a]["Question"]+'</p><div class ="chartDiv" id="chart_div' + n + '" style=" height: 200px;"></div></div>');
                     data = google.visualization.arrayToDataTable(Categories);
                     var options1 = { title: '', hAxis: { title: '', titleTextStyle: { color: 'black'}} };
                     var charts = new google.visualization.ColumnChart(document.getElementById('chart_div' + n)); charts.draw(data, options1);
@@ -35,6 +35,6 @@
 </script>
 <div class="charts">
     <p>Statistik för hela eventet</p>
-    <div class="chartDiv" id="chart_div" style="width: 70%; height: 250px;"></div>
+    <div class="chartDiv" id="chart_div" style="width: 70%; height: 200px;"></div>
 </div>
 

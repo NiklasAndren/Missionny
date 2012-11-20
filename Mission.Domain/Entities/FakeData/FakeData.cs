@@ -58,8 +58,8 @@ namespace Mission.Domain.Entities.FakeData
             firstTestComment = new Comment { ID = Guid.NewGuid(), Body = "Svindyrt! Giriga as är vad dom är.", Name = "Alan", PostID = secondTestPost.ID, Date = DateTime.Parse("2010-05-06") };
             secondTestComment = new Comment { ID = Guid.NewGuid(), Body = "Det har du helt rätt i men det är som det är.", Name = "Bert", PostID = secondTestPost.ID, Date = DateTime.Parse("2010-05-07") };
 
-            firstTestEventQuestion = new EventQuestion { ID = Guid.NewGuid(), Date = DateTime.Parse("2011-11-11"), EventID = thirdTestEvent.ID ,Question = "Pedagogik - Vad tycker du om Jesper Carons förmåga att lära ut?" };
-            secondTestEventQuestion = new EventQuestion { ID = Guid.NewGuid(), Date = DateTime.Parse("2011-11-11"), EventID = thirdTestEvent.ID, Question = "Föreläsningen - Vad tycker du om innehållet i Jesper Carons föreläsning?" };
+            firstTestEventQuestion = new EventQuestion { ID = Guid.NewGuid(), Date = DateTime.Parse("2011-11-11"), EventID = thirdTestEvent.ID ,Question = "1. Pedagogik - Vad tycker du om Jesper Carons förmåga att lära ut?" };
+            secondTestEventQuestion = new EventQuestion { ID = Guid.NewGuid(), Date = DateTime.Parse("2011-11-11"), EventID = thirdTestEvent.ID, Question = "2. Föreläsningen - Vad tycker du om innehållet i Jesper Carons föreläsning?" };
 
 
            // firstTestAnswer = new Answer { ID = Guid.NewGuid(), Gender = (int)Gender.Male, Age = 54, Score = 5, EventQuestionID = firstTestEventQuestion.ID, Username = "Gunnar" };
