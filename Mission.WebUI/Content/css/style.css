@@ -1142,6 +1142,7 @@ footer .wrapper,
     overflow: hidden ;
     box-shadow: 2px 2px 3px 2px #aaa;
     margin-top: 10px;
+    margin-bottom:20px;
     width: 100%;
 }
 .statisticsTable

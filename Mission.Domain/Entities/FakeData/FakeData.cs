@@ -33,6 +33,10 @@ namespace Mission.Domain.Entities.FakeData
         public Answer secondTestAnswer;
         public Answer secondTestAnswer2;
 
+        //public Words firstWord;
+        //public Words secondWord;
+        //public Words thirdWord;
+
         public EventQuestion firstTestEventQuestion;
         public EventQuestion secondTestEventQuestion;
 
@@ -56,6 +60,7 @@ namespace Mission.Domain.Entities.FakeData
 
             firstTestEventQuestion = new EventQuestion { ID = Guid.NewGuid(), Date = DateTime.Parse("2011-11-11"), EventID = thirdTestEvent.ID ,Question = "Pedagogik - Vad tycker du om Jesper Carons förmåga att lära ut?" };
             secondTestEventQuestion = new EventQuestion { ID = Guid.NewGuid(), Date = DateTime.Parse("2011-11-11"), EventID = thirdTestEvent.ID, Question = "Föreläsningen - Vad tycker du om innehållet i Jesper Carons föreläsning?" };
+
 
            // firstTestAnswer = new Answer { ID = Guid.NewGuid(), Gender = (int)Gender.Male, Age = 54, Score = 5, EventQuestionID = firstTestEventQuestion.ID, Username = "Gunnar" };
             //firstTestAnswer2 = new Answer { ID = Guid.NewGuid(), Gender = (int)Gender.Male, Age = 54, Score = 5, EventQuestionID = secondTestEventQuestion.ID, Username = "Gunnar" };

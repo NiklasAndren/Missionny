@@ -22,11 +22,11 @@ namespace Mission.WebUI.ViewModels
 
     }
 
-    //public class AnswerVM
-    //{
-    //    public string Question { get; set; }
-    //    public Guid QuestionID { get; set; }
-    //}
+    public class AnswerVM
+    {
+       public string Question { get; set; }
+        public Guid QuestionID { get; set; }
+    }
 
     public class AnswerResult
     {

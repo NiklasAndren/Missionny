@@ -87,6 +87,7 @@
     <Compile Include="ViewModels\vm_EventQuestion.cs" />
     <Compile Include="ViewModels\vm_EventUser.cs" />
     <Compile Include="ViewModels\vm_PostSubscriber.cs" />
+    <Compile Include="ViewModels\WordCountModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\comments.css" />
@@ -2687,6 +2688,7 @@
     <Content Include="Views\Post\_Arkiv.cshtml" />
     <Content Include="Views\Event\YearsStatistics.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\EventQuestion.cshtml" />
+    <Content Include="Views\Event\_WordCount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Shared\EditorTemplates\" />
