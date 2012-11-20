@@ -1,0 +1,14 @@
+﻿@model List<Mission.Domain.Entities.Words>
+
+
+<div id="wordlist">
+    <table>
+        @foreach (var word in Model)
+        {
+            <tr>
+                <td>@word.Word</td>
+                <td>@word.WordCount</td>
+            </tr>
+        }
+    </table>
+</div>

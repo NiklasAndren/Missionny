@@ -1,0 +1,40 @@
+﻿@using Mission.Domain.Entities
+@model Mission.WebUI.ViewModels.BlogComments
+
+@{
+    
+    List<Comment> orderedComments = Model.BlogComment.OrderByDescending(c => c.Date).ToList(); 
+}
+
+<div id="posts-list" class="post-lists-blogg">
+    <h2 class="page-heading"><span>@Model.Posts.FirstOrDefault().Date.ToString("MMMM")</span></h2>
+    <div id="bloggarkiv">
+
+        <h2>Arkiv</h2>
+
+            @foreach(var arkiv in Model.ArkivCount)
+            {
+                <p>@Html.ActionLink(arkiv.Key.ToString("MMMM"), "Arkiv", "Post", new { month = arkiv.Key.ToString("MMMM") }, null) (@arkiv.Value)</p>
+            }
+
+        </div>
+
+@foreach (var post in Model.Posts)
+{
+    <article class="format-standard">
+	<div class="entry-date">
+        <div class="number">@post.Date.Day</div>
+        <div class="year">@post.Date.ToString("MMM"),@post.Date.Year</div>
+    </div>
+	<h2  class="post-heading">@post.Title</h2>
+	<div class="excerpt">@MvcHtmlString.Create(@post.Body)</div>
+		@*<a href="single.html" class="read-more">continue &#8594;</a>*@
+		@Html.Partial("_PostMeta", post)
+        <div class="BlogComments">
+        <div class="createcommenttext"><a>Skriv egen kommentar</a></div>
+        <div class ="createcomments">@Html.Partial("_CreateComment", new Comment { PostID = post.ID }) </div>
+        <div id="comments-wrap">@Html.DisplayFor(m => orderedComments)</div>
+    </div>
+</article>
+}
+</div>
