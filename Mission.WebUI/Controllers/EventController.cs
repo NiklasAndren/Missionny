@@ -53,7 +53,7 @@ namespace Mission.WebUI.Controllers
             vm.Event.ID = Guid.NewGuid();
             foreach (var eq in Event.InitialQuestion)
             {
-                var question = new EventQuestion { ID = Guid.NewGuid(), Question = eq, EventID = vm.Event.ID, Date = DateTime.Now };
+                var question = new EventQuestion { ID = Guid.NewGuid(), Question = eq, EventID = vm.Event.ID, Date = vm.Event.Date };
                 _eventQuestionRepo.Save(question);
             }  
             vm.Event.Company = vm.Username;
@@ -239,11 +239,11 @@ namespace Mission.WebUI.Controllers
             return View(years);
         }
 
-        public JsonResult StatisticsForYear(int ? year)
+        public JsonResult StatisticsForYear(int id)
         {
            
-            if ( year == null) { year = DateTime.Now.Year; }
-           List<EventQuestion> eq = _eventQuestionRepo.FindAll(e => e.Date.Year == year).OrderBy(e => e.Question).ToList();
+            if ( id == null) { id = DateTime.Now.Year; }
+           List<EventQuestion> eq = _eventQuestionRepo.FindAll(e => e.Date.Year == id).OrderBy(e => e.Question).ToList();
            List<List<AnswerResult>> answers = new List<List<AnswerResult>>();
            answers.Add((from e in (eq.SelectMany(e => e.Answers))
                         group e by new { e.AgeSpan }

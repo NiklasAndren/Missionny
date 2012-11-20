@@ -16,12 +16,14 @@
 
 <script type="text/javascript">
 google.load("visualization", "1", { packages: ["corechart"] });
-function getCharts(year) {
+function getCharts(Year) {
     $(function () {
         $.ajax({
-            'url': '/Event/StatisticsForYear/'+ year,
+            'url': '/Event/StatisticsForYear' + '/' + Year,
             'dataType': 'json',
             'success': function drawChart(x) {
+                $('.chartDiv').remove();
+                $('.questionDiv').remove();
                 var Categories = [['Age', 'Man', 'Kvinna']];
                 var AgeScore;
                 for (var i in x[0]) {
@@ -30,6 +32,7 @@ function getCharts(year) {
                 }
                 var data = google.visualization.arrayToDataTable(Categories);
                 var options = { title: 'Antal män : ' + x[0][0]["mCount"] + ' Antal kvinnor : ' + x[0][0]["fCount"], hAxis: { title: '', titleTextStyle: { color: 'black'}} };
+                $('.charts').append('<div class="chartDiv" id="chart_div" style="width: 60%; height: 200px; float:left; margin-left: 22px;"></div>');
                 var chart = new google.visualization.ColumnChart(document.getElementById('chart_div')); chart.draw(data, options);
                 for (n = 1; n < x.length; n++) {
                     Categories = [['Age', 'Man', 'Kvinna']];
