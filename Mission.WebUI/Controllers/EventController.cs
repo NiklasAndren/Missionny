@@ -132,17 +132,14 @@ namespace Mission.WebUI.Controllers
         {
             var vm = new vm_AnswerEventQuestion();
             vm.Questions = _eventQuestionRepo.FindAll(eq => eq.EventID == id).OrderBy(eq => eq.Question).ToList();
-            vm.EventQuestionIDs = _eventQuestionRepo.FindAll(eq => eq.EventID == id).Select(e => e.ID.ToString()).Aggregate((i, j) => i + ";" + j);
+            vm.EventQuestionIDs = _eventQuestionRepo.FindAll(eq => eq.EventID == id).OrderBy(e => e.Question).Select(e => e.ID.ToString()).Aggregate((i, j) => i + ";" + j);
             return View(vm);
         }
         [HttpPost]
         [AuthorizeAdmin]
         public ActionResult CreateAnswer(vm_AnswerEventQuestion Answer)
         {
-
             var eventQuestionIDs = Answer.EventQuestionIDs.Split(';').Select(e => new Guid(e)).ToList();
-            var scoreArray = Answer.StringAnswers.ToCharArray().Select(c => int.Parse(c.ToString()));
-
             List<int> ar = new List<int>();
             for(int n =0; n < Answer.StringAnswers.Length; n++)
             {
@@ -173,7 +170,7 @@ namespace Mission.WebUI.Controllers
                     foreach (var failure in ex.EntityValidationErrors)
                     {
                         sb.AppendFormat("{0} failed validation\n",
-                failure.Entry.Entity.GetType());
+                        failure.Entry.Entity.GetType());
 
                         foreach (var error in failure.ValidationErrors)
                         {
@@ -201,7 +198,7 @@ namespace Mission.WebUI.Controllers
 
         public JsonResult StatisticsDetails(Guid id)
         {
-            List<EventQuestion> eq = _eventQuestionRepo.FindAll(e => e.EventID == id).ToList();
+            List<EventQuestion> eq = _eventQuestionRepo.FindAll(e => e.EventID == id).OrderBy(e => e.Question).ToList();
             List<List<AnswerResult>> answers = new List<List<AnswerResult>>();
             int maleCount = eq.FirstOrDefault().Answers == null ? 0 : eq.FirstOrDefault().Answers.Where(q => q.Gender == 0).Count();
             int femaleCount = eq.FirstOrDefault().Answers == null ? 0 : eq.FirstOrDefault().Answers.Where(q => q.Gender == 1).Count();
@@ -235,19 +232,43 @@ namespace Mission.WebUI.Controllers
             return Json(answers, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult YearsStatistics()
+        public ActionResult YearsStatistics() 
         {
-            List<Event> allEvents = _eventRepo.FindAll().ToList();
-            List<List<AnswerResult>> answers = new List<List<AnswerResult>>();
-            foreach(var Event in allEvents ){
-                List<EventQuestion> eq = _eventQuestionRepo.FindAll(e => e.EventID == Event.ID).ToList();
-                foreach (var eventQ in eq) { 
-                  
-                }
-                
-                
-            }
+            List<int> years = new List<int>();
+                years = _eventRepo.FindAll().OrderBy(e => e.Date).Select(e => e.Date.Year).Distinct().ToList();
+            return View(years);
+        }
 
+        public JsonResult StatisticsForYear(int ? year)
+        {
+           
+            if ( year == null) { year = DateTime.Now.Year; }
+           List<EventQuestion> eq = _eventQuestionRepo.FindAll(e => e.Date.Year == year).OrderBy(e => e.Question).ToList();
+           List<List<AnswerResult>> answers = new List<List<AnswerResult>>();
+           answers.Add((from e in (eq.SelectMany(e => e.Answers))
+                        group e by new { e.AgeSpan }
+                            into GenderGroup
+                            select new AnswerResult
+                            {
+                                AgeSpan = GenderGroup.Key.AgeSpan,
+                                mScore = GenderGroup.Where(g => g.Gender == 0).Select(g => g.Score).DefaultIfEmpty(0).Average(),
+                                fScore = GenderGroup.Where(g => g.Gender == 1).Select(g => g.Score).DefaultIfEmpty(0).Average(),
+                            }).OrderBy(a => a.AgeSpan).ToList());
+
+           foreach (var eventquestion in eq.GroupBy(e => e.Question))
+           {            
+               answers.Add((from e in (eventquestion.SelectMany(e => e.Answers))
+                            group e by new {e.AgeSpan }
+                                into GenderGroup
+                                select new AnswerResult
+                                {
+                                    Question = eventquestion.Key,
+                                    AgeSpan = GenderGroup.Key.AgeSpan,
+                                    mScore = GenderGroup.Where(g => g.Gender == 0).Select(g => g.Score).DefaultIfEmpty(0).Average(),
+                                    fScore = GenderGroup.Where(g => g.Gender == 1).Select(g => g.Score).DefaultIfEmpty(0).Average(),
+                                }).OrderBy(a => a.AgeSpan).ToList());
+           }
+                
             return Json(answers, JsonRequestBehavior.AllowGet);
         }
 
@@ -277,8 +298,6 @@ namespace Mission.WebUI.Controllers
         public ActionResult EventForCompany(string name)
         {
             User user = _userRepository.FindAll(u => u.UserName == name.ToLower()).FirstOrDefault();
-
-
             List<Event> companyEvents = _eventRepo.FindAll(e => e.UserID == user.ID).ToList();
             return View(companyEvents);
         }

@@ -37,9 +37,5 @@ namespace Mission.Domain.Entities
                     return "60+";
             }
         }
-
-
-
-
     }
 }

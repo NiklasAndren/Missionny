@@ -34,7 +34,6 @@ namespace Mission.Domain.Contexts
             fakeData.testEventList().ForEach(s => context.Events.Add(s));
             fakeData.testCommentList().ForEach(s => context.Comments.Add(s));
             fakeData.testEventQuestionList().ForEach(s => context.EventQuestions.Add(s));
-           // fakeData.testAnswerList().ForEach(s => context.Answeres.Add(s));
             User JesperSomAdmin = new User { UserName = "Jesper", Salt = "$2a$10$/XJG8qJZgw4ZdbV.k/Tne.", PasswordHash = "$2a$10$/XJG8qJZgw4ZdbV.k/Tne.GNk94mOT7f1AuhaW.v2rj5qmJ1j2fF.", Role = 1, UserEmailAddress = "JesperDude@ngnmail.com", ID = Guid.NewGuid() };
             context.Users.Add(JesperSomAdmin);
             context.SaveChanges();
