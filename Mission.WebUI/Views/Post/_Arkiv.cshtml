@@ -1,14 +1,19 @@
 ﻿@model List<Mission.WebUI.ViewModels.ArkivModel>
+@{
+    
+    var currentYear = 0;
+}         
 
 <div id="bloggarkiv">
         <h2>Arkiv</h2>
-           @* @foreach(var arkiv in Model.ArkivCount.)
-            {
-                <p>@Html.ActionLink(arkiv.Key.ToString("MMMM"), "Arkiv", "Post", new { month = arkiv.Key.ToString("MMMM") }, null) (@arkiv.Value)</p>
-            }*@
-
             @foreach (var arkiv in Model)
             {
-                    <p>arkiv.Month (@arkiv.Count)</p>
+                if (currentYear != arkiv.Year)
+                {
+                    <p class="arkiv-year">@arkiv.Year</p>
+                }
+                        <p>@Html.ActionLink(@arkiv.Month, "Arkiv", new { month = arkiv.Month, year = arkiv.Year }) (@arkiv.Count) </p>
+                currentYear = arkiv.Year;
+                   
             }
         </div>

@@ -1,25 +1,16 @@
 ﻿@using Mission.Domain.Entities
-@model Mission.WebUI.ViewModels.BlogComments
+@model Mission.WebUI.ViewModels.BlogViewModel
 
 @{
     
-    List<Comment> orderedComments = Model.BlogComment.OrderByDescending(c => c.Date).ToList(); 
+    List<Comment> orderedComments = Model.Blogcomments.BlogComment.OrderByDescending(c => c.Date).ToList(); 
 }
 
 <div id="posts-list" class="post-lists-blogg">
-    <h2 class="page-heading"><span>@Model.Posts.FirstOrDefault().Date.ToString("MMMM")</span></h2>
-    <div id="bloggarkiv">
+    <h2 class="page-heading"><span>@Model.Blogcomments.Posts.FirstOrDefault().Date.ToString("MMMM")  (@Model.Blogcomments.Posts.FirstOrDefault().Date.Year)</span></h2>
+    @Html.Partial("_Arkiv", Model.Arkivmodel)
 
-        <h2>Arkiv</h2>
-
-            @foreach(var arkiv in Model.ArkivCount)
-            {
-                <p>@Html.ActionLink(arkiv.Key.ToString("MMMM"), "Arkiv", "Post", new { month = arkiv.Key.ToString("MMMM") }, null) (@arkiv.Value)</p>
-            }
-
-        </div>
-
-@foreach (var post in Model.Posts)
+@foreach (var post in Model.Blogcomments.Posts)
 {
     <article class="format-standard">
 	<div class="entry-date">

@@ -59,11 +59,26 @@ namespace Mission.WebUI.Controllers
 
         public ActionResult Blog()
         {
-            BlogComments bc = new BlogComments();
-            bc.Posts = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.Blog).OrderByDescending(p => p.Date).ToList();
-            bc.BlogComment = _commentRepo.FindAll().OrderByDescending(p => p.Date).ToList();
-            bc.ArkivCount = _postRepo.FindAll(e => e.Type == 1).GroupBy(e => e.Date.Year).ToDictionary(g => g.Key, g => g.ToList().Count);
-            return View(bc);
+            BlogViewModel bvm = new BlogViewModel();
+
+                bvm.Blogcomments.Posts = _postRepo.FindAll(p => p.Type == 1).OrderByDescending(p => p.Date).ToList();
+                bvm.Blogcomments.BlogComment = _commentRepo.FindAll().OrderByDescending(p => p.Date).ToList();
+
+                var cal = from e in (_postRepo.FindAll(e => e.Type == 1))
+                          group e by new { e.Date.Year, e.Date.Month }
+                              into CalendarGroup
+                              select new ArkivModel
+                              {
+                                  Year = CalendarGroup.Key.Year,
+                                  Month = CalendarGroup.FirstOrDefault().Date.ToString("MMMM"),
+                                  Count = CalendarGroup.Count()
+                              };
+
+                var orderedcal = cal.OrderByDescending(e => e.Year);
+
+                bvm.Arkivmodel = orderedcal.ToList();
+
+                return View(bvm);
         }
 
         [AuthorizeAdmin]
@@ -130,7 +145,7 @@ namespace Mission.WebUI.Controllers
             {
 
                 var posts = _postRepo.FindAll().Where(p => p.Title.Contains(search.ToLower()) || p.Body.Contains(search.ToLower())).ToList();
-                
+
                 foreach (var post in posts)
                 {
                     SearchResult searchTest = new SearchResult();
@@ -142,7 +157,7 @@ namespace Mission.WebUI.Controllers
             }
             if (searchResult.Count != 0)
             {
-                ViewBag.StatusMessage = "Sökord: "+search;
+                ViewBag.StatusMessage = "Sökord: " + search;
             }
             else
             {
@@ -152,37 +167,29 @@ namespace Mission.WebUI.Controllers
             return View(searchResult);
         }
 
-        public PartialViewResult _Arkiv()
+        public ActionResult Arkiv(string month, int year)
         {
-                  var Calendar = from e in (_postRepo.FindAll(e => e.Type == 1))
-                           group e by new { e.Date.Year, e.Date.Month }
-                            into CalendarGroup
+            BlogViewModel bvm = new BlogViewModel();
+
+            bvm.Blogcomments.Posts = _postRepo.FindAll(p => p.Type == 1).Where(p => p.Date.Year == year && p.Date.ToString("MMMM") == month).OrderByDescending(p => p.Date).ToList();
+            bvm.Blogcomments.BlogComment = _commentRepo.FindAll().OrderByDescending(p => p.Date).ToList();
+
+            var cal = from e in (_postRepo.FindAll(e => e.Type == 1))
+                      group e by new { e.Date.Year, e.Date.Month }
+                          into CalendarGroup
                           select new ArkivModel
-                           {
+                          {
                               Year = CalendarGroup.Key.Year,
                               Month = CalendarGroup.FirstOrDefault().Date.ToString("MMMM"),
                               Count = CalendarGroup.Count()
-                           };
-                        
+                          };
 
-            return PartialView(Calendar);
+            var orderedcal = cal.OrderByDescending(e => e.Year);
+
+            bvm.Arkivmodel = orderedcal.ToList();
+
+            return View(bvm);
         }
     }   
-}
 
-/*
-    var answers = from e in (_eventQuestionRepo.FindAll(e => e.EventID == id).SelectMany(e => e.Answers))
- 
-	group e by new { e.Gender, e.AgeSpan }
-	into GenderGroup 
-	select new AnswerResult
-	{
-		//Gender =  GenderGroup.Key.Gender,
-		AgeSpan = GenderGroup.Key.AgeSpan,
-		mScore = GenderGroup.Where(g => g.Gender == 0).Select(g => g.Score).Average(),
-		fScore = GenderGroup.Where(g => g.Gender == 1).Select(g => g.Score).Average()
-     };
-             
-    return Json(answers, JsonRequestBehavior.AllowGet);
-       }
- */
+}

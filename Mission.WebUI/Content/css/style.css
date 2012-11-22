@@ -1258,6 +1258,7 @@ td a:first-child{border-left: 0px solid black !important;}
 {
     float: left;
     padding-left: 10px;
+    list-style:none;
 }
 
 #admin li a:hover
@@ -1398,13 +1399,24 @@ textarea
     outline:none;
 }
 
+/*----------Arkiv----------*/
+
 #bloggarkiv
 {
     float:right; 
     width:26%; 
-    height:200px; 
     background-color:#555;
     box-shadow:0px 0px 8px 1px #aaa;
+    padding-bottom: 10px;
+}
+
+#bloggarkiv .arkiv-year
+{
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #49AFCD;
+    margin-top: 15px;
 }
 
 #bloggarkiv h2
@@ -1437,6 +1449,11 @@ textarea
 
 .leftcol{float:left; width:49%; padding-top: 20px;}
 .rightcol{float:right; width:49%; padding-top: 20px;}
+
+#Words
+{
+    width:400px;
+}
 
 /*-------RESPONSIVE-------*/
 /* EGEN FIL SEN */

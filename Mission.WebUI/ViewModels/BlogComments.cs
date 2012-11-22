@@ -6,11 +6,20 @@ using Mission.Domain.Entities;
 
 namespace Mission.WebUI.ViewModels
 {
+    public class BlogViewModel
+    {
+        public BlogComments Blogcomments { get; set; }
+        public List<ArkivModel> Arkivmodel { get; set; }
+        public BlogViewModel()
+        {
+            Blogcomments = new BlogComments();
+        }
+    }
+
     public class BlogComments
     {
         public List<Post> Posts { get; set; }
         public List<Comment> BlogComment { get; set; }
-        public Dictionary<int,int> ArkivCount { get; set; }
     }
 
     public class ArkivModel

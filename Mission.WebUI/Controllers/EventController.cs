@@ -146,7 +146,8 @@ namespace Mission.WebUI.Controllers
 
             foreach (var singleword in words)
             {
-                var word = _wordRepository.FindAll(w => w.Word == singleword).FirstOrDefault();
+                var lowerword = singleword.ToLower();
+                var word = _wordRepository.FindAll(w => w.Word == lowerword).FirstOrDefault();
                 if (word != null)
                 {
                     word.WordCount = word.WordCount + 1;
@@ -157,7 +158,7 @@ namespace Mission.WebUI.Controllers
                     var newword = new Words();
                     newword.WordCount = 1;
                     newword.ID = Guid.NewGuid();
-                    newword.Word = singleword;
+                    newword.Word = lowerword;
                     _wordRepository.Save(newword);
                 }
             }
