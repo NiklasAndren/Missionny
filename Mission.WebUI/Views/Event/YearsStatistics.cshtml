@@ -4,8 +4,9 @@
 
 <div class="charts">
     <div class="years" id="bloggarkiv" style="float: right; width: 30%; background-color: #555; border-radius: 1px; margin-top: 42px; ">
-        @foreach (var x in Model) {             
-           <p><a onclick="getCharts(@x)">@x</a></p>         
+        <h2>Årsstatistik</h2>
+        @foreach (var x in Model) {                       
+            <p><a onclick="getCharts(@x)">@x</a></p>         
         }
     </div>
     <p>Statistik för hela året</p>
@@ -15,6 +16,8 @@
 
 
 <script type="text/javascript">
+    var currentYear = (new Date).getFullYear();
+    getCharts(currentYear);
 google.load("visualization", "1", { packages: ["corechart"] });
 function getCharts(Year) {
     $(function () {

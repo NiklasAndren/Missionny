@@ -11,5 +11,6 @@ namespace Mission.Domain.Entities
         public Guid ID { get; set; }
         public string Word { get; set; }
         public int WordCount { get; set; }
+    //    public DateTime Date { get; set; }
     }
 }
