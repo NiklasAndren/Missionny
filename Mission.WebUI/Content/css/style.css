@@ -1239,7 +1239,7 @@ td a:first-child{border-left: 0px solid black !important;}
 
 #admin
 {
-    width: 258px;
+    width: 75%;
     list-style: none;
     height: 5px;
     float: right;
@@ -1256,7 +1256,7 @@ td a:first-child{border-left: 0px solid black !important;}
 
 #admin li
 {
-    float: left;
+    float: right;
     padding-left: 10px;
     list-style:none;
 }

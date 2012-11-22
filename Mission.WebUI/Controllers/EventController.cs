@@ -141,9 +141,7 @@ namespace Mission.WebUI.Controllers
         [AuthorizeAdmin]
         public ActionResult CreateAnswer(vm_AnswerEventQuestion Answer)
         {
-
             List<string> words = Answer.Words.Split(',').ToList();
-
             foreach (var singleword in words)
             {
                 var lowerword = singleword.ToLower();
@@ -162,9 +160,7 @@ namespace Mission.WebUI.Controllers
                     _wordRepository.Save(newword);
                 }
             }
-
             var eventQuestionIDs = Answer.EventQuestionIDs.Split(';').Select(e => new Guid(e)).ToList();
-
             List<int> ar = new List<int>();
             for(int n =0; n < Answer.StringAnswers.Length; n++)
             {
@@ -266,16 +262,23 @@ namespace Mission.WebUI.Controllers
 
         public JsonResult StatisticsForYear(int id)
         {
+            
            
             if ( id == null) { id = DateTime.Now.Year; }
            List<EventQuestion> eq = _eventQuestionRepo.FindAll(e => e.Date.Year == id).OrderBy(e => e.Question).ToList();
            List<List<AnswerResult>> answers = new List<List<AnswerResult>>();
+           var firstQuestionText = Event.InitialQuestion.Where(item => item.StartsWith("1.")).FirstOrDefault();
+           int maleCount = eq.FirstOrDefault(q => q.Question == firstQuestionText).Answers == null ? 0 : eq.GroupBy(e => e.Question).FirstOrDefault(q => q.Key == firstQuestionText).SelectMany(e => e.Answers).Where(q => q.Gender == 0).Count();
+           int femaleCount = eq.FirstOrDefault(q => q.Question == firstQuestionText).Answers == null ? 0 : eq.GroupBy(e => e.Question).FirstOrDefault(q => q.Key == firstQuestionText).SelectMany(e => e.Answers).Where(q => q.Gender == 1).Count();
+
            answers.Add((from e in (eq.SelectMany(e => e.Answers))
                         group e by new { e.AgeSpan }
                             into GenderGroup
                             select new AnswerResult
                             {
                                 AgeSpan = GenderGroup.Key.AgeSpan,
+                                mCount = maleCount,
+                                fCount = femaleCount,
                                 mScore = GenderGroup.Where(g => g.Gender == 0).Select(g => g.Score).DefaultIfEmpty(0).Average(),
                                 fScore = GenderGroup.Where(g => g.Gender == 1).Select(g => g.Score).DefaultIfEmpty(0).Average(),
                             }).OrderBy(a => a.AgeSpan).ToList());

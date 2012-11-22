@@ -72,36 +72,21 @@
 </head>
 <body>
     <header class="clearfix">
-        @*<div id="top-widget-holder">
-	<div class="wrapper">
-		<div id="top-widget">
-			<div class="padding">
-                <div class="widget-block">
-                </div>
-            </div>
-        </div>
-    </div>
-    <a href="#" id="top-open"></a>
-</div>*@
         <div class="wrapper">
-            <div class="jlogo"></div>
-            
+            <div class="jlogo"></div>          
             <div id="searchdiv">@Html.Partial("_SearchResult")</div>
-
             <div id="admin">
                 <ul>
-                 
-
                     @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
-                    {
+                    {   <li>@Html.ActionLink("Årsstatistik", "YearsStatistics", "Event")</li>
                         <li>@Html.ActionLink("Skapa ny post", "CreatePost", "Post")</li>
                         <li>@Html.ActionLink("Skapa nytt event", "CreateEvent", "Event")</li>
                         <li>@Html.ActionLink("Översikt", "Overview", "Event")</li>
                     }
                     @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAuthorizedCompany(this.Context) && !Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
-                 { 
+                    { 
                         <li>@Html.ActionLink("Mina event", "EventForCompany", "Event", new { name = this.Context.User.Identity.Name.ToLower().ToString() }, null)</li>
-                 }
+                    }
                     </ul>
             </div>
             <nav id="meny">
@@ -115,7 +100,6 @@
                     <li>@Html.ActionLink("Blogg", "Blog", "Post")</li>
                     <!--<li>@Html.ActionLink("Event", "index", "Event")</li>-->
                     <li>@Html.ActionLink("On tour", "index", "Event")</li>
-                    <li>@Html.ActionLink("Event", "OpenEvents", "Event")</li>
                 </ul>
             </nav>
 
@@ -146,10 +130,10 @@
                     <li>&nbsp Kontor | 733 - 41 04 30</li><br />
                     <li class="email">&nbsp office@jespercaron.se</li>
                 </ul>
-
-                <div id="facebook"></div>
-                <div id="presskit"></div>
-
+                <div id="facebook">
+                </div>
+                <div id="presskit">
+                </div>
             </div>
             <div id="footerActionplant">
                 <h3>
