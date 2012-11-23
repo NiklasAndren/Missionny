@@ -603,6 +603,9 @@
     <Content Include="Content\img\twitter104.png" />
     <Content Include="Content\img\wild_oliva.png" />
     <Content Include="Content\img\youtube104.png" />
+    <Content Include="Content\js\autosize\demo.html" />
+    <Content Include="Content\js\autosize\jquery.autosize-min.js" />
+    <Content Include="Content\js\autosize\jquery.autosize.js" />
     <Content Include="Content\js\comments.js" />
     <Content Include="Content\js\css3-mediaqueries.js" />
     <Content Include="Content\js\custom.js" />
@@ -2620,6 +2623,7 @@
     <None Include="Content\img\.DS_Store" />
     <None Include="Content\img\dummies\.DS_Store" />
     <None Include="Content\js\.DS_Store" />
+    <None Include="Content\js\autosize\readme.md" />
     <None Include="Content\js\prettyPhoto\.DS_Store" />
     <None Include="Content\js\prettyPhoto\images\.DS_Store" />
     <None Include="Content\js\prettyPhoto\images\prettyPhoto\.DS_Store" />
