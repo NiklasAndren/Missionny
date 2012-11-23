@@ -51,9 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexts\EFDbContext.cs" />
+    <Compile Include="Entities\AboutJesper.cs" />
     <Compile Include="Entities\Abstract\IEntity.cs" />
     <Compile Include="Entities\Answer.cs" />
     <Compile Include="Entities\Comment.cs" />
+    <Compile Include="Entities\Customers.cs" />
     <Compile Include="Entities\Event.cs" />
     <Compile Include="Entities\EventQuestion.cs" />
     <Compile Include="Entities\FakeData\FakeData.cs" />

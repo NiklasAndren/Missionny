@@ -69,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
@@ -83,6 +82,7 @@
     <Compile Include="ViewModels\Account.cs" />
     <Compile Include="ViewModels\BlogComments.cs" />
     <Compile Include="ViewModels\CustomMembershipProvider.cs" />
+    <Compile Include="ViewModels\vm_AboutAndCustomers.cs" />
     <Compile Include="ViewModels\vm_AnswerEventQuestion.cs" />
     <Compile Include="ViewModels\vm_EventQuestion.cs" />
     <Compile Include="ViewModels\vm_EventUser.cs" />
@@ -687,6 +687,7 @@
     <Content Include="Content\js\prettyPhoto\js\jquery-1.4.4.min.js" />
     <Content Include="Content\js\prettyPhoto\js\jquery.prettyPhoto.js" />
     <Content Include="Content\js\prettyPhoto\xhr_response.html" />
+    <Content Include="Content\js\resizeable.js" />
     <Content Include="Content\js\subscriber.js" />
     <Content Include="Content\js\superfish-1.4.8\changelog.txt" />
     <Content Include="Content\js\superfish-1.4.8\css\superfish-navbar.css" />
@@ -2689,6 +2690,9 @@
     <Content Include="Views\Event\YearsStatistics.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\EventQuestion.cshtml" />
     <Content Include="Views\Event\_WordCount.cshtml" />
+    <Content Include="Views\Home\JesperCaron.cshtml" />
+    <Content Include="Views\Shared\_createCustomer.cshtml" />
+    <Content Include="Views\Home\EditJesperCaron.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Shared\EditorTemplates\" />

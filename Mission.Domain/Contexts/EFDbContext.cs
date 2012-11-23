@@ -11,6 +11,7 @@ namespace Mission.Domain.Contexts
 {
     public class EFDbContext : DbContext
     {
+        public DbSet<Customers> Customers { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<User> Users { get; set; }
@@ -19,6 +20,7 @@ namespace Mission.Domain.Contexts
         public DbSet<Answer> Answeres { get; set; }
         public DbSet<Subscriber> Subscribers { get; set; }
         public DbSet<Words> Words { get; set; }
+        public DbSet<AboutJesper> AboutJesper { get; set; }
     }
 
     public class MissionInitializer : DropCreateDatabaseIfModelChanges<EFDbContext>
@@ -28,6 +30,9 @@ namespace Mission.Domain.Contexts
         protected override void Seed(EFDbContext context)
         {
             var fakeData = new FakeData();
+
+            var aboutjesper = new AboutJesper { ID = Guid.NewGuid(), Content = "" };
+            context.AboutJesper.Add(aboutjesper);
             
             context.SaveChanges();
             fakeData.testPostList().ForEach(s => context.Posts.Add(s));
