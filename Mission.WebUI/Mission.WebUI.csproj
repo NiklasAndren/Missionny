@@ -69,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
@@ -83,6 +82,7 @@
     <Compile Include="ViewModels\Account.cs" />
     <Compile Include="ViewModels\BlogComments.cs" />
     <Compile Include="ViewModels\CustomMembershipProvider.cs" />
+    <Compile Include="ViewModels\vm_AboutAndCustomers.cs" />
     <Compile Include="ViewModels\vm_AnswerEventQuestion.cs" />
     <Compile Include="ViewModels\vm_EventQuestion.cs" />
     <Compile Include="ViewModels\vm_EventUser.cs" />
@@ -603,6 +603,9 @@
     <Content Include="Content\img\twitter104.png" />
     <Content Include="Content\img\wild_oliva.png" />
     <Content Include="Content\img\youtube104.png" />
+    <Content Include="Content\js\autosize\demo.html" />
+    <Content Include="Content\js\autosize\jquery.autosize-min.js" />
+    <Content Include="Content\js\autosize\jquery.autosize.js" />
     <Content Include="Content\js\comments.js" />
     <Content Include="Content\js\css3-mediaqueries.js" />
     <Content Include="Content\js\custom.js" />
@@ -687,6 +690,7 @@
     <Content Include="Content\js\prettyPhoto\js\jquery-1.4.4.min.js" />
     <Content Include="Content\js\prettyPhoto\js\jquery.prettyPhoto.js" />
     <Content Include="Content\js\prettyPhoto\xhr_response.html" />
+    <Content Include="Content\js\resizeable.js" />
     <Content Include="Content\js\subscriber.js" />
     <Content Include="Content\js\superfish-1.4.8\changelog.txt" />
     <Content Include="Content\js\superfish-1.4.8\css\superfish-navbar.css" />
@@ -2619,6 +2623,7 @@
     <None Include="Content\img\.DS_Store" />
     <None Include="Content\img\dummies\.DS_Store" />
     <None Include="Content\js\.DS_Store" />
+    <None Include="Content\js\autosize\readme.md" />
     <None Include="Content\js\prettyPhoto\.DS_Store" />
     <None Include="Content\js\prettyPhoto\images\.DS_Store" />
     <None Include="Content\js\prettyPhoto\images\prettyPhoto\.DS_Store" />
@@ -2689,6 +2694,9 @@
     <Content Include="Views\Event\YearsStatistics.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\EventQuestion.cshtml" />
     <Content Include="Views\Event\_WordCount.cshtml" />
+    <Content Include="Views\Home\JesperCaron.cshtml" />
+    <Content Include="Views\Shared\_createCustomer.cshtml" />
+    <Content Include="Views\Home\EditJesperCaron.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Shared\EditorTemplates\" />

@@ -17,10 +17,14 @@ namespace Mission.WebUI.Controllers
     {
          private IRepository<Post> _postRepo;
          private IRepository<Subscriber> _subscriberRepo;
-         public HomeController(IRepository<Post> postRepo, IRepository<Subscriber> subscriberRepo)
+         private IRepository<Customers> _customerRepo;
+         private IRepository<AboutJesper> _aboutJesperRepo;
+         public HomeController(IRepository<Post> postRepo, IRepository<Subscriber> subscriberRepo, IRepository<Customers> customerRepo, IRepository<AboutJesper> aboutJesperRepo)
         {
             _subscriberRepo = subscriberRepo;
             _postRepo = postRepo;
+            _customerRepo = customerRepo;
+            _aboutJesperRepo = aboutJesperRepo;
         }
 
         public ActionResult Index()
@@ -35,21 +39,17 @@ namespace Mission.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var existing = _subscriberRepo.FindAll(s => s.Email == subscriber.Email);
-                
+                var existing = _subscriberRepo.FindAll(s => s.Email == subscriber.Email);             
                     subscriber.ID = Guid.NewGuid();
                     _subscriberRepo.Save(subscriber);
                     ViewBag.SaveMessage = "Prenumeration påbörjad!";
                     var vm = new vm_PostSubscriber();
                     vm.Post = _postRepo.FindAll().Take(3).ToList();
-
-                    return View(vm);
-                
+                    return View(vm);               
             }
             else
             {
                 ViewBag.SaveMessage = "Subscription unsuccessful";
-
                 return View();
             }
 
@@ -83,7 +83,40 @@ namespace Mission.WebUI.Controllers
         }
 
         public ActionResult Lectures(){
-        return View();
+            return View();
+        }
+
+        public ActionResult JesperCaron() {
+            vm_AboutAndCustomers vm = new vm_AboutAndCustomers();
+            vm.Customers = _customerRepo.FindAll().ToList();
+            vm.AboutJesper = _aboutJesperRepo.FindAll().FirstOrDefault();
+            return View(vm);
+        }
+
+        [HttpPost]
+        [AuthorizeAdmin]
+        public ActionResult JesperCaron(Customers customer)
+        {
+            customer.ID = Guid.NewGuid();
+            _customerRepo.Save(customer);
+            return RedirectToAction("JesperCaron", "Home");
+        }
+
+        public ActionResult EditJesperCaron(Guid id)
+        {
+            var aboutjesper = _aboutJesperRepo.FindByID(id);
+
+            return View(aboutjesper);
+        }
+
+        [HttpPost]
+        [AuthorizeAdmin]
+        public ActionResult EditJesperCaron(AboutJesper aboutjesper)
+        {
+
+            _aboutJesperRepo.Save(aboutjesper);
+
+            return RedirectToAction("JesperCaron", "Home");
         }
 
     }

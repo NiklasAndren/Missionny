@@ -6,10 +6,9 @@ using Mission.Domain.Entities.Abstract;
 
 namespace Mission.Domain.Entities
 {
-    public class Words : IEntity
+    public class AboutJesper : IEntity
     {
         public Guid ID { get; set; }
-        public string Word { get; set; }
-        public int WordCount { get; set; }
+        public string Content { get; set; }
     }
 }

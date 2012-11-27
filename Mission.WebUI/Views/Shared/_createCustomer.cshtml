@@ -1,0 +1,13 @@
+﻿@model Mission.Domain.Entities.Customers
+
+    @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
+    {
+        using (Html.BeginForm("JesperCaron", "Home"))
+        {
+        @Html.EditorFor(e => e.Name)
+        <div>
+            <input type="submit" value="Spara ny kund" />
+        </div>
+        }
+
+    }

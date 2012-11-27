@@ -1469,3 +1469,13 @@ textarea
     #searchfield{width:100px;}
     #comboNav{margin-top:-8px;}
 }
+
+#allCustomers{ width : 100%; }
+
+.singleCustomer{ width: 20%; float: left; text-align: center; font-weight: bold; margin-bottom: 10px;}
+
+#CreateCustomer{margin-top:50px; width: 100%; clear:both;}
+ 
+#about ol{list-style-type:decimal; margin-left:50px; margin-top:-10px; color:#555555; }
+#about ul{list-style-type:disc; margin-left:50px; margin-top:-10px; color:#555555;}
+#about p{margin-top:0px; margin-bottom:10px;}
