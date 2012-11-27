@@ -19,6 +19,7 @@
   margin-right: 0.2em;
   text-align: center;
   opacity: 0.7;
+  font-size:16px;
 /* Uncomment for 3D effect */
 /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 /* fix buttons height */
@@ -34,4 +35,5 @@
 .icon-trash:before { content: '\e729'; } /* 'îœ©' */
 .icon-instagram-filled:before { content: '\f31f'; } /* 'ïŒŸ' */
 .icon-search:before { content: 'ðŸ”'; } /* '\1f50d' */
-.icon-clock:before { content: 'ðŸ•”'; } /* '\1f554' */
+/*.icon-clock:before { content: 'ðŸ•”'; } /* '\1f554' */
+.icon-clock:before { content: '\1f554'; }

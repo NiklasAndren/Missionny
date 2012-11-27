@@ -1,17 +1,27 @@
 ﻿@model Mission.Domain.Entities.Post
  
- <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/fontello.css")" />
+ 
            
 <div class="meta">
-    <div class="categories">@Model.Date.ToString("HH:mm:ss")</div>
-    <div class="comments"><i class="icon-chat"></i><a>Kommentarer</a></div>
+    <div class="categories">
+        <i class="icon-clock"></i>
+        @Model.Date.ToString("HH:mm:ss")
+    </div>
+    <div class="comments">
+        <i class="icon-chat"></i>
+        <a>Kommentarer</a>
+    </div>
     @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
     {
                                 
         <div class="edit">
-            <a href="#">@Html.ActionLink("Ändra", "Edit", "Post", new { id = Model.ID }, null)</a></div>
+            <i class="icon-pencil"></i>
+            <a href="#">@Html.ActionLink("Ändra", "Edit", "Post", new { id = Model.ID }, null)</a>
+        </div>
         <div class="delete">
-            <a href="#">@Html.ActionLink("Ta bort", "Delete", "Post", new { id = Model.ID }, null)</a></div>
+            <i class="icon-trash"></i>
+            <a href="#">@Html.ActionLink("Ta bort", "Delete", "Post", new { id = Model.ID }, null)</a>
+        </div>
                                              
     }
 </div>

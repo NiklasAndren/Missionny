@@ -15,17 +15,26 @@
                    <a href="Post/@link#@news.ID">@news.Title</a>
                 </h2>
             <div class="excerpt" id="news-@n">@MvcHtmlString.Create(@news.Body)</div>
-            <div class="meta">
-                <div class="categories">@news.Date.ToString("HH:mm:ss")</div>
-                @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
+            @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
                 {
-                    <div class="comments">
-                        <a href="#">@Html.ActionLink("Ändra", "Edit", "Post", new { id = news.ID }, null)</a></div>
-                    <div class="user">
-                        <a href="#">@Html.ActionLink("Ta bort", "Delete", "Post", new { id = news.ID }, null)</a></div>
+                    <div class="meta">
+                        <div class="categories">
+                            <i class="icon-pencil"></i>
+                            @news.Date.ToString("HH:mm:ss")</div>
+                
+                
+                        <div class="comments">
+                            <i class="icon-pencil"></i>
+                            <a href="#">@Html.ActionLink("Ändra", "Edit", "Post", new { id = news.ID }, null)</a>
+                        </div>
+                        <div class="user">
+                            <i class="icon-trash"></i>
+                            <a href="#">@Html.ActionLink("Ta bort", "Delete", "Post", new { id = news.ID }, null)</a>
+                        </div>
+                
+                    </div>
                 }
-            </div>
         </article>
-                n =n+1;
+                n = n + 1;
     }
 </div>
