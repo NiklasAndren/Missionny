@@ -36,6 +36,7 @@ namespace Mission.WebUI.Controllers
 
         public ActionResult Index()
         {
+
             List<Event> AllEvents = _eventRepo.FindAll().OrderByDescending(p => p.Date).ToList();
             return View(AllEvents);
         }

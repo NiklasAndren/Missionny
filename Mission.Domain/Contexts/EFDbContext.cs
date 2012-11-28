@@ -21,6 +21,7 @@ namespace Mission.Domain.Contexts
         public DbSet<Subscriber> Subscribers { get; set; }
         public DbSet<Words> Words { get; set; }
         public DbSet<AboutJesper> AboutJesper { get; set; }
+        public DbSet<Newsletter> NewsLetter { get; set; }
     }
 
     public class MissionInitializer : DropCreateDatabaseIfModelChanges<EFDbContext>

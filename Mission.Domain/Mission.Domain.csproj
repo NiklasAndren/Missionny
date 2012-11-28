@@ -59,6 +59,7 @@
     <Compile Include="Entities\Event.cs" />
     <Compile Include="Entities\EventQuestion.cs" />
     <Compile Include="Entities\FakeData\FakeData.cs" />
+    <Compile Include="Entities\Newsletter.cs" />
     <Compile Include="Entities\Post.cs" />
     <Compile Include="Entities\SearchResult.cs" />
     <Compile Include="Entities\Subscriber.cs" />
