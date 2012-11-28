@@ -60,7 +60,7 @@ namespace Mission.WebUI.Controllers
                 _eventQuestionRepo.Save(question);
             }  
             vm.Event.Company = vm.Username;
-            vm.Event.Description = HttpUtility.HtmlDecode(vm.Event.Description);
+            vm.Event.Description = vm.Event.Description;//HttpUtility.HtmlDecode(vm.Event.Description);
             CustomMembershipProvider cmp = new CustomMembershipProvider();
             var status = new MembershipCreateStatus();
 
@@ -262,9 +262,7 @@ namespace Mission.WebUI.Controllers
         }
 
         public JsonResult StatisticsForYear(int id)
-        {
-            
-           
+        { 
             if ( id == null) { id = DateTime.Now.Year; }
            List<EventQuestion> eq = _eventQuestionRepo.FindAll(e => e.Date.Year == id).OrderBy(e => e.Question).ToList();
            List<List<AnswerResult>> answers = new List<List<AnswerResult>>();
