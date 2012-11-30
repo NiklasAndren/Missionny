@@ -3,8 +3,12 @@
     @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
     {
         using (Html.BeginForm("JesperCaron", "Home"))
-        {
-        @Html.EditorFor(e => e.Name)
+        {<p>
+            Namn på kund
+            @Html.EditorFor(e => e.Name)<br />
+            Kundens hemsida
+            @Html.EditorFor(e => e.WebSite)
+        </p>
         <div>
             <input type="submit" value="Spara ny kund" />
         </div>
