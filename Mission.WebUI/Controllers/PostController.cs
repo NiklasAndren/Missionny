@@ -43,6 +43,7 @@ namespace Mission.WebUI.Controllers
 
         [HttpPost]
         [AuthorizeAdmin]
+        [ValidateInput(false)]
         public ActionResult CreatePost(Post post)
         {
             post.ID = Guid.NewGuid();
@@ -89,6 +90,7 @@ namespace Mission.WebUI.Controllers
 
         [HttpPost]
         [AuthorizeAdmin]
+        [ValidateInput(false)]
         public ActionResult Edit(Post post) {
             post.Date = DateTime.Now;
             post.Body = HttpUtility.HtmlDecode(post.Body);
@@ -112,6 +114,7 @@ namespace Mission.WebUI.Controllers
 
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult _CreateComment(FormCollection commentCollection)
         {
             if (ModelState.IsValid)

@@ -95,6 +95,7 @@ namespace Mission.WebUI.Controllers
 
         [HttpPost]
         [AuthorizeAdmin]
+        [ValidateInput(false)]
         public ActionResult JesperCaron(Customers customer)
         {
             customer.ID = Guid.NewGuid();
@@ -111,6 +112,7 @@ namespace Mission.WebUI.Controllers
 
         [HttpPost]
         [AuthorizeAdmin]
+        [ValidateInput(false)]
         public ActionResult EditJesperCaron(AboutJesper aboutjesper)
         {
 

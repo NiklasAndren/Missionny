@@ -53,6 +53,7 @@ input[type="password"]:focus
 .excerpt img
 {
     max-width:540px;   
+    box-shadow: 0 0 3px 2px dimgray;
 }
 
 #meny {
@@ -101,8 +102,8 @@ body{
 body strong 
 {
 font-weight: bold;
-padding: 10px;
-margin: 10px;
+/*padding: 10px;
+margin: 10px;*/
 font-style: italic;    
 }
 

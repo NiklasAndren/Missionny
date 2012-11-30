@@ -51,6 +51,7 @@ namespace Mission.WebUI.Controllers
 
         [HttpPost]
         [AuthorizeAdmin]
+        [ValidateInput(false)]
         public ActionResult CreateEvent(vm_EventUser vm)
         {
             vm.Event.ID = Guid.NewGuid();
@@ -95,6 +96,7 @@ namespace Mission.WebUI.Controllers
 
         [HttpPost]
         [AuthorizeAdmin]
+        [ValidateInput(false)]
         public ActionResult Edit(Event events)
         {
             events.Date = DateTime.Now;
