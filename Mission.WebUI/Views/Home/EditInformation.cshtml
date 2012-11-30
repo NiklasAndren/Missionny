@@ -11,14 +11,14 @@
 
 <div id="posts-list">
     <h2 class="page-heading">
-        <span>ÄNDRA JESPER CARON</span></h2>
+        <span>ÄNDRA "Information"</span></h2>
     @using (Html.BeginForm())
     {
         <div>
-            @Html.HiddenFor(p => p.Educations)
+            @Html.HiddenFor(p => p.Content)
             @Html.HiddenFor(p => p.Promise)
-            @Html.HiddenFor(p => p.Information)
-            @Html.TextAreaFor(p => p.Content, new { id = "elm1", name = "elm1", rows = "10", cols = "30", style = "width:100%", height = "100%" })
+            @Html.HiddenFor(p => p.Educations)
+            @Html.TextAreaFor(p => p.Information, new { id = "elm1", name = "elm1", rows = "10", cols = "30", style = "width:100%", height = "100%" })
         </div>
         <div>
             <input type="submit" value="Spara" />

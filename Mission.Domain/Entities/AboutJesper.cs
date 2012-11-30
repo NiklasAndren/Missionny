@@ -10,5 +10,8 @@ namespace Mission.Domain.Entities
     {
         public Guid ID { get; set; }
         public string Content { get; set; }
+        public string Promise { get; set; }
+        public string Information { get; set; }
+        public string Educations { get; set; }
     }
 }

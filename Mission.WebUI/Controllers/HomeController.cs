@@ -83,7 +83,8 @@ namespace Mission.WebUI.Controllers
         }
 
         public ActionResult Lectures(){
-            return View();
+            var lectures = _aboutJesperRepo.FindAll().FirstOrDefault();
+            return View(lectures);
         }
 
         public ActionResult JesperCaron() {
@@ -106,7 +107,6 @@ namespace Mission.WebUI.Controllers
         public ActionResult EditJesperCaron(Guid id)
         {
             var aboutjesper = _aboutJesperRepo.FindByID(id);
-
             return View(aboutjesper);
         }
 
@@ -115,12 +115,50 @@ namespace Mission.WebUI.Controllers
         [ValidateInput(false)]
         public ActionResult EditJesperCaron(AboutJesper aboutjesper)
         {
-
             _aboutJesperRepo.Save(aboutjesper);
-
-            return RedirectToAction("JesperCaron", "Home");
-            
+            return RedirectToAction("JesperCaron", "Home");           
         }
+        public ActionResult EditPromise()
+        {
+            var lectures = _aboutJesperRepo.FindAll().FirstOrDefault();
+            return View (lectures);
+        }
+        [HttpPost]
+        [AuthorizeAdmin]
+        [ValidateInput(false)]
+        public ActionResult EditPromise(AboutJesper aboutjesper)
+        {
+            _aboutJesperRepo.Save(aboutjesper);
+            return RedirectToAction("Lectures", "Home");
+        }
+        
+        public ActionResult EditInformation()
+        {
+            var lectures = _aboutJesperRepo.FindAll().FirstOrDefault();
+            return View(lectures);
+        }
+        [HttpPost]
+        [AuthorizeAdmin]
+        [ValidateInput(false)]
+        public ActionResult EditInformation(AboutJesper aboutjesper)
+        {
+            _aboutJesperRepo.Save(aboutjesper);
+            return RedirectToAction("Lectures", "Home");
+        }
+        public ActionResult EditEducations()
+        {
+            var lectures = _aboutJesperRepo.FindAll().FirstOrDefault();
+            return View(lectures);
+        }
+        [HttpPost]
+        [AuthorizeAdmin]
+        [ValidateInput(false)]
+        public ActionResult EditEducations(AboutJesper aboutjesper)
+        {
+            _aboutJesperRepo.Save(aboutjesper);
+            return RedirectToAction("Lectures", "Home");
+        }
+
 
     }
 }
