@@ -137,7 +137,6 @@ body a{
 
 h1,h2,h3,h4,h5,h6{
 	font-weight: 400;
-	padding-bottom
 }
 
 h1{ font-size: 48px;}
@@ -1014,7 +1013,7 @@ article .meta .categories{
 	float: right;
 	width: 260px; /* 300 - 40 padding */
 	min-height: 275px;
-	padding: 70px 20px 20px 20px;;
+	padding: 70px 20px 20px 20px;
 	margin-top:-47px;
 	-webkit-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
 	-moz-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
@@ -1379,7 +1378,7 @@ textarea
 
 #searchsubmit
 {
-    width: 20px;w
+    width: 20px;
     height: 20px;
     border: none;
     cursor: pointer;
@@ -1480,3 +1479,8 @@ textarea
 #about ol{list-style-type:decimal; margin-left:50px; margin-top:-10px; color:#555555; }
 #about ul{list-style-type:disc; margin-left:50px; margin-top:-10px; color:#555555;}
 #about p{margin-top:0px; margin-bottom:10px;}
+
+
+#selectPage {width: 100%;}
+#selectPage ul {width: 100%; list-style: none;}
+#selectPage li {margin-left: 10px; float:left;}

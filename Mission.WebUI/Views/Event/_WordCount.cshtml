@@ -1,7 +1,9 @@
 ﻿@model List<Mission.Domain.Entities.Words>
+@using PagedList.Mvc
+@using PagedList
 <div id="wordlist">
     <table>
-        @foreach (var word in Model)
+        @foreach (var word in ViewBag.OnePageOfProducts)
         {
             <tr>
                 <td style="text-transform:capitalize;">@word.Word</td>
@@ -9,4 +11,9 @@
             </tr>
         }
     </table>
+
+   <div id="selectPage">
+        @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Overview", new { page }))
+   </div>
+
 </div>

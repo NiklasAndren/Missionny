@@ -12,7 +12,8 @@ using System.Web.Script.Serialization;
 using System.Web.Security;
 using System.Data.Entity.Validation;
 using System.Text;
-
+using PagedList.Mvc;
+using PagedList;
 
 namespace Mission.WebUI.Controllers
 {
@@ -306,12 +307,14 @@ namespace Mission.WebUI.Controllers
             return View(id);
         }
         [AuthorizeAdmin]
-        public ActionResult Overview() {
-
+        public ActionResult Overview(int? page)
+        {
+            var pageNumber = page ?? 1;
             var wc = new WordCountModel();
 
             wc.EventList = _eventRepo.FindAll().OrderByDescending(e => e.Date).ToList();
             wc.Word = _wordRepository.FindAll().OrderByDescending(w => w.WordCount).ToList();
+            ViewBag.OnePageOfProducts = wc.Word.ToPagedList(pageNumber, 5);
             return View (wc);
         }
 
@@ -322,8 +325,10 @@ namespace Mission.WebUI.Controllers
 
         public ActionResult OpenEvents() 
         {
+          
             vm_EventUser eu = new vm_EventUser();
             List<Event> openEvents = _eventRepo.FindAll(e => e.OpenEvent == (int)OpenEvent.Open).ToList();
+            
             return View(openEvents);
         }
 

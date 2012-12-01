@@ -1,17 +1,17 @@
 ﻿@model Mission.Domain.Entities.Customers
-
-    @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
+@if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
+{
+    using (Html.BeginForm("JesperCaron", "Home"))
     {
-        using (Html.BeginForm("JesperCaron", "Home"))
-        {<p>
-            Namn på kund
+        <p>
+            Namn på kund<br />
             @Html.EditorFor(e => e.Name)<br />
-            Kundens hemsida
+            Kundens hemsida<br />
             @Html.EditorFor(e => e.WebSite)
         </p>
         <div>
             <input type="submit" value="Spara ny kund" />
         </div>
-        }
-
     }
+
+}
