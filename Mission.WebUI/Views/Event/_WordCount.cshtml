@@ -6,14 +6,12 @@
         @foreach (var word in ViewBag.OnePageOfProducts)
         {
             <tr>
-                <td style="text-transform:capitalize;">@word.Word</td>
+                <td style="text-transform: capitalize;">@word.Word</td>
                 <td>@word.WordCount</td>
             </tr>
         }
     </table>
-
-   <div id="selectPage">
+    <div id="selectPage">
         @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Overview", new { page }))
-   </div>
-
+    </div>
 </div>

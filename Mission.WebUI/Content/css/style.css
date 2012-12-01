@@ -1322,12 +1322,11 @@ textarea
 
 #social-box
 {
-   position: relative;
-    float: right;
-    width: 260px;
-    min-height: 275px;
-    padding: 20px 20px 20px 20px;
-    margin-top: 30px;
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 0px;
+   
     -webkit-box-shadow: 2px 2px 0px rgba(0, 0, 0, .2);
     -moz-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
     -o-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
@@ -1338,8 +1337,9 @@ textarea
 .social-fb, .social-tw, .social-yt, .social-in
 {
     float:left;
-    clear:both;
-    width:100%;
+    margin-left:20px;
+    /*clear:both;
+    width:100%;*/
 }
 
 #social-box imged
@@ -1350,9 +1350,9 @@ textarea
 
 #social-box span
 {
-    margin-top:28px;
+    position:relative;
+    bottom: 45px;
     color:white;
-    float:left;
     font-family: 'Shadows Into Light Two', cursive;
     font-size:24px;
     letter-spacing:0.1em;
