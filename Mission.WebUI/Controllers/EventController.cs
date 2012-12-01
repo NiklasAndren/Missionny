@@ -100,10 +100,10 @@ namespace Mission.WebUI.Controllers
         [ValidateInput(false)]
         public ActionResult Edit(Event events)
         {
-            events.Date = DateTime.Now;
+            events.Date = events.Date;
             events.Description = HttpUtility.HtmlDecode(events.Description);
             _eventRepo.Save(events);
-            return RedirectToAction("Index", "Event");
+            return RedirectToAction("OverView", "Event");
         }
 
         [AuthorizeAdmin]
@@ -323,11 +323,12 @@ namespace Mission.WebUI.Controllers
             return View(Event);
         }
 
-        public ActionResult OpenEvents() 
+        public ActionResult OpenEvents(int? page) 
         {
-          
+            var pagenumber = page ?? 1;
             vm_EventUser eu = new vm_EventUser();
             List<Event> openEvents = _eventRepo.FindAll(e => e.OpenEvent == (int)OpenEvent.Open).ToList();
+            ViewBag.OnePageOfOpenEvents = openEvents.ToPagedList(pagenumber, 5);
             
             return View(openEvents);
         }

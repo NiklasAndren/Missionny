@@ -1,21 +1,10 @@
-﻿@{
-    ViewBag.Title = "Edit";
-}
-
-<h2>Edit</h2>
-@model Event
+﻿@model Event
 @using Mission.Domain.Entities
-
-
-    <link href="@Url.Content("~/Content/Kendo/styles/kendo.common.min.css")" rel="stylesheet">
-    <link href="@Url.Content("~/Content/Kendo/styles/kendo.default.min.css")" rel="stylesheet">
-
-    <script src="@Url.Content("~/Content/Kendo/js/jquery.min.js")"></script>
-    <script src="@Url.Content("~/Content/Kendo/js/kendo.web.min.js")"></script>
-
-
-
-
+<script type="text/javascript" src="@Url.Content("~/Content/tinymce/jscripts/tiny_mce/tiny_mce.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/LoadTinymce.js")"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 <div id="posts-list">
 
 <h2 class="page-heading"><span>ÄNDRA EVENT</span></h2>
@@ -31,7 +20,7 @@
         </p>
         <p>
             Information <br />           
-            @Html.TextAreaFor(e => e.Description, new { id = "editor", rows = "10", cols = "30", style = "width:100%", height = "100%"})
+            @Html.TextAreaFor(e => e.Description, new { id = "elm1", name = "elm1", rows = "10", cols = "30", style = "width:100%", height = "100%" })
         </p>
          <p>
             Stad <br />
@@ -39,56 +28,17 @@
         </p>
          <div id="to-do">
             Datum och tid <br />
-            @Html.TextBoxFor(e => e.Date, new { id = "datetimepicker", value = "10/10/2011 12:00 AM", style = "width:200px;", @class = "k-widget k-datetimepicker k-header" })
+                    @Html.TextBoxFor(e => e.Date, new { id = "datepicker", value = "10/10/2011 12:00 AM", style = "width:200px;", @class = "" })
          </div>
   
             
 
-    <script>
-        $("#editor").kendoEditor({
-            tools: [
-                "bold",
-                "italic",
-                "underline",
-                "strikethrough",
-                "fontName",
-                "fontSize",
-                "foreColor",
-                "backColor",
-                "justifyLeft",
-                "justifyCenter",
-                "justifyRight",
-                "justifyFull",
-                "insertUnorderedList",
-                "insertOrderedList",
-                "indent",
-                "outdent",
-                "formatBlock",
-                "createLink",
-                "unlink",
-                "insertImage",
-                "subscript",
-                "superscript"
-            ]
-        });
-    </script>
+    
      <script>
-         $(document).ready(function () {
-             // create DateTimePicker from input HTML element
-             $("#datetimepicker").kendoDateTimePicker();
+         $(function () {
+             $("#datepicker").datepicker();
          });
-        </script>
-        <style scoped>
-            #to-do {
-                height: 52px;
-                width: 221px;
-                margin: 30px auto;
-                padding: 91px 0 0 188px;
-                background: url('../../content/web/datepicker/todo.png') transparent no-repeat 0 0;
-            }
-        </style>
-
-
+    </script>
 
     </div>
     <div>
