@@ -1326,12 +1326,11 @@ textarea
     float: left;
     width: 100%;
     padding: 0px;
-   
     -webkit-box-shadow: 2px 2px 0px rgba(0, 0, 0, .2);
     -moz-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
     -o-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
     box-shadow: 2px 2px 0px rgba(0, 0, 0, .2);
-    background-color:#555;
+    background-color:#828282;
 }
 
 .social-fb, .social-tw, .social-yt, .social-in
