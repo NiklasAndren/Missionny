@@ -2,8 +2,10 @@
 @{
     ViewBag.Title = "Nyheter";
 }
+@using PagedList
+@using PagedList.Mvc
 <div id="posts-list">
-    @foreach (var news in Model)
+    @foreach (var news in ViewBag.OnePageOfNews)
     {
         var link = "";
         if (news.Type == 0)
@@ -34,4 +36,7 @@
             </div>
         </article>
     }
+    <div id="selectPage">
+        @Html.PagedListPager((IPagedList)ViewBag.OnePageOfNews, page => Url.Action("Index", new { page }))
+    </div>
 </div>

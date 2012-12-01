@@ -11,6 +11,8 @@ using Mission.Domain.Entities.FakeData;
 using System.Data.Entity;
 using Mission.WebUI.Infrastructure;
 using Mission.WebUI.ViewModels;
+using PagedList.Mvc;
+using PagedList;
 
 namespace Mission.WebUI.Controllers
 {
@@ -30,8 +32,10 @@ namespace Mission.WebUI.Controllers
         // GET: /News/
 
 
-        public ActionResult Index() {
-            List<Post> AllPosts = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.News).OrderByDescending(p => p.Date).ToList();       
+        public ActionResult Index(int? page) {
+            var pageNumber = page ?? 1;
+            List<Post> AllPosts = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.News).OrderByDescending(p => p.Date).ToList();
+            ViewBag.OnePageOfNews = AllPosts.ToPagedList(pageNumber, 3);
             return View(AllPosts);
         }
 
