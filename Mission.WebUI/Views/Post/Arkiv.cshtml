@@ -1,6 +1,7 @@
 ﻿@using Mission.Domain.Entities
 @model Mission.WebUI.ViewModels.BlogViewModel
-
+@using PagedList
+@using PagedList.Mvc
 @{
     
     List<Comment> orderedComments = Model.Blogcomments.BlogComment.OrderByDescending(c => c.Date).ToList(); 
@@ -28,4 +29,7 @@
     </div>
 </article>
 }
+<div id="selectPage">
+        @Html.PagedListPager((IPagedList)Model.Blogcomments.Posts, page => Url.Action("Arkiv", new { month = Model.Blogcomments.Posts.FirstOrDefault().Date.ToString("MMMM"), year = Model.Blogcomments.Posts.FirstOrDefault().Date.Year, page }))
+    </div>
 </div>

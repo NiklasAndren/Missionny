@@ -34,8 +34,7 @@ namespace Mission.WebUI.Controllers
 
         public ActionResult Index(int? page) {
             var pageNumber = page ?? 1;
-            List<Post> AllPosts = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.News).OrderByDescending(p => p.Date).ToList();
-            ViewBag.OnePageOfNews = AllPosts.ToPagedList(pageNumber, 3);
+            IPagedList<Post> AllPosts = _postRepo.FindAll(p => p.Type == (int)Domain.Entities.Type.News).OrderByDescending(p => p.Date).ToPagedList(pageNumber, 1);
             return View(AllPosts);
         }
 
@@ -62,12 +61,13 @@ namespace Mission.WebUI.Controllers
             return RedirectToAction("Blog", "Post");
         }
 
-        public ActionResult Blog()
+        public ActionResult Blog(int? page)
         {
+            var pageNumber = page ?? 1;
             BlogViewModel bvm = new BlogViewModel();
 
-                bvm.Blogcomments.Posts = _postRepo.FindAll(p => p.Type == 1).OrderByDescending(p => p.Date).ToList();
-                bvm.Blogcomments.BlogComment = _commentRepo.FindAll().OrderByDescending(p => p.Date).ToList();
+                bvm.Blogcomments.Posts = _postRepo.FindAll(p => p.Type == 1).OrderByDescending(p => p.Date).ToPagedList(pageNumber, 1);
+                bvm.Blogcomments.BlogComment = _commentRepo.FindAll().OrderByDescending(p => p.Date).ToPagedList(pageNumber, 1);
 
                 var cal = from e in (_postRepo.FindAll(e => e.Type == 1))
                           group e by new { e.Date.Year, e.Date.Month }
@@ -174,12 +174,12 @@ namespace Mission.WebUI.Controllers
             return View(searchResult);
         }
 
-        public ActionResult Arkiv(string month, int year)
+        public ActionResult Arkiv(string month, int year, int? page)
         {
+            var pageNumber = page ?? 1;
             BlogViewModel bvm = new BlogViewModel();
-
-            bvm.Blogcomments.Posts = _postRepo.FindAll(p => p.Type == 1).Where(p => p.Date.Year == year && p.Date.ToString("MMMM") == month).OrderByDescending(p => p.Date).ToList();
-            bvm.Blogcomments.BlogComment = _commentRepo.FindAll().OrderByDescending(p => p.Date).ToList();
+            bvm.Blogcomments.Posts = _postRepo.FindAll(p => p.Type == 1).Where(p => p.Date.Year == year && p.Date.ToString("MMMM") == month).OrderByDescending(p => p.Date).ToPagedList(pageNumber, 1);
+            bvm.Blogcomments.BlogComment = _commentRepo.FindAll().OrderByDescending(p => p.Date).ToPagedList(pageNumber, 1);
 
             var cal = from e in (_postRepo.FindAll(e => e.Type == 1))
                       group e by new { e.Date.Year, e.Date.Month }

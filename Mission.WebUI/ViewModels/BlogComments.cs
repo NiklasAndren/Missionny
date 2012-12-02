@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Mission.Domain.Entities;
+using PagedList;
 
 namespace Mission.WebUI.ViewModels
 {
@@ -18,8 +19,8 @@ namespace Mission.WebUI.ViewModels
 
     public class BlogComments
     {
-        public List<Post> Posts { get; set; }
-        public List<Comment> BlogComment { get; set; }
+        public IPagedList<Post> Posts { get; set; }
+        public IPagedList<Comment> BlogComment { get; set; }
     }
 
     public class ArkivModel

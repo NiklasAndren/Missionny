@@ -1,11 +1,11 @@
-﻿@model List<Mission.Domain.Entities.Post>
+﻿@model IPagedList<Mission.Domain.Entities.Post>
 @{
     ViewBag.Title = "Nyheter";
 }
 @using PagedList
 @using PagedList.Mvc
 <div id="posts-list">
-    @foreach (var news in ViewBag.OnePageOfNews)
+    @foreach (var news in Model)
     {
         var link = "";
         if (news.Type == 0)
@@ -37,6 +37,6 @@
         </article>
     }
     <div id="selectPage">
-        @Html.PagedListPager((IPagedList)ViewBag.OnePageOfNews, page => Url.Action("Index", new { page }))
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
     </div>
 </div>

@@ -1,6 +1,7 @@
 ﻿﻿@using Mission.Domain.Entities
 @using Mission.WebUI.ViewModels
 @model BlogViewModel
+           
 @{
     ViewBag.Title = "Blog";
 }
@@ -10,4 +11,8 @@
         @Html.Partial("_Arkiv", Model.Arkivmodel)
         @Html.DisplayFor(p => p.Blogcomments.Posts)
 </div> 
-
+@using PagedList
+@using PagedList.Mvc
+<div id="selectPage">
+        @Html.PagedListPager((IPagedList)Model.Blogcomments.Posts, page => Url.Action("Blog", new { page }))
+    </div>
