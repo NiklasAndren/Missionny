@@ -60,21 +60,21 @@ namespace Mission.WebUI.Controllers
                 var question = new EventQuestion { ID = Guid.NewGuid(), Question = eq, EventID = vm.Event.ID, Date = vm.Event.Date };
                 _eventQuestionRepo.Save(question);
             }  
-            vm.Event.Company = vm.Username;
+            vm.Event.Company = vm.Username.ToLower();
             vm.Event.Description = vm.Event.Description;//HttpUtility.HtmlDecode(vm.Event.Description);
             CustomMembershipProvider cmp = new CustomMembershipProvider();
             var status = new MembershipCreateStatus();
 
             if (!string.IsNullOrEmpty(vm.Password))
             {
-                User user = _userRepository.FindAll(u => u.UserName == vm.Username).FirstOrDefault();
+                User user = _userRepository.FindAll(u => u.UserName == vm.Username.ToLower()).FirstOrDefault();
                 if (user != null)
                 {
                     cmp.UpdateUser(vm.Username, vm.Password, vm.Email);
                 }
                 else {                   
-                    cmp.CreateUser(vm.Username, vm.Password, vm.Email, "", "", true, null, out status);
-                    User newUser = _userRepository.FindAll(u => u.UserName == vm.Username).FirstOrDefault();
+                    cmp.CreateUser(vm.Username.ToLower(), vm.Password, vm.Email, "", "", true, null, out status);
+                    User newUser = _userRepository.FindAll(u => u.UserName == vm.Username.ToLower()).FirstOrDefault();
                     newUser.UserEmailAddress = vm.Email;
                     newUser.Event.Add(vm.Event);
                     _userRepository.Save(newUser);

@@ -19,12 +19,14 @@ namespace Mission.WebUI.Controllers
          private IRepository<Subscriber> _subscriberRepo;
          private IRepository<Customers> _customerRepo;
          private IRepository<AboutJesper> _aboutJesperRepo;
-         public HomeController(IRepository<Post> postRepo, IRepository<Subscriber> subscriberRepo, IRepository<Customers> customerRepo, IRepository<AboutJesper> aboutJesperRepo)
+         private IRepository<User> _userRepo;
+         public HomeController(IRepository<Post> postRepo, IRepository<Subscriber> subscriberRepo, IRepository<Customers> customerRepo, IRepository<AboutJesper> aboutJesperRepo, IRepository<User> userRepo)
         {
             _subscriberRepo = subscriberRepo;
             _postRepo = postRepo;
             _customerRepo = customerRepo;
             _aboutJesperRepo = aboutJesperRepo;
+            _userRepo = userRepo;
         }
 
         public ActionResult Index()
@@ -159,6 +161,12 @@ namespace Mission.WebUI.Controllers
             return RedirectToAction("Lectures", "Home");
         }
 
+        public ActionResult ChangePassword(string username, string newPassword, string email) 
+        {
+            CustomMembershipProvider cmp = new CustomMembershipProvider();
+            cmp.UpdateUser(username, newPassword, email);
+            return RedirectToAction("Index", "Home");
+        }
 
     }
 }

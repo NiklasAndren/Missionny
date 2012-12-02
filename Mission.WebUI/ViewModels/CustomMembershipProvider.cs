@@ -39,7 +39,7 @@ namespace Mission.WebUI.ViewModels
             if (user == null)
             {
                 User appUser = new User();
-                appUser.UserName = username;
+                appUser.UserName = username.ToLower();
                 appUser.Salt = BCrypt.Net.BCrypt.GenerateSalt();
                 appUser.PasswordHash = GetBcryptHash(password, appUser.Salt);
                 appUser.UserEmailAddress = email;
