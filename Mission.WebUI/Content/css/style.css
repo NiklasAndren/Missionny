@@ -1329,7 +1329,7 @@ textarea
     -webkit-box-shadow: 2px 2px 0px rgba(0, 0, 0, .2);
     -moz-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
     -o-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
-    box-shadow: 2px 2px 0px rgba(0, 0, 0, .2);
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
     background-color:#828282;
 }
 

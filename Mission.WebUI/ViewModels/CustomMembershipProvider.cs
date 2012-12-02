@@ -226,6 +226,8 @@ namespace Mission.WebUI.ViewModels
             //throw new NotImplementedException();
             return true;
         }
+
+
         // Not Used:
 
         //protected virtual byte[] DecryptPassword(byte[] encodedPassword);

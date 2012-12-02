@@ -37,7 +37,6 @@ namespace Mission.WebUI.Controllers
 
         public ActionResult Index()
         {
-
             List<Event> AllEvents = _eventRepo.FindAll().OrderByDescending(p => p.Date).ToList();
             return View(AllEvents);
         }
@@ -85,7 +84,7 @@ namespace Mission.WebUI.Controllers
             {
                 _eventRepo.Save(vm.Event);
             }
-            return RedirectToAction("Index", "Event");
+            return RedirectToAction("SingleEvent", "Event", new {vm.Event.ID });
         }
 
         [AuthorizeAdmin]
@@ -103,7 +102,7 @@ namespace Mission.WebUI.Controllers
             events.Date = events.Date;
             events.Description = HttpUtility.HtmlDecode(events.Description);
             _eventRepo.Save(events);
-            return RedirectToAction("OverView", "Event");
+            return RedirectToAction("SingleEvent", "Event", new { events.ID });
         }
 
         [AuthorizeAdmin]
@@ -148,7 +147,7 @@ namespace Mission.WebUI.Controllers
             List<string> words = Answer.Words.Split(',').ToList();
             foreach (var singleword in words)
             {
-                var lowerword = singleword.ToLower();
+                var lowerword = singleword.ToLower().Trim();
                 var word = _wordRepository.FindAll(w => w.Word == lowerword).FirstOrDefault();
                 if (word != null)
                 {
@@ -313,8 +312,8 @@ namespace Mission.WebUI.Controllers
             var wc = new WordCountModel();
 
             wc.EventList = _eventRepo.FindAll().OrderByDescending(e => e.Date).ToList();
-            wc.Word = _wordRepository.FindAll().OrderByDescending(w => w.WordCount).ToList();
-            ViewBag.OnePageOfProducts = wc.Word.ToPagedList(pageNumber, 5);
+            wc.Word = _wordRepository.FindAll().OrderByDescending(w => w.WordCount).ToPagedList(pageNumber, 5);
+           
             return View (wc);
         }
 
@@ -327,9 +326,7 @@ namespace Mission.WebUI.Controllers
         {
             var pagenumber = page ?? 1;
             vm_EventUser eu = new vm_EventUser();
-            List<Event> openEvents = _eventRepo.FindAll(e => e.OpenEvent == (int)OpenEvent.Open).ToList();
-            ViewBag.OnePageOfOpenEvents = openEvents.ToPagedList(pagenumber, 5);
-            
+            IPagedList<Event> openEvents = _eventRepo.FindAll(e => e.OpenEvent == (int)OpenEvent.Open).ToPagedList(pagenumber, 5);
             return View(openEvents);
         }
 

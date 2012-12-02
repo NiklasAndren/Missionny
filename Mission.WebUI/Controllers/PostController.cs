@@ -96,7 +96,7 @@ namespace Mission.WebUI.Controllers
         [AuthorizeAdmin]
         [ValidateInput(false)]
         public ActionResult Edit(Post post) {
-            post.Date = DateTime.Now;
+
             post.Body = HttpUtility.HtmlDecode(post.Body);
             _postRepo.Save(post);
             if (post.Type == 0)

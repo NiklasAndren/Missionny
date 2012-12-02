@@ -1,11 +1,11 @@
 ﻿@using Mission.Domain.Entities
-@model List<Event>
+@model IPagedList<Event>
 @using PagedList
 @using PagedList.Mvc
 <div id="posts-list">
     <h2 class="page-heading">
         <span>Event</span></h2>
-    @foreach (var events in ViewBag.OnePageOfOpenEvents)
+    @foreach (var events in Model)
     { 
     
         <article class="format-standard">
@@ -38,6 +38,6 @@
         </article>
     }
     <div id="selectPage">
-        @Html.PagedListPager((IPagedList)ViewBag.OnePageOfOpenEvents, page => Url.Action("OpenEvents", new { page }))
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("OpenEvents", new { page }))
     </div>
 </div>
