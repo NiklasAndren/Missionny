@@ -54,6 +54,7 @@ input[type="password"]:focus
 .excerpt img
 {
     max-width:540px;   
+    box-shadow: 0 0 3px 2px dimgray;
 }
 
 #meny {
@@ -102,8 +103,8 @@ body{
 body strong 
 {
 font-weight: bold;
-padding: 10px;
-margin: 10px;
+/*padding: 10px;
+margin: 10px;*/
 font-style: italic;    
 }
 
@@ -137,7 +138,6 @@ body a{
 
 h1,h2,h3,h4,h5,h6{
 	font-weight: 400;
-	padding-bottom
 }
 
 h1{ font-size: 48px;}
@@ -1014,7 +1014,7 @@ article .meta .categories{
 	float: right;
 	width: 260px; /* 300 - 40 padding */
 	min-height: 275px;
-	padding: 70px 20px 20px 20px;;
+	padding: 70px 20px 20px 20px;
 	margin-top:-47px;
 	-webkit-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
 	-moz-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
@@ -1323,24 +1323,23 @@ textarea
 
 #social-box
 {
-   position: relative;
-    float: right;
-    width: 260px;
-    min-height: 275px;
-    padding: 20px 20px 20px 20px;
-    margin-top: 30px;
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 0px;
     -webkit-box-shadow: 2px 2px 0px rgba(0, 0, 0, .2);
     -moz-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
     -o-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
-    box-shadow: 2px 2px 0px rgba(0, 0, 0, .2);
-    background-color:#555;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
+    background-color:#828282;
 }
 
 .social-fb, .social-tw, .social-yt, .social-in
 {
     float:left;
-    clear:both;
-    width:100%;
+    margin-left:20px;
+    /*clear:both;
+    width:100%;*/
 }
 
 #social-box imged
@@ -1351,9 +1350,9 @@ textarea
 
 #social-box span
 {
-    margin-top:28px;
+    position:relative;
+    bottom: 45px;
     color:white;
-    float:left;
     font-family: 'Shadows Into Light Two', cursive;
     font-size:24px;
     letter-spacing:0.1em;
@@ -1379,7 +1378,7 @@ textarea
 
 #searchsubmit
 {
-    width: 20px;w
+    width: 20px;
     height: 20px;
     border: none;
     cursor: pointer;
@@ -1480,3 +1479,4 @@ textarea
 #about ol{list-style-type:decimal; margin-left:50px; margin-top:-10px; color:#555555; }
 #about ul{list-style-type:disc; margin-left:50px; margin-top:-10px; color:#555555;}
 #about p{margin-top:0px; margin-bottom:10px;}
+

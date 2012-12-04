@@ -1,5 +1,6 @@
 ﻿@using Mission.Domain.Entities
 @model Post
+
 @{
     
     List<Comment> orderedComments = Model.Comments.OrderByDescending(c => c.Date).ToList();

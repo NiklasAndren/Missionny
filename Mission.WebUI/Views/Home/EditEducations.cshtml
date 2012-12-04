@@ -1,8 +1,5 @@
 ﻿@using Mission.Domain.Entities
 @model AboutJesper
-@{
-    ViewBag.Title = "CreatePost";
-}
 <script type="text/javascript" src="@Url.Content("~/Content/tinymce/jscripts/tiny_mce/tiny_mce.js")"></script>
 <script type="text/javascript" src="@Url.Content("~/Content/js/LoadTinymce.js")"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
@@ -11,16 +8,16 @@
 
 <div id="posts-list">
     <h2 class="page-heading">
-        <span>ÄNDRA JESPER CARON</span></h2>
+        <span>ÄNDRA "Utbildningar"</span></h2>
     @using (Html.BeginForm())
     {
         <div>
-            @Html.HiddenFor(p => p.Educations)
+            @Html.HiddenFor(p => p.Content)
             @Html.HiddenFor(p => p.Promise)
             @Html.HiddenFor(p => p.Information)
-            @Html.TextAreaFor(p => p.Content, new { id = "elm1", name = "elm1", rows = "10", cols = "30", style = "width:100%", height = "100%" })
+            @Html.TextAreaFor(p => p.Educations, new { id = "elm1", name = "elm1", rows = "10", cols = "30", style = "width:100%", height = "100%" })
         </div>
         <div>
-            <input type="submit" class="submit-style" value="Spara" />
+            <input type="submit" value="Spara" />
         </div>
     }</div>

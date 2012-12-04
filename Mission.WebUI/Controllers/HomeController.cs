@@ -19,12 +19,14 @@ namespace Mission.WebUI.Controllers
          private IRepository<Subscriber> _subscriberRepo;
          private IRepository<Customers> _customerRepo;
          private IRepository<AboutJesper> _aboutJesperRepo;
-         public HomeController(IRepository<Post> postRepo, IRepository<Subscriber> subscriberRepo, IRepository<Customers> customerRepo, IRepository<AboutJesper> aboutJesperRepo)
+         private IRepository<User> _userRepo;
+         public HomeController(IRepository<Post> postRepo, IRepository<Subscriber> subscriberRepo, IRepository<Customers> customerRepo, IRepository<AboutJesper> aboutJesperRepo, IRepository<User> userRepo)
         {
             _subscriberRepo = subscriberRepo;
             _postRepo = postRepo;
             _customerRepo = customerRepo;
             _aboutJesperRepo = aboutJesperRepo;
+            _userRepo = userRepo;
         }
 
         public ActionResult Index()
@@ -83,7 +85,8 @@ namespace Mission.WebUI.Controllers
         }
 
         public ActionResult Lectures(){
-            return View();
+            var lectures = _aboutJesperRepo.FindAll().FirstOrDefault();
+            return View(lectures);
         }
 
         public ActionResult JesperCaron() {
@@ -95,6 +98,7 @@ namespace Mission.WebUI.Controllers
 
         [HttpPost]
         [AuthorizeAdmin]
+        [ValidateInput(false)]
         public ActionResult JesperCaron(Customers customer)
         {
             customer.ID = Guid.NewGuid();
@@ -105,19 +109,63 @@ namespace Mission.WebUI.Controllers
         public ActionResult EditJesperCaron(Guid id)
         {
             var aboutjesper = _aboutJesperRepo.FindByID(id);
-
             return View(aboutjesper);
         }
 
         [HttpPost]
         [AuthorizeAdmin]
+        [ValidateInput(false)]
         public ActionResult EditJesperCaron(AboutJesper aboutjesper)
         {
-
             _aboutJesperRepo.Save(aboutjesper);
+            return RedirectToAction("JesperCaron", "Home");           
+        }
+        public ActionResult EditPromise()
+        {
+            var lectures = _aboutJesperRepo.FindAll().FirstOrDefault();
+            return View (lectures);
+        }
+        [HttpPost]
+        [AuthorizeAdmin]
+        [ValidateInput(false)]
+        public ActionResult EditPromise(AboutJesper aboutjesper)
+        {
+            _aboutJesperRepo.Save(aboutjesper);
+            return RedirectToAction("Lectures", "Home");
+        }
+        
+        public ActionResult EditInformation()
+        {
+            var lectures = _aboutJesperRepo.FindAll().FirstOrDefault();
+            return View(lectures);
+        }
+        [HttpPost]
+        [AuthorizeAdmin]
+        [ValidateInput(false)]
+        public ActionResult EditInformation(AboutJesper aboutjesper)
+        {
+            _aboutJesperRepo.Save(aboutjesper);
+            return RedirectToAction("Lectures", "Home");
+        }
+        public ActionResult EditEducations()
+        {
+            var lectures = _aboutJesperRepo.FindAll().FirstOrDefault();
+            return View(lectures);
+        }
+        [HttpPost]
+        [AuthorizeAdmin]
+        [ValidateInput(false)]
+        public ActionResult EditEducations(AboutJesper aboutjesper)
+        {
+            _aboutJesperRepo.Save(aboutjesper);
+            return RedirectToAction("Lectures", "Home");
+        }
 
-            return RedirectToAction("JesperCaron", "Home");
-            
+        public ActionResult ChangePassword(string username, string newPassword, string email) 
+        {
+            CustomMembershipProvider cmp = new CustomMembershipProvider();
+            cmp.UpdateUser(username, newPassword, email);
+            return RedirectToAction("Index", "Home");
         }
 
     }

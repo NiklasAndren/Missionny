@@ -16,7 +16,7 @@
 <div id="allCustomers">
     @foreach (var Customer in Model.Customers)
     {
-        <div class="singleCustomer">@Customer.Name</div>
+        <div class="singleCustomer"><a href="@Customer.WebSite">@Customer.Name</a></div>
     }
 </div>
 <div id="CreateCustomer">

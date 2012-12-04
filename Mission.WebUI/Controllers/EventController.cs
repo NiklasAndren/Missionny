@@ -12,7 +12,8 @@ using System.Web.Script.Serialization;
 using System.Web.Security;
 using System.Data.Entity.Validation;
 using System.Text;
-
+using PagedList.Mvc;
+using PagedList;
 
 namespace Mission.WebUI.Controllers
 {
@@ -36,7 +37,6 @@ namespace Mission.WebUI.Controllers
 
         public ActionResult Index()
         {
-
             List<Event> AllEvents = _eventRepo.FindAll().OrderByDescending(p => p.Date).ToList();
             return View(AllEvents);
         }
@@ -51,6 +51,7 @@ namespace Mission.WebUI.Controllers
 
         [HttpPost]
         [AuthorizeAdmin]
+        [ValidateInput(false)]
         public ActionResult CreateEvent(vm_EventUser vm)
         {
             vm.Event.ID = Guid.NewGuid();
@@ -59,21 +60,21 @@ namespace Mission.WebUI.Controllers
                 var question = new EventQuestion { ID = Guid.NewGuid(), Question = eq, EventID = vm.Event.ID, Date = vm.Event.Date };
                 _eventQuestionRepo.Save(question);
             }  
-            vm.Event.Company = vm.Username;
+            vm.Event.Company = vm.Username.ToLower();
             vm.Event.Description = vm.Event.Description;//HttpUtility.HtmlDecode(vm.Event.Description);
             CustomMembershipProvider cmp = new CustomMembershipProvider();
             var status = new MembershipCreateStatus();
 
             if (!string.IsNullOrEmpty(vm.Password))
             {
-                User user = _userRepository.FindAll(u => u.UserName == vm.Username).FirstOrDefault();
+                User user = _userRepository.FindAll(u => u.UserName == vm.Username.ToLower()).FirstOrDefault();
                 if (user != null)
                 {
                     cmp.UpdateUser(vm.Username, vm.Password, vm.Email);
                 }
                 else {                   
-                    cmp.CreateUser(vm.Username, vm.Password, vm.Email, "", "", true, null, out status);
-                    User newUser = _userRepository.FindAll(u => u.UserName == vm.Username).FirstOrDefault();
+                    cmp.CreateUser(vm.Username.ToLower(), vm.Password, vm.Email, "", "", true, null, out status);
+                    User newUser = _userRepository.FindAll(u => u.UserName == vm.Username.ToLower()).FirstOrDefault();
                     newUser.UserEmailAddress = vm.Email;
                     newUser.Event.Add(vm.Event);
                     _userRepository.Save(newUser);
@@ -83,7 +84,7 @@ namespace Mission.WebUI.Controllers
             {
                 _eventRepo.Save(vm.Event);
             }
-            return RedirectToAction("Index", "Event");
+            return RedirectToAction("SingleEvent", "Event", new {vm.Event.ID });
         }
 
         [AuthorizeAdmin]
@@ -95,12 +96,13 @@ namespace Mission.WebUI.Controllers
 
         [HttpPost]
         [AuthorizeAdmin]
+        [ValidateInput(false)]
         public ActionResult Edit(Event events)
         {
-            events.Date = DateTime.Now;
+            events.Date = events.Date;
             events.Description = HttpUtility.HtmlDecode(events.Description);
             _eventRepo.Save(events);
-            return RedirectToAction("Index", "Event");
+            return RedirectToAction("SingleEvent", "Event", new { events.ID });
         }
 
         [AuthorizeAdmin]
@@ -145,7 +147,7 @@ namespace Mission.WebUI.Controllers
             List<string> words = Answer.Words.Split(',').ToList();
             foreach (var singleword in words)
             {
-                var lowerword = singleword.ToLower();
+                var lowerword = singleword.ToLower().Trim();
                 var word = _wordRepository.FindAll(w => w.Word == lowerword).FirstOrDefault();
                 if (word != null)
                 {
@@ -304,12 +306,14 @@ namespace Mission.WebUI.Controllers
             return View(id);
         }
         [AuthorizeAdmin]
-        public ActionResult Overview() {
-
+        public ActionResult Overview(int? page)
+        {
+            var pageNumber = page ?? 1;
             var wc = new WordCountModel();
 
             wc.EventList = _eventRepo.FindAll().OrderByDescending(e => e.Date).ToList();
-            wc.Word = _wordRepository.FindAll().OrderByDescending(w => w.WordCount).ToList();
+            wc.Word = _wordRepository.FindAll().OrderByDescending(w => w.WordCount).ToPagedList(pageNumber, 5);
+           
             return View (wc);
         }
 
@@ -318,10 +322,11 @@ namespace Mission.WebUI.Controllers
             return View(Event);
         }
 
-        public ActionResult OpenEvents() 
+        public ActionResult OpenEvents(int? page) 
         {
+            var pagenumber = page ?? 1;
             vm_EventUser eu = new vm_EventUser();
-            List<Event> openEvents = _eventRepo.FindAll(e => e.OpenEvent == (int)OpenEvent.Open).ToList();
+            IPagedList<Event> openEvents = _eventRepo.FindAll(e => e.OpenEvent == (int)OpenEvent.Open).ToPagedList(pagenumber, 5);
             return View(openEvents);
         }
 

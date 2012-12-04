@@ -39,7 +39,7 @@ namespace Mission.WebUI.ViewModels
             if (user == null)
             {
                 User appUser = new User();
-                appUser.UserName = username;
+                appUser.UserName = username.ToLower();
                 appUser.Salt = BCrypt.Net.BCrypt.GenerateSalt();
                 appUser.PasswordHash = GetBcryptHash(password, appUser.Salt);
                 appUser.UserEmailAddress = email;
@@ -226,6 +226,8 @@ namespace Mission.WebUI.ViewModels
             //throw new NotImplementedException();
             return true;
         }
+
+
         // Not Used:
 
         //protected virtual byte[] DecryptPassword(byte[] encodedPassword);
