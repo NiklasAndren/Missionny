@@ -15,6 +15,7 @@ input[type="password"]:focus
     box-shadow: 0px 0px 4px 0px #49AFDD inset !important;
     outline:none;
 }
+
 /* GENERAL ------------------------------------------------------------*/
 
 .presskit-fb,
@@ -1039,7 +1040,7 @@ article .meta .categories{
     margin-bottom: 33px;
 }
 
-#headline #submit, #login-form #submit
+.submit-style
 {
     cursor:pointer;
     color: #ffffff;
@@ -1060,7 +1061,7 @@ article .meta .categories{
     font-size: 100%;
 }
 
-#headline #submit:hover, #login-form #submit:hover
+.submit-style:hover
 {
     background-color:#49afdd;
     background-image: -webkit-gradient(linear, 0 0, 0 100%, to(#2f96b4), from(#5bc0de));

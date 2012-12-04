@@ -5,8 +5,7 @@
     ViewBag.Title = "Blog";
 }
 <div id="posts-list" class="post-lists-blogg">
-    <h2 class="page-heading">
-        <span>BLOGG</span></h2>
+    <h2 class="page-heading"><span>BLOGG</span></h2>
         @Html.Partial("_Arkiv", Model.Arkivmodel)
         @Html.DisplayFor(p => p.Blogcomments.Posts)
 </div> 

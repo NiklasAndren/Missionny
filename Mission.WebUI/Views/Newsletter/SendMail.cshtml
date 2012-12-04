@@ -1,4 +1,4 @@
-﻿@model Mission.Domain.Entities.Newsletter
+﻿@model Mission.WebUI.ViewModels.vm_SendMail
 
 @ViewBag.StatusMessage
 
@@ -6,13 +6,44 @@
 {
     <p>
         <span>Ämne:</span><br />
-        @Html.EditorFor(n => n.Subject)
+        @Html.EditorFor(n => n.Newsletter.Subject)
     </p>
     <p>
         <span>Meddelande:</span><br />
-        @Html.TextAreaFor(n => n.Message, new { style="min-width:100%; max-width:100%; min-height:300px;" })
+        @Html.TextAreaFor(n => n.Newsletter.Message, new { style="min-width:100%; max-width:100%; min-height:300px;" })
     </p>
-    <div id="submit">
-        <input type="submit" value="Send" />
+    <p>
+        @Html.RadioButtonFor(n => n.Subscriber.SubscriberType, 1)Kontaktperson
+        @Html.RadioButtonFor(n => n.Subscriber.SubscriberType, 2)Kollega
+        @Html.RadioButtonFor(n => n.Subscriber.SubscriberType, 3)Prenumerant
+    </p>
+    <div>
+        <input type="submit" class="submit-style" value="Skicka mail" />
+    </div>
+}
+
+<h2 class="page-heading"><span>Lägg till kontakt</span></h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        <span>Namn:</span><br />
+        @Html.EditorFor(s => s.Subscriber.Name)
+    </p>
+    <p>
+        <span>Email:</span><br />
+        @Html.EditorFor(s => s.Subscriber.Email)
+    </p>
+    <p>
+        <span>Stad:</span><br />
+        @Html.EditorFor(s => s.Subscriber.City)
+    </p>
+    <p>
+        @Html.RadioButtonFor(n => n.Subscriber.SubscriberType, 1)Kontaktperson
+        @Html.RadioButtonFor(n => n.Subscriber.SubscriberType, 2)Kollega
+        @Html.RadioButtonFor(n => n.Subscriber.SubscriberType, 3)Prenumerant
+    </p>
+    <div class="submit">
+        <input type="submit" class="submit-style" value="Lägg till" />
     </div>
 }

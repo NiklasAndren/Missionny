@@ -7,6 +7,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Mission.Domain.Entities
 {
+    public enum SubscriberType { ContactPerson = 1, Colleague = 2, Subscriber = 3 }
+
     public class Subscriber : IEntity
     {
         public Guid ID { get; set; }
@@ -15,5 +17,6 @@ namespace Mission.Domain.Entities
         [Required(ErrorMessage="Fyll i email")]
         public string Email { get; set; }
         public String City { get; set; }
+        public int SubscriberType { get; set; }
     }
 }

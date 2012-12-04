@@ -71,6 +71,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsletterController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -87,6 +88,7 @@
     <Compile Include="ViewModels\vm_EventQuestion.cs" />
     <Compile Include="ViewModels\vm_EventUser.cs" />
     <Compile Include="ViewModels\vm_PostSubscriber.cs" />
+    <Compile Include="ViewModels\vm_SendMail.cs" />
     <Compile Include="ViewModels\WordCountModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1153,6 +1155,7 @@
     <None Include="Content\tinymce\examples\media\sample.flv" />
     <None Include="Content\tinymce\examples\media\sample.ram" />
     <None Include="Content\tinymce\examples\media\sample.rm" />
+    <Content Include="Views\Newsletter\SendMail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\tinymce\jscripts\tiny_mce\plugins\spellchecker\classes\utils\" />
