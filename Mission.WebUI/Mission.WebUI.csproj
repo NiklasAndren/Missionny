@@ -1163,8 +1163,10 @@
     <Content Include="Views\Home\EditPromise.cshtml" />
     <Content Include="Views\Home\EditInformation.cshtml" />
     <Content Include="Views\Home\EditEducations.cshtml" />
+    <Content Include="Views\Home\PressKit.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\Media\PressKit\" />
     <Folder Include="Content\tinymce\jscripts\tiny_mce\plugins\spellchecker\classes\utils\" />
     <Folder Include="Content\tinymce\jscripts\tiny_mce\plugins\spellchecker\includes\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
