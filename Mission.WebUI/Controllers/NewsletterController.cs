@@ -17,6 +17,7 @@ namespace Mission.WebUI.Controllers
         public NewsletterController(IRepository<Newsletter> newsletterRepo, IRepository<Subscriber> subscriberRepo)
         {
             _newsletterRepo = newsletterRepo;
+            _subscriberRepo = subscriberRepo;
         }
 
         public ActionResult SendMail()
@@ -40,7 +41,9 @@ namespace Mission.WebUI.Controllers
                 newsub.SubscriberType = sendmail.Subscriber.SubscriberType;
 
                 _subscriberRepo.Save(newsub);
-            }
+                ViewBag.StatusMessage = "Success";
+                return View();
+             }
 
             if (!string.IsNullOrEmpty(sendmail.Newsletter.Subject) && !string.IsNullOrEmpty(sendmail.Newsletter.Message))
             {
@@ -68,13 +71,15 @@ namespace Mission.WebUI.Controllers
                         SmtpServer.EnableSsl = true;
 
                         SmtpServer.Send(mail);
-                        ViewBag.StatusMessage = "mail Send";
+                        ViewBag.StatusMessage = "Mail skickat";
                     }
                     catch (Exception ex)
                     {
                         ViewBag.StatusMessage = ex;
                     }
                 }
+                return View();
+
             }
             return View();
             
