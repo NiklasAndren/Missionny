@@ -1168,7 +1168,7 @@
     <Content Include="Views\Home\EditEducations.cshtml" />
     <Content Include="Views\Home\PressKit.cshtml" />
     <Content Include="Views\Home\StartingPoint.cshtml" />
-    <Content Include="Views\Home\_ChangePassword.cshtml" />
+    <Content Include="Views\Home\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Media\PressKit\" />
