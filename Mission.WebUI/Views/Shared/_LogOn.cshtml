@@ -6,7 +6,7 @@
 @if (Request.IsAuthenticated)
 {
     <text><h3>Välkommen <strong style="text-transform:capitalize">@User.Identity.Name.ToLower()</strong>!</h3>
-    [ @Html.ActionLink("Log Off", "LogOff", "Account") ]</text>
+    @Html.ActionLink("Logga ut", "LogOff", "Account", new { @class="submit-style logoff" })</text>
     <p>
         
     </p>
