@@ -6,7 +6,7 @@
 @using (Html.BeginForm("Unsubscribe", "Home"))
 {
     <fieldset>
-        <legend>.</legend>
+        
         <div>
             @Html.EditorFor(s => s.Subscriber.Name, new { id = "name", type = "text", @class = "form-poshytip", title = "Enter your email address" })
             <label>Namn</label>

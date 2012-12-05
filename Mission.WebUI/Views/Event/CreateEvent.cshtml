@@ -34,18 +34,18 @@
                 @Html.EditorFor(e => e.Event.City)<span style="color: Red;">@Html.ValidationMessageFor(s => s.Event.City)</span><br />
                 <div id="to-d">
                     Datum<br />
-                    @Html.TextBoxFor(e => e.Event.Date, new { id = "datepicker", value = "10/10/2011 12:00 AM", style = "width:200px;", @class = "" })
+                    @Html.TextBoxFor(e => e.Event.Date, new { id = "datepicker", value = "", style = "width:200px;", @class = "" })
                     <br />
                     <span style="color: Red;">@Html.ValidationMessageFor(s => s.Event.Date)</span>
                 </div>
             
             <p>
-                Företag
+                Företag (Detta blir användarnamn om du fyller i ett lösenord)
                 <br />
                 @Html.EditorFor(e => e.Username)<span style="color: Red;">@Html.ValidationMessageFor(s => s.Username)</span>
             </p>
             <p id="Password">
-                Lösenord <b />
+                Detta blir lösenordet som företaget loggar in med <b />
                 @Html.EditorFor(e => e.Password)<br />
                 Epost<br />
                 @Html.EditorFor(e => e.Email)
