@@ -1,6 +1,8 @@
 ﻿@model List<string>
-@foreach(var img in Model){
-    
-        <img class="presskit" src="@Url.Content(@img)" />
-    
+<script src="@Url.Content("~/Content/js/preview/main.js")"></script>
+<script src="@Url.Content("~/Content/js/preview/jquery.js")"></script>
+@foreach (var img in Model)
+{  <a href="@Url.Content(@img)" class="preview" title="">
+    <img id="pk" class="presskit" src="@Url.Content(@img)" />
+   </a>
 }

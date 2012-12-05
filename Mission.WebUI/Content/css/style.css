@@ -1481,3 +1481,13 @@ textarea
 
 .presskit{}
 .presskit{max-width: 20%; max-height: 140px; float:left; margin: 4px; box-shadow: 2px 2px 1px slategrey;}
+#preview{
+position:absolute;
+border:1px solid #ccc;
+background:#333;
+padding:5px;
+display:none;
+color:#fff;
+overflow:hidden;
+} 
+#preview img {max-height:500px;}
