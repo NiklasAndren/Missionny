@@ -10,6 +10,8 @@ using System.Data.Entity;
 using Mission.Domain.Repositories.Abstract;
 using Mission.WebUI.Infrastructure;
 using Mission.WebUI.ViewModels;
+using System.IO;
+
 
 namespace Mission.WebUI.Controllers
 {
@@ -168,5 +170,14 @@ namespace Mission.WebUI.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult PressKit() {
+            string[] filesindirectory = Directory.GetFiles(Server.MapPath("~/Content/Media/PressKit"));
+            List<String> images = new List<string>(filesindirectory.Count());
+            foreach (string item in filesindirectory)
+            {
+                images.Add(String.Format("~/Content/Media/PressKit/{0}", System.IO.Path.GetFileName(item)));
+            }
+            return View(images);
+        }
     }
 }

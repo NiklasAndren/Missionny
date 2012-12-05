@@ -699,6 +699,8 @@
     <Content Include="Content\js\prettyPhoto\js\jquery-1.4.4.min.js" />
     <Content Include="Content\js\prettyPhoto\js\jquery.prettyPhoto.js" />
     <Content Include="Content\js\prettyPhoto\xhr_response.html" />
+    <Content Include="Content\js\preview\jquery.js" />
+    <Content Include="Content\js\preview\main.js" />
     <Content Include="Content\js\resizeable.js" />
     <Content Include="Content\js\subscriber.js" />
     <Content Include="Content\js\superfish-1.4.8\changelog.txt" />
@@ -1166,8 +1168,10 @@
     <Content Include="Views\Home\EditPromise.cshtml" />
     <Content Include="Views\Home\EditInformation.cshtml" />
     <Content Include="Views\Home\EditEducations.cshtml" />
+    <Content Include="Views\Home\PressKit.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\Media\PressKit\" />
     <Folder Include="Content\tinymce\jscripts\tiny_mce\plugins\spellchecker\classes\utils\" />
     <Folder Include="Content\tinymce\jscripts\tiny_mce\plugins\spellchecker\includes\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
