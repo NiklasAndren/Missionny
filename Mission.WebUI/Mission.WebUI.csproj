@@ -137,6 +137,7 @@
     <Content Include="Content\img\facebook104.png" />
     <Content Include="Content\img\facebook_logo.gif" />
     <Content Include="Content\img\facebook_logo.jpg" />
+    <Content Include="Content\img\favicon\favicon.ico" />
     <Content Include="Content\img\FilmRoll2.png" />
     <Content Include="Content\img\FilmRoll2_white.png" />
     <Content Include="Content\img\footer.png" />

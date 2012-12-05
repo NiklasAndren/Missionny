@@ -2,8 +2,10 @@
 @model Mission.WebUI.ViewModels.BlogViewModel
 @using PagedList
 @using PagedList.Mvc
+
+
 @{
-    
+    ViewBag.Title = "Blogg";    
     List<Comment> orderedComments = Model.Blogcomments.BlogComment.OrderByDescending(c => c.Date).ToList(); 
 }
 

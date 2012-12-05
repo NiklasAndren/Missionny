@@ -1,11 +1,16 @@
 ﻿@model List<int>
+@{
+    ViewBag.Title = "Årsstatistik";
+}
+
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 @{var sortedValues = Model.OrderByDescending(v => v).ToList();}
 
 <div class="charts">
     <div class="years" id="bloggarkiv" style="float: right; width: 30%; padding-top: 20px;background-color: #555; border-radius: 1px; margin-top: 42px; ">
 
-        @foreach (var x in sortedValues) {                       
+        @foreach (var x in sortedValues)
+        {                       
             <p  style="margin-left:0px;"><a class="arkiv-year" onclick="getCharts(@x)">@x</a></p>         
         }
     </div>

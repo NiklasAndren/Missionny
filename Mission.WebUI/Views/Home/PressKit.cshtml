@@ -1,4 +1,7 @@
 ﻿@model List<string>
+@{
+    ViewBag.Title = "Presskit";
+}
 <script src="@Url.Content("~/Content/js/preview/main.js")"></script>
 <script src="@Url.Content("~/Content/js/preview/jquery.js")"></script>
 @foreach (var img in Model)

@@ -1,4 +1,7 @@
 ﻿@model Mission.Domain.Entities.AboutJesper
+@{
+    ViewBag.Title = "Föreläsningar";
+}
 <div>
     <h2 id="" class="home-block-heading">
         <span>Vårt löfte till dig</span>
@@ -28,7 +31,7 @@
     </h2>
     @MvcHtmlString.Create(@Model.Educations)
      @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
-    {
+     {
         <br />
         @Html.ActionLink("Editera \"Utbildningar\"", "EditEducations", "Home")
     }
