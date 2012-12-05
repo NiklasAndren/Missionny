@@ -103,7 +103,7 @@
                 <ul id="nav" class="sf-menu">
                     <li>@Html.ActionLink("Start", "index", "Home")</li>
                     <li>@Html.ActionLink("Jesper Caron", "JesperCaron", "Home")</li>
-                    <li>@Html.ActionLink("Utgångspunkt", "index", "Home")</li>                    
+                    <li>@Html.ActionLink("Utgångspunkt", "StartingPoint", "Home")</li>                    
                     <li>@Html.ActionLink("Föreläsningar", "Lectures", "Home")</li>            
                     <li>@Html.ActionLink("In Action", "Index", "Post")</li>
                     <li>@Html.ActionLink("Blogg", "Blog", "Post")</li>
@@ -125,6 +125,11 @@
         <div class="wrapper clearfix" id="columnWrapper">
             <div id="login-form">
                 @Html.Partial("_LogOn", new LogOnModel())
+                @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context)) { 
+                    <div id="changePassword">
+                    @Html.ActionLink("ChangePassword", "Home")
+                    </div>
+                }
             </div>
             <div class="block contactInfo">
                 <h3>
@@ -138,11 +143,15 @@
                     <li>&nbsp Kontor | 733 - 41 04 30</li><br />
                     <li class="email">&nbsp office@jespercaron.se</li>
                 </ul>
-                <div id="facebook">
-                </div>
-                <a href="../Home/PressKit/">
-                <div id="presskit"></div>
-                </a>
+                
+                
+                
+                   <div id="presskit">
+                        <a href="../Home/PressKit/"><img src="@Url.Content("~/Content/img/filmRoll2.png")"/>
+                            <span id="presskit_text">Presskit</span>
+                        </a>
+                   </div>
+                
             </div>
             <div id="footerActionplant">
                 <h3>

@@ -61,7 +61,7 @@ namespace Mission.WebUI.Controllers
                 _eventQuestionRepo.Save(question);
             }  
             vm.Event.Company = vm.Username.ToLower();
-            vm.Event.Description = vm.Event.Description;//HttpUtility.HtmlDecode(vm.Event.Description);
+            vm.Event.Description = vm.Event.Description;
             CustomMembershipProvider cmp = new CustomMembershipProvider();
             var status = new MembershipCreateStatus();
 

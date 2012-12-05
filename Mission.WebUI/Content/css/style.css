@@ -33,12 +33,7 @@ input[type="password"]:focus
     margin-left: 2px;
 }
 
-#presskit
-{
-   margin-top: -40px;
-    float: right;
-    border-radius: 5px;
-}
+
 
 .jlogo
 {
@@ -826,8 +821,11 @@ nav a{
 	background: url(../img/date.png) no-repeat;
 	font-family: 'Convergence', Arial, sans-serif;
 	float:left;
+	padding-bottom:14px;
 	
 }
+
+
 
 #posts-list .entry-date .number{
 	font-size: 50px;
@@ -847,7 +845,7 @@ nav a{
 	position: relative;
 	margin-bottom: 40px;
 	box-shadow:0px 0px 8px 1px #aaa;
-	background-color:#eee;
+	background-color:#fff;
 }
 
 #posts-list .feature-image,
@@ -890,7 +888,7 @@ nav a{
 }
 
 article .meta div{
-	padding: 15px 10px 15px 10px;
+	padding: 5px 10px;
 	float: left;
 	max-width: 170px;
 	
@@ -1015,7 +1013,7 @@ article .meta .categories{
 	width: 260px; /* 300 - 40 padding */
 	min-height: 275px;
 	padding: 70px 20px 20px 20px;
-	margin-top:-47px;
+	margin-top:-48px;
 	-webkit-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
 	-moz-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
 	-o-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
@@ -1229,28 +1227,15 @@ td a:first-child{border-left: 0px solid black !important;}
     display:block;
 }
 
-#facebook, #actionplant, #presskit
-{
-    float: left;
-    height: 45px;
-    margin-bottom: 32px;
-    margin-top: 30px;
-    width: 45px;
-    margin-left:5px;
-    border-radius:5px;
-    
-}
+#presskit {}
+#presskit_text { font-size:18px; letter-spacing:0.1em;}
 
 #facebook
 {
     background: url(../img/Facebook-f.png) no-repeat;
 }
 
-#presskit
-{
-    background: url(../img/FilmRoll2.png) no-repeat;
-    background-position: -1px -1px;
-}
+
 .excerpt span {display: none;}
 
 
@@ -1289,9 +1274,7 @@ td a:first-child{border-left: 0px solid black !important;}
     color:#49afcd;
 }
 
-#facebook:hover, #actionplant:hover, #presskit:hover
-{
-}
+
 
 .eventQuestion{ display: block; font-size: 20px; margin-top:40px; margin-bottom:15px;  }
 .eventQuestions{ display:block; font-size: 15px; margin-top:15px; margin-bottom:15px; }
@@ -1351,28 +1334,27 @@ textarea
 #social-box
 {
     position: relative;
-    float: left;
-    width: 100%;
+    float: right;
+    width: 300px;
     padding: 0px;
     -webkit-box-shadow: 2px 2px 0px rgba(0, 0, 0, .2);
     -moz-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
     -o-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
     box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
-    background-color:#828282;
+    background-color:#555;
+    margin-top: 30px;
 }
 
 .social-fb, .social-tw, .social-yt, .social-in
 {
     float:left;
-    margin-left:20px;
-    /*clear:both;
-    width:100%;*/
+    margin-left:0px;
 }
 
-#social-box imged
+#social-box img
 {
-    width:30%;
     float:left;
+    max-height:75px;
 }
 
 #social-box span
@@ -1469,13 +1451,17 @@ textarea
 	width:67%;
 }
 
-.leftcol{float:left; width:49%; padding-top: 20px;}
-.rightcol{float:right; width:49%; padding-top: 20px;}
+.leftcol{float:left; width:48%; padding-top: 20px; }
+.rightcol{float:right; width:48%; padding-top: 20px;}
 
 #Words
 {
     width:400px;
 }
+
+.whiteboxes {background-color: white;
+    box-shadow: 0 0 8px 1px #AAAAAA;
+    padding: 20px;}
 
 /*-------RESPONSIVE-------*/
 /* EGEN FIL SEN */
@@ -1519,3 +1505,6 @@ color:#fff;
 overflow:hidden;
 } 
 #preview img {max-height:500px;}
+
+#about {background-color:white; padding:20px; box-shadow: 0 0 8px 1px #AAAAAA;}
+#changePassword{margin-top: 150px;}
