@@ -4,8 +4,8 @@
 @if (Request.IsAuthenticated)
 {
     <text><h3>
-        Välkommen <strong style="text-transform: capitalize">@User.Identity.Name.ToLower()</strong>!</h3>
-    @Html.ActionLink("Logga ut", "LogOff", "Account")</text>
+        VÃ¤lkommen <strong style="text-transform: capitalize">@User.Identity.Name.ToLower()</strong>!</h3>
+    @Html.ActionLink("Logga ut", "LogOff", "Account", null, new { @class = "logoff submit-style" })</text>
 }
 else
 {   
