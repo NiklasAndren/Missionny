@@ -1,25 +1,24 @@
 ﻿@model Mission.WebUI.ViewModels.LogOnModel
-
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-
 @if (Request.IsAuthenticated)
 {
-    <text><h3>Välkommen <strong style="text-transform:capitalize">@User.Identity.Name.ToLower()</strong>!</h3>
+    <text><h3>
+        V�lkommen <strong style="text-transform: capitalize">@User.Identity.Name.ToLower()</strong>!</h3>
     @Html.ActionLink("Logga ut", "LogOff", "Account")</text>
 }
 else
 {   
-    <h3>Login</h3>
-    @*@:[ @Html.ActionLink("Log On", "LogOn", "Account") ]*@
+    <h3>
+        Login</h3>
+@*@:[ @Html.ActionLink("Log On", "LogOn", "Account") ]*@
     
     @Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
 
-using (Html.BeginForm("_LogOn", "Account", FormMethod.Post))
-{
-        <div id="contactForm">
+    using (Html.BeginForm("_LogOn", "Account", FormMethod.Post))
+    {
+    <div id="contactForm">
         <fieldset>
-        
             <div class="editor-label login-label">
                 Användarnamn
             </div>
@@ -27,7 +26,6 @@ using (Html.BeginForm("_LogOn", "Account", FormMethod.Post))
                 @Html.TextBoxFor(m => m.UserName)
                 @Html.ValidationMessageFor(m => m.UserName)
             </div>
-
             <div class="editor-label login-label">
                 Lösenord
             </div>
@@ -35,22 +33,15 @@ using (Html.BeginForm("_LogOn", "Account", FormMethod.Post))
                 @Html.PasswordFor(m => m.Password)
                 @Html.ValidationMessageFor(m => m.Password)
             </div>
-
             <div class="editor-label login-label">
                 @Html.CheckBoxFor(m => m.RememberMe)
                 Kom ihåg mig
             </div>
-
             <p>
                 <input type="submit" class="submit-style" value="Logga in" />
             </p>
-        
         </fieldset>
-        </div>
+    </div>
     }
 
 }
-
-
-
-

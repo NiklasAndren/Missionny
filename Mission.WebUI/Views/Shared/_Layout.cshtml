@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html>
-
 @using Mission.WebUI.ViewModels
 <head>
     <title>@ViewBag.Title</title>
@@ -10,7 +9,6 @@
 		<![endif]-->
     <link rel="stylesheet" media="all" href="@Url.Content("~/Content/css/style.css")"/>
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/PagedList.css")" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
     <!-- FONTELLO -->
@@ -77,10 +75,10 @@
     </script>
 </head>
 <body>
-
     <header class="clearfix">
         <div class="wrapper">
-            <div class="jlogo"></div>          
+            <div class="jlogo">
+            </div>
             <div id="searchdiv">@Html.Partial("_SearchResult")</div>
             <div id="admin">
                 <ul>
@@ -96,24 +94,21 @@
                     { 
                         <li>@Html.ActionLink("Mina event", "EventForCompany", "Event", new { name = this.Context.User.Identity.Name.ToLower().ToString() }, null)</li>
                     }
-                    </ul>
+                </ul>
             </div>
             <nav id="meny">
-
                 <ul id="nav" class="sf-menu">
                     <li>@Html.ActionLink("Start", "index", "Home")</li>
                     <li>@Html.ActionLink("Jesper Caron", "JesperCaron", "Home")</li>
-                    <li>@Html.ActionLink("Utgångspunkt", "index", "Home")</li>                    
-                    <li>@Html.ActionLink("Föreläsningar", "Lectures", "Home")</li>            
+                    <li>@Html.ActionLink("Utgångspunkt", "StartingPoint", "Home")</li>
+                    <li>@Html.ActionLink("Föreläsningar", "Lectures", "Home")</li>
                     <li>@Html.ActionLink("In Action", "Index", "Post")</li>
                     <li>@Html.ActionLink("Blogg", "Blog", "Post")</li>
                     <li>@Html.ActionLink("On tour", "OpenEvents", "Event")</li>
                 </ul>
             </nav>
-
             <div id="combo-holder">
             </div>
-
         </div>
     </header>
     <div id="main">
@@ -123,8 +118,12 @@
     </div>
     <div id="footer">
         <div class="wrapper clearfix" id="columnWrapper">
-            <div id="login-form">
-                @Html.Partial("_LogOn", new LogOnModel())
+                <div id="login-form">
+                    @Html.Partial("_LogOn", new LogOnModel())
+                    @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
+                    { 
+                            <input type="submit" value="Byt lösenord" class="submit-style" onclick="location.href='../Home/ChangePassword'" />
+                    }
             </div>
             <div class="block contactInfo">
                 <h3>
@@ -138,11 +137,11 @@
                     <li>&nbsp Kontor | 733 - 41 04 30</li><br />
                     <li class="email">&nbsp office@jespercaron.se</li>
                 </ul>
-                <div id="facebook">
+                <div id="presskit">
+                    <a href="../Home/PressKit/">
+                        <img src="@Url.Content("~/Content/img/filmRoll2.png")"/>
+                        <span id="presskit_text">Presskit</span> </a>
                 </div>
-                <a href="../Home/PressKit/">
-                <div id="presskit"></div>
-                </a>
             </div>
             <div id="footerActionplant">
                 <h3>

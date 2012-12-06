@@ -91,6 +91,10 @@ namespace Mission.WebUI.Controllers
             return View(lectures);
         }
 
+        public ActionResult StartingPoint() {
+            return View();
+        }
+
         public ActionResult JesperCaron() {
             vm_AboutAndCustomers vm = new vm_AboutAndCustomers();
             vm.Customers = _customerRepo.FindAll().ToList();
@@ -163,13 +167,6 @@ namespace Mission.WebUI.Controllers
             return RedirectToAction("Lectures", "Home");
         }
 
-        public ActionResult ChangePassword(string username, string newPassword, string email) 
-        {
-            CustomMembershipProvider cmp = new CustomMembershipProvider();
-            cmp.UpdateUser(username, newPassword, email);
-            return RedirectToAction("Index", "Home");
-        }
-
         public ActionResult PressKit() {
             string[] filesindirectory = Directory.GetFiles(Server.MapPath("~/Content/Media/PressKit"));
             List<String> images = new List<string>(filesindirectory.Count());
@@ -178,6 +175,27 @@ namespace Mission.WebUI.Controllers
                 images.Add(String.Format("~/Content/Media/PressKit/{0}", System.IO.Path.GetFileName(item)));
             }
             return View(images);
+        }
+        [AuthorizeAdmin]
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AuthorizeAdmin]
+        public ActionResult ChangePassword(ChangePassword cp) {
+            CustomMembershipProvider cmp = new CustomMembershipProvider();
+            if (cp.ChangeUserPwd == null)
+            {
+                cp.AdminUsername = "jesper";
+                cmp.ChangePassword(cp.AdminUsername, cp.OldPassword, cp.NewPassword);
+            }
+            if (cp.ChangeUserPwd != null) {
+                cmp.UpdateUser(cp.ChangeUserPwd.OtherUser, cp.ChangeUserPwd.NewPassword, "");
+            }
+            return RedirectToAction("Index","Home");
+            
         }
     }
 }

@@ -6,7 +6,7 @@
     @using (Html.BeginForm("index", "Home", "post"))
     {
 <fieldset>
-    <legend>.</legend>
+    
     <div>
         <span style="color:Red;">@Html.ValidationMessageFor(s => s.Subscriber.Name)</span>
         @Html.EditorFor(s => s.Subscriber.Name, new { id = "name", type = "text", @class = "form-poshytip", title = "Enter your full name" })

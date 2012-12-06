@@ -177,10 +177,20 @@ namespace Mission.WebUI.ViewModels
             throw new NotImplementedException();
         }
 
-        public override bool ChangePassword(string username,
-        string oldPassword, string newPassword)
+        public override bool ChangePassword(string username, string oldPassword, string newPassword)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            IAppUserRepository userRepo = new AppUserRepository();
+            var user = userRepo.FindAll(u => u.UserName == username).FirstOrDefault();
+            var HashCheck = GetBcryptHash(oldPassword, user.Salt);
+            if (user.PasswordHash == HashCheck)
+            {
+                user.Salt = BCrypt.Net.BCrypt.GenerateSalt();
+                user.PasswordHash = GetBcryptHash(newPassword, user.Salt);
+                userRepo.Save(user);
+                return true;
+            }
+            else { return true; }            
         }
 
         public override bool ChangePasswordQuestionAndAnswer(string username,
@@ -221,7 +231,12 @@ namespace Mission.WebUI.ViewModels
             var user = userRepo.FindAll(u => u.UserName == username).FirstOrDefault();
             user.Salt = BCrypt.Net.BCrypt.GenerateSalt();
             user.PasswordHash = GetBcryptHash(newPassword, user.Salt);
-            user.UserEmailAddress = email;
+            if (!string.IsNullOrEmpty(email))
+            {
+                user.UserEmailAddress = email;
+            }
+            else { user.UserEmailAddress = user.UserEmailAddress; }
+            
             userRepo.Save(user);
             //throw new NotImplementedException();
             return true;

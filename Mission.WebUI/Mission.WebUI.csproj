@@ -88,6 +88,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Account.cs" />
     <Compile Include="ViewModels\BlogComments.cs" />
+    <Compile Include="ViewModels\ChangePassword.cs" />
     <Compile Include="ViewModels\CustomMembershipProvider.cs" />
     <Compile Include="ViewModels\vm_AboutAndCustomers.cs" />
     <Compile Include="ViewModels\vm_AnswerEventQuestion.cs" />
@@ -1170,6 +1171,8 @@
     <Content Include="Views\Home\EditInformation.cshtml" />
     <Content Include="Views\Home\EditEducations.cshtml" />
     <Content Include="Views\Home\PressKit.cshtml" />
+    <Content Include="Views\Home\StartingPoint.cshtml" />
+    <Content Include="Views\Home\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Media\PressKit\" />
