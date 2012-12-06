@@ -176,14 +176,26 @@ namespace Mission.WebUI.Controllers
             }
             return View(images);
         }
-
-         
+        [AuthorizeAdmin]
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
 
         [HttpPost]
+        [AuthorizeAdmin]
         public ActionResult ChangePassword(ChangePassword cp) {
             CustomMembershipProvider cmp = new CustomMembershipProvider();
-            cmp.ChangePassword(cp.Username.ToLower(), cp.OldPassword, cp.NewPassword);
+            if (cp.ChangeUserPwd == null)
+            {
+                cp.AdminUsername = "jesper";
+                cmp.ChangePassword(cp.AdminUsername, cp.OldPassword, cp.NewPassword);
+            }
+            if (cp.ChangeUserPwd != null) {
+                cmp.UpdateUser(cp.ChangeUserPwd.OtherUser, cp.ChangeUserPwd.NewPassword, "");
+            }
             return RedirectToAction("Index","Home");
+            
         }
     }
 }

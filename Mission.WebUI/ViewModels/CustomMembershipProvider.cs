@@ -231,7 +231,12 @@ namespace Mission.WebUI.ViewModels
             var user = userRepo.FindAll(u => u.UserName == username).FirstOrDefault();
             user.Salt = BCrypt.Net.BCrypt.GenerateSalt();
             user.PasswordHash = GetBcryptHash(newPassword, user.Salt);
-            user.UserEmailAddress = email;
+            if (!string.IsNullOrEmpty(email))
+            {
+                user.UserEmailAddress = email;
+            }
+            else { user.UserEmailAddress = user.UserEmailAddress; }
+            
             userRepo.Save(user);
             //throw new NotImplementedException();
             return true;
