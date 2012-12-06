@@ -15,6 +15,7 @@
         <div class="excerpt">@MvcHtmlString.Create(@Model.Description)</div>
         <div class="meta">
             <div class="categories">@Model.City</div>
+            <div class="edit">@Model.Date.TimeOfDay</div>
             @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
             {
                 <div class="edit">

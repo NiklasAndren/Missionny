@@ -1,19 +1,23 @@
 ﻿@using Mission.Domain.Entities
 @model Comment
+@using (Html.BeginForm("_CreateComment", "Post"))
+{ 
 
-@using (Html.BeginForm("_CreateComment", "Post") ) { 
-
-    <p>namn <br />
+    <p>
+        namn
+        <br />
         @Html.HiddenFor(p => p.PostID)
         @Html.EditorFor(p => p.Name)
     </p>
     
-    <p>Kommentar <br />
+    <p>
+        Kommentar
+        <br />
         @Html.TextAreaFor(p => p.Body)
     </p>
 
     <div>
-            <input type="submit" class="submit-style" value ="Svara"/>
+        <input type="submit" class="submit-style" value="Svara" />
     </div>
 
 

@@ -88,7 +88,7 @@
                         <li>@Html.ActionLink("Skapa ny post", "CreatePost", "Post")</li>
                         <li>@Html.ActionLink("Skapa nytt event", "CreateEvent", "Event")</li>
                         <li>@Html.ActionLink("Översikt", "Overview", "Event")</li>
-                        <li>@Html.ActionLink("Skicka mail", "SendMail", "Newsletter")</li>
+                        <li>@Html.ActionLink("Mail", "SendMail", "Newsletter")</li>
                     }
                     @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAuthorizedCompany(this.Context) && !Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
                     { 

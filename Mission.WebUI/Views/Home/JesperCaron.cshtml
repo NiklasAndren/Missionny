@@ -1,6 +1,5 @@
 ﻿@model Mission.WebUI.ViewModels.vm_AboutAndCustomers
 @using Mission.Domain.Entities
-
 @{
     ViewBag.Title = "Jesper Caron";
 }
@@ -9,16 +8,29 @@
 <div id="about">
     @MvcHtmlString.Create(@Model.AboutJesper.Content)
 </div>
-@if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context)) {
-    @Html.ActionLink("Editera presentation", "EditJesperCaron", "Home", new { id = Model.AboutJesper.ID }, null)
+<br />
+@if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
+{
+    @Html.ActionLink("Editera presentation", "EditJesperCaron", "Home", new { id = Model.AboutJesper.ID }, new { @class="submit-style"})
 }
-
 <h2 class="page-heading" style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
     <span>Tidigare Kunder</span></h2>
 <div id="allCustomers">
     @foreach (var Customer in Model.Customers)
     {
-        <div class="singleCustomer"><a href="@Customer.WebSite">@Customer.Name</a></div>
+        <div class="singleCustomer">
+            @if (!string.IsNullOrEmpty(Customer.WebSite))
+            { 
+                <a href="@Customer.WebSite">@Customer.Name</a>
+                @Html.ActionLink(" ", "Delete", "Home", new { id = Customer.ID }, new { @class = "customerDelete icon-trash" })
+            }
+            else
+            {
+                <p>@Customer.Name
+                    @Html.ActionLink(" ", "Delete", "Home", new { id = Customer.ID }, new { @class = "customerDelete icon-trash" })
+                </p>
+            }
+        </div>
     }
 </div>
 <div id="CreateCustomer">

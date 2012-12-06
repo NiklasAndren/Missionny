@@ -66,8 +66,8 @@ namespace Mission.WebUI.Controllers
             var pageNumber = page ?? 1;
             BlogViewModel bvm = new BlogViewModel();
 
-                bvm.Blogcomments.Posts = _postRepo.FindAll(p => p.Type == 1).OrderByDescending(p => p.Date).ToPagedList(pageNumber, 1);
-                bvm.Blogcomments.BlogComment = _commentRepo.FindAll().OrderByDescending(p => p.Date).ToPagedList(pageNumber, 1);
+                bvm.Blogcomments.Posts = _postRepo.FindAll(p => p.Type == 1).OrderByDescending(p => p.Date).ToPagedList(pageNumber, 10);
+                bvm.Blogcomments.BlogComment = _commentRepo.FindAll().OrderByDescending(p => p.Date).ToPagedList(pageNumber, 5);
 
                 var cal = from e in (_postRepo.FindAll(e => e.Type == 1))
                           group e by new { e.Date.Year, e.Date.Month }
@@ -178,8 +178,8 @@ namespace Mission.WebUI.Controllers
         {
             var pageNumber = page ?? 1;
             BlogViewModel bvm = new BlogViewModel();
-            bvm.Blogcomments.Posts = _postRepo.FindAll(p => p.Type == 1).Where(p => p.Date.Year == year && p.Date.ToString("MMMM") == month).OrderByDescending(p => p.Date).ToPagedList(pageNumber, 1);
-            bvm.Blogcomments.BlogComment = _commentRepo.FindAll().OrderByDescending(p => p.Date).ToPagedList(pageNumber, 1);
+            bvm.Blogcomments.Posts = _postRepo.FindAll(p => p.Type == 1).Where(p => p.Date.Year == year && p.Date.ToString("MMMM") == month).OrderByDescending(p => p.Date).ToPagedList(pageNumber, 10);
+            bvm.Blogcomments.BlogComment = _commentRepo.FindAll().OrderByDescending(p => p.Date).ToPagedList(pageNumber, 5);
 
             var cal = from e in (_postRepo.FindAll(e => e.Type == 1))
                       group e by new { e.Date.Year, e.Date.Month }

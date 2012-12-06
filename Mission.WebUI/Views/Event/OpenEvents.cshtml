@@ -19,14 +19,13 @@
                 <div class="year">@events.Date.ToString("MMM"),@events.Date.Year</div>
             </div>
             <h2 class="post-heading">
-                <a href="Event/SingleEvent/@events.ID">@events.HeadLine</a></h2>
+                <a href="../Event/SingleEvent/@events.ID">@events.HeadLine</a></h2>
             <div class="excerpt">@MvcHtmlString.Create(@events.Description)</div>
             <div class="meta">
                 <div class="categories">@events.City</div>
+                <div class="edit">@events.Date.TimeOfDay</div>
                 @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
-                {
-
-                    
+                {          
                     <div class="edit">
                     <i class="icon-pencil"></i><a>@Html.ActionLink("Ändra", "Edit", "Event", new { id = events.ID }, null)</a></div>
 					<div class="delete">
@@ -36,8 +35,7 @@
                     <div class="edit">
                     <i class="icon-pencil"></i><a>@Html.ActionLink("Skapa svar", "CreateAnswer", "Event", new { id = events.ID }, null)</a></div>
                     <div class="edit">
-                    <i class=""></i><a>@Html.ActionLink("Statistik", "EventStatistics", "Event", new { id = events.ID }, null)</a></div>
-                    
+                    <i class=""></i><a>@Html.ActionLink("Statistik", "EventStatistics", "Event", new { id = events.ID }, null)</a></div>                   
                 }
             </div>
         </article>

@@ -10,7 +10,7 @@
     @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
     {
         <br />
-        @Html.ActionLink("Editera \"Vårt löfte till dig\"", "EditPromise", "Home")
+        @Html.ActionLink("Editera \"Vårt löfte till dig\"", "EditPromise", "Home", null, new { @class="submit-style"})
     }
 </div>
 <div class="leftcol">
@@ -22,7 +22,7 @@
     @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
     {
         <br />
-        @Html.ActionLink("Editera \"Information\"", "EditInformation", "Home")
+        @Html.ActionLink("Editera \"Information\"", "EditInformation", "Home", null, new { @class = "submit-style" })
     }
 </div>
 <div class="rightcol">
@@ -33,6 +33,6 @@
      @if (Mission.WebUI.Infrastructure.AuthorizeHelper.IsAdmin(this.Context))
      {
         <br />
-        @Html.ActionLink("Editera \"Utbildningar\"", "EditEducations", "Home")
-    }
+        @Html.ActionLink("Editera \"Utbildningar\"", "EditEducations", "Home", null, new { @class="submit-style"})
+     }
 </div>

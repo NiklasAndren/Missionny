@@ -186,16 +186,26 @@ namespace Mission.WebUI.Controllers
         [AuthorizeAdmin]
         public ActionResult ChangePassword(ChangePassword cp) {
             CustomMembershipProvider cmp = new CustomMembershipProvider();
-            if (cp.ChangeUserPwd == null)
+            if (string.IsNullOrEmpty(cp.ChangeUserPwd.OtherUser) && string.IsNullOrEmpty(cp.ChangeUserPwd.NewPassword))
             {
                 cp.AdminUsername = "jesper";
                 cmp.ChangePassword(cp.AdminUsername, cp.OldPassword, cp.NewPassword);
             }
-            if (cp.ChangeUserPwd != null) {
-                cmp.UpdateUser(cp.ChangeUserPwd.OtherUser, cp.ChangeUserPwd.NewPassword, "");
+            if (!string.IsNullOrEmpty(cp.ChangeUserPwd.OtherUser) && !string.IsNullOrEmpty(cp.ChangeUserPwd.NewPassword)) {
+                if (cp.ChangeUserPwd.OtherUser.ToLower() != "jesper")
+                {
+                    cmp.UpdateUser(cp.ChangeUserPwd.OtherUser, cp.ChangeUserPwd.NewPassword, "");
+                }
             }
             return RedirectToAction("Index","Home");
-            
+        }
+
+        [AuthorizeAdmin]
+        public ActionResult Delete(Guid id)
+        {
+            Customers customer = _customerRepo.FindByID(id);
+            _customerRepo.Delete(customer);
+            return RedirectToAction("JesperCaron", "Home");
         }
     }
 }
